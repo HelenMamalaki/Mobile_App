@@ -1,0 +1,25 @@
+/*Our own styles*/
+#nhsLogo{
+	position: fixed;
+	top: 58px;
+	right: 13px;
+	z-index: 100;
+	}
+
+#nextButton{ 
+	border: none;
+	height: 62px;
+	width: 98px; 
+	background-image: url("myImages/nextButton.jpg");
+	background-size: 95px 60px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	position: fixed;
+	right:13px
+			}
+			
+	#indent{position: fixed;
+	left: 20px;}		
+
+
+

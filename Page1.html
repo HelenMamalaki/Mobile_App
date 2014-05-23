@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Patient Questionnaire</title>
+	<meta charset=utf-8 />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="themes/formatting.css"/> <!--My own css-->
+	<link rel="stylesheet" href="themes/MyTheme.css"/>
+	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+	<!--Should only be able to navigate to next page if consent is gained-->
+	<script type="text/javascript"> 
+	function consentGained(f){
+		if (f.consent.checked){
+		
+		 location.href=f.consent.value; 
+		}  
+	}
+	</script>
+</head>
+	<div data-role="page" id="page1" data-theme="d">
+		<div data-role="header">
+			<h1>Patient Survey; Welcome</h1>
+		</div>
+		<div data-role="main" class="ui-content">
+		<img src="themes/myImages/NHSlogo.jpg" alt="NHS Scotland" width="85" height="52" id="nhsLogo"> 
+			<h1>Patient Survey</h1>
+			<p> In order to speed up your assesment we would like to electronically
+			record part of your medical history and recent symptoms. We hope you'll take the time to answer the following questions.</p>
+			<br>
+				<h2>Consent</h2>
+				<p>The information collected here will be linked to other information on your medical record.
+				All information collected will remain strictly confidential. Information will be used for no other purpose than 
+				medical research.</p>
+				<div data-role="fieldcontain">
+					<form name="myform">
+					<div style="width:47%;">
+					<input type="checkbox" name="consent" value="Page2.html" id="consent" class="custom"> 
+					<label for="consent">I agree to the collection of my information</label>
+					<div>
+					<button type="button"id="nextButton" onclick="consentGained(this.form)"></button>					
+					</form>
+				</div>	
+			<!--<a class="ui-btn" id="nextButton" href="page2.html" data-role="button"></a> if you uncomment, comment out line 39-->				
+		</div> <!--main content-->
+		
+		<div data-role="footer" data-position="fixed">
+			<h2>&copy; Edinburgh University 2014</h2>
+		</div>
+	</div> <!--End of Page 1-->
+	
+	</body>
+</html>
+	
