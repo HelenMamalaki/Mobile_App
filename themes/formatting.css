@@ -1,8 +1,8 @@
 /*Our own styles*/
 #nhsLogo{
-	position: fixed;
-	top: 58px;
-	right: 13px;
+	position: absolute;
+	top: 10%;
+	left: 89%;
 	z-index: 100;
 	}
 
@@ -14,12 +14,14 @@
 	background-size: 95px 60px;
 	background-repeat: no-repeat;
 	background-position: center center;
-	position: fixed;
-	right:13px
+	position: relative;
+	left:85%
 			}
 			
 	#indent{position: fixed;
-	left: 20px;}		
+	left: 20px;}	
+	
+	#datepicker{z-index: 100;}
 
 
 
