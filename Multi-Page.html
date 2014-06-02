@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html><!--khjgjg-->
+<html>
   <head>
     <title>Patient Questionnaire</title>
     <meta charset=utf-8 />
@@ -216,8 +216,54 @@
       var viewModel = 
 	  {
         consent: ko.observable(false),
-		symptomOnsetDate: ko.observable(false)
-      };
+		id: ko.observable(),
+		respondent:  ["Patient", "Relative", "Carer", "NHS Staff", "Other"],
+		respodentValue: ko.observable("Patient"),
+		exactDate: ko.observable(),
+		estDate: ko.observable(),
+		attackNo: ko.observable(),
+		attackDuration: ko.observable(),
+		durationUnit: ["sec", "min", "hrs", "days"],  
+		durationUnitValue: ("sec"),
+		numbness: ko.observable(false), 
+		numbnessLocation: ko.observableArray(),
+		tingling: ko.observable(false),
+		tinglingLocation: ko.observableArray([]),
+		weakness: ko.observale(false),
+		weaknessLocation: ko.observableArray([]),
+		jerking: ko.observable(false),
+		jerkingLocation: ko.observableArray([]),
+		tremor: ko.observable(false),
+		tremorLocation: ko.observableArray([]),
+		pain: ko.observable(false),
+		painLocation: ko.observableArray([]),
+		slurredSpeech: ko.observable(),
+		pronounciationDifficulty: ko.observable(),
+		wordComprehension: ko.observable(),
+		lightHeaded: ko.observable(),
+		vertigo: ko.observable(),
+		visionLoss: ko.observable(),
+		partialVisionLoss: ko.observable(),
+		visionTest: ko.observable(),
+		sparkly: ko.observable(),
+		symptemOnset: ko.observable(),
+		otherSymptoms: ko.observable(),
+		vomiting: ko.observable(),
+		collapse: ko.observable(),
+		memoryLoss: ko.observable(),
+		doubleVision: ko.observable(),
+		heartPalpatations: ko.observable(),
+		heartAttack: ko.observable(),
+		stroke: ko.observable(),
+		cancer: ko.observable(),
+		epilepsy: ko.observable(),
+		pairs: ko.observable(),
+		rt: ko.observable()
+		
+      }
+	  
+	
+	
       ko.applyBindings(viewModel);
 
       function nextPage() 
