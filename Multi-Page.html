@@ -12,16 +12,15 @@
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
     <!--<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>-->
     <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
-    
-	<!--External scripts needed for date-picker-->
-	<link rel="stylesheet"  href="http://code.jquery.com/mobile/git/jquery.mobile-git.css" /> 
-	<link rel="stylesheet" href="https://rawgithub.com/arschmitz/jquery-mobile-datepicker-wrapper/master/jquery.mobile.datepicker.css" />
-	<script src="http://code.jquery.com/jquery-1.9.1.js"></script> 
-	<script src="https://rawgithub.com/jquery/jquery-ui/1-10-stable/ui/jquery.ui.datepicker.js"></script>
-	<script src="http://code.jquery.com/mobile/git/jquery.mobile-git.js"></script> 
-	<script src="https://rawgithub.com/arschmitz/jquery-mobile-datepicker-wrapper/master/jquery.mobile.datepicker.js"></script>
-	<!--Extrenal scripts needed for knockout library-->
-	<script type='text/javascript' src="http://knockoutjs.com/downloads/knockout-3.0.0.js"></script>
+    <!--External scripts needed for date-picker-->
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/git/jquery.mobile-git.css" />
+    <link rel="stylesheet" href="https://rawgithub.com/arschmitz/jquery-mobile-datepicker-wrapper/master/jquery.mobile.datepicker.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="https://rawgithub.com/jquery/jquery-ui/1-10-stable/ui/jquery.ui.datepicker.js"></script>
+    <script src="http://code.jquery.com/mobile/git/jquery.mobile-git.js"></script>
+    <script src="https://rawgithub.com/arschmitz/jquery-mobile-datepicker-wrapper/master/jquery.mobile.datepicker.js"></script>
+    <!--Extrenal scripts needed for knockout library-->
+    <script type='text/javascript' src="http://knockoutjs.com/downloads/knockout-3.0.0.js"></script>
   </head>
 
   <body>
@@ -42,198 +41,219 @@
             <label for="consent">I agree to the collection of my information</label>
           </div>
         </div>
-		<a data-role="button" id="nextButton" data-bind="visible:consent()" href="#" onclick="nextPage()"></a>
-        </div><!--main content-->
-        <div data-role="footer" data-position="fixed">
-          <h2>&copy; Edinburgh University 2014</h2>
-        </div>
+        <a data-role="button" id="nextButton" data-bind="visible: consent()" href="#" onclick="nextPage()"></a>
+      </div>
+      <!--main content-->
+      <div data-role="footer" data-position="fixed">
+        <h2>&copy; Edinburgh University 2014</h2>
       </div>
     </div>
     <!--End of Page 1-->
-
-
-<div data-role="page" id="IdentificationPage" data-theme="d">
-		<div data-role="header">
-			<h1>Patient Survey; Personal Details</h1>
-		</div>
-		
-		<div data-role="main" class="ui-content">
-				<img src="themes/myImages/NHSlogo.jpg" alt="NHS Scotland" width="85" height="52" id="nhsLogo"> 
-				<h1>Personal Details</h1>
-			
-				<div id="DOB">
-					<label for="DOB">Date of Birth:</label>		
-					<div class="ui-block-b" style="width:20%; margin-left: 40px; margin-right: 10px;">
-						<label for="day">Day</label>
-						<input name="day" id="day" placeholder="DD" value="" type="text">
-					</div>
-					<div class="ui-block-c" style="width:20%; margin-right: 10px;">
-						<label for="Month">Month</label>
-						<input name="month" id="month" placeholder="MM" value="" type="text">
-					</div>
-					<div class="ui-block-d" style="width:30%">
-						<label for="year">Year</label>
-						<input name="year" id="year" placeholder="YYYY" value="" type="text">
-					</div>
-				</div>
-				
-						
-				<div data-role="fieldcontain">
-					<legend>Gender:</legend>
-					<div class="ui-grid-a">
-						<div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">
-							<input type="radio" name="female" id="female" value="female"  /> <br>
-							<label for="female">Female</label>
-						</div>
-
-						<div class="ui-block-b" style="width:20%;">
-							<input type="radio" name="male" id="male" value="male"/><br>
-							<label for="male">Male</label>       
-						</div>	
-					</div>
-				</div>
-			
-				<div id="indent"> 	
-					<legend>Who is filling out this survey:</legend>
-					<div style="margin-left: 40px;">
-						<select name="who_fillIn_survey" id="who_fillIn_survey">
-							 <option value="Patient">Patient</option>
-							 <option value="Relative">Relative</option>
-							 <option value="Carer">Carer</option>
-							 <option value="NHS staff">NHS staff</option>
-							 <option value="Other">Other</option>
-						</select>
-					</div>
-				</div>
-			
-			<a data-role="button" id="nextButton" href="#" onclick="nextPage()"></a>		
-		</div><!--main content-->
-
-		<div data-role="footer" data-position="fixed">
-			<h2>&copy;Edinburgh University 2014</h2>
-		</div>
-	</div> <!--End of Page 2-->
-
-	<div data-role="page" id="SymptomsPage" data-theme="d">
-		<div data-role="header">
-			<h1>Patient Survey; Symptoms</h1>
-		</div>
-		
-		<div data-role="main" class="ui-content">
-			<img src="themes/myImages/NHSlogo.jpg" alt="NHS Scotland" width="85" height="52" id="nhsLogo"> 
-
-		    <form action="#" method="get">
-				<div id="datepicker" data-role="fieldcontain">
-					<p>When did you first have symptoms?</p> 
-					<div class="ui-grid-a">
-						<div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 30px;">
-							<input type="text" id="date-input" data-inline="false" data-role="date">
-						</div>
-					
-						<div class="ui-block-b" style="width:35%;">		
-							<input type="checkbox" data-bind="checked:symptomOnsetDate" name="symptomOnsetDate" id="symptomOnsetDate">
-							<label for="symptomOnsetDate">I don't remember the exact date</label>
-						</div>
-					</div>
-				</div>					
-			</form>
-			
-			<div id="dynamicContent" data-bind="visible:symptomOnsetDate">
-			 <p>Can you provide an estimate of how long ago it was before your first symptoms?</p>
-			 <div class="ui-grid-a">
-						<div class="ui-block-a" style="width:10%; margin-left: 40px; margin-right: 30px;">
-							<input name="symptom_onset" id="symptom_onset" placeholder="0" value="" type="text">
-						</div>					
-						<div class="ui-block-b" style="width:25%;">
-						<select name="symptom_onset" id="symptom_onset">
-							 <option value="days">days</option>
-							 <option value="weeks">weeks</option>
-							 <option value="months">months</option>
-							 <option value="years">years</option>
-						</select>
-						</div>	
-					</div>
-			</div>
-        
-					<div id="frequency">
-					<p>How many attacks of symptoms have you had?</p>
-					<div class="ui-grid-a">
-						<div class="ui-block-a" style="width:10%; margin-left: 40px; margin-right: 30px;">
-							<input name="frequency" id="frequency" placeholder="1" value="" type="text">
-						</div>
-					
-						<div class="ui-block-b" style="width:25%;">
-							<input type="radio" name="can't_remember" id="can't_remember" value="male"/><br>
-							<label for="can't_remember">I don't remeber</label> 
-						</div>	
-					</div>
-				</div>
-
-				<div id="duration">
-					<p>How long did the symptoms last in your last attack?</p>
-					<div class="ui-grid-a">
-						<div class="ui-block-a" style="width:10%; margin-left: 40px; margin-right: 10px;">
-							<input name="duration" id="duration" placeholder="0" value="" type="text">
-						</div>
-					
-						<div class="ui-block-b" style="width:20%;">
-							<select name="time_unit" id="time_unit">
-								<option value="sec">sec</option>
-								<option value="min">min</option>
-								<option value="hours">hrs</option>
-								<option value="days">days</option>
-							</select>      
-						</div>	
-					</div>
-				</div>
-				
-			<a data-role="button" id="nextButton" href="#" onclick="nextPage()"></a>	
-		</div><!--main content-->
-		
-		<div data-role="footer" data-position="fixed">
-			<h2>&copy; Edinburgh University 2014</h2>
-		</div>
-	</div> <!--End of Page 3-->
-
-<div data-role="page" id="BodyPage" data-theme="d">
+    <div data-role="page" id="IdentificationPage" data-theme="d">
+      <div data-role="header">
+        <h1>Patient Survey; Personal Details</h1>
+      </div>
+      <div data-role="main" class="ui-content">
+        <img src="themes/myImages/NHSlogo.jpg" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
+        <h1>Personal Details</h1>
+        <div id="DOB">
+          <label for="DOB">Date of Birth:</label>
+          <div class="ui-block-b" style="width:20%; margin-left: 40px; margin-right: 10px;">
+            <label for="day">Day</label>
+            <input name="day" id="day" placeholder="DD" value="" type="text">
+          </div>
+          <div class="ui-block-c" style="width:20%; margin-right: 10px;">
+            <label for="Month">Month</label>
+            <input name="month" id="month" placeholder="MM" value="" type="text">
+          </div>
+          <div class="ui-block-d" style="width:30%">
+            <label for="year">Year</label>
+            <input name="year" id="year" placeholder="YYYY" value="" type="text">
+          </div>
+        </div>
+        <div data-role="fieldcontain">
+          <legend>Gender:</legend>
+          <div class="ui-grid-a">
+            <div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">
+              <input type="radio" name="female" id="female" value="female" />
+              <br>
+              <label for="female">Female</label>
+            </div>
+            <div class="ui-block-b" style="width:20%;">
+              <input type="radio" name="male" id="male" value="male" />
+              <br>
+              <label for="male">Male</label>
+            </div>
+          </div>
+        </div>
+        <div id="indent">
+          <legend>Who is filling out this survey:</legend>
+          <div style="margin-left: 40px;">
+            <select name="who_fillIn_survey" id="who_fillIn_survey">
+              <option value="Patient">Patient</option>
+              <option value="Relative">Relative</option>
+              <option value="Carer">Carer</option>
+              <option value="NHS staff">NHS staff</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+        <a data-role="button" id="nextButton" href="#" onclick="nextPage()"></a>
+      </div>
+      <!--main content-->
+      <div data-role="footer" data-position="fixed">
+        <h2>&copy;Edinburgh University 2014</h2>
+      </div>
+    </div>
+    <!--End of Page 2-->
+    <div data-role="page" id="SymptomsPage" data-theme="d">
+      <div data-role="header">
+        <h1>Patient Survey; Symptoms</h1>
+      </div>
+      <div data-role="main" class="ui-content">
+        <img src="themes/myImages/NHSlogo.jpg" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
+        <form action="#" method="get">
+          <div id="datepicker" data-role="fieldcontain">
+            <p>When did you first have symptoms?</p>
+            <div class="ui-grid-a">
+              <div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 30px;">
+                <input type="text" id="date-input" data-inline="false" data-role="date">
+              </div>
+              <div class="ui-block-b" style="width:35%;">
+                <input type="checkbox" data-bind="checked:symptomOnsetDate" name="symptomOnsetDate" id="symptomOnsetDate">
+                <label for="symptomOnsetDate">I don't remember the exact date</label>
+              </div>
+            </div>
+          </div>
+        </form>
+        <div id="dynamicContent" data-bind="visible:symptomOnsetDate">
+          <p>Can you provide an estimate of how long ago it was before your first symptoms?</p>
+          <div class="ui-grid-a">
+            <div class="ui-block-a" style="width:10%; margin-left: 40px; margin-right: 30px;">
+              <input name="symptom_onset" id="symptom_onset" placeholder="0" value="" type="text">
+            </div>
+            <div class="ui-block-b" style="width:25%;">
+              <select name="symptom_onset" id="symptom_onset">
+                <option value="days">days</option>
+                <option value="weeks">weeks</option>
+                <option value="months">months</option>
+                <option value="years">years</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div id="frequency">
+          <p>How many attacks of symptoms have you had?</p>
+          <div class="ui-grid-a">
+            <div class="ui-block-a" style="width:10%; margin-left: 40px; margin-right: 30px;">
+              <input name="frequency" id="frequency" placeholder="1" value="" type="text">
+            </div>
+            <div class="ui-block-b" style="width:25%;">
+              <input type="radio" name="can't_remember" id="can't_remember" value="male" />
+              <br>
+              <label for="can't_remember">I don't remeber</label>
+            </div>
+          </div>
+        </div>
+        <div id="duration">
+          <p>How long did the symptoms last in your last attack?</p>
+          <div class="ui-grid-a">
+            <div class="ui-block-a" style="width:10%; margin-left: 40px; margin-right: 10px;">
+              <input name="duration" id="duration" placeholder="0" value="" type="text">
+            </div>
+            <div class="ui-block-b" style="width:20%;">
+              <select name="time_unit" id="time_unit">
+                <option value="sec">sec</option>
+                <option value="min">min</option>
+                <option value="hours">hrs</option>
+                <option value="days">days</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <a data-role="button" id="nextButton" href="#" onclick="nextPage()"></a>
+      </div>
+      <!--main content-->
+      <div data-role="footer" data-position="fixed">
+        <h2>&copy; Edinburgh University 2014</h2>
+      </div>
+    </div>
+    <!--End of Page 3-->
+    <div data-role="page" id="BodyPage" data-theme="d">
       <div data-role="header">
         <h1>Patient Survey; Symptoms</h1>
       </div>
       <div data-role="main" class="ui-content">
         <img src="themes/myImages/NHSlogo.jpg" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
         <p>In your last attack did you have:</p>
-       
-		<a data-role="button" id="nextButton" href="#" onclick="nextPage()"></a>
-        </div><!--main content-->
-        <div data-role="footer" data-position="fixed">
-          <h2>&copy; Edinburgh University 2014</h2>
-        </div>
+        <a data-role="button" id="nextButton" href="#" onclick="nextPage()"></a>
+      </div>
+      <!--main content-->
+      <div data-role="footer" data-position="fixed">
+        <h2>&copy; Edinburgh University 2014</h2>
       </div>
     </div>
-    <!--End of Page 4-->
-	
-    <script type='text/javascript'>
 
-      var viewModel = 
-	  {
+    <!--End of Page 4-->
+    <script type='text/javascript'>
+      var viewModel = {
         consent: ko.observable(false),
-		symptomOnsetDate: ko.observable(false)
+        id: ko.observable(),
+        respondent: ["Patient", "Relative", "Carer", "NHS Staff", "Other"],
+        respodentValue: ko.observable("Patient"),
+        exactDate: ko.observable(),
+        estDate: ko.observable(),
+        attackNo: ko.observable(),
+        attackDuration: ko.observable(),
+        durationUnit: ["sec", "min", "hrs", "days"],
+        durationUnitValue: ko.observable("sec"),
+        numbness: ko.observable(false),
+        numbnessLocation: ko.observableArray([]),
+        tingling: ko.observable(false),
+        tinglingLocation: ko.observableArray([]),
+        weakness: ko.observable(false),
+        weaknessLocation: ko.observableArray([]),
+        jerking: ko.observable(false),
+        jerkingLocation: ko.observableArray([]),
+        tremor: ko.observable(false),
+        tremorLocation: ko.observableArray([]),
+        pain: ko.observable(false),
+        painLocation: ko.observableArray([]),
+        slurredSpeech: ko.observable(),
+        pronounciationDifficulty: ko.observable(),
+        wordComprehension: ko.observable(),
+        lightHeaded: ko.observable(),
+        vertigo: ko.observable(),
+        visionLoss: ko.observable(),
+        partialVisionLoss: ko.observable(),
+        visionTest: ko.observable(),
+        sparkly: ko.observable(),
+        symptemOnset: ko.observable(),
+        otherSymptoms: ko.observable(),
+        vomiting: ko.observable(),
+        collapse: ko.observable(),
+        memoryLoss: ko.observable(),
+        doubleVision: ko.observable(),
+        heartPalpatations: ko.observable(),
+        heartAttack: ko.observable(),
+        stroke: ko.observable(),
+        cancer: ko.observable(),
+        epilepsy: ko.observable(),
+        pairs: ko.observable(),
+        rt: ko.observable()
       };
       ko.applyBindings(viewModel);
 
-      function nextPage() 
-	  {
+      function nextPage() {
         var currentPageID = $.mobile.activePage.attr('id');
-        
-        switch (currentPageID) 
-		{
+        switch (currentPageID) {
           case "WelcomePage":
             $.mobile.changePage("#IdentificationPage");
             break;
           case "IdentificationPage":
             $.mobile.changePage("#SymptomsPage");
             break;
-		case "SymptomsPage":
+          case "SymptomsPage":
             $.mobile.changePage("#BodyPage");
             break;
           default:
