@@ -17,32 +17,55 @@
         <h1>Reaction time</h1>
       </div>
       <div data-role="main" class="ui-content">
-        <div id="test" style="background:green; width:300px; height: 300px;">.</div>
-      </div>
-      <!--main content-->
+        <div id="test" style="background:green; width:300px; height: 300px;">
+        Whats up</div>
+		<button data-bind="click: clickMe" type="button">Click Me!</button> 
+      </div> <!--main content-->
       <div data-role="footer" data-position="fixed">
         <h2>&copy; Edinburgh University 2014</h2>
       </div>
     </div>
     <script>
-      $("#test").on('touchstart', function(e) {
-        e.preventDefault();
-        var done = false;
-        var t0;
+	 var t0;
+	var t1;
+		
+	 var viewModel = {
+        numberOfClicks : ko.observable(0),
+        clickMe : function() {
+            alert("Your Reaction time was..."+(t1-t0)+ " milliseconds.");}
+    };
+	 ko.applyBindings(viewModel);
+	 
+		var done = false;
+       
         var rand = Math.random() * 5 + 3;
-        setTimeout(function() {
+	
+      $("#test").on('touchstart', startTimeOut(e));
+	  
+	  function turnGreen()
+	{ 
+		if (done) 
+		{
+            var t1 = Date.now();
+           
+            $("#test").css("background", "green");
+          }	 
+	}
+	function startTimeOut(e){
+	   e.preventDefault();
+        done = false;
+        setTimeout(turnRed(), rand * 1000);
+        $("#test").on('touchend', turnGreen());}
+	function turnRed()
+	{
           t0 = Date.now();
           $("#test").css("background", "red");
           done = true;
-        }, rand * 1000);
-        $("#test").on('touchend', function() {
-          if (done) {
-            var t1 = Date.now();
-            alert("Your Reaction time was... " + (t1 - t0) + " milliseconds.");
-            $("#test").css("background", "green");
-          }
-        });
-      });
+	}
+	
+	 
+	
+	 
     </script>
   </body>
 
