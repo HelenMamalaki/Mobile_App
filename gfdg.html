@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+
+    <script type='text/javascript' src="http://knockoutjs.com/downloads/knockout-3.0.0.js"></script>
+  </head>
+  
+    <body>
+	<div id="test" style="background:green; width:300px; height: 300px;">
+        Whats up</div>
+	<button data-bind="click: clickMe" type="button">Click Me!</button> 
+	
+	<script>
+	var viewModel = {
+        numberOfClicks : ko.observable(0),
+        clickMe : function() {
+            alert("Your Reaction time was...  milliseconds.");}
+    };
+	 ko.applyBindings(viewModel);
+	 
+	 	var done = false;
+        var t0;
+        var rand = Math.random() * 5 + 3;
+	
+      $("#test").on('touchstart', startTimeOut(e));
+	  
+	  function turnGreen()
+	{ 
+		if (done) 
+		{
+            var t1 = Date.now();
+           
+            $("#test").css("background", "green");
+          }	 
+	}
+
+	 </script>
+	</body>
+	</html>

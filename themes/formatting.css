@@ -22,6 +22,16 @@
 	left: 20px;}	
 	
 	#datepicker{z-index: 100;}
+	
+	#rt{
+	margin: 0 auto;
+	height: 396px;
+	width: 382px; 
+	background-image: url("myImages/RT_ButtonGreenPush.png");
+	background-size: 383px 397px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	}
 
 
 

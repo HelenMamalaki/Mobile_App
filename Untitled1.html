@@ -5,6 +5,7 @@
     <title>Patient Questionnaire</title>
     <meta charset=utf-8 />
     <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="themes/formatting.css" />
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
@@ -17,44 +18,58 @@
         <h1>Reaction time</h1>
       </div>
       <div data-role="main" class="ui-content">
-        <div id="test" style="background:green; width:300px; height: 300px;">.What up!</div>
-        <button data-bind="click: clickMe" type="button">Click Me!</button>
-      </div>
-      <!--main content-->
+        <div id="rt"> <!-- Green Button --> </div>
+       <div id="display_rt">
+	   
+			<!--<button data-bind="click: clickMe" type="button">Click Me!</button>-->
+	   </div>
+      </div> <!--main content-->
       <div data-role="footer" data-position="fixed">
         <h2>&copy; Edinburgh University 2014</h2>
       </div>
     </div>
     <script>
+	  var done = false;
       var t0;
       var t1;
+	  var rt;
+	  var attempts=0;
+	  var avgRt=0;
 	  var timeOut;
       var viewModel = {
         numberOfClicks: ko.observable(0),
         clickMe: function() {
-          alert("Your Reaction time was..." + (t1 - t0) + " milliseconds.");
+		
+		$("#display_rt").html("Your Reaction time was " + rt +  "milliseconds.");
+         // alert("Your Reaction time was..." + (t1 - t0) + " milliseconds.");
         }
       };
       ko.applyBindings(viewModel);
-      $("#test").on('touchstart', function(e) {
+      $("#rt").on('mousedown touchstart', function(e) {
         e.preventDefault();
-        var done = false;
-        var rand = Math.random() * 5 + 3;
-        timeOut= setTimeout(function() {
-          t0 = Date.now();
-          $("#test").css("background", "red");
+        t0='';
+        var rand = Math.random() * 5 + 2;
+        timeOut= setTimeout(function() {       
+          $("#rt").css("background-image", "url('themes/myImages/RT_ButtonRedStop.png')");
+		  t0 = Date.now(); //start counting from when the button turns red
           done = true;
         }, rand * 1000);
 		
 		
-        $("#test").on('touchend', function() {
-          if (done) {
-            t1 = Date.now();
-            $("#test").css("background", "green");
-          }else
+        $("#rt").on('mouseup touchend', function() {
+          if (!done) 
 		  {
-			clearTimeout(timeOut);
-			alert("You raised your finger too early! \nWait for the red color, try again.");
+            clearTimeout(timeOut);
+			//alert("You raised your finger too early! \nWait for the button to turn RED, try again.");
+          }else //if timeout completed
+		  {
+			t1 = Date.now(); //stop counting when finger lifted.
+			rt=t1-t0;
+			attempts = attempts+1; 
+			avgRt=(avgRt+rt)/attempts;	
+            $("#rt").css("background-image", "url('themes/myImages/RT_ButtonGreenPush.png')");			
+			$("#display_rt").html("Your Reaction time was " + rt + " ms. Your average is " + avgRt + " ms." );
+			done=false
 		  }
         });
       });
