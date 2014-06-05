@@ -18,6 +18,7 @@
       </div>
       <div data-role="main" class="ui-content">
         <div id="test" style="background:green; width:300px; height: 300px;"></div>
+        <div id="result"></div>
       </div>
       <div data-role="footer" data-position="fixed">
         <h2>&copy; Edinburgh University 2014</h2>
@@ -33,6 +34,7 @@
         e.preventDefault();
         t0 = '';
         var rand = Math.random() * 1 + 3;
+        clearTimeout(reactionTimer);
         reactionTimer = setTimeout(function() {
           t0 = Date.now();
           $("#test").css("background", "red");
@@ -44,7 +46,7 @@
         clearTimeout(reactionTimer);
         if (done) {
           var t1 = Date.now();
-          alert("Your Reaction time was... " + (t1 - t0) + " milliseconds.");
+          $("#result").prepend("<p>Your Reaction time was... " + (t1 - t0) + " milliseconds.</p>");
           done = false;
         }
       });
