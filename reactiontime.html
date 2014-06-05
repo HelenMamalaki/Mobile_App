@@ -49,6 +49,9 @@
           $("#result").prepend("<p>Your Reaction time was... " + (t1 - t0) + " milliseconds.</p>");
           done = false;
         }
+        else {
+          $("#result").prepend("<p>You released too early. Try again.</p>");
+        }
       });
     </script>
   </body>
