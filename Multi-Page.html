@@ -49,8 +49,8 @@
       <div data-role="footer" data-position="fixed">
         <h2>&copy; Edinburgh University 2014</h2>
       </div>
-    </div>
-    <!--End of Page 1-->
+    </div><!--End of Page 1-->
+	
     <div data-role="page" id="IdentificationPage" data-theme="d">
       <div data-role="header">
         <h1>Patient Survey; Personal Details</h1>
@@ -60,29 +60,31 @@
         <h1>Personal Details</h1>
         <div id="DOB">
           <label for="DOB">Date of Birth:</label>
-          <div class="ui-block-b" style="width:20%; margin-left: 40px; margin-right: 10px;">
-            <label for="day">Day</label>
-            <input name="day" id="day" placeholder="DD" value="" type="text">
-          </div>
-          <div class="ui-block-c" style="width:20%; margin-right: 10px;">
-            <label for="Month">Month</label>
-            <input name="month" id="month" placeholder="MM" value="" type="text">
-          </div>
-          <div class="ui-block-d" style="width:30%">
-            <label for="year">Year</label>
-            <input name="year" id="year" placeholder="YYYY" value="" type="text">
-          </div>
+		  <div class="ui-grid-b">
+			  <div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">
+				<label for="day">Day</label>
+				<input name="day" id="day" placeholder="DD" value="" type="text">
+			  </div>
+			  <div class="ui-block-b" style="width:20%; margin-right: 10px;">
+				<label for="Month">Month</label>
+				<input name="month" id="month" placeholder="MM" value="" type="text">
+			  </div>
+			  <div class="ui-block-c" style="width:30%">
+				<label for="year">Year</label>
+				<input name="year" id="year" placeholder="YYYY" value="" type="text">
+			  </div>
+			</div> <!--grid b-->
         </div>
         <div data-role="fieldcontain">
           <legend>Gender:</legend>
           <div class="ui-grid-a">
             <div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">
-              <input type="radio" name="female" id="female" value="female" />
+              <input type="radio" name="gender" id="female" value="female" />
               <br>
               <label for="female">Female</label>
             </div>
             <div class="ui-block-b" style="width:20%;">
-              <input type="radio" name="male" id="male" value="male" />
+              <input type="radio" name="gender" id="male" value="male" />
               <br>
               <label for="male">Male</label>
             </div>
@@ -122,13 +124,13 @@
                 <input type="text" id="date-input" data-inline="false" data-role="date">
               </div>
               <div class="ui-block-b" style="width:35%;">
-                <input type="checkbox" data-bind="checked:symptomOnsetDate" name="symptomOnsetDate" id="symptomOnsetDate">
+                <input type="checkbox" data-bind="checked:estDate" name="estDate" id="symptomOnsetDate">
                 <label for="symptomOnsetDate">I don't remember the exact date</label>
               </div>
             </div>
           </div>
         </form>
-        <div id="dynamicContent" data-bind="visible:symptomOnsetDate">
+        <div id="dynamicContent" data-bind="visible:estDate()">
           <p>Can you provide an estimate of how long ago it was before your first symptoms?</p>
           <div class="ui-grid-a">
             <div class="ui-block-a" style="width:10%; margin-left: 40px; margin-right: 30px;">
@@ -144,6 +146,7 @@
             </div>
           </div>
         </div>
+		
         <div id="frequency">
           <p>How many attacks of symptoms have you had?</p>
           <div class="ui-grid-a">
@@ -151,7 +154,7 @@
               <input name="frequency" id="frequency" placeholder="1" value="" type="text">
             </div>
             <div class="ui-block-b" style="width:25%;">
-              <input type="radio" name="can't_remember" id="can't_remember" value="male" />
+              <input type="checkbox" name="can't_remember" id="can't_remember" value="male" />
               <br>
               <label for="can't_remember">I don't remeber</label>
             </div>
@@ -181,20 +184,71 @@
       </div>
     </div>
     <!--End of Page 3-->
-    <div data-role="page" id="BodyPage" data-theme="d">
+	
+	 <div data-role="page" id="SpeechProblemsPage" data-theme="d">
       <div data-role="header">
-        <h1>Patient Survey; Symptoms</h1>
+        <h1>Patient Survey; Speech Problems</h1>
       </div>
       <div data-role="main" class="ui-content">
         <img src="themes/myImages/NHSlogo.jpg" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
-        <p>In your last attack did you have:</p>
-        <a data-role="button" id="nextButton" href="#" onclick="nextPage()"></a>
-      </div>
-      <!--main content-->
+        <h1>Speech Problems</h1>
+        <h3>In your last attack, did you experience:</h3>
+       <div class="ui-grid-b">
+			<h3>Slurred speech?</h3>
+			<div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">	
+				<label for="slurredYes">Yes</label>			  
+				<input type="radio" name="slurred" id="slurredYes" value="yes"/>
+			</div>
+			<div class="ui-block-b" style="width:20%; margin-right: 10px;">
+				<label for="slurredNo">No</label>
+				<input type="radio" name="slurred" id="slurredNo" value="no"/>
+			</div>
+			<div class="ui-block-c" style="width:20%">
+				<label for="slurredDunno">I don't know</label>
+				<input type="radio" name="slurred" id="slurredDunno" value="I don't know"/>
+			</div>
+		</div><!--grib b-->
+		
+       <div class="ui-grid-b">
+			<p>Difficulty understanding words?</p>
+			<div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">	
+				<label for="speakingYes">Yes</label>			  
+				<input type="radio" name="speaking" id="speakingYes" value="yes"/>
+			</div>
+			<div class="ui-block-b" style="width:20%; margin-right: 10px;">
+				<label for="speakingNo">No</label>
+				<input type="radio" name="speaking" id="speakingNo" value="no"/>
+			</div>
+			<div class="ui-block-c" style="width:20%">
+				<label for="speakingDunno">I don't know</label>
+				<input type="radio" name="speaking" id="speakingDunno" value="I_don't_know"/>
+			</div>
+		</div><!--grib b-->
+		
+		<div class="ui-grid-b">
+			<p>Difficulty understanding words?</p>
+			<div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">	
+				<label for="understandingYes">Yes</label>			  
+				<input type="radio" name="understanding" id="understandingYes" value="yes"/>
+			</div>
+			<div class="ui-block-b" style="width:20%; margin-right: 10px;">
+				<label for="understandingNo">No</label>
+				<input type="radio" name="understanding" id="understandingNo" value="no"/>
+			</div>
+			<div class="ui-block-c" style="width:20%">
+				<label for="understandingDunno">I don't know</label>
+				<input type="radio" name="understanding" id="understandingDunno" value="I don't know"/>
+			</div>
+		</div><!--grib b--> 
+		
+        <a data-role="button" id="nextButton" data-bind="visible: consent()" href="#" onclick="nextPage()"></a>
+      </div><!--main content-->
       <div data-role="footer" data-position="fixed">
         <h2>&copy; Edinburgh University 2014</h2>
       </div>
-    </div>
+    </div><!--End of SpeechProblemsPage-->
+	
+  
 
     <!--End of Page 4-->
     <script type='text/javascript'>
@@ -222,7 +276,7 @@
         pain: ko.observable(false),
         painLocation: ko.observableArray([]),
         slurredSpeech: ko.observable(),
-        pronounciationDifficulty: ko.observable(),
+        speakingDifficulty: ko.observable(),
         wordComprehension: ko.observable(),
         lightHeaded: ko.observable(),
         vertigo: ko.observable(),

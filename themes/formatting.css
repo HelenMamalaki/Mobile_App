@@ -10,7 +10,7 @@
 	border: none;
 	height: 62px;
 	width: 98px; 
-	background-image: url("myImages/nextButton.jpg");
+	background-image: url("myImages/nextButton.png");
 	background-size: 95px 60px;
 	background-repeat: no-repeat;
 	background-position: center center;
@@ -32,6 +32,37 @@
 	background-repeat: no-repeat;
 	background-position: center center;
 	}
+	
+	#leftEye{
+	height: 80.2px;
+	width: 240.8px; 
+	background-image: url("myImages/visionLossLEFT.png");
+	background-size: 205.5px 56.7px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	}
+	
+	#rightEye{
+	height: 80.2px;
+	width: 240.8px; 
+	background-image: url("myImages/visionLossRIGHT.png");
+	background-size: 205.5px 56.7px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	}
+	
+	#bothEyes{
+	height: 80.2px;
+	width: 240.8px; 
+	background-image: url("myImages/visionLossBOTH.png");
+	background-size: 205.5px 56.7px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	}
+	
+	#min,#max{
+	 position:absolute;}
 
-
+	#min{top:50%; left:6%}
+	#max{top:50%; left:91%}
 

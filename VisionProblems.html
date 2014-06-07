@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Patient Questionnaire</title>
+    <meta charset=utf-8 />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--My Own CSS-->
+    <link rel="stylesheet" href="themes/formatting.css" />
+    <!--JQuery Mobile CSS-->
+    <link rel="stylesheet" href="themes/MyTheme.css" />
+    <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+    <!--<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>-->
+	<!--JQuery Mobile JavaScript-->
+    <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+    <!--External scripts needed for date-picker-->
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/git/jquery.mobile-git.css" />
+    <link rel="stylesheet" href="https://rawgithub.com/arschmitz/jquery-mobile-datepicker-wrapper/master/jquery.mobile.datepicker.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="https://rawgithub.com/jquery/jquery-ui/1-10-stable/ui/jquery.ui.datepicker.js"></script>
+    <script src="http://code.jquery.com/mobile/git/jquery.mobile-git.js"></script>
+    <script src="https://rawgithub.com/arschmitz/jquery-mobile-datepicker-wrapper/master/jquery.mobile.datepicker.js"></script>
+    <!--Extrenal scripts needed for knockout library-->
+    <script type='text/javascript' src="http://knockoutjs.com/downloads/knockout-3.0.0.js"></script>
+  </head>
+
+  <body>
+   <div data-role="page" id="VisionProblemsPage" data-theme="d">
+      <div data-role="header">
+        <h1>Patient Survey; Vision Problems</h1>
+      </div>
+      <div data-role="main" class="ui-content">
+        <img src="themes/myImages/NHSlogo.jpg" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
+        <h2>Vision Problems:</h2> 
+		<h3>In your last attack...</h3>     
+		<div class="ui-grid-b">
+			<h3>Did you lose vision in your eyes?</h3>
+			<div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">	
+				<label for="visionLYes">Yes</label>			  
+				<input type="radio" data-bind="checked:visionLoss" name="visionLoss" id="visionLYes" value="yes"/>
+			</div>
+			<div class="ui-block-b" style="width:20%; margin-right: 10px;">
+				<label for="visionLNo">No</label>
+				<input type="radio" data-bind="checked:visionLoss" name="visionLoss" id="visionLNo" value="no"/>
+			</div>
+			<div class="ui-block-c" style="width:20%">
+				<label for="visionLDunno">I don't know</label>
+				<input type="radio" data-bind="checked:visionLoss" name="visionLoss" id="visionLDunno" value="I don't know"/>
+			</div>
+			
+		</div><!--grib b--> 
+		
+		<div id="whichEye" data-bind="visible: visionLoss() == 'yes'"> 
+			<h3>Which eye did you lose vision in?</h3>
+			<div class="ui-grid-b">
+				<div class="ui-block-a" style="width:20%; margin-left: 45px; margin-right: 6px;">	
+					<button type="button" id="leftEye" data-bind='click: whichEyeValue' value="Left Eye"></button>			
+					<label style="display: block; text-align: center;" for="leftEye"><h2>Left Eye</h2></label>		
+				</div>
+				<div class="ui-block-b" style="width:20%; margin-right: 6px;">
+					<button type="button" id="rightEye" data-bind='click: whichEyeValue' value="Right Eye"></button>	
+					<label style="display: block; text-align: center;" for="rightEye"><h2>Right Eye</h2></label>
+				</div>
+				<div class="ui-block-c" style="width:20%">
+					<button type="button" id="bothEyes" data-bind='click: whichEyeValue' value="Both Eyes"></button>	
+					<label style="display: block; text-align: center;" for="bothEyes"><h2>Both Eyes</h2></label>
+				</div>
+			</div><!--grib b--> 
+		
+			<div class="ui-grid-b">
+				<h3>Did you test this by closing one eye and then the other?</h3>
+				<div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">	
+					<label for="visionTYes">Yes</label>			  
+					<input type="radio" data-bind="checked:visionTest" name="visionTest" id="visionTYes" value="yes"/>
+				</div>
+				<div class="ui-block-b" style="width:20%; margin-right: 10px;">
+					<label for="visionTNo">No</label>
+					<input type="radio" data-bind="checked:visionTest" name="visionTest" id="visionTNo" value="no"/>
+				</div>
+				<div class="ui-block-c" style="width:20%">
+					<label for="visionTDunno">I don't know</label>
+					<input type="radio" data-bind="checked:visionTest" name="visionTest" id="visionTDunno" value="I don't know"/>
+				</div>
+			</div><!--grib b--> 
+		</div>
+		
+		<div class="ui-grid-b">
+				<h3>Did you lose vision mainly to one side of your eye?</h3>
+				<div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">	
+					<label for="visionPYes">Yes</label>			  
+					<input type="radio" data-bind="checked:visionPart" name="visionPart" id="visionPYes" value="yes"/>
+				</div>
+				<div class="ui-block-b" style="width:20%; margin-right: 10px;">
+					<label for="visionPNo">No</label>
+					<input type="radio" data-bind="checked:visionPart" name="visionPart" id="visionPNo" value="no"/>
+				</div>
+				<div class="ui-block-c" style="width:20%">
+					<label for="visionPDunno">I don't know</label>
+					<input type="radio" data-bind="checked:visionPart" name="visionPart" id="visionPDunno" value="I don't know"/>
+				</div>
+		</div><!--grib b--> 
+		
+			<div class="ui-grid-b">
+				<h3>Did you have sparkly lights or lines in your vision?</h3>
+				<div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">	
+					<label for="visionSYes">Yes</label>			  
+					<input type="radio" data-bind="checked:sparkly" name="sparkly" id="visionSYes" value="yes"/>
+				</div>
+				<div class="ui-block-b" style="width:20%; margin-right: 10px;">
+					<label for="visionSNo">No</label>
+					<input type="radio" data-bind="checked:sparkly" name="sparkly" id="visionSNo" value="no"/>
+				</div>
+				<div class="ui-block-c" style="width:20%">
+					<label for="visionSDunno">I don't know</label>
+					<input type="radio" data-bind="checked:sparkly" name="sparkly" id="visionSDunno" value="I don't know"/>
+				</div>
+		</div><!--grib b--> 
+		
+		DEBUG: <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
+		<div data-bind="text: whichEye"></div>
+     
+        <a data-role="button" id="nextButton" href="#" onclick="nextPage()"></a> 
+      </div><!--main content-->
+      <div data-role="footer" data-position="fixed">
+        <h2>&copy; Edinburgh University 2014</h2>
+      </div>
+    </div><!--End of VisionProblemsPage-->
+	
+	<div data-role="page" id="OtherSymptomsPage" data-theme="d">
+      <div data-role="header">
+        <h1>Patient Survey; Other Symptoms</h1>
+      </div>
+    <div data-role="main" class="ui-content">
+        <img src="themes/myImages/NHSlogo.jpg" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
+        <h1>Other Symptoms</h1>
+		
+		<h3>In your last attack, did you ever feel:</h3>
+       <div class="ui-grid-b">
+			<h4>Light headed?</h4>
+			<div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">	
+				<label for="lightYes">Yes</label>			  
+				<input type="radio" data-bind="checked:lightHeaded" name="light" id="lightYes" value="yes"/>
+			</div>
+			<div class="ui-block-b" style="width:20%; margin-right: 10px;">
+				<label for="lightNo">No</label>
+				<input type="radio" data-bind="checked:lightHeaded" name="light" id="lightNo" value="no"/>
+			</div>
+			<div class="ui-block-c" style="width:20%">
+				<label for="lightDunno">I don't know</label>
+				<input type="radio" data-bind="checked:lightHeaded" name="light" id="lightDunno" value="I don't know"/>
+			</div>
+		</div><!--grib b-->
+		
+		<div class="ui-grid-b">
+		<h4>Like your head was spinning (vertigo)?</h4>
+			<div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">	
+				<label for="vertigoYes">Yes</label>			  
+				<input type="radio" data-bind="checked:vertigo" name="vertigo" id="vertigoYes" value="yes"/>
+			</div>
+			<div class="ui-block-b" style="width:20%; margin-right: 10px;">
+				<label for="vertigoNo">No</label>
+				<input type="radio" data-bind="checked:vertigo" name="vertigo" id="vertigoNo" value="no"/>
+			</div>
+			<div class="ui-block-c" style="width:20%">
+				<label for="vertigoDunno">I don't know</label>
+				<input type="radio" data-bind="checked:vertigo" name="vertigo" id="vertigoDunno" value="I don't know"/>
+			</div>
+		</div><!--grib b-->
+		
+		<h3>Slide the bar to indicate how you experienced symptom onset:</h3>
+		<div style="width: 58%; position:absolute; left:6%">
+			<input type="range" name="slider" id="slider" value="" min="0" max="10" step="1"/>
+			<label for="slider"><h3 id="min">Gradual</h3> <h3 id="max">Sudden</h3></label>
+		</div>
+		<br> <br> <br>
+		
+		<div class="ui-grid-b">
+		<h3>Have you experienced any other symptoms?:</h3>
+			<div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">	
+				<label for="otherYes">Yes</label>			  
+				<input type="radio" data-bind="checked:otherSymptoms" name="otherSymptoms" id="otherYes" value="yes"/>
+			</div>
+			<div class="ui-block-b" style="width:20%; margin-right: 10px;">
+				<label for="otherNo">No</label>
+				<input type="radio" data-bind="checked:otherSymptoms" name="otherSymptoms" id="otherNo" value="no"/>
+			</div>
+			<div class="ui-block-c" style="width:20%">
+				<label for="otherDunno">I don't know</label>
+				<input type="radio" data-bind="checked:otherSymptoms" name="otherSymptoms" id="otherDunno" value="I don't know"/>
+			</div>
+		</div><!--grib b-->
+		
+		<div id="other" style="width:30%; margin-left:3%" data-bind="visible: otherSymptoms() == 'yes'">
+			<label for="other"><h4>Which of the following symptoms have you had:</h4>
+			<label for="vomiting">Vomiting</label>	
+			<input type="checkbox" data-bind="checked:vomiting" value="vomiting" id="vomiting"/>
+			<label for="collapse">Collapse</label>
+			<input type="checkbox" data-bind="checked:collapse" value="collapse" id="collapse"/>
+			<label for="memoryLoss">Memory Loss</label>
+			<input type="checkbox" data-bind="checked:memoryLoss" value="memoryLoss" id="memoryLoss"/>
+			<label for="doubleVision">Double Vision</label>
+			<input type="checkbox" data-bind="checked:doubleVision" value="doubleVision" id="doubleVision"/>
+			<label for="heartPalpatations">Double Vision</label>
+			<input type="checkbox" data-bind="checked:heartPalpatations" value="heartPalpatations" id="heartPalpatations"/>			
+		</div>
+		DEBUG: <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
+
+        <a data-role="button" id="nextButton" href="#" onclick="nextPage()"></a>
+    </div><!--main content-->
+      <div data-role="footer" data-position="fixed">
+        <h2>&copy; Edinburgh University 2014</h2>
+      </div>
+	</div><!--End of OtherSymptomsPage-->
+	
+	<div data-role="page" id="MedicalHistoryPage" data-theme="d">
+      <div data-role="header">
+        <h1>Patient Survey; Medical History</h1>
+      </div>
+    <div data-role="main" class="ui-content">
+        <img src="themes/myImages/NHSlogo.jpg" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
+        <h1>Medical History</h1>
+		
+		<div id="medicalHistory" style="width:30%; margin-left:3%">
+		<label for="medicalHistory"><h4>Before your current symptoms you have had/have:</h4></label>
+			<label for="heartAttack">Heart attack/ angina</label>	
+			<input type="checkbox" data-bind="checked:heartAttack" value="heartAttack" id="heartAttack"/>
+			<label for="stroke">Stroke/ Mini stroke</label>
+			<input type="checkbox" data-bind="checked:stroke" value="stroke" id="stroke"/>
+			<label for="cancer">Cancer</label>
+			<input type="checkbox" data-bind="checked:cancer" value="cancer" id="cancer"/>
+			<label for="epilepsy">Double Vision</label>
+			<input type="checkbox" data-bind="checked:epilepsy" value="epilepsy" id="epilepsy"/>			
+		</div>
+		DEBUG: <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
+	<a data-role="button" id="nextButton" href="#" onclick="nextPage()"></a>
+    </div><!--main content-->
+      <div data-role="footer" data-position="fixed">
+        <h2>&copy; Edinburgh University 2014</h2>
+      </div>
+	</div><!--End of MedicalHistoryPagePage-->
+	
+	  <script type='text/javascript'>
+      var viewModel = {
+	visionLoss: ko.observable(),
+	whichEye: ko.observable(),
+	whichEyeValue: function(data, element) {this.whichEye($(element.target).val());},
+	visionTest: ko.observable(),
+	visionPart: ko.observable(),
+	sparkly: ko.observable(),
+	lightHeaded: ko.observable(),
+	vertigo: ko.observable(),
+	otherSymptoms: ko.observable(),
+        vomiting: ko.observable(),
+        collapse: ko.observable(),
+        memoryLoss: ko.observable(),
+        doubleVision: ko.observable(),
+        heartPalpatations: ko.observable(),
+		heartAttack: ko.observable(),
+        stroke: ko.observable(),
+        cancer: ko.observable(),
+        epilepsy: ko.observable()
+	 };
+
+    ko.applyBindings(viewModel);
+	  function nextPage() {
+        var currentPageID = $.mobile.activePage.attr('id');
+        switch (currentPageID) {
+		case "VisionProblemsPage":
+            $.mobile.changePage("#OtherSymptomsPage");
+			break;
+          case "OtherSymptomsPage":
+            $.mobile.changePage("#MedicalHistoryPage");
+            break;
+
+          default:
+            break;
+        }
+      }
+	 
+	  </script>
+  </body>
+  </html>
