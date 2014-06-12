@@ -2,17 +2,58 @@
 <html>
 
   <head>
-
-    <script type='text/javascript' src="http://knockoutjs.com/downloads/knockout-3.0.0.js"></script>
-  </head>
-  
+    <title>Patient Questionnaire</title>
+    <meta charset=utf-8 />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--My Own CSS-->
+    <link rel="stylesheet" href="themes/formatting.css" />
+    <!--JQuery Mobile CSS-->
+    <link rel="stylesheet" href="themes/MyTheme.css" />
+    <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+    <!--<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>-->
+	<!--JQuery Mobile JavaScript-->
+    <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+    <!--External scripts needed for date-picker-->
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/git/jquery.mobile-git.css" />
+    <link rel="stylesheet" href="https://rawgithub.com/arschmitz/jquery-mobile-datepicker-wrapper/master/jquery.mobile.datepicker.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="https://rawgithub.com/jquery/jquery-ui/1-10-stable/ui/jquery.ui.datepicker.js"></script>
+    <script src="http://code.jquery.com/mobile/git/jquery.mobile-git.js"></script>
+    <script src="https://rawgithub.com/arschmitz/jquery-mobile-datepicker-wrapper/master/jquery.mobile.datepicker.js"></script>
+	
+    <!--Extrenal scripts needed for knockout library-->
+    <script type='text/javascript' src='knockout-3.1.0.js'></script>
+	<!--External scripts needed for imagemapster plugin-->
+	<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
+	<script src="jquery.imagemapster.js"></script>
+	</head>
     <body>
+	<input id="btnToEnable" type="button" value="gjgj" data-bind="jEnable: isEnabled" />
+	
 	<div id="test" style="background:green; width:300px; height: 300px;">
         Whats up</div>
 	<button data-bind="click: clickMe" type="button">Click Me!</button> 
 	
 	<script>
+	if (ko && ko.bindingHandlers) {
+    ko.bindingHandlers['jEnable'] = {
+        'update': function(element, valueAccessor) {
+            var value = ko.utils.unwrapObservable(valueAccessor());
+            var $element = $(element);
+            $element.prop("disabled", !value);
+ 
+            if ($element.hasClass("ui-button")) {
+                $element.button("option", "disabled", !value);
+            }
+        }
+    };
+}
+
+$("#btnToEnable").button();
+  
 	var viewModel = {
+	isEnabled: ko.observable(true),
         numberOfClicks : ko.observable(0),
         clickMe : function() {
             alert("Your Reaction time was...  milliseconds.");}
