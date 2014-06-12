@@ -66,3 +66,29 @@
 	#min{top:50%; left:6%}
 	#max{top:50%; left:91%}
 
+	.body{
+	width: 130px;
+	height: 40px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	}
+	
+
+	#face{background-image: url("myImages/face.png");
+	background-size: 98.4px 41.7px;
+	}
+	
+	#arm{background-image: url("myImages/arm.png");
+	background-size: 87.6px 35.4px;}
+	
+	#hand{background-image: url("myImages/hand.png");
+	background-size: 98.4px 41.7px;}
+	
+	#chest{background-image: url("myImages/chest.png");
+	background-size: 102.6px 39.6px;}
+	
+	#leg{background-image: url("myImages/leg.png");
+	background-size: 74.1px 42.6px;}
+	
+	#foot{background-image: url("myImages/feet.png");
+	background-size: 90px 42px;}
