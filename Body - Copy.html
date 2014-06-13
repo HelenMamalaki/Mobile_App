@@ -22,7 +22,7 @@
     <script src="http://code.jquery.com/mobile/git/jquery.mobile-git.js"></script>
     <script src="https://rawgithub.com/arschmitz/jquery-mobile-datepicker-wrapper/master/jquery.mobile.datepicker.js"></script>
     <!--Extrenal scripts needed for knockout library-->
-    <script type='text/javascript' src="http://knockoutjs.com/downloads/knockout-3.0.0.js"></script>
+    <script type='text/javascript' src='knockout-3.1.0.js'></script>
 	<!--External scripts needed for imagemapster plugin-->
 	<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
 	<script src="jquery.imagemapster.js"></script>
@@ -36,37 +36,47 @@
       </div>
       <div data-role="main" class="ui-content">
         <img src="themes/myImages/NHSlogo.jpg" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
-        <h4>Body:</h4>
-		
+       
 		 <div class="ui-grid-b">
 			  <div class="ui-block-a" style="width:25%; margin-left: 40px; margin-right: 10px;">
 		<div id="sensation">
-		<label for="sensation"><h4>Check if you experienced any of the following:</h4></label>	
-		 Numbness:
-			<div class="ui-grid-a">
-				<div class="ui-block-a" style="width:50%;">
-					<label for="numbnessYes">Yes</label>			  
-					<input type="radio" name="numbness" id="numbnessYes" value="yes" data-bind="checked:numbness"/>
-				</div>
-				<div class="ui-block-b" style="width:50%;">
-					<label for="numbnessNo">No</label>			  
-					<input type="radio" name="numbness" id="numbnessNo" value="no" data-bind="checked:numbness"/>
-				</div>
-			</div>
-			<!--<label for="numbness">Numbness</label>	
-			<input type="checkbox" data-bind="checked:numbness" value="Numbness" id="numbness"/>-->
-			<label for="tingling">Tingling</label>
-			<input type="checkbox" data-bind="checked:tingling" value="Tingling" id="tingling"/>
-			<label for="weakness">Weakness</label>
-			<input type="checkbox" data-bind="checked:weakness" value="Weakness" id="weakness"/>
-			<label for="jerking">Jerking</label>
-			<input type="checkbox" data-bind="checked:jerking" value="Jerking" id="jerking"/>			
+		<label for="sensation"><h3>In your last attack did you experience:</h3></label>
+		<table class ="active" style="width:100%;">		
+		    <tr><td colspan="2">Numbness:</td> </tr>
+			<tr><td><div style="width:100%;"> <label for="numbnessYes">Yes</label>	
+					<input  type="radio" name="numbness" id="numbnessYes" value="yes" data-bind="checked:numbness"/>
+					</div>
+				</td>					
+				<td><div style="width:100%;"> <label for="numbnessNo">No</label>			  
+					<input style="width:70%;"type="radio" name="numbness" id="numbnessNo" value="no" data-bind="checked: numbness"/>
+					</div>
+				</td> 
+			<tr/>					 
+		</table>
+
+		<table style="width:80%;" class="disabled">
+			<tr>
+				<td>Tingling</td>
+			</tr>
+			<tr>
+				<td>Weakness</td>
+			</tr>
+			<tr>
+				<td>Jerking</td>
+			</tr>
+			<tr>
+				<td>Tremor</td>
+			</tr>
+			<tr>
+				<td>Pain</td>
+			</tr>
+		</table> 					
 		</div>
 			  </div>
-			<div class="ui-block-b" style="width:40%; margin-right: 10px;">
+			<div class="ui-block-b" style="width:45%; margin-left: 40px;">
 			<div id="numbnessLoc" data-bind="visible: numbness() == 'yes'">
-				<IMG id="numbnessBody" SRC="themes/myImages/body.png" ALT="Site map" width="400.95" height="416.7" USEMAP="#numbnessbodyMap">	
-				<map id="imgmap201461016435" name="numbnessbodyMap">
+				<IMG id="numbnessBody" SRC="themes/myImages/body.png" ALT="Site map" width="481.14" height="500.04" USEMAP="#numbnessbodyMap">	
+				<map name="numbnessbodyMap">
 				<area shape="rect" alt="face(R)" coords="447,25,512,146" href="#" data-bind='click: numbnessLocValue'/>
 				<area shape="rect" alt="face(L)" coords="388,27,444,145" href="#" data-bind='click: numbnessLocValue'/>
 				<area shape="rect" alt="arm(L)"  coords="153,167,336,246" href="#" data-bind='click: numbnessLocValue'/>
@@ -81,24 +91,20 @@
 				<area shape="rect" alt="foot(L)" coords="344,822,433,899" href="#" data-bind='click: numbnessLocValue'/>
 				<!-- Created by Online Image Map Editor (http://www.maschek.hu/imagemap/index) --></map>
 				</div>
-				
-				
-				
+							
 			</div>	
-				<div class="ui-block-c" style="width:15%">					
+				<div class="ui-block-c" style="width:15%;" data-bind="visible: numbness() == 'yes'">	
+					<br> <br> <br> <br> <br> <br>  
 					<button class="body" type="button" id="face" value="face"></button>
 					<button class="body" type="button" id="arm"  value="arm"></button>								
 					<button class="body" type="button" id="hand"  value="hand"></button>
-					<button class="body" type="button" id="chest"  value="hand"></button>
-					<button class="body" type="button" id="leg"  value="hand"></button>		
-					<button class="body" type="button" id="foot"  value="hand"></button>									
+					<button class="body" type="button" id="chest"  value="chest"></button>
+					<button class="body" type="button" id="leg"  value="leg"></button>		
+					<button class="body" type="button" id="foot"  value="foot"></button>									
 				</div>
-			</div> <!--grid b-->
-			
+			</div> <!--grid b-->	
 	
-	
-DEBUG: <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
-	
+DEBUG: <pre data-bind="text: ko.toJSON($data,null,2)"></pre>	
 				
 		<a data-role="button" id="done" href="#" onclick="nextPage()">Done</a>
 	<a data-role="button" id="nextButton" href="#" onclick="nextPage()"></a>
@@ -143,7 +149,7 @@ DEBUG: <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
 		</div>
 			  </div>
 			<div class="ui-block-b" style="width:40%; margin-right: 10px;">
-	<div id="tinglingLoc" data-bind="visible: tingling() == 'yes'">
+					<div id="tinglingLoc" data-bind="visible: tingling() == 'yes'">
 					<IMG id="tinglingBody" SRC="themes/myImages/body.png" ALT="Site map" width="400.95" height="416.7" USEMAP="#tinglingbodyMap">	
 					<map id="imgmap201461016435" name="tinglingbodyMap">
 					<area shape="rect" alt="face(R)" coords="447,25,512,146" href="#" data-bind='click: tinglingLocValue'/>
@@ -158,12 +164,9 @@ DEBUG: <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
 					<area shape="rect" alt="leg(L)" coords="343,518,438,807" href="#" data-bind='click: tinglingLocValue'/>
 					<area shape="rect" alt="foot(R)" coords="460,824,549,902" href="#" data-bind='click: tinglingLocValue'/>
 					<area shape="rect" alt="foot(L)" coords="344,822,433,899" href="#" data-bind='click: tinglingLocValue'/>
-					<!-- Created by Online Image Map Editor (http://www.maschek.hu/imagemap/index) --></map>
-			
+					<!-- Created by Online Image Map Editor (http://www.maschek.hu/imagemap/index) --></map>	
 				</div>
-			</div>
-
-				
+			</div>	
 				<div class="ui-block-c" style="width:15%">					
 					<button class="body" type="button" id="face" value="face"></button>
 					<button class="body" type="button" id="arm"  value="arm"></button>								
@@ -173,13 +176,9 @@ DEBUG: <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
 					<button class="body" type="button" id="foot"  value="hand"></button>									
 				</div>
 			</div> <!--grid b-->
+
+			DEBUG: <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
 			
-	
-	
-DEBUG: <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
-	
-				
-		
 	<a data-role="button" id="nextButton" href="#" onclick="nextPage()"></a>
     </div><!--main content-->
       <div data-role="footer" data-position="fixed">
@@ -187,38 +186,118 @@ DEBUG: <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
       </div>
 	</div><!--End of TinglingPage-->
 	
+	<div data-role="page" id="WeaknessPage" data-theme="d">
+      <div data-role="header">
+        <h1>Patient Survey; Vision Problems</h1>
+      </div>
+      <div data-role="main" class="ui-content">
+        <img src="themes/myImages/NHSlogo.jpg" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
+        <h4>Body:</h4>
+		
+		 <div class="ui-grid-b">
+			  <div class="ui-block-a" style="width:25%; margin-left: 40px; margin-right: 10px;">
+				<div id="sensation">
+		<label for="sensation"><h4>Check if you experienced any of the following:</h4></label>
+			<label for="numbness">Numbness</label>	
+			<input type="checkbox" data-bind="checked:numbness" value="Numbness" id="numbness"/>
+			<label for="tingling">Tingling</label>
+			<input type="checkbox" data-bind="checked:tingling" value="Tingling" id="tingling"/>
+			Weakness:
+			<div class="ui-grid-a">
+				<div class="ui-block-a" style="width:50%;">
+					<label for="weaknessYes">Yes</label>			  
+					<input type="radio" name="tingling" id="weaknessYes" value="yes" data-bind="checked:weakness"/>
+				</div>
+				<div class="ui-block-b" style="width:50%;">
+					<label for="weaknessNo">No</label>			  
+					<input type="radio" name="weakness" id="weaknessNo" value="no" data-bind="checked:weakness"/>
+				</div>
+			</div>
+			<!--<label for="weakness">Weakness</label>
+			<input type="checkbox" data-bind="checked:weakness" value="Weakness" id="weakness"/>-->
+			<label for="jerking">Jerking</label>
+			<input type="checkbox" data-bind="checked:jerking" value="Jerking" id="jerking"/>			
+		</div>
+			  </div>
+			<div class="ui-block-b" style="width:40%; margin-right: 10px;">
+					<div id="weaknessLoc" data-bind="visible: weakness() == 'yes'">
+					<IMG id="weaknessBody" SRC="themes/myImages/body.png" ALT="Site map" width="400.95" height="416.7" USEMAP="#weaknessbodyMap">	
+					<map name="weaknessbodyMap">
+					<area shape="rect" alt="face(R)" coords="447,25,512,146" href="#" data-bind='click: weaknessLocValue'/>
+					<area shape="rect" alt="face(L)" coords="388,27,444,145" href="#" data-bind='click: weaknessLocValue'/>
+					<area shape="rect" alt="arm(L)"  coords="153,167,336,246" href="#" data-bind='click: weaknessLocValue'/>
+					<area shape="rect" alt="hand(L)" coords="23,169,131,243" href="#" data-bind='click: weaknessLocValue'/>
+					<area shape="rect" alt="arm(R)" coords="560,164,736,251" href="#" data-bind='click: weaknessLocValue'/>
+					<area shape="rect" alt="hand(R)" coords="759,165,874,247" href="#" data-bind='click: weaknessLocValue'/>
+					<area shape="poly" alt="chest(R)" coords="451,166,452,317,527,314,544,236,508,163" href="#" data-bind='click: weaknessLocValue'/>
+					<area shape="poly" alt="chest(L)" coords="441,167,442,318,368,314,353,246,375,168" href="#" data-bind='click: weaknessLocValue'/>
+					<area shape="rect" alt="leg(R)" coords="453,517,541,809" href="#" data-bind='click: weaknessLocValue'/>
+					<area shape="rect" alt="leg(L)" coords="343,518,438,807" href="#" data-bind='click: weaknessLocValue'/>
+					<area shape="rect" alt="foot(R)" coords="460,824,549,902" href="#" data-bind='click: weaknessLocValue'/>
+					<area shape="rect" alt="foot(L)" coords="344,822,433,899" href="#" data-bind='click: weaknessLocValue'/>
+					<!-- Created by Online Image Map Editor (http://www.maschek.hu/imagemap/index) --></map>		
+				</div>
+			</div>	
+				<div class="ui-block-c" style="width:15%">					
+					<button class="body" type="button" id="face" value="face"></button>
+					<button class="body" type="button" id="arm"  value="arm"></button>								
+					<button class="body" type="button" id="hand"  value="hand"></button>
+					<button class="body" type="button" id="chest"  value="hand"></button>
+					<button class="body" type="button" id="leg"  value="hand"></button>		
+					<button class="body" type="button" id="foot"  value="hand"></button>									
+				</div>
+			</div> <!--grid b-->
+
+			DEBUG: <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
+			
+	<a data-role="button" id="nextButton" href="#" onclick="nextPage()"></a>
+    </div><!--main content-->
+      <div data-role="footer" data-position="fixed">
+        <h2>&copy; Edinburgh University 2014</h2>
+      </div>
+	</div><!--End of WeaknessPage-->
+	
 	<script type='text/javascript'>
+	$('tinglingBut').button('refresh');
   var viewModel = {
 
 		numbness: ko.observable(),
 		numbnessLoc: ko.observableArray(),
 		numbnessLocValue: function(data, element) {this.numbnessLoc.push($(element.target).attr('alt'));},
-        tingling: ko.observable(false),
+        tingling: ko.observable(),
         tinglingLoc: ko.observableArray(),
 		tinglingLocValue: function(data, element) {this.tinglingLoc.push($(element.target).attr('alt'));},
-        
 		weakness: ko.observable(false),
+		weaknessLoc: ko.observableArray(),
+		weaknessLocValue: function(data, element) {this.weaknessLoc.push($(element.target).attr('alt'));},
         jerking: ko.observable(false),  
+		
 	 };
 	  ko.applyBindings(viewModel);
+	  
+	  viewModel.numbness.subscribe(function(data){if(data=='no'){nextPage();}})
+	
 	   function nextPage() 
- {
+	{
         var currentPageID = $.mobile.activePage.attr('id');
         switch (currentPageID) 
 		{
 		case "NumbnessPage":
             $.mobile.changePage("#TinglingPage");
 			break;
+		case "TinglingPage":
+            $.mobile.changePage("#WeaknessPage");
+		break;
 
           default:
-		  $.mobile.changePage("#TinglingPage");
+		 
             break;
         }
    }
 
 $(document).ready(function()
 {
-$("#numbnessBody,#tinglingBody").mapster({
+$("#numbnessBody,#tinglingBody,#weaknessBody").mapster({
 	singleSelect : false,
     mapKey: 'alt',
 	fill : false,

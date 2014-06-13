@@ -1,6 +1,6 @@
 /*Our own styles*/
 #nhsLogo{
-	position: absolute;
+	position: fixed;
 	top: 10%;
 	left: 89%;
 	z-index: 100;
@@ -73,37 +73,24 @@
 	background-position: center center;
 	}
 	
-table.disabled  {border-collapse: separate; border-spacing: 0 6px;}
+	.activeBox{
+	border: 1px;
+	border-style: groove;
+	border-width: 2px;
+	background-color: rgba(3,145,189,0.2);}
+	
+	#numbnessBut,#tinglingBut,#weaknessBut,#jerkingBut,#tremorBut,#painBut{ /*because classes don't work for some reason here*/
+	text-align: center;
+	margin: auto;
+	margin-top: 15px;
+	background-color: rgba(3,145,189,0.2); 
+	font-size: 19px;
+	width:95%;
+	}		
 
-table.disabled tr, table.disabled td
-{
-
-border: 2px;
-border-style: solid;
-padding:7px;
-text-align: center;
-font-weight: bold;
-font-size: 18px;
-background-color: rgba(3,145,189,0.2);
-
-}
-
-table.active{border-style:ridge;
-background-color: rgba(3,145,189,0.8)
-}
-
-table.active tr, table.active td
-{
-text-align: center;
-font-weight: bold;
-font-size: 18px;
-padding: 0;
-}
-
-
-table.active tr:first-child{padding: 30px;}
-
-	#face{background-image: url("myImages/face.png");
+	
+	#face{
+	background-image: url("myImages/face.png");
 	background-size: 98.4px 41.7px;
 	}
 	
@@ -121,3 +108,34 @@ table.active tr:first-child{padding: 30px;}
 	
 	#foot{background-image: url("myImages/feet.png");
 	background-size: 90px 42px;}
+	
+	
+/*table.disabled  {border-collapse: separate; border-spacing: 0 10px;}
+
+table.disabled tr, table.disabled td
+{
+
+border: 2px;
+border-style: solid;
+padding:8px;
+text-align: center;
+font-weight: bold;
+font-size: 20px;
+background-color: rgba(3,145,189,0.2);
+
+}
+
+table.active{border-style:ridge;
+background-color: rgba(3,145,189,0.8)
+}
+
+table.active tr, table.active td
+{
+text-align: center;
+font-weight: bold;
+font-size: 20px;
+padding: 0;
+}
+
+
+table.active tr:first-child{padding: 30px;}*/

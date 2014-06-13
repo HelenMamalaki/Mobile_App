@@ -30,16 +30,8 @@
 	<div data-role="page" id="MedicalHistoryPage" data-theme="d">
 	<div data-role="main" class="ui-content">
  Numbness:
-			<div class="ui-grid-a" >
-				<div class="ui-block-a" style="width:10%;">
-					<label for="numbnessYes">Yes</label>			  
-					<input type="radio" name="numbness" id="numbnessYes" data-bind="checked:numbness" value="yes"/>
-				</div>
-				<div class="ui-block-b" style="width:10%;">
-					<label for="numbnessNo">No</label>			  
-					<input type="radio" name="numbness" id="numbnessNo" data-bind="checked:numbness" value="no"/>
-				</div>
-			</div>
+	<button class="body" id="face" value="face"></button>
+					<button class="body" type="button" id="arm"  value="arm"></button>	
 
 </div>	
 <p>DEBUG: <pre data-bind="text: ko.toJSON($data,null,2)"></pre></p>

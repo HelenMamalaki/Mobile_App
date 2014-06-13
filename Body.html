@@ -38,46 +38,34 @@
         <img src="themes/myImages/NHSlogo.jpg" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
        
 		 <div class="ui-grid-b">
-			  <div class="ui-block-a" style="width:25%; margin-left: 40px; margin-right: 10px;">
-		<div id="sensation">
-		<label for="sensation"><h4>In your last attack did you experience:</h4></label>
-		<table class ="active" style="width:100%;">		
-		    <tr><td colspan="2">Numbness:</td> </tr>
-			<tr><td><div style="width:100%;"> <label for="numbnessYes">Yes</label>	
-					<input  type="radio" name="numbness" id="numbnessYes" value="yes" data-bind="checked:numbness"/>
-					</div>
-				</td>					
-				<td><div style="width:100%;"> <label for="numbnessNo">No</label>			  
-					<input style="width:70%;"type="radio" name="numbness" id="numbnessNo" value="no" data-bind="checked:numbness"/>
-					</div>
-				</td> 
-			<tr/>					 
-		</table>
-
-		<table style="width:80%;" class="disabled">
-			<tr>
-				<td>Tingling</td>
-			</tr>
-			<tr>
-				<td>Weakness</td>
-			</tr>
-			<tr>
-				<td>Jerking</td>
-			</tr>
-			<tr>
-				<td>Tremor</td>
-			</tr>
-			<tr>
-				<td>Pain</td>
-			</tr>
-		</table> 					
-		</div>
+			    <div class="ui-block-a" style="width:25%; margin-left: 40px; margin-right: 10px;">
+		
+		<h3>In your last attack did you experience:</h3>
+				<div class="activeBox">
+						<button style="background-color: rgba(3,145,189,0.8);" class="focus" id="numbnessBut" value="Numbness" onclick="sensation(this.id)">Numbness</button>
+					
+					 <div class="ui-grid-b">
+					    <div class="ui-block-a" style="width:50%; padding:4px;">
+							<label for="numbnessYes">Yes</label>	
+							<input  type="radio" name="numbness" id="numbnessYes" value="yes" data-bind="checked:numbness"/>
+						</div>
+						<div class="ui-block-b" style="width:50%; padding:4px;">
+							<label for="numbnessNo">No</label>			  
+							<input style="width:70%;"type="radio" name="numbness" id="numbnessNo" value="no" data-bind="checked: numbness"/>
+						</div>
+					</div> <!--end of ui-grid-b-->
+				</div>					
+					<button id="tinglingBut" value="Tingling" onclick="sensation(this.id)">Tingling</button>
+					<button id="weaknessBut"  value="Weakness" onclick="sensation(this.id)">Weakness</button>								
+					<button id="jerkingBut"  value="Jerking" onclick="sensation(this.id)">Jerking</button>
+					<button id="tremorBut"  value="Tremor" onclick="sensation(this.id)">Tremor</button>
+					<button id="painBut"  value="Pain" onclick="sensation(this.id)">Pain</button>					
 			  </div>
-			<div class="ui-block-b" style="width:45%; margin-left: 30px;">
+			<div class="ui-block-b" style="width:45%; margin-left: 40px;">
 			<div id="numbnessLoc" data-bind="visible: numbness() == 'yes'">
 				<IMG id="numbnessBody" SRC="themes/myImages/body.png" ALT="Site map" width="481.14" height="500.04" USEMAP="#numbnessbodyMap">	
 				<map name="numbnessbodyMap">
-				<area shape="rect" alt="face(R)" coords="447,25,512,146" href="#" data-bind='click: numbnessLocValue'/>
+				<area shape="rect" id="Rface" alt="face(R)" coords="447,25,512,146" href="#" data-bind='click: numbnessLocValue'/>
 				<area shape="rect" alt="face(L)" coords="388,27,444,145" href="#" data-bind='click: numbnessLocValue'/>
 				<area shape="rect" alt="arm(L)"  coords="153,167,336,246" href="#" data-bind='click: numbnessLocValue'/>
 				<area shape="rect" alt="hand(L)" coords="23,169,131,243" href="#" data-bind='click: numbnessLocValue'/>
@@ -95,12 +83,12 @@
 			</div>	
 				<div class="ui-block-c" style="width:15%;" data-bind="visible: numbness() == 'yes'">	
 					<br> <br> <br> <br> <br> <br>  
-					<button class="body" type="button" id="face" value="face"></button>
-					<button class="body" type="button" id="arm"  value="arm"></button>								
-					<button class="body" type="button" id="hand"  value="hand"></button>
-					<button class="body" type="button" id="chest"  value="chest"></button>
-					<button class="body" type="button" id="leg"  value="leg"></button>		
-					<button class="body" type="button" id="foot"  value="foot"></button>									
+					<button class="body" id="face" value="face" onclick="selectArea(this.id)"></button>
+					<button class="body" id="arm" value="arm"></button>								
+					<button class="body" id="hand" value="hand"></button>
+					<button class="body" id="chest" value="chest"></button>
+					<button class="body" id="leg"  value="leg"></button>		
+					<button class="body" id="foot" value="foot"></button>									
 				</div>
 			</div> <!--grid b-->	
 	
@@ -124,30 +112,30 @@ DEBUG: <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
         <h4>Body:</h4>
 		
 		 <div class="ui-grid-b">
-			  <div class="ui-block-a" style="width:25%; margin-left: 40px; margin-right: 10px;">
-				<div id="sensation">
-		<label for="sensation"><h4>Check if you experienced any of the following:</h4></label>
-			<label for="numbness">Numbness</label>	
-			<input type="checkbox" data-bind="checked:numbness" value="Numbness" id="numbness"/>
-			<!--<label for="tingling">Tingling</label>
-			<input type="checkbox" data-bind="checked:tingling" value="Tingling" id="tingling"/>-->
-					 Tingling:
-			<div class="ui-grid-a">
-				<div class="ui-block-a" style="width:50%;">
-					<label for="tinglingYes">Yes</label>			  
-					<input type="radio" name="tingling" id="tinglingYes" value="yes" data-bind="checked:tingling"/>
+			<div class="ui-block-a" style="width:25%; margin-left: 40px; margin-right: 10px;">
+				
+				<h4>Check if you experienced any of the following:</h4>
+				<label for="numbness">Numbness</label>	
+				<input type="checkbox" data-bind="checked:numbness" value="Numbness" id="numbness"/>
+				<!--<label for="tingling">Tingling</label>
+				<input type="checkbox" data-bind="checked:tingling" value="Tingling" id="tingling"/>-->
+						 Tingling:
+				<div class="ui-grid-a">
+					<div class="ui-block-a" style="width:50%;">
+						<label for="tinglingYes">Yes</label>			  
+						<input type="radio" name="tingling" id="tinglingYes" value="yes" data-bind="checked:tingling"/>
+					</div>
+					<div class="ui-block-b" style="width:50%;">
+						<label for="tinglingNo">No</label>			  
+						<input type="radio" name="tingling" id="tinglingNo" value="no" data-bind="checked:tingling"/>
+					</div>
 				</div>
-				<div class="ui-block-b" style="width:50%;">
-					<label for="tinglingNo">No</label>			  
-					<input type="radio" name="tingling" id="tinglingNo" value="no" data-bind="checked:tingling"/>
-				</div>
+				<label for="weakness">Weakness</label>
+				<input type="checkbox" data-bind="checked:weakness" value="Weakness" id="weakness"/>
+				<label for="jerking">Jerking</label>
+				<input type="checkbox" data-bind="checked:jerking" value="Jerking" id="jerking"/>			
+			
 			</div>
-			<label for="weakness">Weakness</label>
-			<input type="checkbox" data-bind="checked:weakness" value="Weakness" id="weakness"/>
-			<label for="jerking">Jerking</label>
-			<input type="checkbox" data-bind="checked:jerking" value="Jerking" id="jerking"/>			
-		</div>
-			  </div>
 			<div class="ui-block-b" style="width:40%; margin-right: 10px;">
 					<div id="tinglingLoc" data-bind="visible: tingling() == 'yes'">
 					<IMG id="tinglingBody" SRC="themes/myImages/body.png" ALT="Site map" width="400.95" height="416.7" USEMAP="#tinglingbodyMap">	
@@ -223,7 +211,7 @@ DEBUG: <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
 					<div id="weaknessLoc" data-bind="visible: weakness() == 'yes'">
 					<IMG id="weaknessBody" SRC="themes/myImages/body.png" ALT="Site map" width="400.95" height="416.7" USEMAP="#weaknessbodyMap">	
 					<map name="weaknessbodyMap">
-					<area shape="rect" alt="face(R)" coords="447,25,512,146" href="#" data-bind='click: weaknessLocValue'/>
+					<area shape="rect" id="Rface" alt="face(R)" coords="447,25,512,146" href="#" data-bind='click: weaknessLocValue'/>
 					<area shape="rect" alt="face(L)" coords="388,27,444,145" href="#" data-bind='click: weaknessLocValue'/>
 					<area shape="rect" alt="arm(L)"  coords="153,167,336,246" href="#" data-bind='click: weaknessLocValue'/>
 					<area shape="rect" alt="hand(L)" coords="23,169,131,243" href="#" data-bind='click: weaknessLocValue'/>
@@ -271,10 +259,57 @@ DEBUG: <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
 		weaknessLoc: ko.observableArray(),
 		weaknessLocValue: function(data, element) {this.weaknessLoc.push($(element.target).attr('alt'));},
         jerking: ko.observable(false),  
+		
 	 };
 	  ko.applyBindings(viewModel);
-	   function nextPage() 
- {
+	  
+	  viewModel.numbness.subscribe(function(data){if(data=='no'){nextPage();}})
+	
+	function selectArea(id)
+	{
+	switch (id) 
+		{
+		case "face":
+			$("#R"+id).mapster('select');
+			break;
+		default:
+		 
+            break;
+			}			
+	}
+	
+	function sensation(id)
+	{
+	
+	
+	switch (id) 
+		{		
+		case "numbnessBut":
+		 $.mobile.changePage("#numbnessPage");
+			break;
+		case "tinglingBut":
+            $.mobile.changePage("#TinglingPage");
+			break;
+			case "weaknessBut":
+            $.mobile.changePage("#WeaknessPage");
+			break;
+			case "jerkingBut":
+            $.mobile.changePage("#JerkingPage");
+			break;
+			case "tremorBut":
+            $.mobile.changePage("#TremorPage");
+			break;
+			case "painBut":
+            $.mobile.changePage("#PainPage");
+			break;
+			default:
+		 
+            break;
+			}
+	}
+	
+	function nextPage() 
+	{
         var currentPageID = $.mobile.activePage.attr('id');
         switch (currentPageID) 
 		{
