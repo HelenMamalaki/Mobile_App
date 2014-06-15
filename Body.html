@@ -26,7 +26,9 @@
 	<!--External scripts needed for imagemapster plugin-->
 	<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
 	<script src="jquery.imagemapster.js"></script>
+	<style>
 	
+		</style>
   </head>
 
   <body>
@@ -38,7 +40,7 @@
         <img src="themes/myImages/NHSlogo.jpg" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
        
 		 <div class="ui-grid-b">
-			    <div class="ui-block-a" style="width:25%; margin-left: 40px; margin-right: 10px;">
+			    <div class="ui-block-a" style="width:23%; margin-left: 40px; margin-right: 10px;">
 		
 		<h3>In your last attack did you experience:</h3>
 				<div class="activeBox">
@@ -66,31 +68,45 @@
 				<IMG id="numbnessBody" SRC="themes/myImages/body.png" ALT="Site map" width="481.14" height="500.04" USEMAP="#numbnessbodyMap">	
 				<map name="numbnessbodyMap">
 				<area shape="rect" id="Rface" alt="face(R)" coords="447,25,512,146" href="#" data-bind='click: numbnessLocValue'/>
-				<area shape="rect" alt="face(L)" coords="388,27,444,145" href="#" data-bind='click: numbnessLocValue'/>
-				<area shape="rect" alt="arm(L)"  coords="153,167,336,246" href="#" data-bind='click: numbnessLocValue'/>
-				<area shape="rect" alt="hand(L)" coords="23,169,131,243" href="#" data-bind='click: numbnessLocValue'/>
-				<area shape="rect" alt="arm(R)" coords="560,164,736,251" href="#" data-bind='click: numbnessLocValue'/>
-				<area shape="rect" alt="hand(R)" coords="759,165,874,247" href="#" data-bind='click: numbnessLocValue'/>
-				<area shape="poly" alt="chest(R)" coords="451,166,452,317,527,314,544,236,508,163" href="#" data-bind='click: numbnessLocValue'/>
-				<area shape="poly" alt="chest(L)" coords="441,167,442,318,368,314,353,246,375,168" href="#" data-bind='click: numbnessLocValue'/>
-				<area shape="rect" alt="leg(R)" coords="453,517,541,809" href="#" data-bind='click: numbnessLocValue'/>
-				<area shape="rect" alt="leg(L)" coords="343,518,438,807" href="#" data-bind='click: numbnessLocValue'/>
-				<area shape="rect" alt="foot(R)" coords="460,824,549,902" href="#" data-bind='click: numbnessLocValue'/>
-				<area shape="rect" alt="foot(L)" coords="344,822,433,899" href="#" data-bind='click: numbnessLocValue'/>
+				<area shape="rect" id="Lface" alt="face(L)" coords="388,27,444,145" href="#" data-bind='click: numbnessLocValue'/>
+				<area shape="rect" id="Larm" alt="arm(L)"  coords="153,167,336,246" href="#" data-bind='click: numbnessLocValue'/>
+				<area shape="rect" id="Lhand" alt="hand(L)" coords="23,169,131,243" href="#" data-bind='click: numbnessLocValue'/>
+				<area shape="rect" id="Rarm" alt="arm(R)" coords="560,164,736,251" href="#" data-bind='click: numbnessLocValue'/>
+				<area shape="rect" id="Rhand" alt="hand(R)" coords="759,165,874,247" href="#" data-bind='click: numbnessLocValue'/>
+				<area shape="poly" id="Rchest" alt="chest(R)" coords="451,166,452,317,527,314,544,236,508,163" href="#" data-bind='click: numbnessLocValue'/>
+				<area shape="poly" id="Lchest" alt="chest(L)" coords="441,167,442,318,368,314,353,246,375,168" href="#" data-bind='click: numbnessLocValue'/>
+				<area shape="rect" id="Rleg" alt="leg(R)" coords="453,517,541,809" href="#" data-bind='click: numbnessLocValue'/>
+				<area shape="rect" id="Lleg" alt="leg(L)" coords="343,518,438,807" href="#" data-bind='click: numbnessLocValue'/>
+				<area shape="rect" id="Rfoot" alt="foot(R)" coords="460,824,549,902" href="#" data-bind='click: numbnessLocValue'/>
+				<area shape="rect" id="Lfoot" alt="foot(L)" coords="344,822,433,899" href="#" data-bind='click: numbnessLocValue'/>
 				<!-- Created by Online Image Map Editor (http://www.maschek.hu/imagemap/index) --></map>
 				</div>
 							
 			</div>	
+			<div id="whichButton">
 				<div class="ui-block-c" style="width:15%;" data-bind="visible: numbness() == 'yes'">	
-					<br> <br> <br> <br> <br> <br>  
-					<button class="body" id="face" value="face" onclick="selectArea(this.id)"></button>
-					<button class="body" id="arm" value="arm"></button>								
+					<br> <br> <br> <br> <br> <br>  			
+					
+						<label class="body" id="faceLabel"><input type="checkbox" id="face" value="face" data-bind="click: whichButtonValue"/></label>
+					<div class="ui-grid-b" data-bind="visible: whichButton()">
+						 <!--data-bind='click: numbnessLocValue'-->
+						<div class="ui-block-a" style="width:50%;">
+							
+							<button class="faceB" data-role="button" value="L" alt="face(L)" id="Lface" onclick="selectArea(this.id)" data-bind='click: numbnessLocValue'>L</button>
+						</div>
+						<div class="ui-block-b" style="width:50%;" > 
+							<button class="faceB" data-role="button" value="R" id="Rface" alt="face(R)" onclick="selectArea(this.id)" data-bind='click: numbnessLocValue'>R</button>
+						</div>
+					</div>
+
+					<button class="body" id="arm" value="arm" data-bind="click: whichButtonValue"></button>								
 					<button class="body" id="hand" value="hand"></button>
 					<button class="body" id="chest" value="chest"></button>
 					<button class="body" id="leg"  value="leg"></button>		
 					<button class="body" id="foot" value="foot"></button>									
 				</div>
-			</div> <!--grid b-->	
+			</div> <!--grid b-->
+		</div>			
 	
 DEBUG: <pre data-bind="text: ko.toJSON($data,null,2)"></pre>	
 				
@@ -102,153 +118,11 @@ DEBUG: <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
       </div>
 	</div><!--End of NumbnessPage-->
 	
-		
-<div data-role="page" id="TinglingPage" data-theme="d">
-      <div data-role="header">
-        <h1>Patient Survey; Vision Problems</h1>
-      </div>
-      <div data-role="main" class="ui-content">
-        <img src="themes/myImages/NHSlogo.jpg" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
-        <h4>Body:</h4>
-		
-		 <div class="ui-grid-b">
-			<div class="ui-block-a" style="width:25%; margin-left: 40px; margin-right: 10px;">
-				
-				<h4>Check if you experienced any of the following:</h4>
-				<label for="numbness">Numbness</label>	
-				<input type="checkbox" data-bind="checked:numbness" value="Numbness" id="numbness"/>
-				<!--<label for="tingling">Tingling</label>
-				<input type="checkbox" data-bind="checked:tingling" value="Tingling" id="tingling"/>-->
-						 Tingling:
-				<div class="ui-grid-a">
-					<div class="ui-block-a" style="width:50%;">
-						<label for="tinglingYes">Yes</label>			  
-						<input type="radio" name="tingling" id="tinglingYes" value="yes" data-bind="checked:tingling"/>
-					</div>
-					<div class="ui-block-b" style="width:50%;">
-						<label for="tinglingNo">No</label>			  
-						<input type="radio" name="tingling" id="tinglingNo" value="no" data-bind="checked:tingling"/>
-					</div>
-				</div>
-				<label for="weakness">Weakness</label>
-				<input type="checkbox" data-bind="checked:weakness" value="Weakness" id="weakness"/>
-				<label for="jerking">Jerking</label>
-				<input type="checkbox" data-bind="checked:jerking" value="Jerking" id="jerking"/>			
-			
-			</div>
-			<div class="ui-block-b" style="width:40%; margin-right: 10px;">
-					<div id="tinglingLoc" data-bind="visible: tingling() == 'yes'">
-					<IMG id="tinglingBody" SRC="themes/myImages/body.png" ALT="Site map" width="400.95" height="416.7" USEMAP="#tinglingbodyMap">	
-					<map id="imgmap201461016435" name="tinglingbodyMap">
-					<area shape="rect" alt="face(R)" coords="447,25,512,146" href="#" data-bind='click: tinglingLocValue'/>
-					<area shape="rect" alt="face(L)" coords="388,27,444,145" href="#" data-bind='click: tinglingLocValue'/>
-					<area shape="rect" alt="arm(L)"  coords="153,167,336,246" href="#" data-bind='click: tinglingLocValue'/>
-					<area shape="rect" alt="hand(L)" coords="23,169,131,243" href="#" data-bind='click: tinglingLocValue'/>
-					<area shape="rect" alt="arm(R)" coords="560,164,736,251" href="#" data-bind='click: tinglingLocValue'/>
-					<area shape="rect" alt="hand(R)" coords="759,165,874,247" href="#" data-bind='click: tinglingLocValue'/>
-					<area shape="poly" alt="chest(R)" coords="451,166,452,317,527,314,544,236,508,163" href="#" data-bind='click: tinglingLocValue'/>
-					<area shape="poly" alt="chest(L)" coords="441,167,442,318,368,314,353,246,375,168" href="#" data-bind='click: tinglingLocValue'/>
-					<area shape="rect" alt="leg(R)" coords="453,517,541,809" href="#" data-bind='click: tinglingLocValue'/>
-					<area shape="rect" alt="leg(L)" coords="343,518,438,807" href="#" data-bind='click: tinglingLocValue'/>
-					<area shape="rect" alt="foot(R)" coords="460,824,549,902" href="#" data-bind='click: tinglingLocValue'/>
-					<area shape="rect" alt="foot(L)" coords="344,822,433,899" href="#" data-bind='click: tinglingLocValue'/>
-					<!-- Created by Online Image Map Editor (http://www.maschek.hu/imagemap/index) --></map>	
-				</div>
-			</div>	
-				<div class="ui-block-c" style="width:15%">					
-					<button class="body" type="button" id="face" value="face"></button>
-					<button class="body" type="button" id="arm"  value="arm"></button>								
-					<button class="body" type="button" id="hand"  value="hand"></button>
-					<button class="body" type="button" id="chest"  value="hand"></button>
-					<button class="body" type="button" id="leg"  value="hand"></button>		
-					<button class="body" type="button" id="foot"  value="hand"></button>									
-				</div>
-			</div> <!--grid b-->
 
-			DEBUG: <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
-			
-	<a data-role="button" id="nextButton" href="#" onclick="nextPage()"></a>
-    </div><!--main content-->
-      <div data-role="footer" data-position="fixed">
-        <h2>&copy; Edinburgh University 2014</h2>
-      </div>
-	</div><!--End of TinglingPage-->
-	
-	<div data-role="page" id="WeaknessPage" data-theme="d">
-      <div data-role="header">
-        <h1>Patient Survey; Vision Problems</h1>
-      </div>
-      <div data-role="main" class="ui-content">
-        <img src="themes/myImages/NHSlogo.jpg" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
-        <h4>Body:</h4>
-		
-		 <div class="ui-grid-b">
-			  <div class="ui-block-a" style="width:25%; margin-left: 40px; margin-right: 10px;">
-				<div id="sensation">
-		<label for="sensation"><h4>Check if you experienced any of the following:</h4></label>
-			<label for="numbness">Numbness</label>	
-			<input type="checkbox" data-bind="checked:numbness" value="Numbness" id="numbness"/>
-			<label for="tingling">Tingling</label>
-			<input type="checkbox" data-bind="checked:tingling" value="Tingling" id="tingling"/>
-			Weakness:
-			<div class="ui-grid-a">
-				<div class="ui-block-a" style="width:50%;">
-					<label for="weaknessYes">Yes</label>			  
-					<input type="radio" name="tingling" id="weaknessYes" value="yes" data-bind="checked:weakness"/>
-				</div>
-				<div class="ui-block-b" style="width:50%;">
-					<label for="weaknessNo">No</label>			  
-					<input type="radio" name="weakness" id="weaknessNo" value="no" data-bind="checked:weakness"/>
-				</div>
-			</div>
-			<!--<label for="weakness">Weakness</label>
-			<input type="checkbox" data-bind="checked:weakness" value="Weakness" id="weakness"/>-->
-			<label for="jerking">Jerking</label>
-			<input type="checkbox" data-bind="checked:jerking" value="Jerking" id="jerking"/>			
-		</div>
-			  </div>
-			<div class="ui-block-b" style="width:40%; margin-right: 10px;">
-					<div id="weaknessLoc" data-bind="visible: weakness() == 'yes'">
-					<IMG id="weaknessBody" SRC="themes/myImages/body.png" ALT="Site map" width="400.95" height="416.7" USEMAP="#weaknessbodyMap">	
-					<map name="weaknessbodyMap">
-					<area shape="rect" id="Rface" alt="face(R)" coords="447,25,512,146" href="#" data-bind='click: weaknessLocValue'/>
-					<area shape="rect" alt="face(L)" coords="388,27,444,145" href="#" data-bind='click: weaknessLocValue'/>
-					<area shape="rect" alt="arm(L)"  coords="153,167,336,246" href="#" data-bind='click: weaknessLocValue'/>
-					<area shape="rect" alt="hand(L)" coords="23,169,131,243" href="#" data-bind='click: weaknessLocValue'/>
-					<area shape="rect" alt="arm(R)" coords="560,164,736,251" href="#" data-bind='click: weaknessLocValue'/>
-					<area shape="rect" alt="hand(R)" coords="759,165,874,247" href="#" data-bind='click: weaknessLocValue'/>
-					<area shape="poly" alt="chest(R)" coords="451,166,452,317,527,314,544,236,508,163" href="#" data-bind='click: weaknessLocValue'/>
-					<area shape="poly" alt="chest(L)" coords="441,167,442,318,368,314,353,246,375,168" href="#" data-bind='click: weaknessLocValue'/>
-					<area shape="rect" alt="leg(R)" coords="453,517,541,809" href="#" data-bind='click: weaknessLocValue'/>
-					<area shape="rect" alt="leg(L)" coords="343,518,438,807" href="#" data-bind='click: weaknessLocValue'/>
-					<area shape="rect" alt="foot(R)" coords="460,824,549,902" href="#" data-bind='click: weaknessLocValue'/>
-					<area shape="rect" alt="foot(L)" coords="344,822,433,899" href="#" data-bind='click: weaknessLocValue'/>
-					<!-- Created by Online Image Map Editor (http://www.maschek.hu/imagemap/index) --></map>		
-				</div>
-			</div>	
-				<div class="ui-block-c" style="width:15%">					
-					<button class="body" type="button" id="face" value="face"></button>
-					<button class="body" type="button" id="arm"  value="arm"></button>								
-					<button class="body" type="button" id="hand"  value="hand"></button>
-					<button class="body" type="button" id="chest"  value="hand"></button>
-					<button class="body" type="button" id="leg"  value="hand"></button>		
-					<button class="body" type="button" id="foot"  value="hand"></button>									
-				</div>
-			</div> <!--grid b-->
-
-			DEBUG: <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
-			
-	<a data-role="button" id="nextButton" href="#" onclick="nextPage()"></a>
-    </div><!--main content-->
-      <div data-role="footer" data-position="fixed">
-        <h2>&copy; Edinburgh University 2014</h2>
-      </div>
-	</div><!--End of WeaknessPage-->
 	
 	<script type='text/javascript'>
-	$('tinglingBut').button('refresh');
+	
   var viewModel = {
-
 		numbness: ko.observable(),
 		numbnessLoc: ko.observableArray(),
 		numbnessLocValue: function(data, element) {this.numbnessLoc.push($(element.target).attr('alt'));},
@@ -259,23 +133,107 @@ DEBUG: <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
 		weaknessLoc: ko.observableArray(),
 		weaknessLocValue: function(data, element) {this.weaknessLoc.push($(element.target).attr('alt'));},
         jerking: ko.observable(false),  
+		whichButton: ko.observable(),
+		whichButtonValue: function(data, element) {this.whichButton($(element.target).prop("checked"));}, 
 		
 	 };
 	  ko.applyBindings(viewModel);
 	  
 	  viewModel.numbness.subscribe(function(data){if(data=='no'){nextPage();}})
-	
+	  
+	  
+	function highlight(name)
+	{
+		if(name=="face") 
+					{												
+						$("#"+name+"Label").css("-moz-box-shadow", "0px 0px 10px 4px rgba(184, 0, 184, 0.75)");  
+						$("#"+name+"Label").css("box-shadow", "0px 0px 10px 4px rgba(184, 0, 184, 0.75)");  
+						$("#"+name+"Label").css("-webkit-box-shadow", "0px 0px 10px 4px rgba(184, 0, 184, 0.75)"); 
+					}else if(name=="arm")
+					{
+						$("#"+name).css("-moz-box-shadow", "0px 0px 10px 4px rgba(92, 0, 184, 0.75)");  
+						$("#"+name).css("box-shadow", "0px 0px 10px 4px rgba(92, 0, 184, 0.75)");  
+						$("#"+name).css("-webkit-box-shadow", "0px 0px 10px 4px rgba(92, 0, 184, 0.75)"); 
+					}else if(name=="hand")
+					{
+						$("#"+name).css("-moz-box-shadow", "0px 0px 10px 4px rgba(0, 153, 255, 0.75)");  
+						$("#"+name).css("box-shadow", "0px 0px 10px 4px rgba(0, 153, 255, 0.75)");  
+						$("#"+name).css("-webkit-box-shadow", "0px 0px 10px 4px rgba(0, 153, 255, 0.75)"); 
+					}else if(name=="chest")
+					{
+						$("#"+name).css("-moz-box-shadow", "0px 0px 10px 4px rgba(255, 117, 25, 0.75");  
+						$("#"+name).css("box-shadow", "0px 0px 10px 4px rgba(255, 117, 25, 0.75)");  
+						$("#"+name).css("-webkit-box-shadow", "0px 0px 10px 4px rgba(255, 117, 25, 0.75"); 
+					}else if(name=="leg")
+					{
+						$("#"+name).css("-moz-box-shadow", "0px 0px 10px 4px rgba(255, 0, 0, 0.75)");  
+						$("#"+name).css("box-shadow", "0px 0px 10px 4px rgba(255, 0, 0, 0.75)");  
+						$("#"+name).css("-webkit-box-shadow", "0px 0px 10px 4px rgba(255, 0, 0, 0.75)"); 
+					}else 
+					{
+						$("#"+name).css("-moz-box-shadow", "0px 0px 10px 4px rgba(0, 102, 0, 0.75)");  
+						$("#"+name).css("box-shadow", "0px 0px 10px 4px rgba(0, 102, 0, 0.75)");  
+						$("#"+name).css("-webkit-box-shadow", "0px 0px 10px 4px rgba(0, 102, 0, 0.75)"); 
+					}
+		
+	}
+
 	function selectArea(id)
 	{
-	switch (id) 
+		switch (id) 
 		{
-		case "face":
-			$("#R"+id).mapster('select');
+		case "Rface":
+			$("#"+id).mapster('select');
+			highlight(id.slice(1));
+			break;
+		case "Lface":
+			$("#"+id).mapster('select');
+			highlight(id.slice(1));
+			break;
+		case "Rarm":
+			$("#"+id).mapster('select');
+			highlight(id.slice(1));
+			break;
+		case "Larm":
+			$("#"+id).mapster('select');
+			highlight(id.slice(1));
+			break;
+		case "Rchest":
+			$("#"+id).mapster('select');
+			highlight(id.slice(1));
+			break;
+		case "Lchest":
+			$("#"+id).mapster('select');
+			highlight(id.slice(1));
+			break;
+		case "Rhand":
+			$("#"+id).mapster('select');
+			highlight(id.slice(1));
+			break;
+		case "Lhand":
+			$("#"+id).mapster('select');
+			highlight(id.slice(1));
+			break;
+		case "Rleg":
+			$("#"+id).mapster('select');
+			highlight(id.slice(1));
+			break;
+		case "Lleg":
+			$("#"+id).mapster('select');
+			highlight(id.slice(1));
+			break;
+		case "Rfoot":
+			$("#"+id).mapster('select');
+			highlight(id.slice(1));
+			break;
+		case "Lfoot":
+			$("#"+id).mapster('select');
+			highlight(id.slice(1));
 			break;
 		default:
 		 
             break;
-			}			
+		}			
 	}
 	
 	function sensation(id)
@@ -328,6 +286,7 @@ DEBUG: <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
 
 $(document).ready(function()
 {
+viewModel.whichButton.subscribe(function(data){if(data==false){ removeHighlight("face");   }});  //deselect area on imageMap $("face(L)").mapster('deselect');
 $("#numbnessBody,#tinglingBody,#weaknessBody").mapster({
 	singleSelect : false,
     mapKey: 'alt',
@@ -366,47 +325,49 @@ $("#numbnessBody,#tinglingBody,#weaknessBody").mapster({
 				var array = event.key.split("(");
 				var name = array[0];
 				//alert("you click on " + event.key + " " + name);
-				if(event['selected']==true)
+				if(event['selected']==true) 
 				{
+					highlight(name);
 					if(name=="face") 
-					{
-						$("#"+name).css("-moz-box-shadow", "0px 0px 10px 4px rgba(184, 0, 184, 0.75)");  
-						$("#"+name).css("box-shadow", "0px 0px 10px 4px rgba(184, 0, 184, 0.75)");  
-						$("#"+name).css("-webkit-box-shadow", "0px 0px 10px 4px rgba(184, 0, 184, 0.75)"); 
+					{		
+						$('#'+name).prop("checked", false);
+						$('#'+name).click();	//fires a click event, turning the checkbox from false to true.					
+
 					}else if(name=="arm")
 					{
-						$("#"+name).css("-moz-box-shadow", "0px 0px 10px 4px rgba(92, 0, 184, 0.75)");  
-						$("#"+name).css("box-shadow", "0px 0px 10px 4px rgba(92, 0, 184, 0.75)");  
-						$("#"+name).css("-webkit-box-shadow", "0px 0px 10px 4px rgba(92, 0, 184, 0.75)"); 
+					
 					}else if(name=="hand")
 					{
-						$("#"+name).css("-moz-box-shadow", "0px 0px 10px 4px rgba(0, 153, 255, 0.75)");  
-						$("#"+name).css("box-shadow", "0px 0px 10px 4px rgba(0, 153, 255, 0.75)");  
-						$("#"+name).css("-webkit-box-shadow", "0px 0px 10px 4px rgba(0, 153, 255, 0.75)"); 
+					
 					}else if(name=="chest")
 					{
-						$("#"+name).css("-moz-box-shadow", "0px 0px 10px 4px rgba(255, 117, 25, 0.75");  
-						$("#"+name).css("box-shadow", "0px 0px 10px 4px rgba(255, 117, 25, 0.75)");  
-						$("#"+name).css("-webkit-box-shadow", "0px 0px 10px 4px rgba(255, 117, 25, 0.75"); 
+					
 					}else if(name=="leg")
 					{
-						$("#"+name).css("-moz-box-shadow", "0px 0px 10px 4px rgba(255, 0, 0, 0.75)");  
-						$("#"+name).css("box-shadow", "0px 0px 10px 4px rgba(255, 0, 0, 0.75)");  
-						$("#"+name).css("-webkit-box-shadow", "0px 0px 10px 4px rgba(255, 0, 0, 0.75)"); 
+				 
 					}else 
 					{
-						$("#"+name).css("-moz-box-shadow", "0px 0px 10px 4px rgba(0, 102, 0, 0.75)");  
-						$("#"+name).css("box-shadow", "0px 0px 10px 4px rgba(0, 102, 0, 0.75)");  
-						$("#"+name).css("-webkit-box-shadow", "0px 0px 10px 4px rgba(0, 102, 0, 0.75)"); 
+					
 					}
+					
 				}else
 				{
-					$("#"+name).css("-moz-box-shadow", "none");
-					$("#"+name).css("box-shadow", "none");
-					$("#"+name).css("-webkit-box-shadow", "none");
+					$('#'+name).prop("checked", true);
+					$('#'+name).click(); //fires a click event, turning the checkbox from true to false.
+					removeHighlight(name);
 				}
 			}					
 });
+
+			function removeHighlight(name)
+			{
+					$("#weaknessBody").mapster("set", false, "face(L)");
+					
+					 
+					$("#"+name+"Label").css("-moz-box-shadow", "none");
+					$("#"+name+"Label").css("box-shadow", "none");
+					$("#"+name+"Label").css("-webkit-box-shadow", "none");
+			}
 
  });
  

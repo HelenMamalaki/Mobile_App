@@ -1,0 +1,142 @@
+		
+<div data-role="page" id="TinglingPage" data-theme="d">
+      <div data-role="header">
+        <h1>Patient Survey; Vision Problems</h1>
+      </div>
+      <div data-role="main" class="ui-content">
+        <img src="themes/myImages/NHSlogo.jpg" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
+        <h4>Body:</h4>
+		
+		 <div class="ui-grid-b">
+			<div class="ui-block-a" style="width:25%; margin-left: 40px; margin-right: 10px;">
+				
+				<h4>Check if you experienced any of the following:</h4>
+				<label for="numbness">Numbness</label>	
+				<input type="checkbox" data-bind="checked:numbness" value="Numbness" id="numbness"/>
+				<!--<label for="tingling">Tingling</label>
+				<input type="checkbox" data-bind="checked:tingling" value="Tingling" id="tingling"/>-->
+						 Tingling:
+				<div class="ui-grid-a">
+					<div class="ui-block-a" style="width:50%;">
+						<label for="tinglingYes">Yes</label>			  
+						<input type="radio" name="tingling" id="tinglingYes" value="yes" data-bind="checked:tingling"/>
+					</div>
+					<div class="ui-block-b" style="width:50%;">
+						<label for="tinglingNo">No</label>			  
+						<input type="radio" name="tingling" id="tinglingNo" value="no" data-bind="checked:tingling"/>
+					</div>
+				</div>
+				<label for="weakness">Weakness</label>
+				<input type="checkbox" data-bind="checked:weakness" value="Weakness" id="weakness"/>
+				<label for="jerking">Jerking</label>
+				<input type="checkbox" data-bind="checked:jerking" value="Jerking" id="jerking"/>			
+			
+			</div>
+			<div class="ui-block-b" style="width:40%; margin-right: 10px;">
+					<div id="tinglingLoc" data-bind="visible: tingling() == 'yes'">
+					<IMG id="tinglingBody" SRC="themes/myImages/body.png" ALT="Site map" width="400.95" height="416.7" USEMAP="#tinglingbodyMap">	
+					<map id="imgmap201461016435" name="tinglingbodyMap">
+					<area shape="rect" alt="face(R)" coords="447,25,512,146" href="#" data-bind='click: tinglingLocValue'/>
+					<area shape="rect" alt="face(L)" coords="388,27,444,145" href="#" data-bind='click: tinglingLocValue'/>
+					<area shape="rect" alt="arm(L)"  coords="153,167,336,246" href="#" data-bind='click: tinglingLocValue'/>
+					<area shape="rect" alt="hand(L)" coords="23,169,131,243" href="#" data-bind='click: tinglingLocValue'/>
+					<area shape="rect" alt="arm(R)" coords="560,164,736,251" href="#" data-bind='click: tinglingLocValue'/>
+					<area shape="rect" alt="hand(R)" coords="759,165,874,247" href="#" data-bind='click: tinglingLocValue'/>
+					<area shape="poly" alt="chest(R)" coords="451,166,452,317,527,314,544,236,508,163" href="#" data-bind='click: tinglingLocValue'/>
+					<area shape="poly" alt="chest(L)" coords="441,167,442,318,368,314,353,246,375,168" href="#" data-bind='click: tinglingLocValue'/>
+					<area shape="rect" alt="leg(R)" coords="453,517,541,809" href="#" data-bind='click: tinglingLocValue'/>
+					<area shape="rect" alt="leg(L)" coords="343,518,438,807" href="#" data-bind='click: tinglingLocValue'/>
+					<area shape="rect" alt="foot(R)" coords="460,824,549,902" href="#" data-bind='click: tinglingLocValue'/>
+					<area shape="rect" alt="foot(L)" coords="344,822,433,899" href="#" data-bind='click: tinglingLocValue'/>
+					<!-- Created by Online Image Map Editor (http://www.maschek.hu/imagemap/index) --></map>	
+				</div>
+			</div>	
+				<div class="ui-block-c" style="width:15%">					
+					<button class="body" type="button" id="face" value="face"></button>
+					<button class="body" type="button" id="arm"  value="arm"></button>								
+					<button class="body" type="button" id="hand"  value="hand"></button>
+					<button class="body" type="button" id="chest"  value="hand"></button>
+					<button class="body" type="button" id="leg"  value="hand"></button>		
+					<button class="body" type="button" id="foot"  value="hand"></button>									
+				</div>
+			</div> <!--grid b-->
+
+			DEBUG: <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
+			
+	<a data-role="button" id="nextButton" href="#" onclick="nextPage()"></a>
+    </div><!--main content-->
+      <div data-role="footer" data-position="fixed">
+        <h2>&copy; Edinburgh University 2014</h2>
+      </div>
+	</div><!--End of TinglingPage-->
+	
+	<div data-role="page" id="WeaknessPage" data-theme="d">
+      <div data-role="header">
+        <h1>Patient Survey; Vision Problems</h1>
+      </div>
+      <div data-role="main" class="ui-content">
+        <img src="themes/myImages/NHSlogo.jpg" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
+        <h4>Body:</h4>
+		
+		 <div class="ui-grid-b">
+			  <div class="ui-block-a" style="width:25%; margin-left: 40px; margin-right: 10px;">
+				<div id="sensation">
+		<label for="sensation"><h4>Check if you experienced any of the following:</h4></label>
+			<label for="numbness">Numbness</label>	
+			<input type="checkbox" data-bind="checked:numbness" value="Numbness" id="numbness"/>
+			<label for="tingling">Tingling</label>
+			<input type="checkbox" data-bind="checked:tingling" value="Tingling" id="tingling"/>
+			Weakness:
+			<div class="ui-grid-a">
+				<div class="ui-block-a" style="width:50%;">
+					<label for="weaknessYes">Yes</label>			  
+					<input type="radio" name="tingling" id="weaknessYes" value="yes" data-bind="checked:weakness"/>
+				</div>
+				<div class="ui-block-b" style="width:50%;">
+					<label for="weaknessNo">No</label>			  
+					<input type="radio" name="weakness" id="weaknessNo" value="no" data-bind="checked:weakness"/>
+				</div>
+			</div>
+			<!--<label for="weakness">Weakness</label>
+			<input type="checkbox" data-bind="checked:weakness" value="Weakness" id="weakness"/>-->
+			<label for="jerking">Jerking</label>
+			<input type="checkbox" data-bind="checked:jerking" value="Jerking" id="jerking"/>			
+		</div>
+			  </div>
+			<div class="ui-block-b" style="width:40%; margin-right: 10px;">
+					<div id="weaknessLoc" data-bind="visible: weakness() == 'yes'">
+					<IMG id="weaknessBody" SRC="themes/myImages/body.png" ALT="Site map" width="400.95" height="416.7" USEMAP="#weaknessbodyMap">	
+					<map name="weaknessbodyMap">
+					<area shape="rect" id="Rface" alt="face(R)" coords="447,25,512,146" href="#" data-bind='click: weaknessLocValue'/>
+					<area shape="rect" alt="face(L)" coords="388,27,444,145" href="#" data-bind='click: weaknessLocValue'/>
+					<area shape="rect" alt="arm(L)"  coords="153,167,336,246" href="#" data-bind='click: weaknessLocValue'/>
+					<area shape="rect" alt="hand(L)" coords="23,169,131,243" href="#" data-bind='click: weaknessLocValue'/>
+					<area shape="rect" alt="arm(R)" coords="560,164,736,251" href="#" data-bind='click: weaknessLocValue'/>
+					<area shape="rect" alt="hand(R)" coords="759,165,874,247" href="#" data-bind='click: weaknessLocValue'/>
+					<area shape="poly" alt="chest(R)" coords="451,166,452,317,527,314,544,236,508,163" href="#" data-bind='click: weaknessLocValue'/>
+					<area shape="poly" alt="chest(L)" coords="441,167,442,318,368,314,353,246,375,168" href="#" data-bind='click: weaknessLocValue'/>
+					<area shape="rect" alt="leg(R)" coords="453,517,541,809" href="#" data-bind='click: weaknessLocValue'/>
+					<area shape="rect" alt="leg(L)" coords="343,518,438,807" href="#" data-bind='click: weaknessLocValue'/>
+					<area shape="rect" alt="foot(R)" coords="460,824,549,902" href="#" data-bind='click: weaknessLocValue'/>
+					<area shape="rect" alt="foot(L)" coords="344,822,433,899" href="#" data-bind='click: weaknessLocValue'/>
+					<!-- Created by Online Image Map Editor (http://www.maschek.hu/imagemap/index) --></map>		
+				</div>
+			</div>	
+				<div class="ui-block-c" style="width:15%">					
+					<button class="body" type="button" id="face" value="face"></button>
+					<button class="body" type="button" id="arm"  value="arm"></button>								
+					<button class="body" type="button" id="hand"  value="hand"></button>
+					<button class="body" type="button" id="chest"  value="hand"></button>
+					<button class="body" type="button" id="leg"  value="hand"></button>		
+					<button class="body" type="button" id="foot"  value="hand"></button>									
+				</div>
+			</div> <!--grid b-->
+
+			DEBUG: <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
+			
+	<a data-role="button" id="nextButton" href="#" onclick="nextPage()"></a>
+    </div><!--main content-->
+      <div data-role="footer" data-position="fixed">
+        <h2>&copy; Edinburgh University 2014</h2>
+      </div>
+	</div><!--End of WeaknessPage-->

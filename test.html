@@ -1,53 +1,36 @@
 <!DOCTYPE html>
 <html>
+    
+    <head>
+        <title>JQM latest</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/git/jquery.mobile-git.css">
+        <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="http://code.jquery.com/mobile/git/jquery.mobile-git.js"></script>
+		<style>
+		.bluetext {
+			color: blue !important;
+		}
+		</style>
+    </head>
+    
+    <body>
+        <!-- Page 1 -->
+        <div data-role="page" id="p1">
+            <div data-role="header" data-position="fixed">
+                 <h1>Header - Page 1</h1>
 
-  <head>
-    <title>Patient Questionnaire</title>
-    <meta charset=utf-8 />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-	<!--My Own CSS-->
-    <link rel="stylesheet" href="themes/formatting.css" />
-    <!--JQuery Mobile CSS-->
-    <link rel="stylesheet" href="themes/MyTheme.css" />
-    <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
-    <!--<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>-->
-	<!--JQuery Mobile JavaScript-->
-    <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
-    <!--External scripts needed for date-picker-->
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/git/jquery.mobile-git.css" />
-    <link rel="stylesheet" href="https://rawgithub.com/arschmitz/jquery-mobile-datepicker-wrapper/master/jquery.mobile.datepicker.css" />
-    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-    <script src="https://rawgithub.com/jquery/jquery-ui/1-10-stable/ui/jquery.ui.datepicker.js"></script>
-    <script src="http://code.jquery.com/mobile/git/jquery.mobile-git.js"></script>
-    <script src="https://rawgithub.com/arschmitz/jquery-mobile-datepicker-wrapper/master/jquery.mobile.datepicker.js"></script>
-    <!--Extrenal scripts needed for knockout library-->
-    <script type='text/javascript' src="http://knockoutjs.com/downloads/knockout-3.0.0.js"></script>
-  </head>
+            </div>
+            <div data-role="content">
+                <a href="#" class="bluetext" data-role="button">Blue button text</a>
+				 <button class="bluetext" data-role="button">Derpina</button>
+            </div>
+            <div data-role="footer" data-position="fixed">
+                 <h1>Footer</h1>
 
-  <body>
-  
-	<div data-role="page" id="MedicalHistoryPage" data-theme="d">
-	<div data-role="main" class="ui-content">
- Numbness:
-	<button class="body" id="face" value="face"></button>
-					<button class="body" type="button" id="arm"  value="arm"></button>	
+            </div>
+        </div>
+    </body>
 
-</div>	
-<p>DEBUG: <pre data-bind="text: ko.toJSON($data,null,2)"></pre></p>
-</div> <!--main content-->
-	</div><!--End of MedicalHistoryPagePage-->
-	
-	  <script type='text/javascript'>
-   var viewModel = {
-       numbness: ko.observable(),
- 
-      
-		
-		};
-
-    ko.applyBindings(viewModel);
-	 
-	  </script>
-  </body>
-  </html>
+</html>
