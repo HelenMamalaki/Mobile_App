@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Patient Questionnaire</title>
+    <meta charset=utf-8 />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--My Own CSS-->
+    <link rel="stylesheet" href="themes/formatting.css" />
+    <!--JQuery Mobile CSS-->
+    <link rel="stylesheet" href="themes/MyTheme.css" />
+    <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+    <!--<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>-->
+	<!--JQuery Mobile JavaScript-->
+    <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+    <!--External scripts needed for date-picker-->
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/git/jquery.mobile-git.css" />
+    <link rel="stylesheet" href="https://rawgithub.com/arschmitz/jquery-mobile-datepicker-wrapper/master/jquery.mobile.datepicker.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="https://rawgithub.com/jquery/jquery-ui/1-10-stable/ui/jquery.ui.datepicker.js"></script>
+    <script src="http://code.jquery.com/mobile/git/jquery.mobile-git.js"></script>
+    <script src="https://rawgithub.com/arschmitz/jquery-mobile-datepicker-wrapper/master/jquery.mobile.datepicker.js"></script>
+    <!--Extrenal scripts needed for knockout library-->
+    <script type='text/javascript' src='knockout-3.1.0.js'></script>
+	<!--External scripts needed for imagemapster plugin-->
+	<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
+	<script src="jquery.imagemapster.js"></script>
+	<script>
+	
+      
+	window.onload = function(){
+  	setTimeout(function(){   		
+		$(".stPair,.ndPair,.rdPair").css("background-image", "url('themes/myImages/card_back.jpg')");
+	}, 3000);
+	};
+	</script>
+  </head>
+
+  <body>
+   <div data-role="page" id="NumbnessPage" data-theme="d">
+      <div data-role="header">
+        <h1>Patient Survey; Body</h1>
+      </div>
+      <div data-role="main" class="ui-content">
+        <img src="themes/myImages/NHSlogo.jpg" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
+       <h1> This is a game called "Pairs"</h1>
+	<div class="ui-grid-b">
+	<div class="ui-block-a" style="width: 20%; margin-left: 210px;">
+		<button type="button" id="stPairA" class="stPair" value="King of Hearts"></button>
+	</div> 
+	<div class="ui-block-b" style="width: 20%; margin-left: 80px;">
+		<button type="button" id="ndPairA" class="ndPair" value="Ace of Spades"></button>
+	</div>
+	<div class="ui-block-c" style="width: 20%; margin-left: 80px;">
+		<button type="button" id="rdPairA" class="rdPair" value="Queen of Clubs"></button>
+	</div>
+	<div class="ui-block-a" style="width: 20%; margin-left: 210px;">
+		<button type="button" id="rdPairB" class="rdPair" value="Queen of Clubs"></button>
+	</div>
+	<div class="ui-block-b" style="width: 20%; margin-left: 80px;">
+		<button type="button" id="ndPairB" class="ndPair" value="Ace of Spades"></button>
+	</div>
+	<div class="ui-block-c" style="width: 20%; margin-left: 80px;">
+		<button type="button" id="stPairB" class="stPair" value="King of Hearts"></button>
+	</div>
+	</div><!-- /grid-b -->
+	<div id='wrapper'>			
+	</div>
+	</div>	
+	<p>DEBUG: <pre data-bind="text: ko.toJSON($data,null,2)"></pre>	</p>
+					
+	<a data-role="button" id="nextButton" href="#" onclick="nextPage()"></a>
+    </div><!--main content-->
+      <div data-role="footer" data-position="fixed">
+        <h2>&copy; Edinburgh University 2014</h2>
+      </div>
+	</div><!--End of NumbnessPage-->
+	
+
+	
+	<script type='text/javascript'> 
+
+
+	$('.stPair, .ndPair, .rdPair').on('click', pairScore);
+
+
+	var alternate=false;
+	var card1;
+	var card2;
+	var stCardPair;
+	var ndCardPair;
+	var pair=[''];
+	var id;
+	var url;
+	var counter=0; //keeps track of how many pairs of cards have been found.
+
+
+	function pairScore()
+	{
+		
+		id= event.target.id;
+		
+		url = $('#'+id).css('background-image'); 
+		
+		if(url=='none')
+		{
+		
+		}
+		else
+		{
+		
+			if(alternate==false)
+			{
+				pair = [id];
+				alternate=true;
+			}else
+			{
+				pair.push(id);		
+				card1 = pair[0].slice(0,pair[0].length-1);
+				card2 = pair[1].slice(0,pair[1].length-1);
+			
+				if(card1==card2)
+				{
+								
+					card1Pair = pair[0].charAt(pair[0].length-1);
+					card2Pair = pair[1].charAt(pair[1].length-1);
+
+					if((card1Pair=='A' && card2Pair=='B') ||(card1Pair=='B' && card2Pair=='A'))
+					{
+					     showCards(pair[0], pair[1]);
+					     $("#wrapper").html("<div id='gameStatus'><span style='position:relative;left:15%;top:15%font-weight:bold;font-size:40px;'>Pair!</span> ");
+					    $("div#gameStatus").css('background-color', '#0DBA47');
+					    setTimeout(function(){   		
+					 $("#wrapper").html(" ");
+					  $("#"+pair[0]+',#'+pair[1]).css("background-image", "none");
+  						counter=counter+2;	
+					 	 if(counter==6)
+						{
+							alert('Game over!');
+						}
+					 }, 2000);
+					   
+					  		 
+								
+					}
+				}else
+				{
+					showCards(pair[0], pair[1]); 
+					//alert('Miss');
+					 $("#wrapper").html("<div id='gameStatus'><span style='position:relative;left:15%;top:15%font-weight:bold;font-size:40px;'>miss</span> ");
+					 $("div#gameStatus").css('background-color', '#F5033B'); 
+					  setTimeout(function(){   		
+					 $("#wrapper").html(" ");
+					$("#"+pair[0]).css("background-image", "url('themes/myImages/card_back.jpg')");
+					$("#"+pair[1]).css("background-image", "url('themes/myImages/card_back.jpg')");		
+					 }, 2000);
+				
+				
+				
+			
+				}
+				alternate=false;
+			}//alternate		
+		}//url not 'none'
+	}
+
+	function showCards(card1, card2)
+	{
+		card1Class = card1.slice(0,card1.length-1);
+		card2Class = card2.slice(0,card2.length-1);
+
+		switch(card1Class)
+		{	
+			case "stPair":
+				$("#"+card1).css("background-image", "url('themes/myImages/AceOfSpades.jpg')")
+			break;
+			case "ndPair":
+				$("#"+card1).css("background-image", "url('themes/myImages/jackOfDiamonds.gif')")
+
+			break;
+			case "rdPair":
+				$("#"+card1).css("background-image", "url('themes/myImages/queenOfClubs.jpg')")
+			break;
+
+			default:
+		 
+            		break;
+
+		}
+
+		switch(card2Class)
+		{	
+			case "stPair":
+				$("#"+card2).css("background-image", "url('themes/myImages/AceOfSpades.jpg')")
+			break;
+			case "ndPair":
+				$("#"+card2).css("background-image", "url('themes/myImages/jackOfDiamonds.gif')")
+
+			break;
+			case "rdPair":
+				$("#"+card2).css("background-image", "url('themes/myImages/queenOfClubs.jpg')")
+	
+			break;
+
+			default:
+		 
+            		break;
+
+		}
+	}
+		
+ 
+	</script>
+  </body>
+  </html>			
