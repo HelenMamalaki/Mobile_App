@@ -27,14 +27,15 @@
 	<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
 	<script src="jquery.imagemapster.js"></script>
 	<script>
-	var picture=['jackOfDiamonds.gif','queenOfClubs.jpg', 'kingOfClubs.jpg'];
+	var picture=['jackOfDiamonds.gif','queenOfClubs.jpg']; //'kingOfClubs.jpg'
 	var rand1 = Math.floor(Math.random()*picture.length);
 	var rand2 = Math.floor(Math.random()*picture.length);
 	
       window.onload = function(){
-	 $('#card1').css("background-image", "url('themes/myImages/"+picture[rand1]+"')");
-	 $('#card2').css("background-image", "url('themes/myImages/"+picture[rand2]+"')");
-	 $("#wrapper").html("#1 rand: " + rand1+" #2 rand: " + rand2);}
+	 $('#card1').css("background-image", "url('themes/myImages/card_back.jpg')");
+	 $('#card2').css("background-image", "url('themes/myImages/card_back.jpg')");
+	// $("#wrapper").html("#1 rand: " + rand1+" #2 rand: " + rand2);
+}
 	
 	</script>
   </head>
@@ -42,7 +43,7 @@
   <body>
    <div data-role="page" id="Snap" data-theme="d">
       <div data-role="header">
-        <h1>Patient Survey; Body</h1>
+        <h1>Patient Survey; Snap!</h1>
       </div>
       <div data-role="main" class="ui-content">
 	<div id='anywhere'>
@@ -57,6 +58,8 @@
 	</div>
 	</div><!-- /grid-a -->
 	<div id='snapWrapper'>
+	</div>
+	<div id='score'>
 	</div>
 	</div>	
 	<p>DEBUG: <pre data-bind="text: ko.toJSON($data,null,2)"></pre>	</p>
@@ -76,25 +79,57 @@
 	var card2url;
 	var url1;
 	var url2;
+	var clicked=false;
+	var score=[];
+ 	var index=0;
+	var t0;
+     	var t1;
+	
 
 	var round=1;
-	var interval = setInterval(function(){
-   		round += 1;
-    		if(round == 15){
-       			clearInterval(interval);
-   		}
-   		 rand1 = Math.floor(Math.random()*picture.length);
-		rand2 = Math.floor(Math.random()*picture.length);
-		$('#card1').css("background-image", "url('themes/myImages/"+picture[rand1]+"')");
-		$('#card2').css("background-image", "url('themes/myImages/"+picture[rand2]+"')");
-		 $("#snapWrapper").html(" ");
-	}, 1000); 	
+	
 
-	 
+	function recursiveTimer(round)
+	{
+		var interval = setInterval(function(){
+			  t0 = '';
+     			  t1 = '';
+			round += 1;
+
+	    		if(round == 13)
+			{
+				clearInterval(interval);
+				
+				alert('Game Over! Your average reaction time was '+ computeAvg());
+			}else if(clicked)
+			{
+	       			clearInterval(interval);
+				setTimeout(function(){   		
+				clicked=false;
+				recursiveTimer(round-1);
+				}, 700);
+			
+	   		}else{
+	   		
+			rand1 = Math.floor(Math.random()*picture.length);
+			rand2 = Math.floor(Math.random()*picture.length);
+			$('#card1').css("background-image", "url('themes/myImages/"+picture[rand1]+"')");
+			$('#card2').css("background-image", "url('themes/myImages/"+picture[rand2]+"')");
+			t0 = Date.now();
+			$("#snapWrapper").html(" ");
+			}
+		
+		}, 2000); 
+	}//recursiveTimer	
+
 
 	$(function() {
+	   
+	$("#score").append("Reaction time: "); 
+	    recursiveTimer(round);	
 	    $(document).on('click', function(e) {
-	      
+	        t1 = Date.now();
+		clicked=true;
 		card1url = $('#card1').css('background-image');	
 		card2url = $('#card2').css('background-image'); 
 
@@ -104,20 +139,35 @@
    
 		if(url1[1]==url2[1])
 		{
-			 $("#snapWrapper").html("<span style='position:relative;left:45%;top:15%font-weight:bold;font-size:80px;color:#0DBA47;'>Snap!</span> ");			
-
+			var rt = t1-t0;				
+			score.push(rt); 
+			//alert(score + 'ms');	
+			$("#score").append("<br> "+score[index]+'ms');
+			index++;
+			$("#snapWrapper").append(" <br> <span style='position:relative;left:45%;top:15%font-weight:bold;font-size:80px;color:#0DBA47;'>Snap!</span>");			
+			setTimeout(function(){   		
+				//allow time for participant to register visual feedback
+			}, 1000);
+		
 		}else 
 		{
-			$("#snapWrapper").html("<span style='position:relative;left:45%;top:15%font-weight:bold;font-size:83px;color:#F5033B;'>X</span> ");
+			$("#snapWrapper").append("<br> <span style='position:relative;left:49%;top:15%font-weight:bold;font-size:83px;color:#F5033B;'>X</span>");
 			
 		};		
 	       
 	    })
 	});
-	function snap()
+
+	function computeAvg()
 	{
-		
-		
+		var total=0;
+		for(i=0; i<score.length; i++)
+		{
+			total=total+score[i];
+		}
+
+	return total/score.length;
+	
 	}
 
 		
