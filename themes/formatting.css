@@ -176,7 +176,15 @@
 	background-position: center center;
 	}
 
-	div#gameStatus
+	.snap{
+	width: 150px !important;
+	height: 200px !important;
+	background-size: 150px 200px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	}
+
+	#gameStatus
 	{    
 	    position:fixed;
 	    left:43%;  
