@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Patient Questionnaire</title>
+    <meta charset=utf-8 />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--My Own CSS-->
+    <link rel="stylesheet" href="themes/formatting.css" />
+    <!--JQuery Mobile CSS-->
+    <link rel="stylesheet" href="themes/MyTheme.css" />
+    <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+    <!--<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>-->
+	<!--JQuery Mobile JavaScript-->
+    <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+    <!--External scripts needed for date-picker-->
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/git/jquery.mobile-git.css" />
+    <link rel="stylesheet" href="https://rawgithub.com/arschmitz/jquery-mobile-datepicker-wrapper/master/jquery.mobile.datepicker.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="https://rawgithub.com/jquery/jquery-ui/1-10-stable/ui/jquery.ui.datepicker.js"></script>
+    <script src="http://code.jquery.com/mobile/git/jquery.mobile-git.js"></script>
+    <script src="https://rawgithub.com/arschmitz/jquery-mobile-datepicker-wrapper/master/jquery.mobile.datepicker.js"></script>
+    <!--Extrenal scripts needed for knockout library-->
+    <script type='text/javascript' src='knockout-3.1.0.js'></script>
+	<!--External scripts needed for imagemapster plugin-->
+	<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
+	<script src="jquery.imagemapster.js"></script>
+	<script>
+	var picture=['jackOfDiamonds.gif','queenOfClubs.jpg', 'kingOfClubs.jpg'];
+	var rand1 = Math.floor(Math.random()*picture.length);
+	var rand2 = Math.floor(Math.random()*picture.length);
+	
+      window.onload = function(){
+	 $('#card1').css("background-image", "url('themes/myImages/"+picture[rand1]+"')");
+	 $('#card2').css("background-image", "url('themes/myImages/"+picture[rand2]+"')");
+	 $("#wrapper").html("#1 rand: " + rand1+" #2 rand: " + rand2);}
+	
+	</script>
+  </head>
+
+  <body>
+   <div data-role="page" id="Snap" data-theme="d">
+      <div data-role="header">
+        <h1>Patient Survey; Body</h1>
+      </div>
+      <div data-role="main" class="ui-content">
+	<div id='anywhere'>
+        <img src="themes/myImages/NHSlogo.jpg" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
+       <h1> This is a game called "Snap"</h1>
+	<div class="ui-grid-b">
+	<div class="ui-block-a" style="width: 20%; margin-left: 35%;">
+		<button type="button" id="card1" class='snap'></button>
+	</div> 
+	<div class="ui-block-b" style="width: 20%; margin-left: 0%;">
+		<button type="button" id="card2" class='snap'></button>
+	</div>
+	</div><!-- /grid-a -->
+	<div id='snapWrapper'>
+	</div>
+	</div>	
+	<p>DEBUG: <pre data-bind="text: ko.toJSON($data,null,2)"></pre>	</p>
+					
+	<a data-role="button" id="nextButton" href="#" onclick="nextPage()"></a>
+    </div><!--main content-->
+      <div data-role="footer" data-position="fixed">
+        <h2>&copy; Edinburgh University 2014</h2>
+      </div>
+</div> <!--close anywhere-->
+	</div><!--End of SnapPage-->
+	
+
+	
+	<script type='text/javascript'> 
+	var card1url;
+	var card2url;
+	var url1;
+	var url2;
+
+	var round=1;
+	var interval = setInterval(function(){
+   		round += 1;
+    		if(round == 15){
+       			clearInterval(interval);
+   		}
+   		 rand1 = Math.floor(Math.random()*picture.length);
+		rand2 = Math.floor(Math.random()*picture.length);
+		$('#card1').css("background-image", "url('themes/myImages/"+picture[rand1]+"')");
+		$('#card2').css("background-image", "url('themes/myImages/"+picture[rand2]+"')");
+		 $("#snapWrapper").html(" ");
+	}, 1000); 	
+
+	 
+
+	$(function() {
+	    $(document).on('click', function(e) {
+	      
+		card1url = $('#card1').css('background-image');	
+		card2url = $('#card2').css('background-image'); 
+
+		url1 = card1url.split("myImages/"); 
+		url2 = card2url.split("myImages/");
+		   
+   
+		if(url1[1]==url2[1])
+		{
+			 $("#snapWrapper").html("<span style='position:relative;left:45%;top:15%font-weight:bold;font-size:80px;color:#0DBA47;'>Snap!</span> ");			
+
+		}else 
+		{
+			$("#snapWrapper").html("<span style='position:relative;left:45%;top:15%font-weight:bold;font-size:83px;color:#F5033B;'>X</span> ");
+			
+		};		
+	       
+	    })
+	});
+	function snap()
+	{
+		
+		
+	}
+
+		
+ 
+	</script>
+  </body>
+  </html>			
