@@ -1,8 +1,8 @@
 /*Our own styles*/
 #nhsLogo{
 	position: fixed;
-	top: 10%;
-	left: 89%;
+	top: 7%;
+	left: 92%;
 	z-index: 100;
 	}
 
@@ -88,8 +88,10 @@
 .blockA{width:23% !important;
        border-right:solid 2px #585858 !important;
 }
-.blockB{width:55% !important;}
-.blockC{width:18% !important;}
+.blockB{width:55% !important;
+height:525px !important;}
+.blockC{width:18% !important;
+}
 
 .bodyMap{margin-left:17%;}
 	
@@ -171,7 +173,7 @@
 	
 	#faceLabel, #armLabel, #handLabel, #chestLabel, #legLabel, #footLabel{
 		position:relative;
-		bottom:26%;
+		bottom:27%;
 		left:10%;
 		
 	}
