@@ -43,14 +43,14 @@
           <div class="ui-block-a blockA">
             <h3>In you last attack, did you expeience:</h3>
 	<div >
-	 <div style="border-right:solid 2px #585858;"> 
+	
             <button class='inactive' id="numbnessBut" value="Numbness">Numbness</button>
             <button class='inactive' id="tinglingBut" value="Tingling">Tingling</button>
             <button class='inactive' id="weaknessBut" value="Weakness">Weakness</button>
             <button class='inactive' id="jerkingBut" value="Jerking">Jerking</button>
             <button class='inactive' id="tremorBut" value="Tremor">Tremor</button>
             <button class='inactive' id="painBut" value="Pain">Pain</button>  
-	 </div><!--border-right-->
+	 
 	</div>
           </div>
  	<div class="ui-block-b" style="width:70%;">
@@ -58,9 +58,11 @@
            
           </div>
 	</div>
+ <a data-role="button" id="nextButton" href="#" onclick="nextPage()"></a>
+<br>
         </div>DEBUG:
         <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
-        <a data-role="button" id="nextButton" href="#" onclick="nextPage()"></a>
+       
       </div>
       <!--main content-->
       <div data-role="footer" data-position="fixed">
@@ -78,7 +80,7 @@
         <div class="ui-grid-b">
           <div class="ui-block-a blockA" >                    
             <h3>In your last attack did you experience:</h3>
-	  <div style="border-right:solid 2px #585858;">     	
+    	
                 <div class="activeBox">
                 <button class='active' id="numbnessBut" value="Numbness">Numbness</button> 
                 </div>
@@ -87,7 +89,7 @@
             <button class='inactive' id="jerkingBut" value="Jerking">Jerking</button>
             <button class='inactive' id="tremorBut" value="Tremor">Tremor</button>
             <button class='inactive' id="painBut" value="Pain">Pain</button>
-          </div> <!--border-right-->
+        
 	</div>	
 	
           <div class="ui-block-b blockB" >
@@ -203,10 +205,11 @@
           </div>
 
           <!--grid b-->
+<a data-role="button" id="nextButton" href="#" onclick="nextPage()"></a>
 <br>
         </div>DEBUG:
         <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
-        <a data-role="button" id="nextButton" href="#" onclick="nextPage()"></a>
+        
       </div>
       <!--main content-->
       <div data-role="footer" data-position="fixed">
@@ -223,7 +226,7 @@
         <div class="ui-grid-b">
           <div class="ui-block-a blockA">
             <h3>In your last attack did you experience:</h3>
-             <div style="border-right: solid 2px #585858;">
+           
 	   <button class='inactive' id="numbnessBut" value="Numbness">Numbness</button>
             <div class="activeBox">   
               <button class='active' id="tinglingBut" value="tingling">Tingling</button>
@@ -232,7 +235,7 @@
             <button class='inactive' id="jerkingBut" value="Jerking">Jerking</button>
             <button class='inactive' id="tremorBut" value="Tremor">Tremor</button>
             <button class='inactive' id="painBut" value="Pain">Pain</button>
-          </div>
+          
 	</div>
           <div class="ui-block-b" style="width:45%; margin-left:5%;">
             <div class="bodyMap" > 
