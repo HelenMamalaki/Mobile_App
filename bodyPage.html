@@ -54,7 +54,7 @@
 	</div>
           </div>
  	<div class="ui-block-b" style="width:70%;">
-            <h3 style="margin-top:29%;margin-left:2%;">< Select from the menu of symptoms on the left.</h3>
+            <h3 style="margin-top:29%;margin-left:2%;">&#x25c0;&nbsp; Select from the menu of symptoms on the left.</h3>
            
           </div>
 	</div>
@@ -78,7 +78,7 @@
         <div class="ui-grid-b">
           <div class="ui-block-a blockA" >                    
             <h3>In your last attack did you experience:</h3>
-		<div style="border-right:solid 2px #585858;">     	
+	  <div style="border-right:solid 2px #585858;">     	
                 <div class="activeBox">
                 <button class='active' id="numbnessBut" value="Numbness">Numbness</button> 
                 </div>
@@ -87,10 +87,15 @@
             <button class='inactive' id="jerkingBut" value="Jerking">Jerking</button>
             <button class='inactive' id="tremorBut" value="Tremor">Tremor</button>
             <button class='inactive' id="painBut" value="Pain">Pain</button>
-          </div>
-	</div>	<!--border-right-->
-          <div class="ui-block-b blockB" style="width:50%;">
-            <div id="numbnessLoc"> 
+          </div> <!--border-right-->
+	</div>	
+	
+          <div class="ui-block-b blockB" >
+	<div id="container" style="position:relative;">
+		<div id="instruc" style="position: absolute;z-index:10;">      
+		<h4 style="margin-left:15%;">Where on your body did you feel numb?</h4>
+	       </div><!--instruc-->
+            <div class="bodyMap" style="position:absolute;"> 
               <IMG id="numbnessBody" SRC="themes/myImages/body.png" ALT="Site map" width="505.197.14" height="525.042" USEMAP="#numbnessbodyMap">
               <map name="numbnessbodyMap">
                 <area shape="rect" alt="face(R)" coords="447,25,512,146" href="#" data-bind='click: numbnessLocValue' />
@@ -108,14 +113,12 @@
                 <!-- Created by Online Image Map Editor (http://www.maschek.hu/imagemap/index) -->
               </map>
             </div>
+</div><!--container-->
           </div>
+       
           <div id="whichButton">
-            <div class="ui-block-c blockC" style="width:18%;">
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
+    <div class="ui-block-c" style="width:18%;">
+	<br><br><br><br><br>
               <!--........................F.A.C.E................................-->
               <label class="body facebox">
                 <span id="faceLabel">Face</span>
@@ -196,8 +199,11 @@
               </div>
               <!--........................................................-->
             </div>
+		
           </div>
+
           <!--grid b-->
+<br>
         </div>DEBUG:
         <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
         <a data-role="button" id="nextButton" href="#" onclick="nextPage()"></a>
@@ -215,13 +221,13 @@
       <div data-role="main" class="ui-content">
         <img src="themes/myImages/NHSlogo.jpg" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
         <div class="ui-grid-b">
-          <div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">
+          <div class="ui-block-a blockA">
             <h3>In your last attack did you experience:</h3>
              <div style="border-right: solid 2px #585858;">
 	   <button class='inactive' id="numbnessBut" value="Numbness">Numbness</button>
-            <div class="activeBox">
+            <div class="activeBox">   
               <button class='active' id="tinglingBut" value="tingling">Tingling</button>
-            </div>
+          </div>
             <button class='inactive' id="weaknessBut" value="Weakness">Weakness</button>
             <button class='inactive' id="jerkingBut" value="Jerking">Jerking</button>
             <button class='inactive' id="tremorBut" value="Tremor">Tremor</button>
@@ -229,7 +235,7 @@
           </div>
 	</div>
           <div class="ui-block-b" style="width:45%; margin-left:5%;">
-            <div id="tinglingLoc" > <!--data-bind="visible: tingling() == 'yes'"-->
+            <div class="bodyMap" > 
               <IMG id="tinglingBody" SRC="themes/myImages/body.png" ALT="Site map" width="505.197.14" height="525.042" USEMAP="#tinglingbodyMap">
               <map name="tinglingbodyMap">
                 <area shape="rect" alt="face(R)" coords="447,25,512,146" href="#" data-bind='click: tinglingLocValue' />
