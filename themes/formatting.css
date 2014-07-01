@@ -82,119 +82,115 @@
  #changeInFuture {
     color: #B800B8; 
 	font-weight: bold; 
-	font-size: 18px; }
- 
-	.body{
-	height: 25px;
-	background-repeat: no-repeat;
-	background-position: center center;
-	
-	}
+	font-size: 18px; 
+}
+
+.blockA{width:23% !important;}
+
+#numbnessLoc{margin-left:8%;}
 	
 	.activeBox{
+	position:relative;
 	border: 1px;
 	border-style: groove;
 	border-width: 2px;
-	background-color: rgba(3,145,189,0.2);}
-	
-	#numbnessBut,#tinglingBut,#weaknessBut,#jerkingBut,#tremorBut,#painBut{ /*because classes don't work for some reason here*/
-	text-align: center;
-	margin: auto;
+	background-color: #FFFFFF; 
 	margin-top: 15px;
-	background-color: rgba(3,145,189,0.2); 
-	font-size: 19px;
-	width:85%;
-	}	
+	padding-top:3%;
+	padding-bottom:3%;
+	}
 	
-	.faceB{
-			color: #B800B8 !important;
+	.inactive{
+	text-align: center !important;
+	margin: auto !important;
+	margin-top: 15px !important;
+	margin-left:40px !important;
+	background-color: rgba(3,145,189,0.2) !important; 
+	font-size: 19px !important;
+	width:65% !important;}
+	
+	.active{
+	text-align: center !important;
+	margin: auto !important;
+        background-color: rgba(3,145,189,0.6) !important;
+	margin-left:40px !important;
+	font-size: 19px !important;
+	width:65% !important;
+	
+	}
+	
+	.button{
 			font-weight: bold !important;
 			font-size: 24px !important;
-			padding:7px !important;		
+			padding:7px !important;		}
+			
+	#Lface,#Rface{
+			color: #B800B8 !important;	
 		}
+		
+	#Larm,#Rarm{ 
+			color: #5C00B8 !important;
+	}
+	
+	#Lhand,#Rhand{ 
+			color: #0099FF !important;
+	}
+	
+	#Lchest,#Rchest{ 
+			color: #FF7519 !important;
+	}
+	
+	#Lleg,#Rleg{ 
+			color: #FF0000 !important;
+	}
+	
+	#Lfoot,#Rfoot{ 
+			color: #006600 !important;
+	}
+
+
+
+
+.facemenu, .armmenu, .handmenu, .chestmenu, .legmenu, .footmenu{display:none; margin: auto !important; }
+
+    .body{
+	height: 15px !important;
+	vertical-align:text-top !important;
+	font-size: 25px !important;
+	margin: auto !important; 
+	margin-top: 15px !important;
+	}
+	
+	
+	#faceLabel, #armLabel, #handLabel, #chestLabel, #legLabel, #footLabel{
+		position:relative;
+		bottom:26%;
+		left:10%;
+		
+	}
 	
 	#faceLabel{
-	background-image: url("myImages/face.png");
-	background-size: 78.72px 33.36px;
-	margin: auto; 
+		color: #B800B8;	
+	}
+		
+	#armLabel{ 
+		color: #5C00B8;
 	}
 	
-	#arm{
-	background-image: url("myImages/arm.png");
-	background-size: 70.08px 28.32px;
-	margin: auto; 
-	margin-top:23px;}
-	
-	#hand{
-	background-image: url("myImages/hand.png");
-	background-size: 78.72px 33.36px;
-	margin: auto; 
-	margin-top: 23px;}
-	
-	#chest{
-	background-image: url("myImages/chest.png");
-	background-size: 82.08px 31.68px;
-	margin: auto; 
-	margin-top:23px;}
-	
-	#leg{
-	background-image: url("myImages/leg.png");
-	background-size: 59.28px 34.08px;
-	margin: auto; 
-	margin-top:23px;}
-	
-	#foot{
-	background-image: url("myImages/feet.png");
-	background-size: 72px 33.6px;
-	margin-top:23px;}
-
-	.stPair{
-	width: 150px !important;
-	height: 200px !important;
-	background-image: url("myImages/AceOfSpades.jpg");
-	background-size: 150px 200px;
-	background-repeat: no-repeat;
-	background-position: center center;
+	#handLabel{ 
+		color: #0099FF;
 	}
-
-	.ndPair{
-	width: 150px !important;
-	height: 200px !important;
-	background-image: url("myImages/jackOfDiamonds.gif");
-	background-size: 150px 200px;
-	background-repeat: no-repeat;
-	background-position: center center;
- 	z-index:1;
+	
+	#chestLabel{ 
+		color: #FF7519;
 	}
-
-	.rdPair{
-	width: 150px !important;
-	height: 200px !important;
-	background-image: url("myImages/queenOfClubs.jpg");
-	background-size: 150px 200px;
-	background-repeat: no-repeat;
-	background-position: center center;
+	
+	#legLabel{ 
+		color: #FF0000;
 	}
-
-	.snap{
-	width: 150px !important;
-	height: 200px !important;
-	background-size: 150px 200px;
-	background-repeat: no-repeat;
-	background-position: center center;
-	}
-
-	#gameStatus
-	{    
-	    position:fixed;
-	    left:43%;  
-	    width:115px;
-	    height:55px;
-	    z-index:100;
-	   border: groove;
- 	  font-family: Arial, Helvetica, sans-serif;
-	  position:relative;
-
+	
+	#footLabel{ 
+		color: #006600;
 	}
 
 	
