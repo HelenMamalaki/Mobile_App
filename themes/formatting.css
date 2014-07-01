@@ -85,9 +85,13 @@
 	font-size: 18px; 
 }
 
-.blockA{width:23% !important;}
+.blockA{width:23% !important;
+       border-right:solid 2px #585858 !important;
+}
+.blockB{width:55% !important;}
+.blockC{width:18% !important;}
 
-#numbnessLoc{margin-left:8%;}
+.bodyMap{margin-left:17%;}
 	
 	.activeBox{
 	position:relative;
@@ -95,9 +99,12 @@
 	border-style: groove;
 	border-width: 2px;
 	background-color: #FFFFFF; 
-	margin-top: 15px;
+	margin-top: 15px;  
 	padding-top:3%;
 	padding-bottom:3%;
+	margin-left:67px;
+	height: 10% !important;
+	width: 75% !important;
 	}
 	
 	.inactive{
@@ -112,10 +119,10 @@
 	.active{
 	text-align: center !important;
 	margin: auto !important;
-        background-color: rgba(3,145,189,0.6) !important;
-	margin-left:40px !important;
+        background-color: rgba(3,145,189,0.5) !important;
+	margin-left:15px !important;
 	font-size: 19px !important;
-	width:65% !important;
+	width:86% !important;
 	
 	}
 	
