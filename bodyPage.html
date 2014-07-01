@@ -37,7 +37,7 @@
       </div>
       <div data-role="main" class="ui-content">
         <img src="themes/myImages/NHSlogo.jpg" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
-        <div class="ui-grid-b">
+        <div class="ui-grid-a">
           <div class="ui-block-a blockA">
             <h3>In you last attack, did you expeience:</h3>
             <div>
@@ -53,17 +53,17 @@
             <h3 style="margin-top:29%;margin-left:2%;">&#x25c0;&nbsp; Select from the menu of symptoms on the left.</h3>
           </div>
         </div>
+        <!--grid-a-->
         <a data-role="button" id="nextButton" href="#" onclick="nextPage()"></a>
-        <br>
-      </div>DEBUG:
-      <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
+        <br>DEBUG:
+        <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
+      </div>
+      <!--main content-->
+      <div data-role="footer" data-position="fixed">
+        <h2>&copy; Edinburgh University 2014</h2>
+      </div>
     </div>
-    <!--main content-->
-    <div data-role="footer" data-position="fixed">
-      <h2>&copy; Edinburgh University 2014</h2>
-    </div>
-    </div> <!--............................End of Select............................-->
-    
+    <!--............................End of Select............................-->
     <div data-role="page" id="numbnessPage" data-theme="d">
       <div data-role="header">
         <h1>Patient Survey; Body</h1>
@@ -110,8 +110,7 @@
             <!--container-->
           </div>
           <div id="whichButton">
-            <div class="ui-block-c" style="width:18%;">
-              <br>
+            <div class="ui-block-c blockC">
               <br>
               <br>
               <br>
@@ -194,12 +193,15 @@
                 </div>
               </div>
               <!--........................................................-->
+ <a data-role="button" style="position:relative;left:37%;margin-top:8%;" id="nextButton" href="#" onclick="nextPage()"></a>
             </div>
+            <!--block-c-->
           </div>
-          <!--grid b-->
-          <a data-role="button" id="nextButton" href="#" onclick="nextPage()"></a>
-          <br>
-        </div>DEBUG:
+          <!--whichButton-->
+        </div>
+        <!--grid b-->
+       
+ DEBUG:
         <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
       </div>
       <!--main content-->
