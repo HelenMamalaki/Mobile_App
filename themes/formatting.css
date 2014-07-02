@@ -1,12 +1,12 @@
 /*Our own styles*/
 #nhsLogo{
 	position: fixed;
-	top: 9%;
+	top: 8%;
 	left: 92%;
 	z-index: 100;
 	}
 
-#nextButton{ 
+.nextButton{ 
 	border: none;
 	height: 62px;
 	width: 98px; 
@@ -15,7 +15,7 @@
 	background-repeat: no-repeat;
 	background-position: center center;
 	position: relative;
-	left:85%
+	left:84%
 			}
 			
 	#indent{position: fixed;
@@ -85,15 +85,16 @@
 	font-size: 18px; 
 }
 
-.blockA{width:23% !important;
+.blockA{width:30% !important;
        border-right:solid 2px #585858 !important;
 }
-.blockB{width:55% !important;
+.blockB{width:70% !important;
 height:525px !important;}
 .blockC{width:18% !important;
 }
 
-.bodyMap{margin-left:17%;}
+.menu{margin-top:10%;}
+.bodyMap{margin-left:21%;}
 	
 	.activeBox{
 	position:relative;
@@ -104,27 +105,35 @@ height:525px !important;}
 	margin-top: 15px;  
 	padding-top:3%;
 	padding-bottom:3%;
-	margin-left:67px;
+	margin-left:110px;
 	height: 10% !important;
-	width: 75% !important;
+	width: 69% !important;
+	}
+
+	#instruc{
+	position:absolute;
+	z-index:10;
+	margin-left:5%;
+	margin-top:20%;
+	margin-right:64%;
 	}
 	
 	.inactive{
 	text-align: center !important;
 	margin: auto !important;
 	margin-top: 15px !important;
-	margin-left:40px !important;
+	margin-left:64px !important;
 	background-color: rgba(3,145,189,0.2) !important; 
 	font-size: 19px !important;
-	width:65% !important;}
+	width:60% !important;}
 	
 	.active{
 	text-align: center !important;
 	margin: auto !important;
         background-color: rgba(3,145,189,0.5) !important;
-	margin-left:15px !important;
+	margin-left:16px !important;
 	font-size: 19px !important;
-	width:86% !important;
+	width:87% !important;
 	
 	}
 	
