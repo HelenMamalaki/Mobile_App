@@ -33,17 +33,19 @@
       <div data-role="main" class="ui-content">
         <img src="themes/myImages/NHSlogo.jpg" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
         <h1>Patient Survey</h1>
-        <p>In order to speed up your assesment we would like to electronically record part of your medical history and recent symptoms. We hope you'll take the time to answer the following questions.</p>
+        <h4>In order to speed up your assesment we would like to electronically record part of your medical history and recent symptoms. We hope you'll take the time to answer the following questions.</h4>
         <br>
         <h2>Consent</h2>
-        <p>The information collected here will be linked to other information on your medical record. All information collected will remain strictly confidential. Information will be used for no other purpose than medical research.</p>
+        <h4>The information collected here will be linked to other information on your medical record. All information collected will remain strictly confidential. Information will be used for no other purpose than medical research.</h4>
         <div data-role="fieldcontain">
           <div style="width:47%;">
             <input type="checkbox" data-bind="checked:consent" name="consent" id="consent">
-            <label for="consent">I agree to the collection of my information</label>
+            <label for="consent" style='font-size:18px';>I agree to the collection of my information</label>
           </div>
         </div>
-        <a data-role="button" id="nextButton" data-bind="visible: consent()" href="#" onclick="nextPage()"></a>
+        <a data-role="button" class="nextButton" data-bind="visible: consent()" href="#" ></a>
+ DEBUG:
+        <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
       </div>
       <!--main content-->
       <div data-role="footer" data-position="fixed">
@@ -102,7 +104,7 @@
             </select>
           </div>
         </div>
-        <a data-role="button" id="nextButton" href="#" onclick="nextPage()"></a>
+        <a data-role="button" class="nextButton" href="#" ></a>
       </div>
       <!--main content-->
       <div data-role="footer" data-position="fixed">
@@ -118,7 +120,7 @@
         <img src="themes/myImages/NHSlogo.jpg" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
         <form action="#" method="get">
           <div id="datepicker" data-role="fieldcontain">
-            <p>When did you first have symptoms?</p>
+            <h3>When did you first have symptoms?</h3>
             <div class="ui-grid-a">
               <div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 30px;">
                 <input type="text" id="date-input" data-inline="false" data-role="date">
@@ -131,10 +133,10 @@
           </div>
         </form>
         <div id="dynamicContent" data-bind="visible:estDate()">
-          <p>Can you provide an estimate of how long ago it was before your first symptoms?</p>
+          <h4>How long ago was it before your first attack of symptoms?</h4>
           <div class="ui-grid-a">
             <div class="ui-block-a" style="width:10%; margin-left: 40px; margin-right: 30px;">
-              <input name="symptom_onset" id="symptom_onset" placeholder="0" value="" type="text">
+              <input name="symptom_onset" id="symptom_onset" placeholder="0" value="" type="number">
             </div>
             <div class="ui-block-b" style="width:25%;">
               <select name="symptom_onset" id="symptom_onset">
@@ -148,10 +150,10 @@
         </div>
 		
         <div id="frequency">
-          <p>How many attacks of symptoms have you had?</p>
+          <h3>How many attacks of symptoms have you had?</h3>
           <div class="ui-grid-a">
             <div class="ui-block-a" style="width:10%; margin-left: 40px; margin-right: 30px;">
-              <input name="frequency" id="frequency" placeholder="1" value="" type="text">
+              <input name="frequency" id="frequency" placeholder="1" value="" type="number">
             </div>
             <div class="ui-block-b" style="width:25%;">
               <input type="checkbox" name="can't_remember" id="can't_remember" value="male" />
@@ -161,10 +163,10 @@
           </div>
         </div>
         <div id="duration">
-          <p>How long did the symptoms last in your last attack?</p>
+          <h3>How long did the symptoms last in your last attack?</h3>
           <div class="ui-grid-a">
             <div class="ui-block-a" style="width:10%; margin-left: 40px; margin-right: 10px;">
-              <input name="duration" id="duration" placeholder="0" value="" type="text">
+              <input name="duration" id="duration" placeholder="0" value="" type="number">
             </div>
             <div class="ui-block-b" style="width:20%;">
               <select name="time_unit" id="time_unit">
@@ -176,7 +178,7 @@
             </div>
           </div>
         </div>
-        <a data-role="button" id="nextButton" href="#" onclick="nextPage()"></a>
+        <a data-role="button" class="nextButton" href="#" ></a>
       </div>
       <!--main content-->
       <div data-role="footer" data-position="fixed">
@@ -241,7 +243,9 @@
 			</div>
 		</div><!--grib b--> 
 		
-        <a data-role="button" id="nextButton" data-bind="visible: consent()" href="#" onclick="nextPage()"></a>
+        <a data-role="button" class="nextButton" data-bind="visible: consent()" href="#" ></a>
+ DEBUG:
+        <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
       </div><!--main content-->
       <div data-role="footer" data-position="fixed">
         <h2>&copy; Edinburgh University 2014</h2>
@@ -300,16 +304,26 @@
       };
       ko.applyBindings(viewModel);
 
+ $(document).ready(function() {
+	$(".nextButton").on('click', nextPage);
+      }); //document ready
+
       function nextPage() {
         var currentPageID = $.mobile.activePage.attr('id');
         switch (currentPageID) {
           case "WelcomePage":
-            $.mobile.changePage("#IdentificationPage");
+            $.mobile.changePage("#SymptomsPage");
             break;
           case "IdentificationPage":
             $.mobile.changePage("#SymptomsPage");
             break;
           case "SymptomsPage":
+            $.mobile.changePage("#SpeechProblemsPage");
+            break;
+ 	  case "SpeechProblemsPage":
+            $.mobile.changePage("#VisionProblemsPage");
+            break;
+	  case "VisionProblemsPage":
             $.mobile.changePage("#BodyPage");
             break;
           default:
