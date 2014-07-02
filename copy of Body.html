@@ -31,142 +31,92 @@
   </head>
 
   <body>
+    <div data-role="page" id="selectPage" data-theme="d">
+      <div data-role="header">
+        <h1>Patient Survey; Body</h1>
+      </div>
+      <div data-role="main" class="ui-content">
+        <img src="themes/myImages/NHSlogo.jpg" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
+        <div class="ui-grid-a">
+          <div class="ui-block-a blockA">
+            <h3>In you last attack, did you expeience:</h3>
+	     <div class="menu">       
+              <button class='inactive' id="numbnessBut" value="Numbness">Numbness</button>
+              <button class='inactive' id="tinglingBut" value="Tingling">Tingling</button>
+              <button class='inactive' id="weaknessBut" value="Weakness">Weakness</button>
+              <button class='inactive' id="jerkingBut" value="Jerking">Jerking</button>
+              <button class='inactive' id="tremorBut" value="Tremor">Tremor</button>
+              <button class='inactive' id="painBut" value="Pain">Pain</button>
+	   </div>	
+           </div>
+          <div class="ui-block-b" style="width:70%;">
+            <h3 style="margin-top:26%;margin-left:2%;">&#x25c0;&nbsp; Select from the menu of symptoms on the left.</h3>
+       <a data-role="button" style="margin-top:20%" class="nextButton" href="#"></a>
+          </div>
+        </div>
+        <!--grid-a-->
+       
+        <br>DEBUG:
+        <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
+      </div>
+      <!--main content-->
+      <div data-role="footer" data-position="fixed">
+        <h2>&copy; Edinburgh University 2014</h2>
+      </div>
+    </div>
+    <!--............................End of Select............................-->
+
     <div data-role="page" id="numbnessPage" data-theme="d">
       <div data-role="header">
         <h1>Patient Survey; Body</h1>
       </div>
       <div data-role="main" class="ui-content">
         <img src="themes/myImages/NHSlogo.jpg" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
-        <div class="ui-grid-b">
-          <div class="ui-block-a" style="width:23%; margin-left: 40px; margin-right: 10px;">
+        <div class="ui-grid-a">
+          <div class="ui-block-a blockA">
             <h3>In your last attack did you experience:</h3>
+	     <div class="menu">	
             <div class="activeBox">
-              <button class = 'active' id="numbnessBut" value="Numbness" onclick="sensation(this.id)">Numbness</button>
-              <div class="ui-grid-b">
-                <div class="ui-block-a" style="width:50%; padding:4px;">
-                  <label for="numbnessYes">Yes</label>
-                  <input type="radio" name="numbness" id="numbnessYes" value="yes" data-bind="checked:numbness" />
-                </div>
-                <div class="ui-block-b" style="width:50%; padding:4px;">
-                  <label for="numbnessNo">No</label>
-                  <input style="width:70%;" type="radio" name="numbness" id="numbnessNo" value="no" data-bind="checked: numbness" />
-                </div>
-              </div>
-              <!--end of ui-grid-b-->
+              <button class='active' id="numbnessBut" value="Numbness">Numbness</button>
             </div>
-            <button class = 'inactive' id="tinglingBut" value="Tingling" onclick="sensation(this.id)">Tingling</button>
-            <button class = 'inactive' id="weaknessBut" value="Weakness" onclick="sensation(this.id)">Weakness</button>
-            <button class = 'inactive'value="Jerking" onclick="sensation(this.id)">Jerking</button>
-            <button class = 'inactive' id="tremorBut" value="Tremor" onclick="sensation(this.id)">Tremor</button>
-            <button class = 'inactive' id="painBut" value="Pain" onclick="sensation(this.id)">Pain</button>
+            <button class='inactive' id="tinglingBut" value="Tingling">Tingling</button>
+            <button class='inactive' id="weaknessBut" value="Weakness">Weakness</button>
+            <button class='inactive' id="jerkingBut" value="Jerking">Jerking</button>
+            <button class='inactive' id="tremorBut" value="Tremor">Tremor</button>
+            <button class='inactive' id="painBut" value="Pain">Pain</button>
           </div>
-          <div class="ui-block-b" style="width:45%; margin-left: 40px;">
-            <div id="numbnessLoc" data-bind="visible: numbness() == 'yes'">
-              <IMG id="numbnessBody" SRC="themes/myImages/body.png" ALT="Site map" width="481.14" height="500.04" USEMAP="#numbnessbodyMap">
-              <map name="numbnessbodyMap">
-                <area shape="rect" alt="face(R)" coords="447,25,512,146" href="#" data-bind='click: numbnessLocValue' />
-                <area shape="rect" alt="face(L)" coords="388,27,444,145" href="#" data-bind='click: numbnessLocValue' />
-                <area shape="rect" alt="arm(L)" coords="153,167,336,246" href="#" data-bind='click: numbnessLocValue' />
-                <area shape="rect" alt="hand(L)" coords="23,169,131,243" href="#" data-bind='click: numbnessLocValue' />
-                <area shape="rect" alt="arm(R)" coords="560,164,736,251" href="#" data-bind='click: numbnessLocValue' />
-                <area shape="rect" alt="hand(R)" coords="759,165,874,247" href="#" data-bind='click: numbnessLocValue' />
-                <area shape="poly" alt="chest(R)" coords="451,166,452,317,527,314,544,236,508,163" href="#" data-bind='click: numbnessLocValue' />
-                <area shape="poly" alt="chest(L)" coords="441,167,442,318,368,314,353,246,375,168" href="#" data-bind='click: numbnessLocValue' />
-                <area shape="rect" alt="leg(R)" coords="453,517,541,809" href="#" data-bind='click: numbnessLocValue' />
-                <area shape="rect" alt="leg(L)" coords="343,518,438,807" href="#" data-bind='click: numbnessLocValue' />
-                <area shape="rect" alt="foot(R)" coords="460,824,549,902" href="#" data-bind='click: numbnessLocValue' />
-                <area shape="rect" alt="foot(L)" coords="344,822,433,899" href="#" data-bind='click: numbnessLocValue' />
-                <!-- Created by Online Image Map Editor (http://www.maschek.hu/imagemap/index) -->
-              </map>
-            </div>
-          </div>
-          <div id="whichButton">
-            <div class="ui-block-c" style="width:15%;" data-bind="visible: numbness() == 'yes'">
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
-			   <!--........................F.A.C.E................................-->
-              <label class="body" id="faceLabel">
-                <input type="checkbox" id="face" value="face" data-bind="checked: faceButton"/>  
-              </label>
-              <div class="ui-grid-b" data-bind="visible: faceButton()" >
-                <div class="ui-block-a" style="width:50%;">				  
-                  <button class="button" data-role="button" value="L" alt='face(L)' id="Lface" onclick="selectArea(this.id,this.value)" data-bind='click: numbnessLocValue'>L</button> 
-                </div>
-                <div class="ui-block-b" style="width:50%;">
-                  <button class="button" data-role="button" value="R" alt='face(R)' id="Rface" onclick="selectArea(this.id,this.value)" data-bind='click: numbnessLocValue'>R</button>
-                </div>
+	</div>
+          <div class="ui-block-b blockB">
+            <div id="container" style="position:relative;">
+              <div id="instruc">
+                <h4 style="">Touch on the body diagram the location(s) where you felt numb  &#x25b6;</h4>
               </div>
-			  <!--........................A.R.M.................................-->
-			  <label class="body" id="armLabel">
-                <input type="checkbox" id="arm" value="arm" data-bind="checked: armButton" />
-              </label>
-              <div class="ui-grid-b" data-bind="visible: armButton()">
-                <div class="ui-block-a" style="width:50%;">				  
-                  <button class="button" data-role="button" value="L" alt='arm(L)' id="Larm" onclick="selectArea(this.id,this.value)" data-bind='click: numbnessLocValue'>L</button>
-                </div>
-                <div class="ui-block-b" style="width:50%;">
-                  <button class="button" data-role="button" value="R" alt='arm(R)' id="Rarm" onclick="selectArea(this.id, this.value)" data-bind='click: numbnessLocValue'>R</button>
-                </div>
-              </div>
-			  <!--........................H.A.N.D................................-->
-          		  <label class="body" id="handLabel">
-                <input type="checkbox" id="hand" value="hand" data-bind="checked: handButton" />
-              </label>
-              <div class="ui-grid-b" data-bind="visible: handButton()">
-                <div class="ui-block-a" style="width:50%;">				  
-                  <button class="button" data-role="button" value="L" alt='hand(L)' id="Lhand" onclick="selectArea(this.id,this.value)" data-bind='click: numbnessLocValue'>L</button>
-                </div>
-                <div class="ui-block-b" style="width:50%;">
-                  <button class="button" data-role="button" value="R" alt='hand(R)' id="Rhand" onclick="selectArea(this.id, this.value)" data-bind='click: numbnessLocValue'>R</button>
-                </div>
-              </div>
-			  <!--.........................C.H.E.S.T...............................-->
-                <label class="body" id="chestLabel">
-                <input type="checkbox" id="chest" value="chest" data-bind="checked: chestButton" />
-              </label>
-              <div class="ui-grid-b" data-bind="visible: chestButton()">
-                <div class="ui-block-a" style="width:50%;">				  
-                  <button class="button" data-role="button" value="L" alt='chest(L)' id="Lchest" onclick="selectArea(this.id,this.value)" data-bind='click: numbnessLocValue'>L</button>
-                </div>
-                <div class="ui-block-b" style="width:50%;">
-                  <button class="button" data-role="button" value="R" alt='chest(R)' id="Rchest" onclick="selectArea(this.id, this.value)" data-bind='click: numbnessLocValue'>R</button>
-                </div>
-              </div>
-			  <!--..........................L.E.G..............................-->
-                <label class="body" id="legLabel">
-                <input type="checkbox" id="leg" value="leg" data-bind="checked: legButton" />
-              </label>
-              <div class="ui-grid-b" data-bind="visible: legButton()">
-                <div class="ui-block-a" style="width:50%;">				  
-                  <button class="button" data-role="button" value="L" alt='leg(L)' id="Lleg" onclick="selectArea(this.id,this.value)" data-bind='click: numbnessLocValue'>L</button>
-                </div>
-                <div class="ui-block-b" style="width:50%;">
-                  <button class="button" data-role="button" value="R" alt='leg(R)' id="Rleg" onclick="selectArea(this.id, this.value)" data-bind='click: numbnessLocValue'>R</button>
-                </div>
-              </div>
-			  <!--...........................F.O.O.T.............................-->
-               <label class="body" id="footLabel">
-                <input type="checkbox" id="foot" value="foot" data-bind="checked: footButton" />
-              </label>
-              <div class="ui-grid-b" data-bind="visible: footButton()">
-                <div class="ui-block-a" style="width:50%;">				  
-                  <button class="button" data-role="button" value="L" alt='foot(L)' id="Lfoot" onclick="selectArea(this.id,this.value)" data-bind='click: numbnessLocValue'>L</button>
-                </div>
-                <div class="ui-block-b" style="width:50%;">
-                  <button class="button" data-role="button" value="R" alt='foot(R)' id="Rfoot" onclick="selectArea(this.id, this.value)" data-bind='click: numbnessLocValue'>R</button>
-                </div>
-              </div>
-			  <!--........................................................-->
-            </div>
-          </div>
-          <!--grid b-->
-        </div>DEBUG:
+              <!--instruc-->
+              <div class="bodyMap" style="position:absolute;">
+                <IMG id="numbnessBody" SRC="themes/myImages/body.png" ALT="Site map" width="505.197.14" height="525.042" USEMAP="#numbnessbodyMap">
+                <map name="numbnessbodyMap">
+                  <area shape="rect" alt="face(R)" coords="447,25,512,146" href="#" data-bind='click: numbnessLocValue' />
+                  <area shape="rect" alt="face(L)" coords="388,27,444,145" href="#" data-bind='click: numbnessLocValue' />
+                  <area shape="rect" alt="arm(L)" coords="153,167,336,246" href="#" data-bind='click: numbnessLocValue' />
+                  <area shape="rect" alt="hand(L)" coords="23,169,131,243" href="#" data-bind='click: numbnessLocValue' />
+                  <area shape="rect" alt="arm(R)" coords="560,164,736,251" href="#" data-bind='click: numbnessLocValue' />
+                  <area shape="rect" alt="hand(R)" coords="759,165,874,247" href="#" data-bind='click: numbnessLocValue' />
+                  <area shape="poly" alt="chest(R)" coords="451,166,452,317,527,314,544,236,508,163" href="#" data-bind='click: numbnessLocValue' />
+                  <area shape="poly" alt="chest(L)" coords="441,167,442,318,368,314,353,246,375,168" href="#" data-bind='click: numbnessLocValue' />
+                  <area shape="rect" alt="leg(R)" coords="453,517,541,809" href="#" data-bind='click: numbnessLocValue' />
+                  <area shape="rect" alt="leg(L)" coords="343,518,438,807" href="#" data-bind='click: numbnessLocValue' />
+                  <area shape="rect" alt="foot(R)" coords="460,824,549,902" href="#" data-bind='click: numbnessLocValue' />
+                  <area shape="rect" alt="foot(L)" coords="344,822,433,899" href="#" data-bind='click: numbnessLocValue' />
+                  <!-- Created by Online Image Map Editor (http://www.maschek.hu/imagemap/index) -->
+                </map>
+              </div> <!--bodyMap-->
+            </div> <!--container-->
+	    <a data-role="button" style="margin-top:48%" class="nextButton" href="#"></a>  
+          </div> <!--block-b-->
+        </div><!--grid a-->
+  
+ DEBUG:
         <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
-        <a data-role="button" id="nextButton" href="#" onclick="nextPage()"></a>
       </div>
       <!--main content-->
       <div data-role="footer" data-position="fixed">
@@ -174,142 +124,58 @@
       </div>
     </div>
     <!--............................End of NumbnessPage............................-->
-	 <div data-role="page" id="tinglingPage" data-theme="d">
+
+<div data-role="page" id="tinglingPage" data-theme="d">
       <div data-role="header">
         <h1>Patient Survey; Body</h1>
       </div>
       <div data-role="main" class="ui-content">
         <img src="themes/myImages/NHSlogo.jpg" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
-        <div class="ui-grid-b">
-          <div class="ui-block-a" style="width:23%; margin-left: 40px; margin-right: 10px;">
+        <div class="ui-grid-a">
+          <div class="ui-block-a blockA">
             <h3>In your last attack did you experience:</h3>
-			 <button class = 'inactive' id="numbnessBut" value="Numbness" onclick="sensation(this.id)">Numbness</button>
+	     <div class="menu">	       
+              <button class='inactive' id="numbnessBut" value="numbness">Numbness</button>
             <div class="activeBox">
-              <button class = 'active' id="tinglingBut" value="Tingling" onclick="sensation(this.id)">tingling</button>
-              <div class="ui-grid-b">
-                <div class="ui-block-a" style="width:50%; padding:4px;">
-                  <label for="tinglingYes">Yes</label>
-                  <input type="radio" name="tingling" id="tinglingYes" value="yes" data-bind="checked:tingling" />
-                </div>
-                <div class="ui-block-b" style="width:50%; padding:4px;">
-                  <label for="tinglingNo">No</label>
-                  <input style="width:70%;" type="radio" name="tingling" id="tinglingNo" value="no" data-bind="checked: tingling" />
-                </div>
-              </div>
-              <!--end of ui-grid-b-->
-            </div>
-            <button class = 'inactive' id="weaknessBut" value="Weakness" onclick="sensation(this.id)">Weakness</button>
-            <button class = 'inactive'value="Jerking" onclick="sensation(this.id)">Jerking</button>
-            <button class = 'inactive' id="tremorBut" value="Tremor" onclick="sensation(this.id)">Tremor</button>
-            <button class = 'inactive' id="painBut" value="Pain" onclick="sensation(this.id)">Pain</button>
+            <button class='active' id="tinglingBut" value="Tingling">Tingling</button>
+	   </div>
+            <button class='inactive' id="weaknessBut" value="Weakness">Weakness</button>
+            <button class='inactive' id="jerkingBut" value="Jerking">Jerking</button>
+            <button class='inactive' id="tremorBut" value="Tremor">Tremor</button>
+            <button class='inactive' id="painBut" value="Pain">Pain</button>
           </div>
-          <div class="ui-block-b" style="width:45%; margin-left: 40px;">
-            <div id="tinglingLoc" data-bind="visible: tingling() == 'yes'">
-              <IMG id="tinglingBody" SRC="themes/myImages/body.png" ALT="Site map" width="481.14" height="500.04" USEMAP="#tinglingbodyMap">
-              <map name="tinglingbodyMap">
-                <area shape="rect" alt="face(R)" coords="447,25,512,146" href="#" data-bind='click: tinglingLocValue' />
-                <area shape="rect" alt="face(L)" coords="388,27,444,145" href="#" data-bind='click: tinglingLocValue' />
-                <area shape="rect" alt="arm(L)" coords="153,167,336,246" href="#" data-bind='click: tinglingLocValue' />
-                <area shape="rect" alt="hand(L)" coords="23,169,131,243" href="#" data-bind='click: tinglingLocValue' />
-                <area shape="rect" alt="arm(R)" coords="560,164,736,251" href="#" data-bind='click: tinglingLocValue' />
-                <area shape="rect" alt="hand(R)" coords="759,165,874,247" href="#" data-bind='click: tinglingLocValue' />
-                <area shape="poly" alt="chest(R)" coords="451,166,452,317,527,314,544,236,508,163" href="#" data-bind='click: tinglingLocValue' />
-                <area shape="poly" alt="chest(L)" coords="441,167,442,318,368,314,353,246,375,168" href="#" data-bind='click: tinglingLocValue' />
-                <area shape="rect" alt="leg(R)" coords="453,517,541,809" href="#" data-bind='click: tinglingLocValue' />
-                <area shape="rect" alt="leg(L)" coords="343,518,438,807" href="#" data-bind='click: tinglingLocValue' />
-                <area shape="rect" alt="foot(R)" coords="460,824,549,902" href="#" data-bind='click: tinglingLocValue' />
-                <area shape="rect" alt="foot(L)" coords="344,822,433,899" href="#" data-bind='click: tinglingLocValue' />
-                <!-- Created by Online Image Map Editor (http://www.maschek.hu/imagemap/index) -->
-              </map>
-            </div>
-          </div>
-          <div id="whichButton">
-            <div class="ui-block-c" style="width:15%;" data-bind="visible: tingling() == 'yes'">
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
-       
-			   <!--........................F.A.C.E................................-->
-              <label class="body" id="faceLabel">
-                <input type="checkbox" id="face" value="face" data-bind="checked: faceButton" /> 
-              </label>
-              <div class="ui-grid-b" data-bind="visible: faceButton()" >
-                <div class="ui-block-a" style="width:50%;">				  
-                  <button class="button" data-role="button" value="L" alt='face(L)' id="Lface" onclick="selectArea(this.id,this.value)" data-bind='click: tinglingLocValue'>L</button>
-                </div>
-                <div class="ui-block-b" style="width:50%;">
-                  <button class="button" data-role="button" value="R" alt='face(R)' id="Rface" onclick="selectArea(this.id,this.value)" data-bind='click: tinglingLocValue'>R</button>
-                </div>
+	</div>
+          <div class="ui-block-b blockB">
+            <div id="container" style="position:relative;">
+              <div id="instruc">
+                <h4 style="">Touch on the body diagram the location(s) where you felt tingly  &#x25b6;</h4>
               </div>
-			  <!--........................A.R.M.................................-->
-			  <label class="body" id="armLabel">
-                <input type="checkbox" id="arm" value="arm" data-bind="checked: armButton" />
-              </label>
-              <div class="ui-grid-b" data-bind="visible: armButton()">
-                <div class="ui-block-a" style="width:50%;">				  
-                  <button class="button" data-role="button" value="L" alt='arm(L)' id="Larm" onclick="selectArea(this.id,this.value)" data-bind='click: tinglingLocValue'>L</button>
-                </div>
-                <div class="ui-block-b" style="width:50%;">
-                  <button class="button" data-role="button" value="R" alt='arm(R)' id="Rarm" onclick="selectArea(this.id, this.value)" data-bind='click: tinglingLocValue'>R</button>
-                </div>
-              </div>
-			  <!--........................H.A.N.D................................-->
-          		  <label class="body" id="handLabel">
-                <input type="checkbox" id="hand" value="hand" data-bind="checked: handButton" />
-              </label>
-              <div class="ui-grid-b" data-bind="visible: handButton()">
-                <div class="ui-block-a" style="width:50%;">				  
-                  <button class="button" data-role="button" value="L" alt='hand(L)' id="Lhand" onclick="selectArea(this.id,this.value)" data-bind='click: tinglingLocValue'>L</button>
-                </div>
-                <div class="ui-block-b" style="width:50%;">
-                  <button class="button" data-role="button" value="R" alt='hand(R)' id="Rhand" onclick="selectArea(this.id, this.value)" data-bind='click: tinglingLocValue'>R</button>
-                </div>
-              </div>
-			  <!--.........................C.H.E.S.T...............................-->
-                <label class="body" id="chestLabel">
-                <input type="checkbox" id="chest" value="chest" data-bind="checked: chestButton" />
-              </label>
-              <div class="ui-grid-b" data-bind="visible: chestButton()">
-                <div class="ui-block-a" style="width:50%;">				  
-                  <button class="button" data-role="button" value="L" alt='chest(L)' id="Lchest" onclick="selectArea(this.id,this.value)" data-bind='click: tinglingLocValue'>L</button>
-                </div>
-                <div class="ui-block-b" style="width:50%;">
-                  <button class="button" data-role="button" value="R" alt='chest(R)' id="Rchest" onclick="selectArea(this.id, this.value)" data-bind='click: tinglingLocValue'>R</button>
-                </div>
-              </div>
-			  <!--..........................L.E.G..............................-->
-                <label class="body" id="legLabel">
-                <input type="checkbox" id="leg" value="leg" data-bind="checked: legButton" />
-              </label>
-              <div class="ui-grid-b" data-bind="visible: legButton()">
-                <div class="ui-block-a" style="width:50%;">				  
-                  <button class="button" data-role="button" value="L" alt='leg(L)' id="Lleg" onclick="selectArea(this.id,this.value)" data-bind='click: tinglingLocValue'>L</button>
-                </div>
-                <div class="ui-block-b" style="width:50%;">
-                  <button class="button" data-role="button" value="R" alt='leg(R)' id="Rleg" onclick="selectArea(this.id, this.value)" data-bind='click: tinglingLocValue'>R</button>
-                </div>
-              </div>
-			  <!--...........................F.O.O.T.............................-->
-               <label class="body" id="footLabel">
-                <input type="checkbox" id="foot" value="foot" data-bind="checked: footButton" />
-              </label>
-              <div class="ui-grid-b" data-bind="visible: footButton()">
-                <div class="ui-block-a" style="width:50%;">				  
-                  <button class="button" data-role="button" value="L" alt='foot(L)' id="Lfoot" onclick="selectArea(this.id,this.value)" data-bind='click: tinglingLocValue'>L</button>
-                </div>
-                <div class="ui-block-b" style="width:50%;">
-                  <button class="button" data-role="button" value="R" alt='foot(R)' id="Rfoot" onclick="selectArea(this.id, this.value)" data-bind='click: tinglingLocValue'>R</button>
-                </div>
-              </div>
-			  <!--........................................................-->
-            </div>
-          </div>
-          <!--grid b-->
-        </div>DEBUG:
+              <!--instruc-->
+              <div class="bodyMap" style="position:absolute;">
+                <IMG id="tinglingBody" SRC="themes/myImages/body.png" ALT="Site map" width="505.197.14" height="525.042" USEMAP="#tinglingbodyMap">
+                <map name="tinglingbodyMap">
+                  <area shape="rect" alt="face(R)" coords="447,25,512,146" href="#" data-bind='click: tinglingLocValue' />
+                  <area shape="rect" alt="face(L)" coords="388,27,444,145" href="#" data-bind='click: tinglingLocValue' />
+                  <area shape="rect" alt="arm(L)" coords="153,167,336,246" href="#" data-bind='click: tinglingLocValue' />
+                  <area shape="rect" alt="hand(L)" coords="23,169,131,243" href="#" data-bind='click: tinglingLocValue' />
+                  <area shape="rect" alt="arm(R)" coords="560,164,736,251" href="#" data-bind='click: tinglingLocValue' />
+                  <area shape="rect" alt="hand(R)" coords="759,165,874,247" href="#" data-bind='click: tinglingLocValue' />
+                  <area shape="poly" alt="chest(R)" coords="451,166,452,317,527,314,544,236,508,163" href="#" data-bind='click: tinglingLocValue' />
+                  <area shape="poly" alt="chest(L)" coords="441,167,442,318,368,314,353,246,375,168" href="#" data-bind='click: tinglingLocValue' />
+                  <area shape="rect" alt="leg(R)" coords="453,517,541,809" href="#" data-bind='click: tinglingLocValue' />
+                  <area shape="rect" alt="leg(L)" coords="343,518,438,807" href="#" data-bind='click: tinglingLocValue' />
+                  <area shape="rect" alt="foot(R)" coords="460,824,549,902" href="#" data-bind='click: tinglingLocValue' />
+                  <area shape="rect" alt="foot(L)" coords="344,822,433,899" href="#" data-bind='click: tinglingLocValue' />
+                  <!-- Created by Online Image Map Editor (http://www.maschek.hu/imagemap/index) -->
+                </map>
+              </div> <!--bodyMap-->
+            </div> <!--container-->
+	    <a data-role="button" style="margin-top:48%" class="nextButton" href="#"></a>  
+          </div> <!--block-b-->
+        </div><!--grid a-->
+  
+ DEBUG:
         <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
-        <a data-role="button" id="nextButton" href="#" onclick="nextPage()"></a>
       </div>
       <!--main content-->
       <div data-role="footer" data-position="fixed">
@@ -318,102 +184,274 @@
     </div>
     <!--............................End of tinglingPage............................-->
 
-	
+<div data-role="page" id="weaknessPage" data-theme="d">
+      <div data-role="header">
+        <h1>Patient Survey; Body</h1>
+      </div>
+      <div data-role="main" class="ui-content">
+        <img src="themes/myImages/NHSlogo.jpg" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
+        <div class="ui-grid-a">
+          <div class="ui-block-a blockA">
+            <h3>In your last attack did you experience:</h3>
+	     <div class="menu">	       
+              <button class='inactive' id="numbnessBut" value="numbness">Numbness</button>
+	    <button class='inactive' id="tinglingBut" value="Tingling">Tingling</button>
+            <div class="activeBox">
+            <button class='active' id="weaknessBut" value="weakness">Weakness</button>
+	   </div>
+            <button class='inactive' id="jerkingBut" value="Jerking">Jerking</button>
+            <button class='inactive' id="tremorBut" value="Tremor">Tremor</button>
+            <button class='inactive' id="painBut" value="Pain">Pain</button>
+          </div>
+	</div>
+          <div class="ui-block-b blockB">
+            <div id="container" style="position:relative;">
+              <div id="instruc">
+                <h4 style="">Touch on the body diagram the location(s) where you felt weak  &#x25b6;</h4>
+              </div>
+              <!--instruc-->
+              <div class="bodyMap" style="position:absolute;">
+                <IMG id="weaknessBody" SRC="themes/myImages/body.png" ALT="Site map" width="505.197.14" height="525.042" USEMAP="#weaknessbodyMap">
+                <map name="weaknessbodyMap">
+                  <area shape="rect" alt="face(R)" coords="447,25,512,146" href="#" data-bind='click: weaknessLocValue' />
+                  <area shape="rect" alt="face(L)" coords="388,27,444,145" href="#" data-bind='click: weaknessLocValue' />
+                  <area shape="rect" alt="arm(L)" coords="153,167,336,246" href="#" data-bind='click: weaknessLocValue' />
+                  <area shape="rect" alt="hand(L)" coords="23,169,131,243" href="#" data-bind='click: weaknessLocValue' />
+                  <area shape="rect" alt="arm(R)" coords="560,164,736,251" href="#" data-bind='click: weaknessLocValue' />
+                  <area shape="rect" alt="hand(R)" coords="759,165,874,247" href="#" data-bind='click: weaknessLocValue' />
+                  <area shape="poly" alt="chest(R)" coords="451,166,452,317,527,314,544,236,508,163" href="#" data-bind='click: weaknessLocValue' />
+                  <area shape="poly" alt="chest(L)" coords="441,167,442,318,368,314,353,246,375,168" href="#" data-bind='click: weaknessLocValue' />
+                  <area shape="rect" alt="leg(R)" coords="453,517,541,809" href="#" data-bind='click: weaknessLocValue' />
+                  <area shape="rect" alt="leg(L)" coords="343,518,438,807" href="#" data-bind='click: weaknessLocValue' />
+                  <area shape="rect" alt="foot(R)" coords="460,824,549,902" href="#" data-bind='click: weaknessLocValue' />
+                  <area shape="rect" alt="foot(L)" coords="344,822,433,899" href="#" data-bind='click: weaknessLocValue' />
+                  <!-- Created by Online Image Map Editor (http://www.maschek.hu/imagemap/index) -->
+                </map>
+              </div> <!--bodyMap-->
+            </div> <!--container-->
+	    <a data-role="button" style="margin-top:48%" class="nextButton" href="#"></a>  
+          </div> <!--block-b-->
+        </div><!--grid a-->
+  
+ DEBUG:
+        <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
+      </div>
+      <!--main content-->
+      <div data-role="footer" data-position="fixed">
+        <h2>&copy; Edinburgh University 2014</h2>
+      </div>
+    </div>
+    <!--............................End of weaknessPage............................-->
+
+<div data-role="page" id="jerkingPage" data-theme="d">
+      <div data-role="header">
+        <h1>Patient Survey; Body</h1>
+      </div>
+      <div data-role="main" class="ui-content">
+        <img src="themes/myImages/NHSlogo.jpg" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
+        <div class="ui-grid-a">
+          <div class="ui-block-a blockA">
+            <h3>In your last attack did you experience:</h3>
+	     <div class="menu">	       
+              <button class='inactive' id="numbnessBut" value="numbness">Numbness</button>
+	    <button class='inactive' id="tinglingBut" value="Tingling">Tingling</button>
+            <button class='inactive' id="weaknessBut" value="wWeakness">Weakness</button>
+            <div class="activeBox">
+            <button class='active' id="jerkingBut" value="Jerking">Jerking</button>
+	   </div>
+            <button class='inactive' id="tremorBut" value="Tremor">Tremor</button>
+            <button class='inactive' id="painBut" value="Pain">Pain</button>
+          </div>
+	</div>
+          <div class="ui-block-b blockB">
+            <div id="container" style="position:relative;">
+              <div id="instruc">
+                <h4 style="">Touch on the body diagram the location(s) where you felt jerking  &#x25b6;</h4>
+              </div>
+              <!--instruc-->
+              <div class="bodyMap" style="position:absolute;">
+                <IMG id="jerkingBody" SRC="themes/myImages/body.png" ALT="Site map" width="505.197.14" height="525.042" USEMAP="#jerkingbodyMap">
+                <map name="jerkingbodyMap">
+                  <area shape="rect" alt="face(R)" coords="447,25,512,146" href="#" data-bind='click: jerkingLocValue' />
+                  <area shape="rect" alt="face(L)" coords="388,27,444,145" href="#" data-bind='click: jerkingLocValue' />
+                  <area shape="rect" alt="arm(L)" coords="153,167,336,246" href="#" data-bind='click: jerkingLocValue' />
+                  <area shape="rect" alt="hand(L)" coords="23,169,131,243" href="#" data-bind='click: jerkingLocValue' />
+                  <area shape="rect" alt="arm(R)" coords="560,164,736,251" href="#" data-bind='click: jerkingLocValue' />
+                  <area shape="rect" alt="hand(R)" coords="759,165,874,247" href="#" data-bind='click: jerkingLocValue' />
+                  <area shape="poly" alt="chest(R)" coords="451,166,452,317,527,314,544,236,508,163" href="#" data-bind='click: jerkingLocValue' />
+                  <area shape="poly" alt="chest(L)" coords="441,167,442,318,368,314,353,246,375,168" href="#" data-bind='click: jerkingLocValue' />
+                  <area shape="rect" alt="leg(R)" coords="453,517,541,809" href="#" data-bind='click: jerkingLocValue' />
+                  <area shape="rect" alt="leg(L)" coords="343,518,438,807" href="#" data-bind='click: jerkingLocValue' />
+                  <area shape="rect" alt="foot(R)" coords="460,824,549,902" href="#" data-bind='click: jerkingLocValue' />
+                  <area shape="rect" alt="foot(L)" coords="344,822,433,899" href="#" data-bind='click: jerkingLocValue' />
+                  <!-- Created by Online Image Map Editor (http://www.maschek.hu/imagemap/index) -->
+                </map>
+              </div> <!--bodyMap-->
+            </div> <!--container-->
+	    <a data-role="button" style="margin-top:48%" class="nextButton" href="#"></a>  
+          </div> <!--block-b-->
+        </div><!--grid a-->
+  
+ DEBUG:
+        <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
+      </div>
+      <!--main content-->
+      <div data-role="footer" data-position="fixed">
+        <h2>&copy; Edinburgh University 2014</h2>
+      </div>
+    </div>
+    <!--............................End of jerkingPage............................-->
+
+<div data-role="page" id="tremorPage" data-theme="d">
+      <div data-role="header">
+        <h1>Patient Survey; Body</h1>
+      </div>
+      <div data-role="main" class="ui-content">
+        <img src="themes/myImages/NHSlogo.jpg" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
+        <div class="ui-grid-a">
+          <div class="ui-block-a blockA">
+            <h3>In your last attack did you experience:</h3>
+	     <div class="menu">	       
+              <button class='inactive' id="numbnessBut" value="numbness">Numbness</button>
+	    <button class='inactive' id="tinglingBut" value="Tingling">Tingling</button>
+            <button class='inactive' id="weaknessBut" value="Weakness">Weakness</button>
+            <button class='inactive' id="jerkingBut" value="Jerking">Jerking</button>
+            <div class="activeBox">
+            <button class='active' id="tremorBut" value="Tremor">Tremor</button>
+	   </div>
+            <button class='inactive' id="painBut" value="Pain">Pain</button>
+          </div>
+	</div>
+          <div class="ui-block-b blockB">
+            <div id="container" style="position:relative;">
+              <div id="instruc">
+                <h4 style="">Touch on the body diagram the location(s) where you felt weak  &#x25b6;</h4>
+              </div>
+              <!--instruc-->
+              <div class="bodyMap" style="position:absolute;">
+                <IMG id="tremorBody" SRC="themes/myImages/body.png" ALT="Site map" width="505.197.14" height="525.042" USEMAP="#tremorbodyMap">
+                <map name="tremorbodyMap">
+                  <area shape="rect" alt="face(R)" coords="447,25,512,146" href="#" data-bind='click: tremorLocValue' />
+                  <area shape="rect" alt="face(L)" coords="388,27,444,145" href="#" data-bind='click: tremorLocValue' />
+                  <area shape="rect" alt="arm(L)" coords="153,167,336,246" href="#" data-bind='click: tremorLocValue' />
+                  <area shape="rect" alt="hand(L)" coords="23,169,131,243" href="#" data-bind='click: tremorLocValue' />
+                  <area shape="rect" alt="arm(R)" coords="560,164,736,251" href="#" data-bind='click: tremorLocValue' />
+                  <area shape="rect" alt="hand(R)" coords="759,165,874,247" href="#" data-bind='click: tremorLocValue' />
+                  <area shape="poly" alt="chest(R)" coords="451,166,452,317,527,314,544,236,508,163" href="#" data-bind='click: tremorLocValue' />
+                  <area shape="poly" alt="chest(L)" coords="441,167,442,318,368,314,353,246,375,168" href="#" data-bind='click: tremorLocValue' />
+                  <area shape="rect" alt="leg(R)" coords="453,517,541,809" href="#" data-bind='click: tremorLocValue' />
+                  <area shape="rect" alt="leg(L)" coords="343,518,438,807" href="#" data-bind='click: tremorLocValue' />
+                  <area shape="rect" alt="foot(R)" coords="460,824,549,902" href="#" data-bind='click: tremorLocValue' />
+                  <area shape="rect" alt="foot(L)" coords="344,822,433,899" href="#" data-bind='click: tremorLocValue' />
+                  <!-- Created by Online Image Map Editor (http://www.maschek.hu/imagemap/index) -->
+                </map>
+              </div> <!--bodyMap-->
+            </div> <!--container-->
+	    <a data-role="button" style="margin-top:48%" class="nextButton" href="#"></a>  
+          </div> <!--block-b-->
+        </div><!--grid a-->
+  
+ DEBUG:
+        <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
+      </div>
+      <!--main content-->
+      <div data-role="footer" data-position="fixed">
+        <h2>&copy; Edinburgh University 2014</h2>
+      </div>
+    </div>
+    <!--............................End of tremorPage............................-->
+
+<div data-role="page" id="painPage" data-theme="d">
+      <div data-role="header">
+        <h1>Patient Survey; Body</h1>
+      </div>
+      <div data-role="main" class="ui-content">
+        <img src="themes/myImages/NHSlogo.jpg" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
+        <div class="ui-grid-a">
+          <div class="ui-block-a blockA">
+            <h3>In your last attack did you experience:</h3>
+	     <div class="menu">	       
+              <button class='inactive' id="numbnessBut" value="numbness">Numbness</button>
+	    <button class='inactive' id="tinglingBut" value="Tingling">Tingling</button>
+            <button class='inactive' id="weaknessBut" value="wWeakness">Weakness</button>
+            <button class='inactive' id="jerkingBut" value="Jerking">Jerking</button>
+            <button class='inactive' id="tremorBut" value="Tremor">Tremor</button>
+            <div class="activeBox">
+            <button class='active' id="painBut" value="Pain">Pain</button>
+	   </div>
+          </div>
+	</div>
+          <div class="ui-block-b blockB">
+            <div id="container" style="position:relative;">
+              <div id="instruc">
+                <h4 style="">Touch on the body diagram the location(s) where you felt weak  &#x25b6;</h4>
+              </div>
+              <!--instruc-->
+              <div class="bodyMap" style="position:absolute;">
+                <IMG id="painBody" SRC="themes/myImages/body.png" ALT="Site map" width="505.197.14" height="525.042" USEMAP="#painbodyMap">
+                <map name="painbodyMap">
+                  <area shape="rect" alt="face(R)" coords="447,25,512,146" href="#" data-bind='click: painLocValue' />
+                  <area shape="rect" alt="face(L)" coords="388,27,444,145" href="#" data-bind='click: painLocValue' />
+                  <area shape="rect" alt="arm(L)" coords="153,167,336,246" href="#" data-bind='click: painLocValue' />
+                  <area shape="rect" alt="hand(L)" coords="23,169,131,243" href="#" data-bind='click: painLocValue' />
+                  <area shape="rect" alt="arm(R)" coords="560,164,736,251" href="#" data-bind='click: painLocValue' />
+                  <area shape="rect" alt="hand(R)" coords="759,165,874,247" href="#" data-bind='click: painLocValue' />
+                  <area shape="poly" alt="chest(R)" coords="451,166,452,317,527,314,544,236,508,163" href="#" data-bind='click: painLocValue' />
+                  <area shape="poly" alt="chest(L)" coords="441,167,442,318,368,314,353,246,375,168" href="#" data-bind='click: painLocValue' />
+                  <area shape="rect" alt="leg(R)" coords="453,517,541,809" href="#" data-bind='click: painLocValue' />
+                  <area shape="rect" alt="leg(L)" coords="343,518,438,807" href="#" data-bind='click: painLocValue' />
+                  <area shape="rect" alt="foot(R)" coords="460,824,549,902" href="#" data-bind='click: painLocValue' />
+                  <area shape="rect" alt="foot(L)" coords="344,822,433,899" href="#" data-bind='click: painLocValue' />
+                  <!-- Created by Online Image Map Editor (http://www.maschek.hu/imagemap/index) -->
+                </map>
+              </div> <!--bodyMap-->
+            </div> <!--container-->
+	    <a data-role="button" style="margin-top:48%" class="nextButton" href="#"></a>  
+          </div> <!--block-b-->
+        </div><!--grid a-->
+  
+ DEBUG:
+        <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
+      </div>
+      <!--main content-->
+      <div data-role="footer" data-position="fixed">
+        <h2>&copy; Edinburgh University 2014</h2>
+      </div>
+    </div>
+    <!--............................End of painPage............................-->
+
     <script type='text/javascript'>
       var viewModel = {
-        numbness: ko.observable(),
         numbnessLoc: ko.observableArray(),
         numbnessLocValue: function(data, element) {
           this.numbnessLoc.push($(element.target).attr('alt'));
         },
-        tingling: ko.observable(),
         tinglingLoc: ko.observableArray(),
         tinglingLocValue: function(data, element) {
           this.tinglingLoc.push($(element.target).attr('alt'));
         },
-        weakness: ko.observable(false),
         weaknessLoc: ko.observableArray(),
         weaknessLocValue: function(data, element) {
           this.weaknessLoc.push($(element.target).attr('alt'));
         },
-        jerking: ko.observable(false),
-        faceButton: ko.observable(),		
-		armButton: ko.observable(),
-		handButton: ko.observable(),
-		chestButton: ko.observable(),
-		legButton: ko.observable(),
-		footButton: ko.observable(),
+        jerkingLoc: ko.observableArray(),
+        jerkingLocValue: function(data, element) {
+          this.jerkingLoc.push($(element.target).attr('alt'));
+        },
+        tremorLoc: ko.observableArray(),
+        tremorLocValue: function(data, element) {
+          this.tremorLoc.push($(element.target).attr('alt'));
+        },
+       painLoc: ko.observableArray(),
+        painLocValue: function(data, element) {
+          this.painLoc.push($(element.target).attr('alt'));
+        },
       };
       ko.applyBindings(viewModel);
-      viewModel.numbness.subscribe(function(data) {
-        if (data == 'no') {
-		 nextPage();
-        }
-      })
-	  viewModel.tingling.subscribe(function(data) {
-        if (data == 'no') {
-          nextPage();
-        }
-      })
-       // viewModel.whichButton.subscribe(function(data){if(data=false){alert(viewModel.numbnessLoc());}})	
-      // viewModel.numbnessLoc.subscribe(function(arrayData) {
-        //var select;
-        //var item;
-        //for (i = 0;  i < arrayData.length; i++) 
-        //{
-        //item = arrayData(0);
-        //select  = $("#numbnessBody").mapster("get", item);
-        //alert(arrayData + "is selected " );
-        /*if(select==false)
-					{ 
-						var index = arrayData.indexOf(item);					
-						
-						arrayData.splice(index, 1);
-					} */
-        //}
-     // });
 
-
-      $(document).ready(function() {
-        var toggle='true';
-	
-
-	 
-	  
-		function deselectViaButton(value){
-			if (data == false) {			
-				if(toggle=='true') {
-					removeHighlight(value);				
-					deselectArea(value+"(R)");
-					deselectArea(value+"(L)");		
-				}						
-			 }
-		}
-        viewModel.faceButton.subscribe(function(data) {
-          deselectViaButton(data, 'face')	 
-        });
-		
-		viewModel.armButton.subscribe(function(data) {
-          deselectViaButton(data, 'arm')	 
-        });
-		
-		viewModel.handButton.subscribe(function(data) {
-          deselectViaButton(data, 'hand')	 
-        });
-		
-		viewModel.chestButton.subscribe(function(data) {
-          deselectViaButton(data, 'chest')	 
-        });
-		
-		viewModel.legButton.subscribe(function(data) {
-          deselectViaButton(data, 'leg')	 
-        });
-		
-		viewModel.footButton.subscribe(function(data) {
-          deselectViaButton(data, 'foot')	 
-        });
-		
-        $("#numbnessBody,#tinglingBody,#weaknessBody").mapster({
+       $(document).ready(function() {
+      
+        $("#numbnessBody,#tinglingBody,#weaknessBody,#jerkingBody,#tremorBody,#painBody").mapster({
           singleSelect: false,
           mapKey: 'alt',
           fill: false,
@@ -460,169 +498,69 @@
           onClick: function(event) {
             var array = event.key.split("(");
             var name = array[0];
-	
             if (event['selected'] == true) {
-				
-			    highlight(name);             
-             
-			  $('#' + name).prop("checked", false); //when deselecting via img map need to programmatically uncheck checkbox
-              $('#' + name).click(); 
-			 /* $('.' + name, $.mobile.activePage).prop("checked", false);
-               $('.' + name, $.mobile.activePage).click();*/ //fires a click event, turning the checkbox from false to true.	
-         
+       
             } else {
-				
-				toggle=false;			 
-				newArray=removeFromKO(event.key); //update ko to exclude the deslected body part
-				viewModel.numbnessLoc(newArray); //update ko with new array
-				removeHighlight(name);
-			    //removeHighlightConditionally(name);
-			  $('#' + name).prop("checked", true); //when deselecting via img map need to programmatically uncheck checkbox
-              $('#' + name).click(); 
-			 /* $('.' + name, $.mobile.activePage).prop("checked", true); //when deselecting via img map need to programmatically uncheck checkbox
-              $('.' + name, $.mobile.activePage).click(); *///fires a click event, turning the checkbox from true to false, subscribe function is activated.
-             toggle='true';
-			   
+             
+              newArray = removeFromKO(event.key); //update ko to exclude the deslected body part
+              viewModel.numbnessLoc(newArray); //update ko with new array
+           
+  
+              
             }
           }
         }); //mapster
-		
-
-		
-		//remove highlighting around bodyPart button only if both Left & Right bodyparts are deselected 
-		/*function removeHighlightConditionally(name)
-		{
-			var alt = name+"("+ array[1];
-			var otherAlt;
-			var LinArray;
-			var RinArray;
-			var newArray;
-		
-		    if(alt==name+'(L)'))
-			{
-				 
-				 otherAlt = name+'(R)';
-				 LinArray = $.inArray(otherAlt, viewModel.numbnessLoc());
-				 if(LinArray==-1)
-					{
-						 removeHighlight(name);
-					}
-					
-			}else if(alt==name+'(R)'){
-				
-
-				otherAlt = name+'(L)';
-				 RinArray = $.inArray(otherAlt, viewModel.numbnessLoc());
-				 if(RinArray==-1)
-					{
-						 removeHighlight(name);
-					}
-			 }
-		}*/
-		
-        function removeHighlight(name) {
-          $("#" + name + "Label").css("-moz-box-shadow", "none");
-          $("#" + name + "Label").css("box-shadow", "none");
-          $("#" + name + "Label").css("-webkit-box-shadow", "none");
-		  
-		   /* $("." + name + "Label", $.mobile.activePage).css("-moz-box-shadow", "none");
-          $("." + name + "Label", $.mobile.activePage).css("box-shadow", "none");
-          $("." + name + "Label", $.mobile.activePage).css("-webkit-box-shadow", "none");*/
-        }
-		
-		function removeFromKO(alt)
-		{
-				 var newArray;
-				
-				 position = $.inArray(alt, viewModel.numbnessLoc());
-
-				if ( ~position ) {newArray = viewModel.numbnessLoc().splice(position, 1);}
-				
-				return newArray;
-		}
-		
-      }); //document ready
-	  
-	    function highlight(name) {
         
-			var shadowProp;
-   
-		  switch (name) {
-          case "face":
-           shadowProp = "0px 0px 10px 4px rgba(184, 0, 184, 0.75)";
+
+        function removeFromKO(alt) {
+          var newArray;
+          position = $.inArray(alt, viewModel.numbnessLoc());
+          if (~position) {
+            newArray = viewModel.numbnessLoc().splice(position, 1);
+          }
+          return newArray;
+        }
+        $("button").on('click', function() {
+          if (this.id == 'nextButton') {
+	alert('derpina');
+           nextPage();
+          } else {
+            sensation(this.id);
+          }
+        });
+$(".nextButton").on('click', nextPage);
+      }); //document ready
+     
+
+
+      function sensation(id) {
+        switch (id) {
+          case "numbnessBut":
+            $.mobile.changePage("#numbnessPage");
             break;
-          case "arm":
-            shadowProp = "0px 0px 10px 4px rgba(92, 0, 184, 0.75)";
+          case "tinglingBut":
+            $.mobile.changePage("#tinglingPage");
             break;
-          case "hand":
-            shadowProp = "0px 0px 10px 4px rgba(0, 153, 255, 0.75)";
+          case "weaknessBut":
+            $.mobile.changePage("#weaknessPage");
             break;
-          case "chest":
-            shadowProp = "0px 0px 10px 4px rgba(255, 117, 25, 0.75";
+          case "jerkingBut":
+            $.mobile.changePage("#jerkingPage");
             break;
-          case "leg":
-            shadowProp = "0px 0px 10px 4px rgba(255, 0, 0, 0.75)";
+          case "tremorBut":
+            $.mobile.changePage("#tremorPage");
             break;
-          case "foot":
-            shadowProp = "0px 0px 10px 4px rgba(0, 102, 0, 0.75)";
+          case "painBut":
+            $.mobile.changePage("#painPage");
             break;
           default:
             break;
         }
-		
-		$("#" + name + "Label").css("-moz-box-shadow", shadowProp);
-         $("#" + name + "Label").css("box-shadow", shadowProp);
-         $("#" + name + "Label").css("-webkit-box-shadow", shadowProp);
-		
-		/* $("." + name + "Label", $.mobile.activePage).css("-moz-box-shadow", shadowProp);
-         $("." + name + "Label", $.mobile.activePage).css("box-shadow", shadowProp);
-         $("." + name + "Label", $.mobile.activePage).css("-webkit-box-shadow", shadowProp);*/
       }
-
-      function deselectArea(key) {		
-		$('area[alt="'+key+'"]').mapster('deselect');
-      }
-
-	  
-	  
-	       function selectArea(id, value) {
-			
-		var key = id.slice(1) + '(' + value + ')'; 
-		$('area[alt="'+key+'"]',$.mobile.activePage).mapster('select');
-		 highlight(id.slice(1));
-	 
-      }
-	  
-	function sensation(id)
-	{
-		switch (id) 
-		{		
-			case "numbnessBut":
-			 $.mobile.changePage("#numbnessPage");
-			break;
-			case "tinglingBut":
-            $.mobile.changePage("#tinglingPage");
-			break;
-			case "weaknessBut":
-            $.mobile.changePage("#weaknessPage");
-			break;
-			case "jerkingBut":
-            $.mobile.changePage("#jerkingPage");
-			break;
-			case "tremorBut":
-            $.mobile.changePage("#tremorPage");
-			break;
-			case "painBut":
-            $.mobile.changePage("#painPage");
-			break;
-			default:
-		 
-            break;
-		}
-	}
 
       function nextPage() {
-        var currentPageID = $.mobile.activePage.attr('id');
+        var currentPageID = $.mobile.activePage[0].id; 
+
         switch (currentPageID) {
           case "numbnessPage":
             $.mobile.changePage("#tinglingPage");
@@ -630,21 +568,20 @@
           case "tinglingPage":
             $.mobile.changePage("#weaknessPage");
             break;
-			case "weaknessPage":
-            $.mobile.changePage("jerkingPage");
+          case "weaknessPage":
+            $.mobile.changePage("#jerkingPage");
             break;
-			case "jerkingPage":
+          case "jerkingPage":
             $.mobile.changePage("#tremorPage");
             break;
-			case "tremorPage":
+          case "tremorPage":
             $.mobile.changePage("#painPage");
             break;
           default:
             break;
         }
       }
-	  
-	  
+
     </script>
   </body>
 
