@@ -5,6 +5,7 @@
     <title>Patient Questionnaire</title>
     <meta charset=utf-8 />
     <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
 	<!--My Own CSS-->
     <link rel="stylesheet" href="themes/formatting.css" />
     <!--JQuery Mobile CSS-->
@@ -16,7 +17,7 @@
     <!--JQuery Mobile js-->
     <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
     <!--External scripts needed for date-picker-->
-<!-- <link rel="stylesheet" href="http://code.jquery.com/mobile/git/jquery.mobile-git.css" />
+    <!--<link rel="stylesheet" href="http://code.jquery.com/mobile/git/jquery.mobile-git.css" />
     <link rel="stylesheet" href="https://rawgithub.com/arschmitz/jquery-mobile-datepicker-wrapper/master/jquery.mobile.datepicker.css" />-->
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.0/themes/base/jquery-ui.css"/>  
     <script src="https://rawgithub.com/jquery/jquery-ui/1-10-stable/ui/jquery.ui.datepicker.js"></script>
@@ -24,6 +25,11 @@
     <script src="https://rawgithub.com/arschmitz/jquery-mobile-datepicker-wrapper/master/jquery.mobile.datepicker.js"></script>
     <!--Extrenal scripts needed for knockout library-->
     <script type='text/javascript' src="http://knockoutjs.com/downloads/knockout-3.0.0.js"></script>
+    <!--Scripts needed for numpad-->
+<link rel="stylesheet" href="jquery.keypad.package-2.0.0/jquery.keypad.css"/>
+   <script type='text/javascript' src="jquery.keypad.package-2.0.0/jquery.plugin.js"></script>
+    <script type='text/javascript' src="jquery.keypad.package-2.0.0/jquery.keypad.js"></script>
+    
 
   </head>
 
@@ -42,7 +48,7 @@
         <div data-role="fieldcontain">
           <div style="width:47%;">
             <input type="checkbox" data-bind="checked:consent" name="consent" id="consent">
-            <label for="consent" style='font-size:18px;'>I agree to the collection of my information</label>
+            <label for="consent" style='font-size:18px';>I agree to the collection of my information</label>
           </div>
         </div>
         <a data-role="button" class="nextButton" data-bind="visible: consent()" href="#" ></a>
@@ -123,8 +129,7 @@
             <h3>When did you first have symptoms?</h3>
             <div class="ui-grid-a">
               <div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 30px;">
-		<!--<input type="date" name="date" id="date" value=""/>-->
-                <input type="text" class="date-input" data-inline="false" data-role="date" readonly="readonly">
+		<input type="text" class="date-input" data-inline="false" data-role="date" readonly="readonly">            
               </div>
               <div class="ui-block-b" style="width:35%;">
                 <input type="checkbox" data-bind="checked:estDate" name="estDate" id="symptomOnsetDate">
@@ -137,7 +142,7 @@
           <h4>How long ago was it before your first attack of symptoms?</h4>
           <div class="ui-grid-a">
             <div class="ui-block-a" style="width:10%; margin-left: 40px; margin-right: 30px;">
-              <input name="symptom_onset" id="symptom_onset" placeholder="0" value="" type="number">
+              <input type="text" id="symptom_onset" placeholder="0" value=""readonly="readonly">
             </div>
             <div class="ui-block-b" style="width:25%;">
               <select name="symptom_onset" id="symptom_onset">
@@ -154,7 +159,7 @@
           <h3>How many attacks of symptoms have you had?</h3>
           <div class="ui-grid-a">
             <div class="ui-block-a" style="width:10%; margin-left: 40px; margin-right: 30px;">
-              <input name="frequency" id="frequency" placeholder="1" value="" type="number">
+		<input type="text" id="frequencyKeypad" placeholder="1" value="" readonly="readonly">
             </div>
             <div class="ui-block-b" style="width:25%;">
               <input type="checkbox" name="can't_remember" id="can't_remember" value="male" />
@@ -167,7 +172,7 @@
           <h3>How long did the symptoms last in your last attack?</h3>
           <div class="ui-grid-a">
             <div class="ui-block-a" style="width:10%; margin-left: 40px; margin-right: 10px;">
-              <input name="duration" id="duration" placeholder="0" value="" type="number">
+              <input type="text" id="durationKeypad" placeholder="0" value=""readonly="readonly"> 
             </div>
             <div class="ui-block-b" style="width:20%;">
               <select name="time_unit" id="time_unit">
@@ -259,6 +264,12 @@
     <script type='text/javascript'>
 
 $( ".data-input" ).datepicker({ defaultDate: null });
+$(function () {
+		$('#frequencyKeypad').keypad();
+		$('#durationKeypad').keypad();
+		$('#symptom_onset').keypad();
+ 
+	});
       var viewModel = {
         consent: ko.observable(false),
         id: ko.observable(),
