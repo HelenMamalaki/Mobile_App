@@ -7,31 +7,11 @@
         <div class="ui-grid-b">
           <div class="ui-block-a" style="width:23%; margin-left: 40px; margin-right: 10px;">
             <h3>In your last attack did you experience:</h3>
-            <div class="activeBox">
-              <button class = 'active' id="numbnessBut" value="Numbness" onclick="sensation(this.id)">Numbness</button>
-              <div class="ui-grid-b">
-                <div class="ui-block-a" style="width:50%; padding:4px;">
-                  <label for="numbnessYes">Yes</label>
-                  <input type="radio" name="numbness" id="numbnessYes" value="yes" data-bind="checked:numbness" />
-                </div>
-                <div class="ui-block-b" style="width:50%; padding:4px;">
-                  <label for="numbnessNo">No</label>
-                  <input style="width:70%;" type="radio" name="numbness" id="numbnessNo" value="no" data-bind="checked: numbness" />
-                </div>
-              </div>
-              <!--end of ui-grid-b-->
-            </div>
-            <button class = 'inactive' id="tinglingBut" value="Tingling" onclick="sensation(this.id)">Tingling</button>
-            <button class = 'inactive' id="weaknessBut" value="Weakness" onclick="sensation(this.id)">Weakness</button>
-            <button class = 'inactive'value="Jerking" onclick="sensation(this.id)">Jerking</button>
-            <button class = 'inactive' id="tremorBut" value="Tremor" onclick="sensation(this.id)">Tremor</button>
-            <button class = 'inactive' id="painBut" value="Pain" onclick="sensation(this.id)">Pain</button>
-          </div>
-          <div class="ui-block-b" style="width:45%; margin-left: 40px;">
-            <div id="numbnessLoc" data-bind="visible: numbness() == 'yes'">
+            
               <IMG id="numbnessBody" SRC="themes/myImages/body.png" ALT="Site map" width="481.14" height="500.04" USEMAP="#numbnessbodyMap">
               <map name="numbnessbodyMap">
                 <area shape="rect" alt="face(R)" coords="447,25,512,146" href="#" data-bind='click: numbnessLocValue' />
+				
                 <area shape="rect" alt="face(L)" coords="388,27,444,145" href="#" data-bind='click: numbnessLocValue' />
                 <area shape="rect" alt="arm(L)" coords="153,167,336,246" href="#" data-bind='click: numbnessLocValue' />
                 <area shape="rect" alt="hand(L)" coords="23,169,131,243" href="#" data-bind='click: numbnessLocValue' />
@@ -45,90 +25,7 @@
                 <area shape="rect" alt="foot(L)" coords="344,822,433,899" href="#" data-bind='click: numbnessLocValue' />
                 <!-- Created by Online Image Map Editor (http://www.maschek.hu/imagemap/index) -->
               </map>
-            </div>
-          </div>
-          <div id="whichButton">
-            <div class="ui-block-c" style="width:15%;" data-bind="visible: numbness() == 'yes'">
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
-              <label class="body" id="faceLabel">
-                <input type="checkbox" id="face" value="face" data-bind="checked: faceButton" />
-              </label>
-              <div class="ui-grid-b" data-bind="visible: faceButton()">
-                <div class="ui-block-a" style="width:50%;">				  
-                  <button class="button" data-role="button" value="L" alt='face(L)' id="Lface" onclick="selectArea(this.id,this.value)" data-bind='click: numbnessLocValue'>L</button>
-                </div>
-                <div class="ui-block-b" style="width:50%;">
-                  <button class="button" data-role="button" value="R" alt='face(R)' id="Rface" onclick="selectArea(this.id, this.value)" data-bind='click: numbnessLocValue'>R</button>
-                </div>
-              </div>
-			  <!--........................A.R.M.................................-->
-			  <label class="body" id="armLabel">
-                <input type="checkbox" id="arm" value="arm" data-bind="checked: armButton" />
-              </label>
-              <div class="ui-grid-b" data-bind="visible: armButton()">
-                <div class="ui-block-a" style="width:50%;">				  
-                  <button class="button" data-role="button" value="L" alt='arm(L)' id="Larm" onclick="selectArea(this.id,this.value)" data-bind='click: numbnessLocValue'>L</button>
-                </div>
-                <div class="ui-block-b" style="width:50%;">
-                  <button class="button" data-role="button" value="R" alt='arm(R)' id="Rarm" onclick="selectArea(this.id, this.value)" data-bind='click: numbnessLocValue'>R</button>
-                </div>
-              </div>
-			  <!--........................H.A.N.D................................-->
-          		  <label class="body" id="handLabel">
-                <input type="checkbox" id="hand" value="hand" data-bind="checked: handButton" />
-              </label>
-              <div class="ui-grid-b" data-bind="visible: handButton()">
-                <div class="ui-block-a" style="width:50%;">				  
-                  <button class="button" data-role="button" value="L" alt='hand(L)' id="Lhand" onclick="selectArea(this.id,this.value)" data-bind='click: numbnessLocValue'>L</button>
-                </div>
-                <div class="ui-block-b" style="width:50%;">
-                  <button class="button" data-role="button" value="R" alt='hand(R)' id="Rhand" onclick="selectArea(this.id, this.value)" data-bind='click: numbnessLocValue'>R</button>
-                </div>
-              </div>
-			  <!--.........................C.H.E.S.T...............................-->
-                <label class="body" id="chestLabel">
-                <input type="checkbox" id="chest" value="chest" data-bind="checked: chestButton" />
-              </label>
-              <div class="ui-grid-b" data-bind="visible: chestButton()">
-                <div class="ui-block-a" style="width:50%;">				  
-                  <button class="button" data-role="button" value="L" alt='chest(L)' id="Lchest" onclick="selectArea(this.id,this.value)" data-bind='click: numbnessLocValue'>L</button>
-                </div>
-                <div class="ui-block-b" style="width:50%;">
-                  <button class="button" data-role="button" value="R" alt='chest(R)' id="Rchest" onclick="selectArea(this.id, this.value)" data-bind='click: numbnessLocValue'>R</button>
-                </div>
-              </div>
-			  <!--..........................L.E.G..............................-->
-                <label class="body" id="legLabel">
-                <input type="checkbox" id="leg" value="leg" data-bind="checked: legButton" />
-              </label>
-              <div class="ui-grid-b" data-bind="visible: legButton()">
-                <div class="ui-block-a" style="width:50%;">				  
-                  <button class="button" data-role="button" value="L" alt='leg(L)' id="Lleg" onclick="selectArea(this.id,this.value)" data-bind='click: numbnessLocValue'>L</button>
-                </div>
-                <div class="ui-block-b" style="width:50%;">
-                  <button class="button" data-role="button" value="R" alt='leg(R)' id="Rleg" onclick="selectArea(this.id, this.value)" data-bind='click: numbnessLocValue'>R</button>
-                </div>
-              </div>
-			  <!--...........................F.O.O.T.............................-->
-               <label class="body" id="footLabel">
-                <input type="checkbox" id="foot" value="foot" data-bind="checked: footButton" />
-              </label>
-              <div class="ui-grid-b" data-bind="visible: footButton()">
-                <div class="ui-block-a" style="width:50%;">				  
-                  <button class="button" data-role="button" value="L" alt='foot(L)' id="Lfoot" onclick="selectArea(this.id,this.value)" data-bind='click: numbnessLocValue'>L</button>
-                </div>
-                <div class="ui-block-b" style="width:50%;">
-                  <button class="button" data-role="button" value="R" alt='foot(R)' id="Rfoot" onclick="selectArea(this.id, this.value)" data-bind='click: numbnessLocValue'>R</button>
-                </div>
-              </div>
-			  <!--........................................................-->
-            </div>
-          </div>
+           
           <!--grid b-->
         </div>DEBUG:
         <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
