@@ -1,12 +1,12 @@
 /*Our own styles*/
 #nhsLogo{
 	position: fixed;
-	top: 10%;
-	left: 89%;
+	top: 8%;
+	left: 92%;
 	z-index: 100;
 	}
 
-#nextButton{ 
+.nextButton{ 
 	border: none;
 	height: 62px;
 	width: 98px; 
@@ -15,7 +15,7 @@
 	background-repeat: no-repeat;
 	background-position: center center;
 	position: relative;
-	left:85%
+	left:84%
 			}
 			
 	#indent{position: fixed;
@@ -82,38 +82,60 @@
  #changeInFuture {
     color: #B800B8; 
 	font-weight: bold; 
-	font-size: 18px; }
- 
-	.body{
-	height: 25px;
-	background-repeat: no-repeat;
-	background-position: center center;
-	
-	}
+	font-size: 18px; 
+}
+
+.blockA{width:30% !important;
+       border-right:solid 2px #585858 !important;
+}
+.blockB{width:70% !important;
+height:525px !important;}
+.blockC{width:18% !important;
+}
+
+.menu{margin-top:10%;}
+.bodyMap{margin-left:21%;}
 	
 	.activeBox{
+	position:relative;
 	border: 1px;
 	border-style: groove;
 	border-width: 2px;
-	background-color: rgba(3,145,189,0.2);
-	margin-top: 15px;
+	background-color: #FFFFFF; 
+	margin-top: 15px;  
+	padding-top:3%;
+	padding-bottom:3%;
+	margin-left:110px;
+	height: 10% !important;
+	width: 69% !important;
+	}
+
+	#instruc{
+	position:absolute;
+	z-index:10;
+	margin-left:5%;
+	margin-top:20%;
+	margin-right:64%;
 	}
 	
 	.inactive{
 	text-align: center !important;
 	margin: auto !important;
 	margin-top: 15px !important;
+	margin-left:64px !important;
 	background-color: rgba(3,145,189,0.2) !important; 
 	font-size: 19px !important;
-	width:85% !important;}
+	width:60% !important;}
 	
 	.active{
 	text-align: center !important;
 	margin: auto !important;
-	margin-top: 15px !important;
-    background-color: rgba(3,145,189,0.8) !important;
+        background-color: rgba(3,145,189,0.5) !important;
+	margin-left:16px !important;
 	font-size: 19px !important;
-	width:85% !important;}
+	width:87% !important;
+	
+	}
 	
 	.button{
 			font-weight: bold !important;
@@ -143,71 +165,142 @@
 	#Lfoot,#Rfoot{ 
 			color: #006600 !important;
 	}
-	
 
-	#faceLabel{
-	background-image: url("myImages/face.png");
-	background-size: 78.72px 33.36px;
-	margin: auto; 
+
+
+
+.facemenu, .armmenu, .handmenu, .chestmenu, .legmenu, .footmenu{display:none; margin: auto !important; }
+
+    .body{
+	height: 15px !important;
+	vertical-align:text-top !important;
+	font-size: 25px !important;
+	margin: auto !important; 
+	margin-top: 15px !important;
 	}
 	
-	#armLabel{
-	background-image: url("myImages/arm.png");
-	background-size: 70.08px 28.32px;
-	margin: auto; 
-	margin-top:23px;}
 	
-	#handLabel{
-	background-image: url("myImages/hand.png");
-	background-size: 78.72px 33.36px;
-	margin: auto; 
-	margin-top: 23px;}
+	#faceLabel, #armLabel, #handLabel, #chestLabel, #legLabel, #footLabel{
+		position:relative;
+		bottom:27%;
+		left:10%;
+		
+	}
 	
-	#chestLabel{
-	background-image: url("myImages/chest.png");
-	background-size: 82.08px 31.68px;
-	margin: auto; 
-	margin-top:23px;}
+	#faceLabel{
+		color: #B800B8;	
+	}
+		
+	#armLabel{ 
+		color: #5C00B8;
+	}
 	
-	#legLabel{
-	background-image: url("myImages/leg.png");
-	background-size: 59.28px 34.08px;
-	margin: auto; 
-	margin-top:23px;}
+	#handLabel{ 
+		color: #0099FF;
+	}
 	
-	#footLabel{
-	background-image: url("myImages/feet.png");
-	background-size: 72px 33.6px;
-	margin-top:23px;}
-
+	#chestLabel{ 
+		color: #FF7519;
+	}
 	
+	#legLabel{ 
+		color: #FF0000;
+	}
 	
-/*table.disabled  {border-collapse: separate; border-spacing: 0 10px;}
-
-table.disabled tr, table.disabled td
-{
-
-border: 2px;
-border-style: solid;
-padding:8px;
-text-align: center;
-font-weight: bold;
-font-size: 20px;
-background-color: rgba(3,145,189,0.2);
-
+	#footLabel{ 
+		color: #006600;
+	}
+  
+        .number {
+        position: relative;
+        left: 47%;
+        top: 15%;
+		font-weight: bold;
+        font-size: 80px;
+        color: #5108FA;
+      }
+      .snapCard {
+        float: right;
+      }
+      #step2But,
+      #step3But,
+      #step4But {
+        width: 20%;
+        position: fixed;
+        left: 37%;
+      }
+	  
+	  .snap{
+	  height:260px;
+	  width:190px;	
+	   background-size:190px 261px;
+	  background-repeat: no-repeat;
+	  background-position: center center}
+	  
+	  #SnapPage{background-color: #005200;}
+	
+.ui-datepicker {
+	width: 55% !important;
+    background: #333;
+    border: 1px solid #555 !important;
+    color: black;
+font-weight: normal !important;
 }
 
-table.active{border-style:ridge;
-background-color: rgba(3,145,189,0.8)
+.ui-datepicker table {width: 100%; 
+font-size: 25px !important; 
+
+color: red !important;
+border-collapse: collapse; 
 }
 
-table.active tr, table.active td
-{
-text-align: center;
-font-weight: bold;
-font-size: 20px;
-padding: 0;
+ 
+.ui-datepicker select.ui-datepicker-month-year {width: 100%; height: 100% !important;}
+.ui-datepicker select.ui-datepicker-month, 
+.ui-datepicker select.ui-datepicker-year { width: 70% !important; height: 100% !important;}
+.ui-datepicker .ui-datepicker-prev span, .ui-datepicker .ui-datepicker-next span { display: block;  position: absolute; left:20% !important;  top: 25% !important; margin-top: -8px; width: 57px!important; height:46px !important;  }
+
+.ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next { height: 100 !important; }
+
+
+.ui-datepicker .ui-datepicker-title { margin: 0 2.3em; line-height: 1.8em; text-align: center; font-size:25px !important;}
+
+.ui-datepicker th { padding: .7em .3em; text-align: center; font-weight: bold; border: 0; color: black !important; }
+.ui-datepicker td { border: 0; padding: 3px 6px !important; }
+.ui-datepicker td span, .ui-datepicker td a { display: block; padding: 5px 18px !important; text-align: center !important; text-decoration: none; color: black !important;}
+
+
+.ui-datepicker .ui-datepicker-prev { left:9px !important; }
+.ui-datepicker .ui-datepicker-next { right:40px !important; }
+
+
+.ui-datepicker .ui-datepicker-prev span, .ui-datepicker .ui-datepicker-next span {
+ display: block;  
+position: absolute; 
+left:15% !important; 
+top:9px !important;
+ margin-top: -8px !important; 
+width: 70px!important;
+ height:46px !important;  }
+
+
+.ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next { height: 100 !important; }
+
+.ui-datepicker .ui-datepicker-prev-hover, .ui-datepicker .ui-datepicker-next-hover { top: 1px !important; }
+.ui-datepicker .ui-datepicker-next-hover { width:76px !important; height:48px !important; right:1px !important;}
+
+.ui-datepicker .ui-datepicker-prev-hover { width:76px !important; height:48px !important; left:1px !important;}
+
+.ui-datepicker-next .ui-icon{ 
+background:url('myImages/nextButton.png') !important;  
+ background-size:71px 42px!important;
+background-repeat: no-repeat !important;
+	background-position: center center !important;
 }
 
-
-table.active tr:first-child{padding: 30px;}*/
+.ui-datepicker-prev .ui-icon{ 
+background:url('myImages/nextButton.png') !important;  
+ background-size:71px 42px!important;
+background-repeat: no-repeat !important;
+	background-position: center center !important;
+}

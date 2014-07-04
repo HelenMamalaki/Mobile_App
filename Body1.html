@@ -32,87 +32,40 @@
   </head>
 
   <body>
-   <div data-role="page" id="NumbnessPage" data-theme="d">
+    <div data-role="page" id="NumbnessPage" data-theme="d">
       <div data-role="header">
         <h1>Patient Survey; Body</h1>
       </div>
-      <div data-role="main" class="ui-content">
+    <div data-role="main" class="ui-content">
         <img src="themes/myImages/NHSlogo.jpg" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
        
-		 <div class="ui-grid-b">
-			    <div class="ui-block-a" style="width:23%; margin-left: 40px; margin-right: 10px;">
-		
+		 
+			   
 		<h3>In your last attack did you experience:</h3>
-				<div class="activeBox">
-						<button style="background-color: rgba(3,145,189,0.8);" class="focus" id="numbnessBut" value="Numbness" onclick="sensation(this.id)">Numbness</button>
-					
-					 <div class="ui-grid-b">
-					    <div class="ui-block-a" style="width:50%; padding:4px;">
-							<label for="numbnessYes">Yes</label>	
-							<input  type="radio" name="numbness" id="numbnessYes" value="yes" data-bind="checked: numbness"/>
-						</div>
-						<div class="ui-block-b" style="width:50%; padding:4px;">
-							<label for="numbnessNo">No</label>			  
-							<input style="width:70%;"type="radio" name="numbness" id="numbnessNo" value="no" data-bind="checked: numbness"/>
-						</div>
-					</div> <!--end of ui-grid-b-->
-				</div>					
-					<button id="tinglingBut" value="Tingling" onclick="sensation(this.id)">Tingling</button>
-					<button id="weaknessBut"  value="Weakness" onclick="sensation(this.id)">Weakness</button>								
-					<button id="jerkingBut"  value="Jerking" onclick="sensation(this.id)">Jerking</button>
-					<button id="tremorBut"  value="Tremor" onclick="sensation(this.id)">Tremor</button>
-					<button id="painBut"  value="Pain" onclick="sensation(this.id)">Pain</button>					
-			  </div>
-			<div class="ui-block-b" style="width:45%; margin-left: 40px;">
-			<div id="numbnessLoc" data-bind="visible: numbness() == 'yes'">
-				<IMG id="numbnessBody" SRC="themes/myImages/body.png" ALT="Site map" width="481.14" height="500.04" USEMAP="#numbnessbodyMap">	
-				<map name="numbnessbodyMap">
+				
+			
+				<IMG id="numbnessBody" SRC="themes/myImages/body.png" ALT="Site map" width="481.14" height="500.04" USEMAP="#bodyMap">	
+				<map name="bodyMap">
 				<area shape="rect" id="Rface" alt="face(R)" coords="447,25,512,146" href="#" data-bind='click: numbnessLocValue'/>
 				<area shape="rect" id="Lface" alt="face(L)" coords="388,27,444,145" href="#" data-bind='click: numbnessLocValue'/>
 				<area shape="rect" id="Larm" alt="arm(L)"  coords="153,167,336,246" href="#" data-bind='click: numbnessLocValue'/>
 				<area shape="rect" id="Lhand" alt="hand(L)" coords="23,169,131,243" href="#" data-bind='click: numbnessLocValue'/>
 				<area shape="rect" id="Rarm" alt="arm(R)" coords="560,164,736,251" href="#" data-bind='click: numbnessLocValue'/>
 				<area shape="rect" id="Rhand" alt="hand(R)" coords="759,165,874,247" href="#" data-bind='click: numbnessLocValue'/>
-				<area shape="poly" id="Rchest" alt="chest(R)" coords="451,166,452,317,527,314,544,236,508,163" href="#" data-bind='click: numbnessLocValue'/>
-				<area shape="poly" id="Lchest" alt="chest(L)" coords="441,167,442,318,368,314,353,246,375,168" href="#" data-bind='click: numbnessLocValue'/>
+				<area shape="poly" id="Rchest" alt="chest(R)" coords="451,166,452,317,527,314,544,236,508,163" href="#" data-bind='click: numbnessLocValue'/>		
+				<area shape="poly" id="Lchest" alt="chest(L)" coords="441,167,442,318,368,314,353,246,375,168" href="#" data-bind='click: numbnessLocValue'/>	
 				<area shape="rect" id="Rleg" alt="leg(R)" coords="453,517,541,809" href="#" data-bind='click: numbnessLocValue'/>
 				<area shape="rect" id="Lleg" alt="leg(L)" coords="343,518,438,807" href="#" data-bind='click: numbnessLocValue'/>
 				<area shape="rect" id="Rfoot" alt="foot(R)" coords="460,824,549,902" href="#" data-bind='click: numbnessLocValue'/>
 				<area shape="rect" id="Lfoot" alt="foot(L)" coords="344,822,433,899" href="#" data-bind='click: numbnessLocValue'/>
-				<!-- Created by Online Image Map Editor (http://www.maschek.hu/imagemap/index) --></map>
-				</div>
-							
-			</div>	
-			<div id="whichButton">
-				<div class="ui-block-c" style="width:15%;" data-bind="visible: numbness() == 'yes'">	
-					<br> <br> <br> <br> <br> <br>  			
-					
-						<label class="body" id="faceLabel"><input type="checkbox" id="face" value="face" data-bind="checked: faceButton"/></label>
-					<div class="ui-grid-b" data-bind="visible: faceButton()">
-						 <!--data-bind='click: numbnessLocValue'-->
-						<div class="ui-block-a" style="width:50%;">
-							
-							<button class="faceB" data-role="button" value="L"  alt='face(L)' id="Lface" onclick="selectArea(this.id)" data-bind='click: numbnessLocValue'>L</button>
-						</div>
-						<div class="ui-block-b" style="width:50%;" > 
-							<button class="faceB" data-role="button" value="R" alt='face(R)' id="Rface"  onclick="selectArea(this.id)" data-bind='click: numbnessLocValue'>R</button>
-						</div>
-					</div>
-
-					<button class="body" id="arm" value="arm"></button>								
-					<button class="body" id="hand" value="hand"></button>
-					<button class="body" id="chest" value="chest"></button>
-					<button class="body" id="leg"  value="leg"></button>		
-					<button class="body" id="foot" value="foot"></button>									
-				</div>
-			</div> <!--grid b-->
-		</div>			
-	
-DEBUG: <pre data-bind="text: ko.toJSON($data,null,2)"></pre>	
-				
+				<!-- Created by Online Image Map Editor (http://www.maschek.hu/imagemap/index) -->
+				</map>
 		
-	<a data-role="button" id="nextButton" href="#" onclick="nextPage()"></a>
-    </div><!--main content-->
+			DEBUG:
+        <pre data-bind="text: ko.toJSON($data,null,2)"></pre>				
+			
+			<a data-role="button" id="nextButton" href="#" ></a>
+	</div><!--main content-->
       <div data-role="footer" data-position="fixed">
         <h2>&copy; Edinburgh University 2014</h2>
       </div>
@@ -123,329 +76,17 @@ DEBUG: <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
 	<script type='text/javascript'>
 	
   var viewModel = {
-		numbness: ko.observable(),
+
 		numbnessLoc: ko.observableArray(),
 		numbnessLocValue: function(data, element) {this.numbnessLoc.push($(element.target).attr('alt'));},
-        	tingling: ko.observable(),
-        	tinglingLoc: ko.observableArray(),
+		tinglingLoc: ko.observableArray(),
 		tinglingLocValue: function(data, element) {this.tinglingLoc.push($(element.target).attr('alt'));},
-		weakness: ko.observable(false),
-		weaknessLoc: ko.observableArray(),
-		weaknessLocValue: function(data, element) {this.weaknessLoc.push($(element.target).attr('alt'));},
-        	jerking: ko.observable(false),  
-		faceButton: ko.observable(), 
+ 
 		
 	 };
 	  ko.applyBindings(viewModel);
-	  
-	  viewModel.numbness.subscribe(function(data){if(data=='no'){nextPage();}})
-	 // viewModel.faceButton.subscribe(function(data){if(data=false){alert(viewModel.numbnessLoc());}})!! alreay subscribed elsewhere!!	
- viewModel.numbnessLoc.subscribe(function(arrayData){
-					
-				//var select;
-				//var item;
+	  $('#nextButton').on('click', function(){$('bodyMap').mapster('get'})
 
-				//for (i = 0;  i < arrayData.length; i++) 
-				//{
-					//item = arrayData(0);
-					//select  = $("#numbnessBody").mapster("get", item);
-
-					//alert(arrayData + "is selected " );
-				/*if(select==false)
-					{ 
-						var index = arrayData.indexOf(item);					
-						
-						arrayData.splice(index, 1);
-					} */
-				//}
-
-});
-	  
-	  
-	function highlight(name)
-	{
-		if(name=="face") 
-					{												
-						$("#"+name+"Label").css("-moz-box-shadow", "0px 0px 10px 4px rgba(184, 0, 184, 0.75)");  
-						$("#"+name+"Label").css("box-shadow", "0px 0px 10px 4px rgba(184, 0, 184, 0.75)");  
-						$("#"+name+"Label").css("-webkit-box-shadow", "0px 0px 10px 4px rgba(184, 0, 184, 0.75)"); 
-					}else if(name=="arm")
-					{
-						$("#"+name).css("-moz-box-shadow", "0px 0px 10px 4px rgba(92, 0, 184, 0.75)");  
-						$("#"+name).css("box-shadow", "0px 0px 10px 4px rgba(92, 0, 184, 0.75)");  
-						$("#"+name).css("-webkit-box-shadow", "0px 0px 10px 4px rgba(92, 0, 184, 0.75)"); 
-					}else if(name=="hand")
-					{
-						$("#"+name).css("-moz-box-shadow", "0px 0px 10px 4px rgba(0, 153, 255, 0.75)");  
-						$("#"+name).css("box-shadow", "0px 0px 10px 4px rgba(0, 153, 255, 0.75)");  
-						$("#"+name).css("-webkit-box-shadow", "0px 0px 10px 4px rgba(0, 153, 255, 0.75)"); 
-					}else if(name=="chest")
-					{
-						$("#"+name).css("-moz-box-shadow", "0px 0px 10px 4px rgba(255, 117, 25, 0.75");  
-						$("#"+name).css("box-shadow", "0px 0px 10px 4px rgba(255, 117, 25, 0.75)");  
-						$("#"+name).css("-webkit-box-shadow", "0px 0px 10px 4px rgba(255, 117, 25, 0.75"); 
-					}else if(name=="leg")
-					{
-						$("#"+name).css("-moz-box-shadow", "0px 0px 10px 4px rgba(255, 0, 0, 0.75)");  
-						$("#"+name).css("box-shadow", "0px 0px 10px 4px rgba(255, 0, 0, 0.75)");  
-						$("#"+name).css("-webkit-box-shadow", "0px 0px 10px 4px rgba(255, 0, 0, 0.75)"); 
-					}else 
-					{
-						$("#"+name).css("-moz-box-shadow", "0px 0px 10px 4px rgba(0, 102, 0, 0.75)");  
-						$("#"+name).css("box-shadow", "0px 0px 10px 4px rgba(0, 102, 0, 0.75)");  
-						$("#"+name).css("-webkit-box-shadow", "0px 0px 10px 4px rgba(0, 102, 0, 0.75)"); 
-					}
-		
-	}
-
-	function deselectArea(id)
-	{
-		alert('undo deselect function'); 
-	switch (id) 
-		{
-		case "Rface":
-			$("#"+id).mapster('deselect');
-			//highlight(id.slice(1)); remove highlighting
-			break;
-		case "Lface":
-			$("#"+id).mapster('deselect');
-			//highlight(id.slice(1));
-			break;
-	default:
-		 
-            break;}
-	}
-
-	function selectArea(id)
-	{
-		switch (id) 
-		{
-		case "Rface":
-			$("#"+id).mapster('select');
-			highlight(id.slice(1));
-			break;
-		case "Lface":
-			$("#"+id).mapster('select');
-			highlight(id.slice(1));
-			break;
-		case "Rarm":
-			$("#"+id).mapster('select');
-			highlight(id.slice(1));
-			break;
-		case "Larm":
-			$("#"+id).mapster('select');
-			highlight(id.slice(1));
-			break;
-		case "Rchest":
-			$("#"+id).mapster('select');
-			highlight(id.slice(1));
-			break;
-		case "Lchest":
-			$("#"+id).mapster('select');
-			highlight(id.slice(1));
-			break;
-		case "Rhand":
-			$("#"+id).mapster('select');
-			highlight(id.slice(1));
-			break;
-		case "Lhand":
-			$("#"+id).mapster('select');
-			highlight(id.slice(1));
-			break;
-		case "Rleg":
-			$("#"+id).mapster('select');
-			highlight(id.slice(1));
-			break;
-		case "Lleg":
-			$("#"+id).mapster('select');
-			highlight(id.slice(1));
-			break;
-		case "Rfoot":
-			$("#"+id).mapster('select');
-			highlight(id.slice(1));
-			break;
-		case "Lfoot":
-			$("#"+id).mapster('select');
-			highlight(id.slice(1));
-			break;
-		default:
-		 
-            break;
-		}			
-	}
-	
-	function sensation(id)
-	{
-	
-	
-	switch (id) 
-		{		
-		case "numbnessBut":
-		 $.mobile.changePage("#numbnessPage");
-			break;
-		case "tinglingBut":
-            $.mobile.changePage("#TinglingPage");
-			break;
-			case "weaknessBut":
-            $.mobile.changePage("#WeaknessPage");
-			break;
-			case "jerkingBut":
-            $.mobile.changePage("#JerkingPage");
-			break;
-			case "tremorBut":
-            $.mobile.changePage("#TremorPage");
-			break;
-			case "painBut":
-            $.mobile.changePage("#PainPage");
-			break;
-			default:
-		 
-            break;
-			}
-	}
-	
-	function nextPage() 
-	{
-        var currentPageID = $.mobile.activePage.attr('id');
-        switch (currentPageID) 
-		{
-		case "NumbnessPage":
-            $.mobile.changePage("#TinglingPage");
-			break;
-		case "TinglingPage":
-            $.mobile.changePage("#WeaknessPage");
-		break;
-
-          default:
-		 
-            break;
-        }
-   }
-
-$(document).ready(function()
-{
-var checkbox=true;
- 
-$("#numbnessBody,#tinglingBody,#weaknessBody").mapster({
-	singleSelect : false,
-        mapKey: 'alt',
-	fill : false,
-	stroke : true,
-	strokeColor : '000000',
-	strokeWidth : 3,
-	areas: [{
-            key: 'foot(L)',
-            strokeColor : '006600'},
-        {	key: 'foot(R)',
-            strokeColor : '006600' },
-		{   key: 'leg(L)',
-            strokeColor : 'FF0000'},
-		{   key: 'leg(R)',
-            strokeColor : 'FF0000'},
-		{   key: 'hand(L)',
-            strokeColor : '0099FF'},
-		{   key: 'hand(R)',
-            strokeColor : '0099FF' },
-		{   key: 'arm(L)',
-            strokeColor : '5C00B8' },
-		{   key: 'arm(R)',
-            strokeColor : '5C00B8' },
-		{   key: 'chest(L)',
-            strokeColor : 'FF7519' },
-		{   key: 'chest(R)',
-            strokeColor : 'FF7519' },
-		{   key: 'face(L)',
-            strokeColor : 'B800B8' },
-		{   key: 'face(R)',
-            strokeColor : 'B800B8' }],
-				
-		onClick: function(event)
-		{
-			var array = event.key.split("(");
-			var name = array[0];
-			//alert("you click on " + event.key + " " + name);
-			if(event['selected']==true) 
-			{
-					//alert('[b4] checkBox is: ' +$('#'+name).prop("checked"));				
-
-					if(name=="face") 
-					{		
-												
-						$('#'+name).prop("checked", false);
-						$('#'+name).click();	//fires a click event, turning the checkbox from false to true.	
-						//alert('[after] checkBox is: ' +$('#'+name).prop("checked"));		
-
-					}else if(name=="arm")
-					{
-					
-					}else if(name=="hand")
-					{
-					
-					}else if(name=="chest")
-					{
-					
-					}else if(name=="leg")
-					{
-				 
-					}else 
-					{
-					
-					}
-				highlight(name);
-					
-				}else if(event['selected']==false)
-				{
-					alert('some inbeteen state');
-					//viewModel.faceButton('false');
-					checkbox=false;
-					$('#'+name).prop("checked", true);
-					$('#'+name).click(); //fires a click event, turning the checkbox from true to false.	
-
-					//removeHighlight("face"); 				
-				}else 
-				{	//alert('[area not selected] checkbox = '+$('#'+name).prop("checked")); 
-					//alert('checkbox=true: Area selected: ' + $('#numbnessBody').mapster('get',event.key));
-					//$('#'+name).prop("checked", true);
-					//$('#'+name).click(); //fires a click event, turning the checkbox from true to false.	
-					//viewModel.faceButton('true');
-
-					alert('[area not selected] checkbox = '+$('#'+name).prop("checked"));
-					//alert('checkbox=false: Area selected: ' + $('#numbnessBody').mapster('get',event.key));
-					//alert($('checkbox=false: Area selected: ' + '#numbnessBody').mapster('get',event.key));						
-					
-				}
-			}					
-}); //mapster
-
-			
-
-
- }); //document ready
- 
-			function removeHighlight(name)
-			{
-					
-				
-					$("#"+name+"Label").css("-moz-box-shadow", "none");
-					$("#"+name+"Label").css("box-shadow", "none");
-					$("#"+name+"Label").css("-webkit-box-shadow", "none");
-					alert('undo highlight'); 
-			}
-
-viewModel.faceButton.subscribe(function(data){if(data==false){ 
-
-$('#face').prop("checked", true);	
-$('#face').click(); //fires a click event, turning the checkbox from true to false.
-
-alert('faceButton: '+$('#face').prop("checked"));		
-removeHighlight("face"); 
- deselectArea("Lface"); //deselect corresponding area on map 
-			
- }}); //subscription
-
-
-
-   
 </script>
   </body>
   </html>

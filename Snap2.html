@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Patient Questionnaire</title>
+    <meta charset=utf-8 />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--My Own CSS-->
+    <link rel="stylesheet" href="themes/formatting.css" />
+    <!--JQuery Mobile CSS-->
+    <link rel="stylesheet" href="themes/MyTheme.css" />
+    <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+    <!--<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>-->
+	<!--JQuery Mobile JavaScript-->
+    <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+    <!--External scripts needed for date-picker-->
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/git/jquery.mobile-git.css" />
+    <link rel="stylesheet" href="https://rawgithub.com/arschmitz/jquery-mobile-datepicker-wrapper/master/jquery.mobile.datepicker.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="https://rawgithub.com/jquery/jquery-ui/1-10-stable/ui/jquery.ui.datepicker.js"></script>
+    <script src="http://code.jquery.com/mobile/git/jquery.mobile-git.js"></script>
+    <script src="https://rawgithub.com/arschmitz/jquery-mobile-datepicker-wrapper/master/jquery.mobile.datepicker.js"></script>
+    <!--Extrenal scripts needed for knockout library-->
+    <script type='text/javascript' src='knockout-3.1.0.js'></script>
+	<!--External scripts needed for imagemapster plugin-->
+	<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
+	<script src="jquery.imagemapster.js"></script>
+	<style>
+	.number{position:relative;left:49%;top:15%font-weight:bold;font-size:80px;color:#5108FA;}
+	.snapCard{float: right;}
+	#step2But,#step3But,#step4But{width:20% !important;position:fixed;left:37%;}
+	</style>
+	<script>
+	var picture=['jackOfDiamonds.gif','queenOfClubs.jpg', 'kingOfClubs.jpg']; 
+	var rand1 = Math.floor(Math.random()*picture.length);
+	var rand2 = Math.floor(Math.random()*picture.length);
+	
+      window.onload = function(){
+	
+	}
+	
+	</script>
+  </head>
+
+  <body>
+
+   <div data-role="page" id="SnapInstructionsPage" data-theme="d">
+      <div data-role="header">
+        <h1>Patient Survey; Snap!</h1>
+      </div>
+      <div data-role="main" class="ui-content">
+	<div id='anywhere'>
+        <img src="themes/myImages/NHSlogo.jpg" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
+       
+	<div id='step1' style="width:45%;position:fixed;top:30%;left:27%;">
+	<h2>In order to measure your reaction time, <span style="position:relative;left:8%;">a game of 'Snap' will now follow.</span></h2>
+	<br>
+	<button id='step2But'>Learn How to Play ></button>
+	</div>
+	<div id='step2' style='display:none;width:70%;position:fixed;left:15%;top:15%;'>
+       <h3>1. You will be shown two picture cards. If the two cards match, touch <span style='position:relative;left:3%'>anywhere on the screen as fast as you can.</span></h3>
+	
+    	
+       <img style="position:fixed;left:20%;"src="themes/myImages/snapCards.png" alt="snapCards" width="510" height="312" class="snapCard">	 
+	<button style="position:fixed;top:80%;" id='step3But'>Next ></button>
+	</div>
+	<div id='step3' style='display:none;position:fixed;'>
+       <h3 style="position:fixed;left:20%;top:10%;">3. If you are correct the message 'Snap!' will appear.</h3>
+	<img style="position:fixed;left:20%;top:25%;" src="themes/myImages/snapCorrect.png" alt="snapCorrect" width="510" height="312" class="snapCard">
+	<button style='top:70%;' id='step4But'>Next ></button>
+	</div>
+	<div id='step4' style='display:none;position:fixed;top:10%;left:10%;'>
+       <h3>4. If you are wrong a red 'X' will appear.</h3>
+ 	<img style="position:fixed;left:25%;top:20%;"src="themes/myImages/snapIncorrect.png" alt="snapWrong" width="510" height="312" class="snapCard">
+	<a style='position:fixed;top:70%;' data-role="button" id="playSnap" href="#">Play Snap!</a>
+	</div>
+
+
+	</div>
+	
+	<p>DEBUG: <pre data-bind="text: ko.toJSON($data,null,2)"></pre>	</p>
+					
+	
+    </div><!--main content-->
+      <div data-role="footer" data-position="fixed">
+        <h2>&copy; Edinburgh University 2014</h2>
+      </div>
+</div> <!--close anywhere-->
+	</div><!--End of SnapInstructionPage-->
+
+   <div data-role="page" id="SnapPage" data-theme="d">
+      <div data-role="header">
+        <h1>Patient Survey; Snap!</h1>
+      </div>
+      <div data-role="main" class="ui-content">
+	<div id='anywhere'>
+        <img src="themes/myImages/NHSlogo.jpg" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
+	<div class="ui-grid-b">
+	<div class="ui-block-a" style="width: 20%; margin-left: 35%;">
+		<button type="button" id="card1" class='snap'></button>
+	</div> 
+	<div class="ui-block-b" style="width: 20%; margin-left: 0%;">
+		<button type="button" id="card2" class='snap'></button>
+	</div>
+	</div><!-- /grid-a -->
+	<div id='snapWrapper'>
+	</div>
+	<div id='score'>
+	</div>
+	</div>	
+	<p>DEBUG: <pre data-bind="text: ko.toJSON($data,null,2)"></pre>	</p>
+					
+	<a style='visibility:hidden;' data-role="button" id="nextButton" href="#" onclick="nextPage()"></a>
+    </div><!--main content-->
+      <div data-role="footer" data-position="fixed">
+        <h2>&copy; Edinburgh University 2014</h2>
+      </div>
+</div> <!--close anywhere-->
+	</div><!--End of SnapPage-->
+	
+
+	
+	<script type='text/javascript'> 
+	var card1url;
+	var card2url;
+	var url1;
+	var url2;
+	var clicked=false;
+	var score=[];
+ 	var index=0;
+	var t0;
+     	var t1;
+	var gameStart=false;
+	
+
+	var round=1;
+	
+
+	function recursiveTimer(round)
+	{
+		var interval = setInterval(function(){
+			  t0 = '';
+     			  t1 = '';
+			round += 1;
+
+	    		if(round == 13)
+			{
+				clearInterval(interval);
+				$("#nextButton").css('visibility', 'visible');
+				alert('Game Over! Your average reaction time was '+ computeAvg()+'ms');
+			}else if(clicked)
+			{
+	       			clearInterval(interval);
+				setTimeout(function(){   		
+				clicked=false;
+				recursiveTimer(round-1);
+				}, 550);
+			
+	   		}else{
+	   		
+			rand1 = Math.floor(Math.random()*picture.length);
+			rand2 = Math.floor(Math.random()*picture.length);
+			$('#card1').css("background-image", "url('themes/myImages/"+picture[rand1]+"')");
+			$('#card2').css("background-image", "url('themes/myImages/"+picture[rand2]+"')");
+			gameStart=true;
+			t0 = Date.now();
+			$("#snapWrapper").html(" ");
+			}
+		
+		}, 3000); 
+	}//recursiveTimer	
+
+$( document ).delegate("#SnapPage", "pagecreate", function() {
+  $('#card1').css("background-image", "url('themes/myImages/card_back.jpg')");
+	 $('#card2').css("background-image", "url('themes/myImages/card_back.jpg')");
+	 $("#snapWrapper").html('<div class="number"> 3 </div>');
+	setTimeout(function(){   		
+		 $("#snapWrapper").html('<div class="number"> 2 </div>');
+	}, 1000);
+
+	setTimeout(function(){   		
+		 $("#snapWrapper").html('<div class="number"> 1 </div>');
+		
+	}, 2000);
+	
+	recursiveTimer(round);
+	
+	 $("#SnapPage").on('click', function(e) {
+	        if(gameStart)
+		{
+			lookForMatch();
+		}
+	       
+	    });	
+	   
+
+}); //scripts for onload of #SnapPage
+
+	$(function() { 
+	
+
+	});
+
+ $("#step2But").on('click', function(e) {
+	$("#step2").css('display', 'block');
+	$("#step1").css('display', 'none');});
+
+ $("#step3But").on('click', function(e) {
+	$("#step3").css('display', 'block');
+	$("#step2").css('display', 'none');});
+
+
+ $("#step4But").on('click', function(e) {
+	$("#step4").css('display', 'block');
+	$("#step3").css('display', 'none');});
+
+
+ function lookForMatch(){
+
+t1 = Date.now();
+		clicked=true;
+		card1url = $('#card1').css('background-image');	
+		card2url = $('#card2').css('background-image'); 
+
+		url1 = card1url.split("myImages/"); 
+		url2 = card2url.split("myImages/");
+		   
+   
+		if(url1[1]==url2[1])
+		{
+			var rt = t1-t0;				
+			score.push(rt); 
+			//alert(score + 'ms');	
+			$("#score").append("<br> "+score[index]+'ms');
+			index++;
+			$("#snapWrapper").append(" <br> <span style='position:relative;left:45%;top:15%font-weight:bold;font-size:80px;color:#0DBA47;'>Snap!</span>");			
+			setTimeout(function(){   		
+				//allow time for participant to register visual feedback
+			}, 1000);
+		
+		}else 
+		{
+			$("#snapWrapper").append("<br> <span style='position:relative;left:49%;top:15%font-weight:bold;font-size:83px;color:#F5033B;'>X</span>");
+			
+		};	
+
+}
+	
+
+	$("#score").append("Reaction time: "); 
+	   
+	function computeAvg()
+	{
+		var total=0;
+		for(i=0; i<score.length; i++)
+		{
+			total=total+score[i];
+		}
+
+	return total/score.length;
+	
+	}
+$("#playSnap").on('click', function(e){nextPage();});
+
+      function nextPage() {
+        var currentPageID = $.mobile.activePage.attr('id');
+        switch (currentPageID) {
+          case "SnapInstructionsPage":
+            $.mobile.changePage("#SnapPage");
+            break;
+
+          default:
+            break;
+        }
+      }
+
+		
+ 
+	</script>
+  </body>
+  </html>			

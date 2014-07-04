@@ -5,24 +5,30 @@
     <title>Patient Questionnaire</title>
     <meta charset=utf-8 />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<!--My Own CSS-->
+    <!--My Own CSS-->
     <link rel="stylesheet" href="themes/formatting.css" />
     <!--JQuery Mobile CSS-->
     <link rel="stylesheet" href="themes/MyTheme.css" />
     <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
-    <!--<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>-->
-	<!--JQuery Mobile JavaScript-->
+    <!--JQuery js-->
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <!--JQuery Mobile js-->
     <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
     <!--External scripts needed for date-picker-->
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/git/jquery.mobile-git.css" />
-    <link rel="stylesheet" href="https://rawgithub.com/arschmitz/jquery-mobile-datepicker-wrapper/master/jquery.mobile.datepicker.css" />
-    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <!--<link rel="stylesheet" href="http://code.jquery.com/mobile/git/jquery.mobile-git.css" />
+    <link rel="stylesheet" href="https://rawgithub.com/arschmitz/jquery-mobile-datepicker-wrapper/master/jquery.mobile.datepicker.css" />-->
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.0/themes/base/jquery-ui.css" />
     <script src="https://rawgithub.com/jquery/jquery-ui/1-10-stable/ui/jquery.ui.datepicker.js"></script>
     <script src="http://code.jquery.com/mobile/git/jquery.mobile-git.js"></script>
     <script src="https://rawgithub.com/arschmitz/jquery-mobile-datepicker-wrapper/master/jquery.mobile.datepicker.js"></script>
     <!--Extrenal scripts needed for knockout library-->
     <script type='text/javascript' src="http://knockoutjs.com/downloads/knockout-3.0.0.js"></script>
+    <!--Scripts needed for numpad-->
+    <link rel="stylesheet" href="jquery.keypad.package-2.0.0/jquery.keypad.css" />
+    <script type='text/javascript' src="jquery.keypad.package-2.0.0/jquery.plugin.js"></script>
+    <script type='text/javascript' src="jquery.keypad.package-2.0.0/jquery.keypad.js"></script>
+
   </head>
 
   <body>
@@ -31,49 +37,50 @@
         <h1>Patient Survey; Welcome</h1>
       </div>
       <div data-role="main" class="ui-content">
-        <img src="themes/myImages/NHSlogo.jpg" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
+        <img src="themes/myImages/NHSlogo.png" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
         <h1>Patient Survey</h1>
-        <p>In order to speed up your assesment we would like to electronically record part of your medical history and recent symptoms. We hope you'll take the time to answer the following questions.</p>
+        <h4>In order to speed up your assesment we would like to electronically record part of your medical history and recent symptoms. We hope you'll take the time to answer the following questions.</h4>
         <br>
         <h2>Consent</h2>
-        <p>The information collected here will be linked to other information on your medical record. All information collected will remain strictly confidential. Information will be used for no other purpose than medical research.</p>
+        <h4>The information collected here will be linked to other information on your medical record. All information collected will remain strictly confidential. Information will be used for no other purpose than medical research.</h4>
         <div data-role="fieldcontain">
           <div style="width:47%;">
             <input type="checkbox" data-bind="checked:consent" name="consent" id="consent">
-            <label for="consent">I agree to the collection of my information</label>
+            <label for="consent" style='font-size:18px;'>I agree to the collection of my information</label>
           </div>
         </div>
-        <a data-role="button" id="nextButton" data-bind="visible: consent()" href="#" onclick="nextPage()"></a>
+        <a data-role="button" class="nextButton" data-bind="visible: consent()" href="#"></a>
       </div>
       <!--main content-->
       <div data-role="footer" data-position="fixed">
         <h2>&copy; Edinburgh University 2014</h2>
       </div>
-    </div><!--End of Page 1-->
-	
+    </div>
+    <!--End of Page 1-->
     <div data-role="page" id="IdentificationPage" data-theme="d">
       <div data-role="header">
         <h1>Patient Survey; Personal Details</h1>
       </div>
       <div data-role="main" class="ui-content">
-        <img src="themes/myImages/NHSlogo.jpg" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
+        <img src="themes/myImages/NHSlogo.png" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
         <h1>Personal Details</h1>
         <div id="DOB">
           <label for="DOB">Date of Birth:</label>
-		  <div class="ui-grid-b">
-			  <div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">
-				<label for="day">Day</label>
-				<input name="day" id="day" placeholder="DD" value="" type="text">
-			  </div>
-			  <div class="ui-block-b" style="width:20%; margin-right: 10px;">
-				<label for="Month">Month</label>
-				<input name="month" id="month" placeholder="MM" value="" type="text">
-			  </div>
-			  <div class="ui-block-c" style="width:30%">
-				<label for="year">Year</label>
-				<input name="year" id="year" placeholder="YYYY" value="" type="text">
-			  </div>
-			</div> <!--grid b-->
+          <div class="ui-grid-b">
+            <div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">
+              <label for="day">Day</label>
+              <input name="day" id="day" placeholder="DD" value="" type="text">
+            </div>
+            <div class="ui-block-b" style="width:20%; margin-right: 10px;">
+              <label for="Month">Month</label>
+              <input name="month" id="month" placeholder="MM" value="" type="text">
+            </div>
+            <div class="ui-block-c" style="width:30%">
+              <label for="year">Year</label>
+              <input name="year" id="year" placeholder="YYYY" value="" type="text">
+            </div>
+          </div>
+          <!--grid b-->
         </div>
         <div data-role="fieldcontain">
           <legend>Gender:</legend>
@@ -102,7 +109,7 @@
             </select>
           </div>
         </div>
-        <a data-role="button" id="nextButton" href="#" onclick="nextPage()"></a>
+        <a data-role="button" class="nextButton" href="#"></a>
       </div>
       <!--main content-->
       <div data-role="footer" data-position="fixed">
@@ -115,29 +122,27 @@
         <h1>Patient Survey; Symptoms</h1>
       </div>
       <div data-role="main" class="ui-content">
-        <img src="themes/myImages/NHSlogo.jpg" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
-        <form action="#" method="get">
-          <div id="datepicker" data-role="fieldcontain">
-            <p>When did you first have symptoms?</p>
-            <div class="ui-grid-a">
-              <div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 30px;">
-                <input type="text" id="date-input" data-inline="false" data-role="date">
-              </div>
-              <div class="ui-block-b" style="width:35%;">
-                <input type="checkbox" data-bind="checked:estDate" name="estDate" id="symptomOnsetDate">
-                <label for="symptomOnsetDate">I don't remember the exact date</label>
-              </div>
+        <img src="themes/myImages/NHSlogo.png" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
+        <div id="datepicker" data-role="fieldcontain">
+          <h3>When did you first have symptoms?</h3>
+          <div class="ui-grid-a">
+            <div class="ui-block-a" style="width:17%; margin-left: 40px; margin-right: 30px;">
+              <input type="text" placeholder="dd/mm/yyyy" class="date-input" data-inline="false" data-role="date" readonly="readonly" data-bind="value:exactDate">
+            </div>
+            <div class="ui-block-b" style="width:32%;">
+              <input type="checkbox" data-bind="checked:exactDateCheck" id="exactDateCheck">
+              <label for="exactDateCheck">I don't remember the exact date</label>
             </div>
           </div>
-        </form>
-        <div id="dynamicContent" data-bind="visible:estDate()">
-          <p>Can you provide an estimate of how long ago it was before your first symptoms?</p>
+        </div>
+        <div id="dynamicContent" data-bind="visible:exactDateCheck()">
+          <h4>How long ago was it before your first attack of symptoms?</h4>
           <div class="ui-grid-a">
             <div class="ui-block-a" style="width:10%; margin-left: 40px; margin-right: 30px;">
-              <input name="symptom_onset" id="symptom_onset" placeholder="0" value="" type="text">
+              <input type="text" id="symptom_onset" placeholder="0" value="" readonly="readonly" data-bind="value:estDate">
             </div>
-            <div class="ui-block-b" style="width:25%;">
-              <select name="symptom_onset" id="symptom_onset">
+            <div class="ui-block-b" style="width:20%;">
+              <select name="symptom_onset" id="symptom_onset" data-bind="value:estDateUnit">
                 <option value="days">days</option>
                 <option value="weeks">weeks</option>
                 <option value="months">months</option>
@@ -146,37 +151,42 @@
             </div>
           </div>
         </div>
-		
         <div id="frequency">
-          <p>How many attacks of symptoms have you had?</p>
+          <h3>How many attacks of symptoms have you had?</h3>
           <div class="ui-grid-a">
             <div class="ui-block-a" style="width:10%; margin-left: 40px; margin-right: 30px;">
-              <input name="frequency" id="frequency" placeholder="1" value="" type="text">
+              <input type="text" id="frequencyKeypad" placeholder="1" value="" readonly="readonly" data-bind="value:attackNo">
             </div>
-            <div class="ui-block-b" style="width:25%;">
-              <input type="checkbox" name="can't_remember" id="can't_remember" value="male" />
+            <div class="ui-block-b" style="width:20%;">
+              <input type="checkbox" id="attackNoCheck" data-bind="value:attackNoCheck" />
               <br>
-              <label for="can't_remember">I don't remeber</label>
+              <label for="attackNoCheck">I don't remeber</label>
             </div>
           </div>
         </div>
         <div id="duration">
-          <p>How long did the symptoms last in your last attack?</p>
-          <div class="ui-grid-a">
-            <div class="ui-block-a" style="width:10%; margin-left: 40px; margin-right: 10px;">
-              <input name="duration" id="duration" placeholder="0" value="" type="text">
+          <h3>How long did the symptoms last in your last attack?</h3>
+          <div class="ui-grid-b">
+            <div class="ui-block-a" style="width:10%; margin-left: 40px; margin-right: 30px;">
+              <input type="text" id="durationKeypad" placeholder="1" value="" readonly="readonly" data-bind="value:attackDuration">
             </div>
-            <div class="ui-block-b" style="width:20%;">
-              <select name="time_unit" id="time_unit">
+            <div class="ui-block-b" style="width:20%; margin-right: 30px;">
+              <select name="time_unit" id="time_unit" data-bind="value:durationUnit">
                 <option value="sec">sec</option>
                 <option value="min">min</option>
                 <option value="hours">hrs</option>
                 <option value="days">days</option>
               </select>
             </div>
+            <div class="ui-block-c" style="width:20%;">
+              <input type="checkbox" id="durationCheck" data-bind="value:durationCheck" />
+              <br>
+              <label for="durationCheck">I don't remeber</label>
+            </div>
           </div>
         </div>
-        <a data-role="button" id="nextButton" href="#" onclick="nextPage()"></a>
+        <a data-role="button" class="nextButton" href="#"></a>DEBUG:
+        <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
       </div>
       <!--main content-->
       <div data-role="footer" data-position="fixed">
@@ -184,114 +194,393 @@
       </div>
     </div>
     <!--End of Page 3-->
-	
-	 <div data-role="page" id="SpeechProblemsPage" data-theme="d">
+    <div data-role="page" id="SpeechProblemsPage" data-theme="d">
       <div data-role="header">
         <h1>Patient Survey; Speech Problems</h1>
       </div>
       <div data-role="main" class="ui-content">
-        <img src="themes/myImages/NHSlogo.jpg" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
-        <h1>Speech Problems</h1>
+        <img src="themes/myImages/NHSlogo.png" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
+        <h2>Speech Problems</h2>
         <h3>In your last attack, did you experience:</h3>
-       <div class="ui-grid-b">
-			<h3>Slurred speech?</h3>
-			<div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">	
-				<label for="slurredYes">Yes</label>			  
-				<input type="radio" name="slurred" id="slurredYes" value="yes"/>
-			</div>
-			<div class="ui-block-b" style="width:20%; margin-right: 10px;">
-				<label for="slurredNo">No</label>
-				<input type="radio" name="slurred" id="slurredNo" value="no"/>
-			</div>
-			<div class="ui-block-c" style="width:20%">
-				<label for="slurredDunno">I don't know</label>
-				<input type="radio" name="slurred" id="slurredDunno" value="I don't know"/>
-			</div>
-		</div><!--grib b-->
-		
-       <div class="ui-grid-b">
-			<p>Difficulty understanding words?</p>
-			<div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">	
-				<label for="speakingYes">Yes</label>			  
-				<input type="radio" name="speaking" id="speakingYes" value="yes"/>
-			</div>
-			<div class="ui-block-b" style="width:20%; margin-right: 10px;">
-				<label for="speakingNo">No</label>
-				<input type="radio" name="speaking" id="speakingNo" value="no"/>
-			</div>
-			<div class="ui-block-c" style="width:20%">
-				<label for="speakingDunno">I don't know</label>
-				<input type="radio" name="speaking" id="speakingDunno" value="I_don't_know"/>
-			</div>
-		</div><!--grib b-->
-		
+        <div class="ui-grid-b">
+          <h3>Slurred speech?</h3>
+          <div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">
+            <label for="slurredYes">Yes</label>
+            <input type="radio" data-bind="checked:slurredSpeech" name="slurred" id="slurredYes" value="yes" />
+          </div>
+          <div class="ui-block-b" style="width:20%; margin-right: 10px;">
+            <label for="slurredNo">No</label>
+            <input type="radio" data-bind="checked:slurredSpeech" name="slurred" id="slurredNo" value="no" />
+          </div>
+          <div class="ui-block-c" style="width:20%">
+            <label for="slurredDunno">I don't know</label>
+            <input type="radio" data-bind="checked:slurredSpeech" name="slurred" id="slurredDunno" value="I don't know" />
+          </div>
+        </div>
+        <!--grib b-->
+        <div class="ui-grid-b">
+          <h3>Difficulty speaking?</h3>
+          <div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">
+            <label for="speakingYes">Yes</label>
+            <input type="radio" data-bind="checked:speakingDifficulty" name="speaking" id="speakingYes" value="yes" />
+          </div>
+          <div class="ui-block-b" style="width:20%; margin-right: 10px;">
+            <label for="speakingNo">No</label>
+            <input type="radio" data-bind="checked:speakingDifficulty" name="speaking" id="speakingNo" value="no" />
+          </div>
+          <div class="ui-block-c" style="width:20%">
+            <label for="speakingDunno">I don't know</label>
+            <input type="radio" data-bind="checked:speakingDifficulty" name="speaking" id="speakingDunno" value="I_don't_know" />
+          </div>
+        </div>
+        <!--grib b-->
+        <div class="ui-grid-b">
+          <h3>Difficulty understanding words?</h3>
+          <div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">
+            <label for="understandingYes">Yes</label>
+            <input type="radio" data-bind="checked:wordComprehension" name="understanding" id="understandingYes" value="yes" />
+          </div>
+          <div class="ui-block-b" style="width:20%; margin-right: 10px;">
+            <label for="understandingNo">No</label>
+            <input type="radio" data-bind="checked:wordComprehension" name="understanding" id="understandingNo" value="no" />
+          </div>
+          <div class="ui-block-c" style="width:20%">
+            <label for="understandingDunno">I don't know</label>
+            <input type="radio" data-bind="checked:wordComprehension" name="understanding" id="understandingDunno" value="I don't know" />
+          </div>
+        </div>
+        <!--grib b-->
+        <a data-role="button" class="nextButton" href="#"></a>
+		DEBUG:<pre data-bind="text: ko.toJSON($data,null,2)"></pre>
+      </div>
+      <!--main content-->
+      <div data-role="footer" data-position="fixed">
+        <h2>&copy; Edinburgh University 2014</h2>
+      </div>
+    </div>
+    <!--End of SpeechProblemsPage-->
+    
+	<div data-role="page" id="VisionProblemsPage" data-theme="d">
+      <div data-role="header">
+        <h1>Patient Survey; Vision Problems</h1>
+      </div>
+      <div data-role="main" class="ui-content">
+        <img src="themes/myImages/NHSlogo.png" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
+        <h2>Vision Problems</h2> 
+		<h3>In your last attack:</h3>     
 		<div class="ui-grid-b">
-			<p>Difficulty understanding words?</p>
+			<h3>Did you lose vision in your eyes?</h3>
 			<div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">	
-				<label for="understandingYes">Yes</label>			  
-				<input type="radio" name="understanding" id="understandingYes" value="yes"/>
+				<label for="visionLYes">Yes</label>			  
+				<input type="radio" data-bind="checked:visionLoss" name="visionLoss" id="visionLYes" value="yes"/>
 			</div>
 			<div class="ui-block-b" style="width:20%; margin-right: 10px;">
-				<label for="understandingNo">No</label>
-				<input type="radio" name="understanding" id="understandingNo" value="no"/>
+				<label for="visionLNo">No</label>
+				<input type="radio" data-bind="checked:visionLoss" name="visionLoss" id="visionLNo" value="no"/>
 			</div>
 			<div class="ui-block-c" style="width:20%">
-				<label for="understandingDunno">I don't know</label>
-				<input type="radio" name="understanding" id="understandingDunno" value="I don't know"/>
+				<label for="visionLDunno">I don't know</label>
+				<input type="radio" data-bind="checked:visionLoss" name="visionLoss" id="visionLDunno" value="I don't know"/>
 			</div>
+			
 		</div><!--grib b--> 
 		
-        <a data-role="button" id="nextButton" data-bind="visible: consent()" href="#" onclick="nextPage()"></a>
+		<div id="whichEye" data-bind="visible: visionLoss() == 'yes'"> 
+			<h3>Which eye did you lose vision in?</h3>
+			<div class="ui-grid-b">
+				<div class="ui-block-a" style="width:20%; margin-left: 45px; margin-right: 6px;">	
+					<button type="button" id="leftEye" data-bind='click: whichEyeValue' value="Left Eye"></button>	
+					<label style="display: block; text-align: center;" for="leftEye"><h2>Left Eye</h2></label>		
+				</div>
+				<div class="ui-block-b" style="width:20%; margin-right: 6px;">
+					<button type="button" id="rightEye" data-bind='click: whichEyeValue' value="Right Eye"></button>	
+					<label style="display: block; text-align: center;" for="rightEye"><h2>Right Eye</h2></label>
+				</div>
+				<div class="ui-block-c" style="width:20%">
+					<button type="button" id="bothEyes" data-bind='click: whichEyeValue' value="Both Eyes"></button>	
+					<label style="display: block; text-align: center;" for="bothEyes"><h2>Both Eyes</h2></label>
+				</div>
+			</div><!--grib b--> 
+		
+			<div class="ui-grid-b">
+				<h3>Did you test this by closing one eye and then the other?</h3>
+				<div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">	
+					<label for="visionTYes">Yes</label>			  
+					<input type="radio" data-bind="checked:visionTest" name="visionTest" id="visionTYes" value="yes"/>
+				</div>
+				<div class="ui-block-b" style="width:20%; margin-right: 10px;">
+					<label for="visionTNo">No</label>
+					<input type="radio" data-bind="checked:visionTest" name="visionTest" id="visionTNo" value="no"/>
+				</div>
+				<div class="ui-block-c" style="width:20%">
+					<label for="visionTDunno">I don't know</label>
+					<input type="radio" data-bind="checked:visionTest" name="visionTest" id="visionTDunno" value="I don't know"/>
+				</div>
+			</div><!--grib b--> 
+		</div>
+		
+		<div class="ui-grid-b">
+				<h3>Did you lose vision mainly to one side of your eye?</h3>
+				<div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">	
+					<label for="visionPYes">Yes</label>			  
+					<input type="radio" data-bind="checked:partialVisionLoss" name="visionPart" id="visionPYes" value="yes"/>
+				</div>
+				<div class="ui-block-b" style="width:20%; margin-right: 10px;">
+					<label for="visionPNo">No</label>
+					<input type="radio" data-bind="checked:partialVisionLoss" name="visionPart" id="visionPNo" value="no"/>
+				</div>
+				<div class="ui-block-c" style="width:20%">
+					<label for="visionPDunno">I don't know</label>
+					<input type="radio" data-bind="checked:partialVisionLoss" name="visionPart" id="visionPDunno" value="I don't know"/>
+				</div>
+		</div><!--grib b--> 
+		
+			<div class="ui-grid-b">
+				<h3>Did you have sparkly lights or lines in your vision?</h3>
+				<div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">	
+					<label for="visionSYes">Yes</label>			  
+					<input type="radio" data-bind="checked:sparklyLight" name="sparkly" id="visionSYes" value="yes"/>
+				</div>
+				<div class="ui-block-b" style="width:20%; margin-right: 10px;">
+					<label for="visionSNo">No</label>
+					<input type="radio" data-bind="checked:sparklyLight" name="sparkly" id="visionSNo" value="no"/>
+				</div>
+				<div class="ui-block-c" style="width:20%">
+					<label for="visionSDunno">I don't know</label>
+					<input type="radio" data-bind="checked:sparklyLight" name="sparkly" id="visionSDunno" value="I don't know"/>
+				</div>
+		</div><!--grib b--> 
+
+        <a data-role="button" class="nextButton" href="#"></a> 
+			DEBUG:<pre data-bind="text: ko.toJSON($data,null,2)"></pre>
       </div><!--main content-->
       <div data-role="footer" data-position="fixed">
         <h2>&copy; Edinburgh University 2014</h2>
       </div>
-    </div><!--End of SpeechProblemsPage-->
+    </div><!--End of VisionProblemsPage-->
 	
-  
-
-    <!--End of Page 4-->
+	<div data-role="page" id="OtherSymptomsPage" data-theme="d">
+      <div data-role="header">
+        <h1>Patient Survey; Other Symptoms</h1>
+      </div>
+    <div data-role="main" class="ui-content">
+        <img src="themes/myImages/NHSlogo.png" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
+        <h2>Other Symptoms</h2>
+		
+		<h3>In your last attack, did you ever feel:</h3>
+       <div class="ui-grid-b">
+			<h4>Light headed?</h4>
+			<div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">	
+				<label for="lightYes">Yes</label>			  
+				<input type="radio" data-bind="checked:lightHeaded" name="light" id="lightYes" value="yes"/>
+			</div>
+			<div class="ui-block-b" style="width:20%; margin-right: 10px;">
+				<label for="lightNo">No</label>
+				<input type="radio" data-bind="checked:lightHeaded" name="light" id="lightNo" value="no"/>
+			</div>
+			<div class="ui-block-c" style="width:20%">
+				<label for="lightDunno">I don't know</label>
+				<input type="radio" data-bind="checked:lightHeaded" name="light" id="lightDunno" value="I don't know"/>
+			</div>
+		</div><!--grib b-->
+		
+		<div class="ui-grid-b">
+		<h4>Like your head was spinning (vertigo)?</h4>
+			<div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">	
+				<label for="vertigoYes">Yes</label>			  
+				<input type="radio" data-bind="checked:vertigo" name="vertigo" id="vertigoYes" value="yes"/>
+			</div>
+			<div class="ui-block-b" style="width:20%; margin-right: 10px;">
+				<label for="vertigoNo">No</label>
+				<input type="radio" data-bind="checked:vertigo" name="vertigo" id="vertigoNo" value="no"/>
+			</div>
+			<div class="ui-block-c" style="width:20%">
+				<label for="vertigoDunno">I don't know</label>
+				<input type="radio" data-bind="checked:vertigo" name="vertigo" id="vertigoDunno" value="I don't know"/>
+			</div>
+		</div><!--grib b-->
+		
+		<h3>Slide the bar to indicate how you experienced symptom onset:</h3>
+		<div style="width: 58%; position:absolute; left:6%">
+			<input type="range" name="slider" id="slider" value="" min="0" max="10" step="1"/>
+			<label for="slider"><h3 id="min">Gradual</h3> <h3 id="max">Sudden</h3></label>
+		</div>
+		<br> <br> <br>
+		
+        <a data-role="button" class="nextButton" href="#"></a>
+		DEBUG: <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
+    </div><!--main content-->
+      <div data-role="footer" data-position="fixed">
+        <h2>&copy; Edinburgh University 2014</h2>
+      </div>
+	</div><!--End of OtherSymptomsPage-->
+	
+	<div data-role="page" id="MedicalHistoryPage" data-theme="d">
+      <div data-role="header">
+        <h1>Patient Survey; Medical History</h1>
+      </div>
+    <div data-role="main" class="ui-content">
+        <img src="themes/myImages/NHSlogo.png" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
+		
+		<div class="ui-grid-b">
+		<h3>Have you experienced any other symptoms?:</h3>
+			<div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">	
+				<label for="otherYes">Yes</label>			  
+				<input type="radio" data-bind="checked:otherSymptoms" name="otherSymptoms" id="otherYes" value="yes"/>
+			</div>
+			<div class="ui-block-b" style="width:20%; margin-right: 10px;">
+				<label for="otherNo">No</label>
+				<input type="radio" data-bind="checked:otherSymptoms" name="otherSymptoms" id="otherNo" value="no"/>
+			</div>
+			<div class="ui-block-c" style="width:20%">
+				<label for="otherDunno">I don't know</label>
+				<input type="radio" data-bind="checked:otherSymptoms" name="otherSymptoms" id="otherDunno" value="I don't know"/>
+			</div>
+		</div><!--grib b-->
+		
+		<div id="other" style="width:30%; margin-left:3%" data-bind="visible: otherSymptoms() == 'yes'">
+			<label for="other"><h4>Which of the following symptoms have you had:</h4>
+			<label for="vomiting">Vomiting</label>	
+			<input type="checkbox" data-bind="checked:vomiting" value="vomiting" id="vomiting"/>
+			<label for="collapse">Collapse</label>
+			<input type="checkbox" data-bind="checked:collapse" value="collapse" id="collapse"/>
+			<label for="memoryLoss">Memory Loss</label>
+			<input type="checkbox" data-bind="checked:memoryLoss" value="memoryLoss" id="memoryLoss"/>
+			<label for="doubleVision">Double Vision</label>
+			<input type="checkbox" data-bind="checked:doubleVision" value="doubleVision" id="doubleVision"/>
+			<label for="heartPalpatations">Heart Palpatations</label>
+			<input type="checkbox" data-bind="checked:heartPalpatations" value="heartPalpatations" id="heartPalpatations"/>			
+		</div>
+        <h2>Medical History</h2>
+		
+		<div id="medicalHistory" style="width:30%; margin-left:3%">
+		<label for="medicalHistory"><h4>Before your current symptoms you had/have:</h4></label>
+			<label for="heartAttack">Heart attack/ angina</label>	
+			<input type="checkbox" data-bind="checked:heartAttack" value="heartAttack" id="heartAttack"/>
+			<label for="stroke">Stroke/ Mini stroke</label>
+			<input type="checkbox" data-bind="checked:stroke" value="stroke" id="stroke"/>
+			<label for="cancer">Cancer</label>
+			<input type="checkbox" data-bind="checked:cancer" value="cancer" id="cancer"/>
+			<label for="epilepsy">Epilepsy</label>
+			<input type="checkbox" data-bind="checked:epilepsy" value="epilepsy" id="epilepsy"/>			
+		</div>
+		
+	<a data-role="button" class="nextButton" href="#"></a>
+	DEBUG:<pre data-bind="text: ko.toJSON($data,null,2)"></pre>
+    </div><!--main content-->
+      <div data-role="footer" data-position="fixed">
+        <h2>&copy; Edinburgh University 2014</h2>
+      </div>
+	</div><!--End of MedicalHistoryPage-->
+	
+	
+	<div data-role="page" id="SnapInstructionsPage" data-theme="d">
+      <div data-role="header">
+        <h1>Patient Survey; Snap!</h1>
+      </div>
+      <div data-role="main" class="ui-content">
+        <div id='anywhere'>
+          <img src="themes/myImages/NHSlogo.png" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
+          <div id='step1' style="width:45%;position:fixed;top:30%;left:27%;">
+            <h2>In order to measure your reaction time,
+              <span style="position:relative;left:8%;">a game of 'Snap' will now follow.</span>
+            </h2>
+            <br>
+            <button id='step2But'>Learn How to Play ></button>
+          </div>
+          <div id='step2' style='display:none;width:70%;position:fixed;left:15%;top:15%;'>
+            <h3>1. You will be shown two picture cards. If the two cards match, touch
+              <span style='position:relative;left:3%'>anywhere on the screen as fast as you can.</span>
+            </h3>
+            <img style="position:fixed;left:20%;" src="themes/myImages/snapCards.png" alt="snapCards"  class="snapCard">
+            <button style="position:fixed;top:80%;" id='step3But'>Next ></button>
+          </div>
+          <div id='step3' style='display:none;position:fixed;'>
+            <h3 style="position:fixed;left:20%;top:10%;">3. If you are correct the message 'Snap!' will appear.</h3>
+            <img style="position:fixed;left:20%;top:25%;" src="themes/myImages/snapCorrect.png" alt="snapCorrect"  class="snapCard">
+            <button style='top:70%;' id='step4But'>Next ></button>
+          </div>
+          <div id='step4' style='display:none;position:fixed;top:10%;left:10%;'>
+            <h3>4. If you are wrong a red 'X' will appear.</h3>
+            <img style="position:fixed;left:25%;top:20%;" src="themes/myImages/snapIncorrect.png" alt="snapWrong"  class="snapCard">	
+			<a style='position:fixed;top:70%;' data-role="button" id="playSnap" href="#">Play Snap!</a>
+          </div>
+        </div>DEBUG:
+        <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
+      </div>
+      <!--main content-->
+      <div data-role="footer" data-position="fixed">
+        <h2>&copy; Edinburgh University 2014</h2>
+      </div>
+    </div>
+    <!--close anywhere-->
+    </div>
+    <!--End of SnapInstructionPage-->
+	
+    <div data-role="page" id="SnapPage" data-theme="d">
+      <div data-role="header">
+        <h1>Patient Survey; Snap!</h1>
+      </div>
+      <div data-role="main" class="ui-content">
+        <div id='anywhere'>
+          
+          <div class="ui-grid-b" style="margin-top:7%;position:relative;">
+            <div class="ui-block-a" style="width:20%; margin-left:28%;margin-right:5%;"> <!--width:20%; margin-left:40%;-->
+              <div id="card1" class='snap'></div>
+            </div>
+            <div class="ui-block-b" style="width:20% margin-left:36%;"> <!--"width:20% margin-left:10%-->
+			  <div id="card2" class='snap'></div>
+            </div>
+          </div>
+          <!-- /grid-a -->
+          <div id='snapWrapper' style="position:relative; z-index:100;"></div>
+          <div id='score'></div>
+        </div>
+		<!--DEBUG: <pre data-bind="text: ko.toJSON($data,null,2)"></pre>-->
+        <a style='visibility:hidden;' id="nxtButnSnap" data-role="button" class="nextButton" href="#" ></a>
+      </div>
+      <!--main content-->
+      <div data-role="footer" data-position="fixed">
+        <h2>&copy; Edinburgh University 2014</h2>
+      </div>
+    </div> 
+    <!--close anywhere-->
+    </div>
+    <!--End of SnapPage-->
+	
     <script type='text/javascript'>
+      
       var viewModel = {
         consent: ko.observable(false),
         id: ko.observable(),
-        respondent: ["Patient", "Relative", "Carer", "NHS Staff", "Other"],
         respodentValue: ko.observable("Patient"),
         exactDate: ko.observable(),
+        exactDateCheck: ko.observable(),
         estDate: ko.observable(),
+        estDateUnit: ko.observable(),
         attackNo: ko.observable(),
+        attackNoCheck: ko.observable(),
         attackDuration: ko.observable(),
-        durationUnit: ["sec", "min", "hrs", "days"],
-        durationUnitValue: ko.observable("sec"),
-        numbness: ko.observable(false),
-        numbnessLocation: ko.observableArray([]),
-        tingling: ko.observable(false),
-        tinglingLocation: ko.observableArray([]),
-        weakness: ko.observable(false),
-        weaknessLocation: ko.observableArray([]),
-        jerking: ko.observable(false),
-        jerkingLocation: ko.observableArray([]),
-        tremor: ko.observable(false),
-        tremorLocation: ko.observableArray([]),
-        pain: ko.observable(false),
-        painLocation: ko.observableArray([]),
+        durationUnit: ko.observable(),
+        durationCheck: ko.observable(),
         slurredSpeech: ko.observable(),
         speakingDifficulty: ko.observable(),
         wordComprehension: ko.observable(),
-        lightHeaded: ko.observable(),
-        vertigo: ko.observable(),
         visionLoss: ko.observable(),
-        partialVisionLoss: ko.observable(),
-        visionTest: ko.observable(),
-        sparkly: ko.observable(),
-        symptemOnset: ko.observable(),
-        otherSymptoms: ko.observable(),
+		whichEye: ko.observable(),
+		whichEyeValue: function(data, element) {this.whichEye($(element.target).val());},
+		visionTest: ko.observable(),
+		partialVisionLoss: ko.observable(),
+		sparklyLight: ko.observable(),
+		lightHeaded: ko.observable(),
+		vertigo: ko.observable(),
+		otherSymptoms: ko.observable(),
         vomiting: ko.observable(),
         collapse: ko.observable(),
         memoryLoss: ko.observable(),
         doubleVision: ko.observable(),
         heartPalpatations: ko.observable(),
-        heartAttack: ko.observable(),
+		heartAttack: ko.observable(),
         stroke: ko.observable(),
         cancer: ko.observable(),
         epilepsy: ko.observable(),
@@ -299,24 +588,204 @@
         rt: ko.observable()
       };
       ko.applyBindings(viewModel);
-
+	  
+	  
+      $(document).ready(function() {
+        $(".nextButton").on('click', nextPage);
+      }); //document ready
+	  
+	  $(".data-input").datepicker({ defaultDate: null}); //highlight current date on datepicker
+	  
+	  //Sort out overlapping issues with numpad using z-index.
+      $(function() {
+        $('#symptom_onset').keypad();
+        $('#frequencyKeypad').keypad();
+        $('#durationKeypad').keypad();
+        $('#symptom_onset').on('click', function() {
+          $('#datepicker').css('position', 'relative');
+          $('#datepicker').css('z-index', '100');
+          $('#duration').css('position', 'relative');
+          $('#datepicker').css('z-index', '1');
+          $('#frequency').css('position', 'relative');
+          $('#datepicker').css('z-index', '1');
+        });
+        $('#duration').on('click', function() {
+          $('#duration').css('position', 'relative');
+          $('#datepicker').css('z-index', '100');
+          $('#datepicker').css('position', 'relative');
+          $('#datepicker').css('z-index', '1');
+          $('#frequency').css('position', 'relative');
+          $('#datepicker').css('z-index', '1');
+        });
+        $('#frequency').on('click', function() {
+          $('#frequency').css('position', 'relative');
+          $('#datepicker').css('z-index', '100');
+          $('#datepicker').css('position', 'relative');
+          $('#datepicker').css('z-index', '1');
+          $('#duration').css('position', 'relative');
+          $('#datepicker').css('z-index', '1');
+        });
+      });
+	  
+	  
       function nextPage() {
         var currentPageID = $.mobile.activePage.attr('id');
         switch (currentPageID) {
           case "WelcomePage":
-            $.mobile.changePage("#IdentificationPage");
+            $.mobile.changePage("#SymptomsPage");
             break;
           case "IdentificationPage":
             $.mobile.changePage("#SymptomsPage");
             break;
           case "SymptomsPage":
+            $.mobile.changePage("#SpeechProblemsPage");
+            break;
+          case "SpeechProblemsPage":
+            $.mobile.changePage("#VisionProblemsPage");
+            break;
+          case "VisionProblemsPage":
             $.mobile.changePage("#BodyPage");
             break;
+          case "numbnessPage":
+          case "tinglingPage":
+          case "weaknessPage":
+          case "jerkingPage":
+          case "tremorPage":
+          case "painPage":
+            $.mobile.changePage("#OtherSymptomsPage");
+            break;
+          case "OtherSymptomsPage":
+            $.mobile.changePage("#MedicalHistoryPage");
+            break;
+          case "MedicalHistoryPage":
+            $.mobile.changePage("#SnapInstructionsPage");
+            break;
+			case "SnapPage":
+            $.mobile.changePage("#PairsInstructionsPage");
+			break
           default:
             break;
         }
       }
+	  
+	  <!--Script for the game Snaps-->
+      var card1url;
+      var card2url;
+      var url1;
+      var url2;
+      var clicked = false;
+      var score = [];
+      var index = 0;
+      var t0;
+      var t1;
+      var gameStart = false;
+      var round = 1;
+	  
+	  var picture = ['cross.png', 'tree.png', 'square.png', 'equals.png'];
+      var rand1 = Math.floor(Math.random() * picture.length);
+      var rand2 = Math.floor(Math.random() * picture.length);
+     
+
+      function recursiveTimer(round) {
+        var interval = setInterval(function() {
+          t0 = '';
+          t1 = '';
+          round += 1;
+          if (round == 13) {
+			gameStart=false;
+            clearInterval(interval);
+            $("#nxtButnSnap").css('visibility', 'visible');
+            alert('Game Over! Your average reaction time was ' + computeAvg() + 'ms');
+          } else if (clicked) {
+            clearInterval(interval);
+            setTimeout(function() {   //allow time for participant to register visual feedback
+              clicked = false;
+              recursiveTimer(round - 1);
+            }, 500);
+          } else {
+            rand1 = Math.floor(Math.random() * picture.length);
+            rand2 = Math.floor(Math.random() * picture.length);
+				$('.snap').css("background-color", "#FFFFFF"); 
+		
+            $('#card1').css("background-image", "url('themes/myImages/" + picture[rand1] + "')");
+            $('#card2').css("background-image", "url('themes/myImages/" + picture[rand2] + "')");
+            gameStart = true;
+            t0 = Date.now();
+            $("#snapWrapper").html(" ");
+          }
+        }, 2000);
+      } //recursiveTimer	
+	  
+	   //scripts for onload of #SnapPage
+      $(document).delegate("#SnapPage", "pagecreate", function() {
+	   $('.snap').css("background-color", "#004200"); 
+        $("#snapWrapper").html('<div class="number"> 3 </div>');
+        setTimeout(function() {
+          $("#snapWrapper").html('<div class="number"> 2 </div>');
+        }, 1000);
+        setTimeout(function() {
+          $("#snapWrapper").html('<div class="number"> 1 </div>');
+        }, 2000);
+        recursiveTimer(round);
+        $("#SnapPage").on('click', function(e) {
+          if (gameStart) {
+            lookForMatch();
+          }
+        });
+      }); //scripts for onload of #SnapPage
+	  
+      $(function() {});
+      $("#step2But").on('click', function(e) {
+        $("#step2").css('display', 'block');
+        $("#step1").css('display', 'none');
+      });
+      $("#step3But").on('click', function(e) {
+        $("#step3").css('display', 'block');
+        $("#step2").css('display', 'none');
+      });
+      $("#step4But").on('click', function(e) {
+        $("#step4").css('display', 'block');
+        $("#step3").css('display', 'none');
+      });
+
+      function lookForMatch() {
+        t1 = Date.now();
+        clicked = true;
+        card1url = $('#card1').css('background-image');
+        card2url = $('#card2').css('background-image');
+        url1 = card1url.split("myImages/");
+        url2 = card2url.split("myImages/");
+        if (url1[1] == url2[1]) {
+          var rt = t1 - t0;
+          score.push(rt);
+          //alert(score + 'ms');	
+          <!--$("#score").append("<br> " + score[index] + 'ms');-->
+          index++;
+          $("#snapWrapper").append(" <br> <span style='position:relative;left:41%;top:15%font-weight:bold;font-size:84px;color:#f0ff02;'>Snap!</span>");
+         /* setTimeout(function() {
+           
+          }, 500);*/
+        } else {
+          $("#snapWrapper").append("<br> <span style='position:relative;left:46%;top:15%font-weight:bold;font-size:110px;color:#df0202;'>X</span>");
+        };
+      }
+     <!-- $("#score").append("Reaction time: ");-->
+
+      function computeAvg() {
+        var total = 0;
+        for (i = 0; i < score.length; i++) {
+          total = total + score[i];
+        }
+        return total / score.length;
+      }
+      $("#playSnap").on('click', function(e) {
+        $.mobile.changePage("#SnapPage");
+      });
+
+    
     </script>
+	
+	
   </body>
 
 </html>
