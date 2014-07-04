@@ -210,34 +210,8 @@ height:525px !important;}
 	#footLabel{ 
 		color: #006600;
 	}
-  
-        .number {
-        position: relative;
-        left: 47%;
-        top: 15%;
-		font-weight: bold;
-        font-size: 80px;
-        color: #5108FA;
-      }
-      .snapCard {
-        float: right;
-      }
-      #step2But,
-      #step3But,
-      #step4But {
-        width: 20%;
-        position: fixed;
-        left: 37%;
-      }
-	  
-	  .snap{
-	  height:260px;
-	  width:190px;	
-	   background-size:190px 261px;
-	  background-repeat: no-repeat;
-	  background-position: center center}
-	  
-	  #SnapPage{background-color: #005200;}
+
+	
 	
 .ui-datepicker {
 	width: 55% !important;

@@ -42,13 +42,13 @@
         <div class="ui-grid-b">
           <div class="ui-block-a" style="width:20%; margin-left:35px;margin-right:10px;">
             <h3>In you last attack, did you expeience:</h3>
-	<div style="border-right: solid 2px #585858;position:relative; margin-top:10%;">
+	<div style="border-right: solid 1px #585858;position:relative; margin-top:10%;">
 	    
             <button class='inactive' id="numbnessBut" value="Numbness">Numbness</button>
-            <button class='inactive' id="tinglingBut" value="Tingling">Tingling</button>
-            <button class='inactive' id="weaknessBut" value="Weakness">Weakness</button>
-            <button class='inactive' id="jerkingBut" value="Jerking">Jerking</button>
-            <button class='inactive' id="tremorBut" value="Tremor">Tremor</button>
+            <button class='inactive' id="tinglingBut" value="Tingling"">Tingling</button>
+            <button class='inactive' id="weaknessBut" value="Weakness"">Weakness</button>
+            <button class='inactive' id="jerkingBut" value="Jerking"">Jerking</button>
+            <button class='inactive' id="tremorBut" value="Tremor"">Tremor</button>
             <button class='inactive' id="painBut" value="Pain">Pain</button>
 	  
 	</div>
@@ -77,19 +77,20 @@
         <div class="ui-grid-b">
           <div class="ui-block-a" style="width:20%; margin-left: 35px; margin-right: 10px;">
             <h3>In your last attack did you experience:</h3>
-	    <div style="border-right: solid 2px #585858;">	
+	    <div style="border-right: solid 1px #585858;">	
             <div class="activeBox">
              <button class='active' id="numbnessBut" value="Numbness">Numbness</button> 
             </div>
-            <button class='inactive' id="tinglingBut" value="Tingling">Tingling</button>
-            <button class='inactive' id="weaknessBut" value="Weakness">Weakness</button>
-            <button class='inactive' id="jerkingBut" value="Jerking">Jerking</button>
-            <button class='inactive' id="tremorBut" value="Tremor">Tremor</button>
+            <button class='inactive' id="tinglingBut" value="Tingling"">Tingling</button>
+            <button class='inactive' id="weaknessBut" value="Weakness"">Weakness</button>
+            <button class='inactive' id="jerkingBut" value="Jerking"">Jerking</button>
+            <button class='inactive' id="tremorBut" value="Tremor"">Tremor</button>
             <button class='inactive' id="painBut" value="Pain">Pain</button>
           </div>
 	</div>
-          <div class="ui-block-b" style="width:45%; margin-left:5%;" id="numbnessLoc">
-            <div id="numbnessLoc2" > 
+          <div class="ui-block-b" style="width:45%; margin-left:5%;">
+            <ul id='boundList'></ul>
+            <div id="numbnessLoc" > <!data-bind="visible: numbness() == 'yes'"-->
               <IMG id="numbnessBody" SRC="themes/myImages/body.png" ALT="Site map" width="505.197.14" height="525.042" USEMAP="#numbnessbodyMap">
               <map name="numbnessbodyMap">
                 <area shape="rect" alt="face(R)" coords="447,25,512,146" href="#" data-bind='click: numbnessLocValue' />
@@ -110,6 +111,8 @@
           </div>
           <div id="whichButton">
             <div class="ui-block-c" style="width:18%;">
+              <br>
+              <br>
               <br>
               <br>
               <br>
@@ -216,7 +219,7 @@
         <div class="ui-grid-b">
           <div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">
             <h3>In your last attack did you experience:</h3>
-             <div style="border-right: solid 2px #585858;">
+             <div style="border-right: solid 1px #585858;">
 	   <button class='inactive' id="numbnessBut" value="Numbness">Numbness</button>
             <div class="activeBox">
               <button class='active' id="tinglingBut" value="tingling">Tingling</button>
@@ -249,6 +252,8 @@
           </div>
           <div id="whichButton">
             <div class="ui-block-c" style="width:18%;">
+              <br>
+              <br>
               <br>
               <br>
               <br>
@@ -347,14 +352,6 @@
     </div>
     <!--............................End of tinglingPage............................-->
     <script type='text/javascript'>
-	
-	$( document ).delegate("#numbnessPage", "pagecreate", function() {
-	$("#numbnessLoc").css("transition-delay", "2s");
-	$("#numbnessLoc").css('left', 650).css('z-index', 3).animate({
-                    'left': 0
-                });
-	});
-	
       var viewModel = {
         numbness: ko.observable(),
         numbnessLoc: ko.observableArray(),
@@ -398,7 +395,6 @@
           var className = $(this).attr("class");
           if ($("." + className, $.mobile.activePage).prop('checked')) {
             $("." + className + 'menu', $.mobile.activePage).css("display", "block");
-			//$("." + className + 'menu', $.mobile.activePage).show('blind'); // or any other animation
           } else {
             $("." + className + 'menu', $.mobile.activePage).css("display", "none");
             deselectViaButton(className);
