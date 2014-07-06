@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+     <title>Patient Questionnaire</title>
+    <meta charset=utf-8 />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--My Own CSS-->
+    <link rel="stylesheet" href="themes/formatting.css" />
+    <!--JQuery Mobile CSS-->
+    <link rel="stylesheet" href="themes/MyTheme.css" />
+    <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+    <!--JQuery js-->
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <!--JQuery Mobile js-->
+    <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+    <!--External scripts needed for date-picker-->
+    <!--<link rel="stylesheet" href="http://code.jquery.com/mobile/git/jquery.mobile-git.css" />
+    <link rel="stylesheet" href="https://rawgithub.com/arschmitz/jquery-mobile-datepicker-wrapper/master/jquery.mobile.datepicker.css" />-->
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.0/themes/base/jquery-ui.css" />
+    <script src="https://rawgithub.com/jquery/jquery-ui/1-10-stable/ui/jquery.ui.datepicker.js"></script>
+    <script src="http://code.jquery.com/mobile/git/jquery.mobile-git.js"></script>
+    <script src="https://rawgithub.com/arschmitz/jquery-mobile-datepicker-wrapper/master/jquery.mobile.datepicker.js"></script>
+    <!--Extrenal scripts needed for knockout library-->
+    <script type='text/javascript' src="http://knockoutjs.com/downloads/knockout-3.0.0.js"></script>
+    <!--Scripts needed for numpad-->
+    <link rel="stylesheet" href="jquery.keypad.package-2.0.0/jquery.keypad.css" />
+    <script type='text/javascript' src="jquery.keypad.package-2.0.0/jquery.plugin.js"></script>
+    <script type='text/javascript' src="jquery.keypad.package-2.0.0/jquery.keypad.js"></script>
+	</head>
+	<body>
+	
+	
+	<div data-role="page" id="testPage">
+		<div data-role="content">
+      <div>
+        <input type="range" name="slider" id="slider" min="1" max="150" data-bind="value: symptomIntensity, slider: symptomIntensity" />
+      </div>
+  
+      <div id="output"></div>
+		</div>
+	</div>
+	
+	 <div data-role="page" id="WelcomePage" data-theme="d">
+      <div data-role="header">
+        <h1>Patient Survey; Welcome</h1>
+      </div>
+      <div data-role="main" class="ui-content">
+        <img src="themes/myImages/NHSlogo.png" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
+        <h1>Patient Survey</h1>
+        <h4>In order to speed up your assesment we would like to electronically record part of your medical history and recent symptoms. We hope you'll take the time to answer the following questions.</h4>
+        <br>
+        <h2>Consent</h2>
+        <h4>The information collected here will be linked to other information on your medical record. All information collected will remain strictly confidential. Information will be used for no other purpose than medical research.</h4>
+        <div data-role="fieldcontain">
+          <div style="width:47%;">
+            <input type="checkbox" data-bind="checked:consent" name="consent" id="consent">
+			</div>
+			</div>
+			</div>
+	
+	  <script type='text/javascript'>
+ko.bindingHandlers.slider = {
+  init: function (element, valueAccessor) {
+    // use setTimeout with 0 to run this after Knockout is done
+    setTimeout(function () {
+      // $(element) doesn't work as that has been removed from the DOM
+      var curSlider = $('#' + element.id);
+      // helper function that updates the slider and refreshes the thumb location
+      function setSliderValue(newValue) {
+        curSlider.val(newValue).slider('refresh');
+      }
+      // subscribe to the bound observable and update the slider when it changes
+      valueAccessor().subscribe(setSliderValue);
+      // set up the initial value, which of course is NOT stored in curSlider, but the original element :\
+      setSliderValue($(element).val());
+      // subscribe to the slider's change event and update the bound observable
+      curSlider.bind('change', function () {
+        valueAccessor()(curSlider.val());
+      });
+    }, 0);
+  }
+};
+
+
+
+var viewModel = {
+consent: ko.observable(),
+  symptomIntensity: ko.observable(),
+};
+
+function valueChanged(newValue) {
+  $('#output').html('newValue='+newValue);
+  
+    
+}
+
+viewModel['symptomIntensity'].subscribe(valueChanged);
+
+
+ko.applyBindings(viewModel);
+</script>
+
+</body>

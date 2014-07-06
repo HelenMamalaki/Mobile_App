@@ -400,15 +400,15 @@
 			</div>
 		</div><!--grib b-->
 		
-		<h3>Slide the bar to indicate how you experienced symptom onset:</h3>
+		<h3>Slide the bar to indicate how your sumptoms began:</h3>
 		<div style="width: 58%; position:absolute; left:6%">
-			<input type="range" name="slider" id="slider" value="" min="0" max="10" step="1"/>
+			<input type="range" name="slider" id="slider" min="0" max="10" step="1" data-bind="value: symptomIntensity, slider: symptomIntensity"/> 
 			<label for="slider"><h3 id="min">Gradual</h3> <h3 id="max">Sudden</h3></label>
 		</div>
 		<br> <br> <br>
 		
         <a data-role="button" class="nextButton" href="#"></a>
-		DEBUG: <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
+		DEBUG: <pre data-bind="text: ko.toJSON($data,null,2)"></pre>  <div id="output"></div>
     </div><!--main content-->
       <div data-role="footer" data-position="fixed">
         <h2>&copy; Edinburgh University 2014</h2>
@@ -423,7 +423,7 @@
         <img src="themes/myImages/NHSlogo.png" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
 		
 		<div class="ui-grid-b">
-		<h3>Have you experienced any other symptoms?:</h3>
+		<h3>Have you had any other symptoms?:</h3>
 			<div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">	
 				<label for="otherYes">Yes</label>			  
 				<input type="radio" data-bind="checked:otherSymptoms" name="otherSymptoms" id="otherYes" value="yes"/>
@@ -476,44 +476,40 @@
 	
 	<div data-role="page" id="SnapInstructionsPage" data-theme="d">
       <div data-role="header">
-        <h1>Patient Survey; Snap!</h1>
+        <h1>Patient Survey; How to Play</h1>
       </div>
       <div data-role="main" class="ui-content">
-        <div id='anywhere'>
+     
           <img src="themes/myImages/NHSlogo.png" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
-          <div id='step1' style="width:45%;position:fixed;top:30%;left:27%;">
-            <h2>In order to measure your reaction time,
-              <span style="position:relative;left:8%;">a game of 'Snap' will now follow.</span>
-            </h2>
+          <div id='step1'>
+            <h2>In order to measure your reaction time, a game of 'Snap' will now follow.</h2>
             <br>
-            <button id='step2But'>Learn How to Play ></button>
+            <button id='step2But'>Learn How to Play &#x25b6;</button>
           </div>
-          <div id='step2' style='display:none;width:70%;position:fixed;left:15%;top:15%;'>
-            <h3>1. You will be shown two picture cards. If the two cards match, touch
-              <span style='position:relative;left:3%'>anywhere on the screen as fast as you can.</span>
-            </h3>
-            <img style="position:fixed;left:20%;" src="themes/myImages/snapCards.png" alt="snapCards"  class="snapCard">
-            <button style="position:fixed;top:80%;" id='step3But'>Next ></button>
+          <div id='step2'>
+            <h3>1. You will be shown two picture cards. If the two cards match, touch anywhere on the screen as fast as you can.</h3>
+            <img src="themes/myImages/snapCards.png"  alt="snapCards" class="snapCard">
+            <button id='step3But'>Next &#x25b6;</button>
+			<button id='step3ButP'>&#x25c0; Previous</button>
           </div>
-          <div id='step3' style='display:none;position:fixed;'>
-            <h3 style="position:fixed;left:20%;top:10%;">3. If you are correct the message 'Snap!' will appear.</h3>
-            <img style="position:fixed;left:20%;top:25%;" src="themes/myImages/snapCorrect.png" alt="snapCorrect"  class="snapCard">
-            <button style='top:70%;' id='step4But'>Next ></button>
+          <div id='step3'>
+            <h3>3. If you are correct the message 'Snap!' will appear.</h3>
+            <img src="themes/myImages/snapCorrect.png" alt="snapCorrect"  class="snapCard">
+            <button  id='step4But'>Next &#x25b6;</button>
+		    <button  id='step4ButP'>&#x25c0; Previous</button>
           </div>
-          <div id='step4' style='display:none;position:fixed;top:10%;left:10%;'>
+          <div id='step4'>
             <h3>4. If you are wrong a red 'X' will appear.</h3>
-            <img style="position:fixed;left:25%;top:20%;" src="themes/myImages/snapIncorrect.png" alt="snapWrong"  class="snapCard">	
-			<a style='position:fixed;top:70%;' data-role="button" id="playSnap" href="#">Play Snap!</a>
+            <img src="themes/myImages/snapIncorrect.png" alt="snapWrong"  class="snapCard">
+           <button id='step5ButP'>&#x25c0; Previous</button>			
+			<a data-role="button" id="playSnap" href="#"><span style="font-size:25px;">Play <br>Snap!</span><span style="position:absolute; bottom:9%;font-size:56px;">&#x3009;</span></a>
           </div>
-        </div>DEBUG:
-        <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
-      </div>
+        </div>
       <!--main content-->
       <div data-role="footer" data-position="fixed">
         <h2>&copy; Edinburgh University 2014</h2>
       </div>
-    </div>
-    <!--close anywhere-->
+  
     </div>
     <!--End of SnapInstructionPage-->
 	
@@ -522,34 +518,85 @@
         <h1>Patient Survey; Snap!</h1>
       </div>
       <div data-role="main" class="ui-content">
-        <div id='anywhere'>
-          
+        <div id='snapWrapper'>		
           <div class="ui-grid-b" style="margin-top:7%;position:relative;">
-            <div class="ui-block-a" style="width:20%; margin-left:28%;margin-right:5%;"> <!--width:20%; margin-left:40%;-->
+            <div class="ui-block-a" style="width:20%; margin-left:28%;margin-right:5%;">
               <div id="card1" class='snap'></div>
             </div>
-            <div class="ui-block-b" style="width:20% margin-left:36%;"> <!--"width:20% margin-left:10%-->
+            <div class="ui-block-b" style="width:20% margin-left:36%;"> 
 			  <div id="card2" class='snap'></div>
             </div>
           </div>
           <!-- /grid-a -->
-          <div id='snapWrapper' style="position:relative; z-index:100;"></div>
+		  
+		  <div id='snapOverlay'></div> 
+        </div><!--snapWrapper-->
+		  <div id='gameMsg'></div>
           <div id='score'></div>
-        </div>
+       
 		<!--DEBUG: <pre data-bind="text: ko.toJSON($data,null,2)"></pre>-->
         <a style='visibility:hidden;' id="nxtButnSnap" data-role="button" class="nextButton" href="#" ></a>
       </div>
       <!--main content-->
       <div data-role="footer" data-position="fixed">
         <h2>&copy; Edinburgh University 2014</h2>
-      </div>
-    </div> 
-    <!--close anywhere-->
+      </div>   
     </div>
     <!--End of SnapPage-->
 	
-    <script type='text/javascript'>
+	<div data-role="page" id="PairsPage" data-theme="d">
+      <div data-role="header">
+        <h1>Patient Survey; Body</h1>
+      </div>
+      <div data-role="main" class="ui-content">
+	  <div id='pairsWrapper'>
+        <div class="ui-grid-b" style="position: relative;">
+          <div class="ui-block-a" style="width: 16%; margin-top:5%; margin-left: 290px;">
+            <div id="stPairA" class="stPair"></div>
+          </div>
+          <div class="ui-block-b" style="width: 16%; margin-top:5%;margin-left: 50px;">
+            <div id="ndPairA" class="ndPair"></div>
+          </div>
+          <div class="ui-block-c" style="width: 16%; margin-top:5%;margin-left: 50px;">
+            <div id="rdPairA" class="rdPair"></div>
+          </div>
+          <div class="ui-block-a" style="width: 16%; margin-top:5%;margin-left: 290px;">
+            <div id="rdPairB" class="rdPair"></div>
+          </div>
+          <div class="ui-block-b" style="width:16%; margin-top:5%;margin-left: 50px;">
+            <div id="ndPairB" class="ndPair"></div>
+          </div>
+          <div class="ui-block-c" style="width: 16%; margin-top:5%;margin-left: 50px;">
+            <div id="stPairB" class="stPair"></div>
+          </div>
+        </div>  <!-- /grid-b -->
+         <div id='pairsOverlay'></div> 
+        </div><!--snapWrapper-->
       
+      <a data-role="button" class="nextButton" href="#"></a>DEBUG:
+      <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
+    </div>
+    <!--main content-->
+		<div data-role="footer" data-position="fixed">
+		  <h2>&copy; Edinburgh University 2014</h2>
+		</div>
+    </div>
+    <!--End of PairsPage-->
+	
+    <script type='text/javascript'>
+/*custom binding handler thanks to Varun http://stackoverflow.com/a/16493161/2308978*/
+    ko.bindingHandlers.slider = {
+    init: function(element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
+        var value = valueAccessor();
+        $(element).attr("value", value());
+            $(document).on({
+                "change": function (elem) {
+                var sliderVal = $('#' + element.id).val();
+                value(sliderVal);
+            }
+        }, ".ui-slider");
+    }
+ };
       var viewModel = {
         consent: ko.observable(false),
         id: ko.observable(),
@@ -574,6 +621,7 @@
 		sparklyLight: ko.observable(),
 		lightHeaded: ko.observable(),
 		vertigo: ko.observable(),
+		symptomIntensity: ko.observable(),
 		otherSymptoms: ko.observable(),
         vomiting: ko.observable(),
         collapse: ko.observable(),
@@ -587,8 +635,10 @@
         pairs: ko.observable(),
         rt: ko.observable()
       };
-      ko.applyBindings(viewModel);
 	  
+
+	  ko.applyBindings(viewModel);
+
 	  
       $(document).ready(function() {
         $(".nextButton").on('click', nextPage);
@@ -661,14 +711,14 @@
             $.mobile.changePage("#SnapInstructionsPage");
             break;
 			case "SnapPage":
-            $.mobile.changePage("#PairsInstructionsPage");
+            $.mobile.changePage("#PairsPage");
 			break
           default:
             break;
         }
       }
 	  
-	  <!--Script for the game Snaps-->
+	    <!-- ******************************* Script for Snaps Game ************************************-->
       var card1url;
       var card2url;
       var url1;
@@ -697,11 +747,11 @@
             $("#nxtButnSnap").css('visibility', 'visible');
             alert('Game Over! Your average reaction time was ' + computeAvg() + 'ms');
           } else if (clicked) {
-            clearInterval(interval);
-            setTimeout(function() {   //allow time for participant to register visual feedback
+          //  clearInterval(interval);
+            //setTimeout(function() {   //allow time for participant to register visual feedback
               clicked = false;
-              recursiveTimer(round - 1);
-            }, 500);
+			  round=round-1;
+            // recursiveTimer(round - 1);
           } else {
             rand1 = Math.floor(Math.random() * picture.length);
             rand2 = Math.floor(Math.random() * picture.length);
@@ -711,7 +761,8 @@
             $('#card2').css("background-image", "url('themes/myImages/" + picture[rand2] + "')");
             gameStart = true;
             t0 = Date.now();
-            $("#snapWrapper").html(" ");
+            $("#snapOverlay").html(" ");
+			$("#gameMsg").html(" ");
           }
         }, 2000);
       } //recursiveTimer	
@@ -719,14 +770,15 @@
 	   //scripts for onload of #SnapPage
       $(document).delegate("#SnapPage", "pagecreate", function() {
 	   $('.snap').css("background-color", "#004200"); 
-        $("#snapWrapper").html('<div class="number"> 3 </div>');
+        $("#snapOverlay").html('3');
         setTimeout(function() {
-          $("#snapWrapper").html('<div class="number"> 2 </div>');
+          $("#snapOverlay").html('2');
         }, 1000);
         setTimeout(function() {
-          $("#snapWrapper").html('<div class="number"> 1 </div>');
+          $("#snapOverlay").html('1');
         }, 2000);
-        recursiveTimer(round);
+		setTimeout(function() {recursiveTimer(round);}, 1000);
+        
         $("#SnapPage").on('click', function(e) {
           if (gameStart) {
             lookForMatch();
@@ -734,8 +786,7 @@
         });
       }); //scripts for onload of #SnapPage
 	  
-      $(function() {});
-      $("#step2But").on('click', function(e) {
+      $("#step2But").on('click', function(e) {	   
         $("#step2").css('display', 'block');
         $("#step1").css('display', 'none');
       });
@@ -746,6 +797,20 @@
       $("#step4But").on('click', function(e) {
         $("#step4").css('display', 'block');
         $("#step3").css('display', 'none');
+      });
+	  
+	   $("#step3ButP").on('click', function(e) {
+        $("#step1").css('display', 'block');
+        $("#step2").css('display', 'none');
+      });
+	 $("#step4ButP").on('click', function(e) {
+			$("#step2").css('display', 'block');
+			$("#step3").css('display', 'none');
+		  });
+	  
+	   $("#step5ButP").on('click', function(e) {
+        $("#step3").css('display', 'block');
+        $("#step4").css('display', 'none');
       });
 
       function lookForMatch() {
@@ -761,12 +826,10 @@
           //alert(score + 'ms');	
           <!--$("#score").append("<br> " + score[index] + 'ms');-->
           index++;
-          $("#snapWrapper").append(" <br> <span style='position:relative;left:41%;top:15%font-weight:bold;font-size:84px;color:#f0ff02;'>Snap!</span>");
-         /* setTimeout(function() {
-           
-          }, 500);*/
+          $("#gameMsg").append(" <br> <span id='spanMsgSnap'>Snap!</span>");
+
         } else {
-          $("#snapWrapper").append("<br> <span style='position:relative;left:46%;top:15%font-weight:bold;font-size:110px;color:#df0202;'>X</span>");
+          $("#gameMsg").append("<br> <span id='spanMsgX'>X</span>");
         };
       }
      <!-- $("#score").append("Reaction time: ");-->
@@ -782,7 +845,100 @@
         $.mobile.changePage("#SnapPage");
       });
 
-    
+    <!-- ******************************* Script for Pairs Game ************************************-->
+	
+	 $(document).delegate("#PairsPage", "pagecreate", function() {
+		  showCards("stPairA", "stPairB");
+		  showCards("ndPairA", "ndPairB");
+		  showCards("rdPairA", "rdPairB");
+		  setTimeout(function() {
+			$(".stPair,.ndPair,.rdPair").css("background-image", "url('themes/myImages/card_back.png')");
+		  }, 2000);
+	 });
+
+      $('.stPair, .ndPair, .rdPair').on('click', pairScore);
+      var alternate = false;
+      var card1;
+      var card2;
+      var stCardPair;
+      var ndCardPair;
+      var pair = [''];
+      var id;
+      var url;
+      var counter = 0; //keeps track of how many pairs of cards have been found.
+      function pairScore() {
+        id = event.target.id;
+        url = $('#' + id).css('background-image');
+        if (url == 'none') {} else {
+          if (alternate == false) {
+            pair = [id];
+            alternate = true;
+          } else {
+            pair.push(id);
+            card1 = pair[0].slice(0, pair[0].length - 1);
+            card2 = pair[1].slice(0, pair[1].length - 1);
+            if (card1 == card2) {
+              card1Pair = pair[0].charAt(pair[0].length - 1);
+              card2Pair = pair[1].charAt(pair[1].length - 1);
+              if ((card1Pair == 'A' && card2Pair == 'B') || (card1Pair == 'B' && card2Pair == 'A')) {
+                showCards(pair[0], pair[1]);
+                $("#pairsOverlay").html("<span class='spanMsg'>Pair!</span>");
+                $("#pairsOverlay").css('background-color', '#FAF741'); 
+                setTimeout(function() {
+                  $("#pairsOverlay").html(" ");
+                  $("#" + pair[0] + ",#" + pair[1]).css("background-image", "none");
+                  $("#" + pair[0] + ",#" + pair[1]).css("background-color", "#004200");
+                  counter = counter + 2;
+                  if (counter == 6) {
+                    alert('Game over!');
+                  }
+                }, 2000);
+              }
+            } else {
+              showCards(pair[0], pair[1]);
+              $("#pairsOverlay").html("<span class='spanMsg'>miss</span>");
+              $("#pairsOverlay").css('background-color', '#F5033B');
+              setTimeout(function() {
+                $("#pairsOverlay").html(" ");
+                $("#" + pair[0]).css("background-image", "url('themes/myImages/card_back.png')");
+                $("#" + pair[1]).css("background-image", "url('themes/myImages/card_back.png')");
+              }, 2000);
+            }
+            alternate = false;
+          } //alternate		
+        } //url not 'none'
+      }
+
+      function showCards(card1, card2) {
+        card1Class = card1.slice(0, card1.length - 1);
+        card2Class = card2.slice(0, card2.length - 1);
+        switch (card1Class) {
+          case "stPair":
+            $("#" + card1).css("background-image", "url('themes/myImages/pairsCats.png')")
+            break;
+          case "ndPair":
+            $("#" + card1).css("background-image", "url('themes/myImages/pairsTriangle.png')")
+            break;
+          case "rdPair":
+            $("#" + card1).css("background-image", "url('themes/myImages/pairsHourglass.png')")
+            break;
+          default:
+            break;
+        }
+        switch (card2Class) {
+          case "stPair":
+            $("#" + card2).css("background-image", "url('themes/myImages/pairsCats.png')")
+            break;
+          case "ndPair":
+            $("#" + card2).css("background-image", "url('themes/myImages/pairsTriangle.png')")
+            break;
+          case "rdPair":
+            $("#" + card2).css("background-image", "url('themes/myImages/pairsHourglass.png')")
+            break;
+          default:
+            break;
+        }
+      }
     </script>
 	
 	

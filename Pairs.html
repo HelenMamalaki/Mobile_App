@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Patient Questionnaire</title>
+    <meta charset=utf-8 />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--My Own CSS-->
+    <link rel="stylesheet" href="themes/formatting.css" />
+    <!--JQuery Mobile CSS-->
+    <link rel="stylesheet" href="themes/MyTheme.css" />
+    <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+    <!--<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>-->
+    <!--JQuery Mobile JavaScript-->
+    <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+    <!--External scripts needed for date-picker-->
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/git/jquery.mobile-git.css" />
+    <link rel="stylesheet" href="https://rawgithub.com/arschmitz/jquery-mobile-datepicker-wrapper/master/jquery.mobile.datepicker.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="https://rawgithub.com/jquery/jquery-ui/1-10-stable/ui/jquery.ui.datepicker.js"></script>
+    <script src="http://code.jquery.com/mobile/git/jquery.mobile-git.js"></script>
+    <script src="https://rawgithub.com/arschmitz/jquery-mobile-datepicker-wrapper/master/jquery.mobile.datepicker.js"></script>
+    <!--Extrenal scripts needed for knockout library-->
+    <script type='text/javascript' src='knockout-3.1.0.js'></script>
+    <!--External scripts needed for imagemapster plugin-->
+    <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
+    <script src="jquery.imagemapster.js"></script>
+    <script>
+      window.onload = function() {};
+    </script>
+  </head>
+
+  <body>
+    <div data-role="page" id="PairsPage" data-theme="d">
+      <div data-role="header">
+        <h1>Patient Survey; Body</h1>
+      </div>
+      <div data-role="main" class="ui-content">
+	  <div id='pairsWrapper'>
+        <div class="ui-grid-b" style="position: relative;">
+          <div class="ui-block-a" style="width: 16%; margin-top:5%; margin-left: 290px;">
+            <div id="stPairA" class="stPair"></div>
+          </div>
+          <div class="ui-block-b" style="width: 16%; margin-top:5%;margin-left: 50px;">
+            <div id="ndPairA" class="ndPair"></div>
+          </div>
+          <div class="ui-block-c" style="width: 16%; margin-top:5%;margin-left: 50px;">
+            <div id="rdPairA" class="rdPair"></div>
+          </div>
+          <div class="ui-block-a" style="width: 16%; margin-top:5%;margin-left: 290px;">
+            <div id="rdPairB" class="rdPair"></div>
+          </div>
+          <div class="ui-block-b" style="width:16%; margin-top:5%;margin-left: 50px;">
+            <div id="ndPairB" class="ndPair"></div>
+          </div>
+          <div class="ui-block-c" style="width: 16%; margin-top:5%;margin-left: 50px;">
+            <div id="stPairB" class="stPair"></div>
+          </div>
+        </div>  <!-- /grid-b -->
+         <div id='pairsOverlay'></div> 
+        </div><!--snapWrapper-->
+      
+      <a data-role="button" class="nextButton" href="#"></a>DEBUG:
+      <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
+    </div>
+    <!--main content-->
+		<div data-role="footer" data-position="fixed">
+		  <h2>&copy; Edinburgh University 2014</h2>
+		</div>
+    </div>
+    <!--End of PairsPage-->
+    <script type='text/javascript'>
+      showCards("stPairA", "stPairB");
+      showCards("ndPairA", "ndPairB");
+      showCards("rdPairA", "rdPairB");
+      setTimeout(function() {
+        $(".stPair,.ndPair,.rdPair").css("background-image", "url('themes/myImages/card_back.png')");
+      }, 2000);
+      $('.stPair, .ndPair, .rdPair').on('click', pairScore);
+      var alternate = false;
+      var card1;
+      var card2;
+      var stCardPair;
+      var ndCardPair;
+      var pair = [''];
+      var id;
+      var url;
+      var counter = 0; //keeps track of how many pairs of cards have been found.
+      function pairScore() {
+        id = event.target.id;
+        url = $('#' + id).css('background-image');
+        if (url == 'none') {} else {
+          if (alternate == false) {
+            pair = [id];
+            alternate = true;
+          } else {
+            pair.push(id);
+            card1 = pair[0].slice(0, pair[0].length - 1);
+            card2 = pair[1].slice(0, pair[1].length - 1);
+            if (card1 == card2) {
+              card1Pair = pair[0].charAt(pair[0].length - 1);
+              card2Pair = pair[1].charAt(pair[1].length - 1);
+              if ((card1Pair == 'A' && card2Pair == 'B') || (card1Pair == 'B' && card2Pair == 'A')) {
+                showCards(pair[0], pair[1]);
+                $("#pairsOverlay").html("<span class='spanMsg'>Pair!</span>");
+                $("#pairsOverlay").css('background-color', '#FAF741'); 
+                setTimeout(function() {
+                  $("#pairsOverlay").html(" ");
+                  $("#" + pair[0] + ",#" + pair[1]).css("background-image", "none");
+                  $("#" + pair[0] + ",#" + pair[1]).css("background-color", "#004200");
+                  counter = counter + 2;
+                  if (counter == 6) {
+                    alert('Game over!');
+                  }
+                }, 2000);
+              }
+            } else {
+              showCards(pair[0], pair[1]);
+              $("#pairsOverlay").html("<span class='spanMsg'>miss</span>");
+              $("#pairsOverlay").css('background-color', '#F5033B');
+              setTimeout(function() {
+                $("#pairsOverlay").html(" ");
+                $("#" + pair[0]).css("background-image", "url('themes/myImages/card_back.png')");
+                $("#" + pair[1]).css("background-image", "url('themes/myImages/card_back.png')");
+              }, 2000);
+            }
+            alternate = false;
+          } //alternate		
+        } //url not 'none'
+      }
+
+      function showCards(card1, card2) {
+        card1Class = card1.slice(0, card1.length - 1);
+        card2Class = card2.slice(0, card2.length - 1);
+        switch (card1Class) {
+          case "stPair":
+            $("#" + card1).css("background-image", "url('themes/myImages/pairsCats.png')")
+            break;
+          case "ndPair":
+            $("#" + card1).css("background-image", "url('themes/myImages/pairsTriangle.png')")
+            break;
+          case "rdPair":
+            $("#" + card1).css("background-image", "url('themes/myImages/pairsHourglass.png')")
+            break;
+          default:
+            break;
+        }
+        switch (card2Class) {
+          case "stPair":
+            $("#" + card2).css("background-image", "url('themes/myImages/pairsCats.png')")
+            break;
+          case "ndPair":
+            $("#" + card2).css("background-image", "url('themes/myImages/pairsTriangle.png')")
+            break;
+          case "rdPair":
+            $("#" + card2).css("background-image", "url('themes/myImages/pairsHourglass.png')")
+            break;
+          default:
+            break;
+        }
+      }
+    </script>
+  </body>
+
+</html>

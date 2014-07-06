@@ -130,7 +130,7 @@ height:525px !important;}
 	.active{
 	text-align: center !important;
 	margin: auto !important;
-        background-color: rgba(3,145,189,0.5) !important;
+    background-color: rgba(3,145,189,0.5) !important;
 	margin-left:16px !important;
 	font-size: 19px !important;
 	width:87% !important;
@@ -177,7 +177,38 @@ height:525px !important;}
 	font-size: 25px !important;
 	margin: auto !important; 
 	margin-top: 15px !important;
+
 	}
+	
+	
+	#faceLabel, #armLabel, #handLabel, #chestLabel, #legLabel, #footLabel{
+		position:relative;
+		bottom:27%;
+		left:10%;
+		
+	}
+	
+	#faceLabel{
+		color: #B800B8;	
+	}
+		
+	#armLabel{ 
+		color: #5C00B8;
+	}
+	
+	#handLabel{ 
+		color: #0099FF;
+	}
+	
+	#chestLabel{ 
+		color: #FF7519;
+	}
+	
+	#legLabel{ 
+		color: #FF0000;
+	}
+
+
 	
 	
 	#faceLabel, #armLabel, #handLabel, #chestLabel, #legLabel, #footLabel{
@@ -210,25 +241,43 @@ height:525px !important;}
 	#footLabel{ 
 		color: #006600;
 	}
+
+
+	
+	#footLabel{ 
+		color: #006600;
+	}
   
-        .number {
-        position: relative;
-        left: 47%;
-        top: 15%;
-		font-weight: bold;
-        font-size: 80px;
-        color: #5108FA;
-      }
-      .snapCard {
-        float: right;
-      }
-      #step2But,
-      #step3But,
-      #step4But {
+    
+
+	  .snapCard{position:fixed;left:27%; float: right; }
+	  
+	  #step1{ width:38%;position:fixed;top:30%;left:35%;}
+      #step2But
+     {
         width: 20%;
         position: fixed;
-        left: 37%;
+        left: 40%;
+		background-color: rgba(3,145,189,0.3);
+		font-size: 20px;
       }
+	  
+	  #step3But,
+      #step4But, #step3ButP, #step4ButP, #step5ButP , #playSnap{
+	    position: fixed;
+        top:80%;
+        width: 15%;
+		background-color: rgba(3,145,189,0.3);
+		font-size: 20px;}
+		
+		#playSnap{top:76%; width:10%;}
+		#step3But,
+      #step4But, #playSnap {left:75%}
+		
+		 #step3ButP, #step4ButP, #step5ButP{left:10%}
+		 
+		 #step2, #step3, #step4{display:none;width:65%;position:fixed;left:17%;top:15%;}
+		 
 	  
 	  .snap{
 	  height:260px;
@@ -237,7 +286,38 @@ height:525px !important;}
 	  background-repeat: no-repeat;
 	  background-position: center center}
 	  
-	  #SnapPage{background-color: #005200;}
+	  #SnapPage, #PairsPage{background-color: #005200;}
+	  #snapWrapper, #pairsWrapper{position: relative;}
+	  #snapOverlay, #pairsOverlay{position:absolute;}
+	  
+	  #snapOverlay, #pairsOverlay{z-index: 100;}
+	  
+	  #snapOverlay{
+	  top:35%;
+	  left:46%; 
+	  font-weight: bold;
+      font-size: 100px;
+      color: #5108FA;
+	  }
+	  
+	  #pairsOverlay{ width: 11%; top:51%;
+	  left:43.5%;}
+	  
+	  .spanMsg{position:relative;left:18%;top:13%;font-weight:bold;font-size:40px;}
+#spanMsgSnap{
+position:relative;
+left:41%;
+top:15%;
+font-size:84px;
+color:#f0ff02;}
+#spanMsgX{position:relative;left:46%;top:15%;font-weight:bold;font-size:110px;color:#df0202;}
+	    .stPair,.ndPair,.rdPair{
+	  height:180px;
+	  width:136px;	
+	   background-size:136px 181px;
+	  background-repeat: no-repeat;
+	  background-position: center center;
+	  background-color: white;}
 	
 .ui-datepicker {
 	width: 55% !important;
