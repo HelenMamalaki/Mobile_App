@@ -92,7 +92,7 @@
                 <h4 style="">Touch on the body diagram the location(s) where you felt numb  &#x25b6;</h4>
               </div>
               <!--instruc-->
-              <div class="bodyMap" style="position:absolute;">
+              <div class="bodyMap" style="position:absolute;">		
                 <IMG id="numbnessBody" SRC="themes/myImages/body.png" ALT="Site map" width="505.197.14" height="525.042" USEMAP="#numbnessbodyMap">
                 <map name="numbnessbodyMap">
                   <area shape="rect" alt="face(R)" coords="447,25,512,146" href="#" data-bind='click: numbnessLocValue' />
@@ -110,13 +110,20 @@
                   <!-- Created by Online Image Map Editor (http://www.maschek.hu/imagemap/index) -->
                 </map>
               </div> <!--bodyMap-->
+		<div class="ui-grid-a">
+			<div class="ui-block-a">
+				<a data-role="button" style="margin-top:100%;" class="previousButton" href="#"></a>
+			</div>
+			<div class="ui-block-b">
+				<a data-role="button" style="margin-top:100%;left:64%;" class="nextButton" href="#"></a>	
+			</div>
+		</div>
             </div> <!--container-->
-	    <a data-role="button" style="margin-top:48%" class="nextButton" href="#"></a>  
           </div> <!--block-b-->
         </div><!--grid a-->
   
- DEBUG:
-        <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
+ <!--DEBUG:
+        <pre data-bind="text: ko.toJSON($data,null,2)"></pre>-->
       </div>
       <!--main content-->
       <div data-role="footer" data-position="fixed">

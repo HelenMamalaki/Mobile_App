@@ -26,36 +26,123 @@
     <!--External scripts needed for imagemapster plugin-->
     <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
     <script src="jquery.imagemapster.js"></script>
-    <script>
-      window.onload = function() {};
-    </script>
   </head>
 
   <body>
-    <div data-role="page" id="PairsPage" data-theme="d">
+  
+  <div data-role="page" id="SnapInstructionsPage" data-theme="d">
       <div data-role="header">
-        <h1>Patient Survey; Body</h1>
+        <h1>Patient Survey; How to Play</h1>
+      </div>
+      <div data-role="main" class="ui-content">
+     
+          <img src="themes/myImages/NHSlogo.png" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
+          <div id='step1'>
+            <h2>In order to measure your reaction time, a game of 'Snap' will now follow.</h2>
+            <br>
+            <button id='step2But'><span style="position:absolute;margin-top:-9%;left:10%;">Learn How to Play <span style="font-size:30px;">&#x25b6;</span></span></button>
+          </div>
+          <div id='step2'>
+            <span style="font-size: 20px;font-weight:900;">1. You will be shown two picture cards. If the two cards match, touch anywhere on the screen as fast as you can.</span>
+            <img src="themes/myImages/snapCards.png"  alt="snapCards" class="snapCard">
+            <button id='step3But'><span class='but'>Next <span style="font-size:30px;">&#x25b6;</span></span></button>
+			<button id='step3ButP'><span class='but2'><span style="font-size:30px;">&#x25c0;</span> Previous</span></button>
+          </div>
+          <div id='step3'>
+            <span style="font-size: 20px;font-weight:900;">2. If you are correct the message 'Snap!' will appear.</span>
+            <img src="themes/myImages/snapCorrect.png" alt="snapCorrect"  class="snapCard">
+            <button  id='step4But'><span class='but'>Next <span style="font-size:30px;">&#x25b6;</span></span></button>
+		    <button  id='step4ButP'><span class='but2'><span style="font-size:30px;">&#x25c0;</span> Previous</span></button>
+          </div>
+          <div id='step4'>
+            <span style="font-size: 20px;font-weight:900;">3. If you are wrong a red 'X' will appear.</span>
+            <img src="themes/myImages/snapIncorrect.png" alt="snapWrong"  class="snapCard">
+           <button id='step5ButP'><span class='but2'> <span style="font-size:30px;">&#x25c0;</span> Previous</span></button>			
+			<a data-role="button" id="playSnap" href="#"><span style="font-size:25px;">Play <br>Snap!</span><span style="position:absolute;bottom:9%;font-size:56px;">&#x3009;</span></a>
+          </div>
+        </div>
+      <!--main content-->
+      <div data-role="footer" data-position="fixed">
+        <h2>&copy; Edinburgh University 2014</h2>
+      </div>
+  
+    </div>
+    <!--End of SnapInstructionPage-->
+  
+  	<div data-role="page" id="PairsInstructionsPage" data-theme="d">
+      <div data-role="header">
+        <h1>Patient Survey; How to Play</h1>
+      </div>
+      <div data-role="main" class="ui-content">
+     
+          <img src="themes/myImages/NHSlogo.png" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
+          <div id='p_step1'>
+            <h2>In order to examine your memory, a game of 'Pairs' will now follow.</h2>
+            <br>
+            <button id='pstep2But'><span style="position:absolute;margin-top:-9%;left:10%;">Learn How to Play <span style="font-size:30px;">&#x25b6;</span></span></button>
+          </div>
+          <div id='p_step2'>
+            <span style="font-size: 20px;font-weight:900;">1. You will be shown a group of picture cards. Try to remember where the pairs are.</span>
+            <img src="themes/myImages/pairsCardsFaceUp.png"  alt="pairs cards" class="pairCard">
+            <button id='pstep3But'><span class='but'>Next <span style="font-size:30px;">&#x25b6;</span></span></button>
+			<button id='pstep3ButP'><span class='but2'><span style="font-size:30px;">&#x25c0;</span> Previous</span></button>
+          </div>
+          <div id='p_step3'>
+            <span style="font-size: 20px;font-weight:900;">2. You have 3 seconds before the cards are turned over. Select each pair by touching them on the screen.</span>
+            <img src="themes/myImages/pairsCardsFaceDown.png" alt="cards face down"  class="pairCard">
+            <button  id='pstep4But'><span class='but'>Next <span style="font-size:30px;">&#x25b6;</span></span></button>
+		    <button  id='pstep4ButP'><span class='but2'><span style="font-size:30px;">&#x25c0;</span> Previous</span></button>
+          </div>
+          <div id='p_step4'>
+            <span style="font-size: 20px;font-weight:900;">3. If you are correct, a message saying "pair!" will appear.</span>
+            <img src="themes/myImages/pairsCardsCorrect.png" alt="pairs! message"  class="pairCard">
+           <button id='pstep5ButP'><span class='but2'> <span style="font-size:30px;">&#x25c0;</span> Previous</span></button>			
+			<button  id='pstep5But'><span class='but'>Next <span style="font-size:30px;">&#x25b6;</span></span></button>
+          </div>
+		   <div id="pairsWrapper" style="position: relative;">
+		   <div id='p_step5'>
+            <span style="font-size: 20px;font-weight:900;">4. If you are wrong a message saying "miss" will appear.</span>
+            <img src="themes/myImages/pairsCardsIncorrect.png" alt="miss message"  class="pairCard">			
+           <button id='pstep6ButP'><span class='but2'> <span style="font-size:30px;">&#x25c0;</span> Previous</span></button>			   
+			<a data-role="button" id="tryDemo" href="#"><span style="font-size:25px;">Try <br>Demo</span><span style="position:absolute;bottom:9%;font-size:56px;">&#x3009;</span></a>
+          </div><!--Step 5-->
+		  <div id="p_step55">
+		  <span style="font-size: 20px;font-weight:900;">Next is demo of "Pairs" with 3 pairs of cards.
+		  <br> <br> This will be followed by "Pairs" with 6 pairs of cards.</span></div>
+		  </div> <!--pairsWrapper-->	
+        </div>
+      <!--main content-->
+      <div data-role="footer" data-position="fixed">
+        <h2>&copy; Edinburgh University 2014</h2>
+      </div>
+  
+    </div>
+    <!--End of PairsInstructionPage-->
+
+	    <div data-role="page" id="PairsDemoPage" data-theme="d">
+      <div data-role="header">
+        <h1>Patient Survey; Pairs Demo</h1>
       </div>
       <div data-role="main" class="ui-content">
 	  <div id='pairsWrapper'>
         <div class="ui-grid-b" style="position: relative;">
           <div class="ui-block-a" style="width: 16%; margin-top:5%; margin-left: 290px;">
-            <div id="stPairA" class="stPair"></div>
+            <div id="stPairDemA" class="stPair"></div>
           </div>
           <div class="ui-block-b" style="width: 16%; margin-top:5%;margin-left: 50px;">
-            <div id="ndPairA" class="ndPair"></div>
+             <div id="ndPairDemA" class="ndPair"></div>
           </div>
           <div class="ui-block-c" style="width: 16%; margin-top:5%;margin-left: 50px;">
-            <div id="rdPairA" class="rdPair"></div>
+             <div id="rdPairDemA" class="rdPair"></div>
           </div>
           <div class="ui-block-a" style="width: 16%; margin-top:5%;margin-left: 290px;">
-            <div id="rdPairB" class="rdPair"></div>
+            <div id="rdPairDemB" class="rdPair"></div>
           </div>
           <div class="ui-block-b" style="width:16%; margin-top:5%;margin-left: 50px;">
-            <div id="ndPairB" class="ndPair"></div>
+            <div id="ndPairDemB" class="ndPair"></div>
           </div>
           <div class="ui-block-c" style="width: 16%; margin-top:5%;margin-left: 50px;">
-            <div id="stPairB" class="stPair"></div>
+            <div id="stPairDemB" class="stPair"></div>
           </div>
         </div>  <!-- /grid-b -->
          <div id='pairsOverlay'></div> 
@@ -69,16 +156,133 @@
 		  <h2>&copy; Edinburgh University 2014</h2>
 		</div>
     </div>
+    <!--End of PairsDemoPage-->
+	 <div data-role="page" id="PairsPage" data-theme="d">
+      <div data-role="header">
+        <h1>Patient Survey; Pairs</h1>
+      </div>
+      <div data-role="main" class="ui-content">
+	 <div id='pairsWrapper'>
+        <div class="ui-grid-c">
+		<!-- ************************ ROW 1 ****************************-->
+          <div class="ui-block-a grdA">
+            <div id="stPairA" class="stPair"></div>
+          </div>
+          <div class="ui-block-b grdB">
+            <div id="ndPairA" class="ndPair"></div>
+          </div>
+          <div class="ui-block-c grdC">
+            <div id="rdPairA" class="rdPair"></div>
+          </div>
+		   <div class="ui-block-d grdD">
+            <div id="fthPairA" class="fthPair"></div>
+          </div>
+		  <!-- ************************ ROW 2 ****************************-->
+          <div class="ui-block-a grdA">
+            <div id="rthPairA" class="rthPair"></div>
+          </div>
+          <div class="ui-block-b grdB">
+            <div id="ndPairB" class="ndPair"></div>
+          </div>
+          <div class="ui-block-c grdC">
+            <div id="thPairA" class="thPair"></div>
+          </div>
+		   <div class="ui-block-d grdD">
+            <div id="rdPairB" class="rdPair"></div>
+          </div>
+		  <!-- ************************ ROW 3 ****************************-->
+		  <div class="ui-block-a grdA"> 
+            <div id="fthPairB" class="fthPair"></div>
+          </div>
+          <div class="ui-block-b grdB">
+            <div id="stPairB" class="stPair"></div>
+          </div>
+          <div class="ui-block-c grdC">
+            <div id="thPairB" class="thPair"></div>
+          </div>
+		   <div class="ui-block-d grdD">
+            <div id="rthPairB" class="rthPair"></div>
+          </div>
+        </div>  <!-- /grid-c -->
+         <div id='pairsOverlay'></div> 
+        </div><!--pairsWrapper-->
+      
+      <a data-role="button" class="nextButton" href="#"></a>
+     
+    </div>
+    <!--main content-->
+		<div data-role="footer" data-position="fixed">
+		  <h2>&copy; Edinburgh University 2014</h2>
+		</div>
+    </div>
     <!--End of PairsPage-->
+	
     <script type='text/javascript'>
-      showCards("stPairA", "stPairB");
-      showCards("ndPairA", "ndPairB");
-      showCards("rdPairA", "rdPairB");
-      setTimeout(function() {
-        $(".stPair,.ndPair,.rdPair").css("background-image", "url('themes/myImages/card_back.png')");
-      }, 2000);
-      $('.stPair, .ndPair, .rdPair').on('click', pairScore);
-      var alternate = false;
+	  
+	    $("#tryDemo").on('click', function(e) {
+        $.mobile.changePage("#PairsDemoPage");
+      });
+	  
+	  
+	  //Hide and show divs containing the game instructions
+      $("#pstep2But").on('click', function(e) {	   
+        $("#p_step2").css('display', 'block');
+        $("#p_step1").css('display', 'none');
+      });
+      $("#pstep3But").on('click', function(e) {
+        $("#p_step3").css('display', 'block');
+        $("#p_step2").css('display', 'none');
+      });
+      $("#pstep4But").on('click', function(e) {
+        $("#p_step4").css('display', 'block');
+        $("#p_step3").css('display', 'none');
+      });
+	  
+	  $("#pstep5But").on('click', function(e) {
+	    $("#p_step55").css('display', 'block');
+        $("#p_step5").css('display', 'block');
+        $("#p_step4").css('display', 'none');
+      });
+	  
+	   $("#pstep3ButP").on('click', function(e) {
+        $("#p_step1").css('display', 'block');
+        $("#p_step2").css('display', 'none');
+      });
+	  
+	 $("#pstep4ButP").on('click', function(e) {
+			$("#p_step2").css('display', 'block');
+			$("#p_step3").css('display', 'none');
+		  });
+	  
+	   $("#pstep5ButP").on('click', function(e) {
+        $("#p_step3").css('display', 'block');
+        $("#p_step4").css('display', 'none');
+      });
+	   $("#pstep6ButP").on('click', function(e) {
+        $("#p_step4").css('display', 'block');
+		$("#p_step55").css('display', 'none');
+        $("#p_step5").css('display', 'none');
+      });
+	  $(document).ready(function() {
+        $(".nextButton").on('click', nextPage);
+      }); //document ready
+	  
+      function nextPage() {
+        var currentPageID = $.mobile.activePage.attr('id'); 
+        switch (currentPageID) {
+          case "SnapInstructionPage":
+			$.mobile.changePage("#PairsInstructionsPage");
+		  break;
+		  case "PairsInstructionsPage":
+		  $.mobile.changePage("#PairsDemoPage");
+		  case "PairsDemoPage":
+            $.mobile.changePage("#PairsPage");
+			break;
+			default:
+			break;
+			}
+			}
+	 var alternate = false;
       var card1;
       var card2;
       var stCardPair;
@@ -86,10 +290,40 @@
       var pair = [''];
       var id;
       var url;
-      var counter = 0; //keeps track of how many pairs of cards have been found.
+	  var counter = 0;	  //keeps track of how many pairs of cards have been found.
+	  var currentPage='';
+	  
+			$(document).delegate("#PairsDemoPage", "pagecreate", function() {
+		  showCardsDemo("stPairDemA", "stPairDemB");
+		  showCardsDemo("ndPairDemA", "ndPairDemB");
+		  showCardsDemo("rdPairDemA", "rdPairDemB");
+		  setTimeout(function() {
+			$(".stPair,.ndPair,.rdPair", $.mobile.activePage).css("background-image", "url('themes/myImages/card_back.png')");
+		  }, 2000);
+		  currentPage='PairsDemoPage';
+	 });
+	
+			$(document).delegate("#PairsPage", "pagecreate", function() {
+			var counterDemo = counter;
+			counter=0;
+			  showCards("stPairA", "stPairB");
+			  showCards("ndPairA", "ndPairB");
+			  showCards("rdPairA", "rdPairB");
+			  showCards("rthPairA", "rthPairB");
+			  showCards("fthPairA", "fthPairB");
+			  showCards("thPairA", "thPairB");
+		   setTimeout(function() {
+        $(".stPair,.ndPair,.rdPair,.rthPair,.fthPair, .thPair", $.mobile.activePage).css("background-image", "url('themes/myImages/card_back.png')");
+      }, 5000);
+	  currentPage='PairsPage';
+	 });
+ 
+    
+      $('.stPair, .ndPair, .rdPair,.rthPair,.fthPair, .thPair', $.mobile.activePage).on('click', pairScore);
+   
       function pairScore() {
         id = event.target.id;
-        url = $('#' + id).css('background-image');
+        url = $('#' + id, $.mobile.activePage).css('background-image');
         if (url == 'none') {} else {
           if (alternate == false) {
             pair = [id];
@@ -102,27 +336,28 @@
               card1Pair = pair[0].charAt(pair[0].length - 1);
               card2Pair = pair[1].charAt(pair[1].length - 1);
               if ((card1Pair == 'A' && card2Pair == 'B') || (card1Pair == 'B' && card2Pair == 'A')) {
-                showCards(pair[0], pair[1]);
-                $("#pairsOverlay").html("<span class='spanMsg'>Pair!</span>");
-                $("#pairsOverlay").css('background-color', '#FAF741'); 
+                if(currentPage=='PairsPage'){showCards(pair[0], pair[1]);}else{showCardsDemo(pair[0], pair[1]);}
+				
+                $("#pairsOverlay", $.mobile.activePage).html("<span class='spanMsg'>Pair!</span>");
+                $("#pairsOverlay", $.mobile.activePage).css('background-color', '#FAF741'); 
                 setTimeout(function() {
-                  $("#pairsOverlay").html(" ");
-                  $("#" + pair[0] + ",#" + pair[1]).css("background-image", "none");
-                  $("#" + pair[0] + ",#" + pair[1]).css("background-color", "#004200");
+                  $("#pairsOverlay", $.mobile.activePage).html(" ");
+                  $("#" + pair[0] + ",#" + pair[1], $.mobile.activePage).css("background-image", "none");
+                  $("#" + pair[0] + ",#" + pair[1], $.mobile.activePage).css("background-color", "#004200");
                   counter = counter + 2;
-                  if (counter == 6) {
+                  if (counter == 12) {
                     alert('Game over!');
                   }
                 }, 2000);
               }
             } else {
-              showCards(pair[0], pair[1]);
-              $("#pairsOverlay").html("<span class='spanMsg'>miss</span>");
-              $("#pairsOverlay").css('background-color', '#F5033B');
+              if(currentPage=='PairsPage'){showCards(pair[0], pair[1]);}else{showCardsDemo(pair[0], pair[1]);}
+              $("#pairsOverlay", $.mobile.activePage).html("<span class='spanMsg'>miss</span>");
+              $("#pairsOverlay", $.mobile.activePage).css('background-color', '#F5033B');
               setTimeout(function() {
-                $("#pairsOverlay").html(" ");
-                $("#" + pair[0]).css("background-image", "url('themes/myImages/card_back.png')");
-                $("#" + pair[1]).css("background-image", "url('themes/myImages/card_back.png')");
+                $("#pairsOverlay", $.mobile.activePage).html(" ");
+                $("#" + pair[0], $.mobile.activePage).css("background-image", "url('themes/myImages/card_back.png')");
+                $("#" + pair[1], $.mobile.activePage).css("background-image", "url('themes/myImages/card_back.png')");
               }, 2000);
             }
             alternate = false;
@@ -130,6 +365,38 @@
         } //url not 'none'
       }
 
+	   function showCardsDemo(card1, card2) {
+	   
+	    card1Class = card1.slice(0, card1.length - 1);
+        card2Class = card2.slice(0, card2.length - 1);
+        switch (card1Class) {
+          case "stPairDem":
+            $("#" + card1).css("background-image", "url('themes/myImages/pairsCats.png')")
+            break;
+          case "ndPairDem":
+            $("#" + card1).css("background-image", "url('themes/myImages/pairsTriangle.png')")
+            break;
+           case "rdPairDem":
+            $("#" + card1).css("background-image", "url('themes/myImages/pairsHourglass.png')")
+            break;
+			 default:
+            break;
+        }
+        switch (card2Class) {
+          case "stPairDem":
+            $("#" + card2).css("background-image", "url('themes/myImages/pairsCats.png')")
+            break;
+          case "ndPairDem":
+            $("#" + card2).css("background-image", "url('themes/myImages/pairsTriangle.png')")
+            break;
+          case "rdPairDem":
+            $("#" + card2).css("background-image", "url('themes/myImages/pairsHourglass.png')")
+            break;
+					 default:
+            break;
+        }
+	   }
+	  
       function showCards(card1, card2) {
         card1Class = card1.slice(0, card1.length - 1);
         card2Class = card2.slice(0, card2.length - 1);
@@ -140,8 +407,17 @@
           case "ndPair":
             $("#" + card1).css("background-image", "url('themes/myImages/pairsTriangle.png')")
             break;
-          case "rdPair":
+           case "rdPair":
             $("#" + card1).css("background-image", "url('themes/myImages/pairsHourglass.png')")
+            break;
+			case "rthPair":
+            $("#" + card1).css("background-image", "url('themes/myImages/pairsDots.png')")
+            break;
+			case "fthPair":
+            $("#" + card1).css("background-image", "url('themes/myImages/pairsHat.png')")
+            break;
+			case "thPair":
+            $("#" + card1).css("background-image", "url('themes/myImages/pairsHearts.png')")
             break;
           default:
             break;
@@ -155,6 +431,15 @@
             break;
           case "rdPair":
             $("#" + card2).css("background-image", "url('themes/myImages/pairsHourglass.png')")
+            break;
+			case "rthPair":
+            $("#" + card2).css("background-image", "url('themes/myImages/pairsDots.png')")
+            break;
+			case "fthPair":
+            $("#" + card2).css("background-image", "url('themes/myImages/pairsHat.png')")
+            break;
+			case "thPair":
+            $("#" + card2).css("background-image", "url('themes/myImages/pairsHearts.png')")
             break;
           default:
             break;
