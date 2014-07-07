@@ -28,10 +28,410 @@
     <link rel="stylesheet" href="jquery.keypad.package-2.0.0/jquery.keypad.css" />
     <script type='text/javascript' src="jquery.keypad.package-2.0.0/jquery.plugin.js"></script>
     <script type='text/javascript' src="jquery.keypad.package-2.0.0/jquery.keypad.js"></script>
+	<!--External scripts needed for imagemapster plugin-->
+    <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
+    <script src="jquery.imagemapster.js"></script>
 
   </head>
 
   <body>
+  
+  <div data-role="page" id="SelectPage" data-theme="d">
+      <div data-role="header">
+        <h1>Patient Survey; Body</h1>
+      </div>
+      <div data-role="main" class="ui-content">
+        <img src="themes/myImages/NHSlogo.jpg" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
+        <div class="ui-grid-a">
+          <div class="ui-block-a blockA">
+            <h3>In you last attack, did you expeience:</h3>
+	     <div class="menu">       
+              <button class='inactive' id="numbnessBut" value="Numbness">Numbness</button>
+              <button class='inactive' id="tinglingBut" value="Tingling">Tingling</button>
+              <button class='inactive' id="weaknessBut" value="Weakness">Weakness</button>
+              <button class='inactive' id="jerkingBut" value="Jerking">Jerking</button>
+              <button class='inactive' id="tremorBut" value="Tremor">Tremor</button>
+              <button class='inactive' id="painBut" value="Pain">Pain</button>
+	   </div>	
+           </div>
+          <div class="ui-block-b" style="width:70%;">
+            <h3 style="margin-top:26%;margin-left:2%;">&#x25c0;&nbsp; Select from the menu of symptoms on the left.</h3>
+       <a data-role="button" style="margin-top:20%" class="nextButton" href="#"></a>
+          </div>
+        </div>
+        <!--grid-a-->
+       
+        <br>DEBUG:
+        <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
+      </div>
+      <!--main content-->
+      <div data-role="footer" data-position="fixed">
+        <h2>&copy; Edinburgh University 2014</h2>
+      </div>
+    </div>
+    <!--............................End of Select............................-->
+
+    <div data-role="page" id="numbnessPage" data-theme="d">
+      <div data-role="header">
+        <h1>Patient Survey; Body</h1>
+      </div>
+      <div data-role="main" class="ui-content">
+        <img src="themes/myImages/NHSlogo.jpg" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
+        <div class="ui-grid-a">
+          <div class="ui-block-a blockA">
+            <h3>In your last attack did you experience:</h3>
+	     <div class="menu">	
+            <div class="activeBox">
+              <button class='active' id="numbnessBut" value="Numbness">Numbness</button>
+            </div>
+            <button class='inactive' id="tinglingBut" value="Tingling">Tingling</button>
+            <button class='inactive' id="weaknessBut" value="Weakness">Weakness</button>
+            <button class='inactive' id="jerkingBut" value="Jerking">Jerking</button>
+            <button class='inactive' id="tremorBut" value="Tremor">Tremor</button>
+            <button class='inactive' id="painBut" value="Pain">Pain</button>
+          </div>
+	</div>
+          <div class="ui-block-b blockB">
+            <div id="container" style="position:relative;">
+              <div id="instruc">
+                <h4 style="">Touch on the body diagram the location(s) where you felt numb  &#x25b6;</h4>
+              </div>
+              <!--instruc-->
+              <div class="bodyMap" style="position:absolute;">		
+                <IMG id="numbnessBody" SRC="themes/myImages/body.png" ALT="Site map" width="505.197.14" height="525.042" USEMAP="#numbnessbodyMap">
+                <map name="numbnessbodyMap">
+                  <area shape="rect" alt="face(R)" coords="447,25,512,146" href="#" data-bind='click: numbnessLocValue' />
+                  <area shape="rect" alt="face(L)" coords="388,27,444,145" href="#" data-bind='click: numbnessLocValue' />
+                  <area shape="rect" alt="arm(L)" coords="153,167,336,246" href="#" data-bind='click: numbnessLocValue' />
+                  <area shape="rect" alt="hand(L)" coords="23,169,131,243" href="#" data-bind='click: numbnessLocValue' />
+                  <area shape="rect" alt="arm(R)" coords="560,164,736,251" href="#" data-bind='click: numbnessLocValue' />
+                  <area shape="rect" alt="hand(R)" coords="759,165,874,247" href="#" data-bind='click: numbnessLocValue' />
+                  <area shape="poly" alt="chest(R)" coords="451,166,452,317,527,314,544,236,508,163" href="#" data-bind='click: numbnessLocValue' />
+                  <area shape="poly" alt="chest(L)" coords="441,167,442,318,368,314,353,246,375,168" href="#" data-bind='click: numbnessLocValue' />
+                  <area shape="rect" alt="leg(R)" coords="453,517,541,809" href="#" data-bind='click: numbnessLocValue' />
+                  <area shape="rect" alt="leg(L)" coords="343,518,438,807" href="#" data-bind='click: numbnessLocValue' />
+                  <area shape="rect" alt="foot(R)" coords="460,824,549,902" href="#" data-bind='click: numbnessLocValue' />
+                  <area shape="rect" alt="foot(L)" coords="344,822,433,899" href="#" data-bind='click: numbnessLocValue' />
+                  <!-- Created by Online Image Map Editor (http://www.maschek.hu/imagemap/index) -->
+                </map>
+              </div> <!--bodyMap-->
+		<div class="ui-grid-a">
+			<div class="ui-block-a">
+				<a data-role="button" style="margin-top:100%;" class="previousButton" href="#"></a>
+			</div>
+			<div class="ui-block-b">
+				<a data-role="button" style="margin-top:100%;left:64%;" class="nextButton" href="#"></a>	
+			</div>
+		</div>
+            </div> <!--container-->
+          </div> <!--block-b-->
+        </div><!--grid a-->
+  
+ <!--DEBUG:
+        <pre data-bind="text: ko.toJSON($data,null,2)"></pre>-->
+      </div>
+      <!--main content-->
+      <div data-role="footer" data-position="fixed">
+        <h2>&copy; Edinburgh University 2014</h2>
+      </div>
+    </div>
+    <!--............................End of NumbnessPage............................-->
+
+<div data-role="page" id="tinglingPage" data-theme="d">
+      <div data-role="header">
+        <h1>Patient Survey; Body</h1>
+      </div>
+      <div data-role="main" class="ui-content">
+        <img src="themes/myImages/NHSlogo.jpg" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
+        <div class="ui-grid-a">
+          <div class="ui-block-a blockA">
+            <h3>In your last attack did you experience:</h3>
+	     <div class="menu">	       
+              <button class='inactive' id="numbnessBut" value="numbness">Numbness</button>
+            <div class="activeBox">
+            <button class='active' id="tinglingBut" value="Tingling">Tingling</button>
+	   </div>
+            <button class='inactive' id="weaknessBut" value="Weakness">Weakness</button>
+            <button class='inactive' id="jerkingBut" value="Jerking">Jerking</button>
+            <button class='inactive' id="tremorBut" value="Tremor">Tremor</button>
+            <button class='inactive' id="painBut" value="Pain">Pain</button>
+          </div>
+	</div>
+          <div class="ui-block-b blockB">
+            <div id="container" style="position:relative;">
+              <div id="instruc">
+                <h4 style="">Touch on the body diagram the location(s) where you felt tingly  &#x25b6;</h4>
+              </div>
+              <!--instruc-->
+              <div class="bodyMap" style="position:absolute;">
+                <IMG id="tinglingBody" SRC="themes/myImages/body.png" ALT="Site map" width="505.197.14" height="525.042" USEMAP="#tinglingbodyMap">
+                <map name="tinglingbodyMap">
+                  <area shape="rect" alt="face(R)" coords="447,25,512,146" href="#" data-bind='click: tinglingLocValue' />
+                  <area shape="rect" alt="face(L)" coords="388,27,444,145" href="#" data-bind='click: tinglingLocValue' />
+                  <area shape="rect" alt="arm(L)" coords="153,167,336,246" href="#" data-bind='click: tinglingLocValue' />
+                  <area shape="rect" alt="hand(L)" coords="23,169,131,243" href="#" data-bind='click: tinglingLocValue' />
+                  <area shape="rect" alt="arm(R)" coords="560,164,736,251" href="#" data-bind='click: tinglingLocValue' />
+                  <area shape="rect" alt="hand(R)" coords="759,165,874,247" href="#" data-bind='click: tinglingLocValue' />
+                  <area shape="poly" alt="chest(R)" coords="451,166,452,317,527,314,544,236,508,163" href="#" data-bind='click: tinglingLocValue' />
+                  <area shape="poly" alt="chest(L)" coords="441,167,442,318,368,314,353,246,375,168" href="#" data-bind='click: tinglingLocValue' />
+                  <area shape="rect" alt="leg(R)" coords="453,517,541,809" href="#" data-bind='click: tinglingLocValue' />
+                  <area shape="rect" alt="leg(L)" coords="343,518,438,807" href="#" data-bind='click: tinglingLocValue' />
+                  <area shape="rect" alt="foot(R)" coords="460,824,549,902" href="#" data-bind='click: tinglingLocValue' />
+                  <area shape="rect" alt="foot(L)" coords="344,822,433,899" href="#" data-bind='click: tinglingLocValue' />
+                  <!-- Created by Online Image Map Editor (http://www.maschek.hu/imagemap/index) -->
+                </map>
+              </div> <!--bodyMap-->
+            </div> <!--container-->
+	    <a data-role="button" style="margin-top:48%" class="nextButton" href="#"></a>  
+          </div> <!--block-b-->
+        </div><!--grid a-->
+  
+ DEBUG:
+        <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
+      </div>
+      <!--main content-->
+      <div data-role="footer" data-position="fixed">
+        <h2>&copy; Edinburgh University 2014</h2>
+      </div>
+    </div>
+    <!--............................End of tinglingPage............................-->
+
+<div data-role="page" id="weaknessPage" data-theme="d">
+      <div data-role="header">
+        <h1>Patient Survey; Body</h1>
+      </div>
+      <div data-role="main" class="ui-content">
+        <img src="themes/myImages/NHSlogo.jpg" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
+        <div class="ui-grid-a">
+          <div class="ui-block-a blockA">
+            <h3>In your last attack did you experience:</h3>
+	     <div class="menu">	       
+              <button class='inactive' id="numbnessBut" value="numbness">Numbness</button>
+	    <button class='inactive' id="tinglingBut" value="Tingling">Tingling</button>
+            <div class="activeBox">
+            <button class='active' id="weaknessBut" value="weakness">Weakness</button>
+	   </div>
+            <button class='inactive' id="jerkingBut" value="Jerking">Jerking</button>
+            <button class='inactive' id="tremorBut" value="Tremor">Tremor</button>
+            <button class='inactive' id="painBut" value="Pain">Pain</button>
+          </div>
+	</div>
+          <div class="ui-block-b blockB">
+            <div id="container" style="position:relative;">
+              <div id="instruc">
+                <h4 style="">Touch on the body diagram the location(s) where you felt weak  &#x25b6;</h4>
+              </div>
+              <!--instruc-->
+              <div class="bodyMap" style="position:absolute;">
+                <IMG id="weaknessBody" SRC="themes/myImages/body.png" ALT="Site map" width="505.197.14" height="525.042" USEMAP="#weaknessbodyMap">
+                <map name="weaknessbodyMap">
+                  <area shape="rect" alt="face(R)" coords="447,25,512,146" href="#" data-bind='click: weaknessLocValue' />
+                  <area shape="rect" alt="face(L)" coords="388,27,444,145" href="#" data-bind='click: weaknessLocValue' />
+                  <area shape="rect" alt="arm(L)" coords="153,167,336,246" href="#" data-bind='click: weaknessLocValue' />
+                  <area shape="rect" alt="hand(L)" coords="23,169,131,243" href="#" data-bind='click: weaknessLocValue' />
+                  <area shape="rect" alt="arm(R)" coords="560,164,736,251" href="#" data-bind='click: weaknessLocValue' />
+                  <area shape="rect" alt="hand(R)" coords="759,165,874,247" href="#" data-bind='click: weaknessLocValue' />
+                  <area shape="poly" alt="chest(R)" coords="451,166,452,317,527,314,544,236,508,163" href="#" data-bind='click: weaknessLocValue' />
+                  <area shape="poly" alt="chest(L)" coords="441,167,442,318,368,314,353,246,375,168" href="#" data-bind='click: weaknessLocValue' />
+                  <area shape="rect" alt="leg(R)" coords="453,517,541,809" href="#" data-bind='click: weaknessLocValue' />
+                  <area shape="rect" alt="leg(L)" coords="343,518,438,807" href="#" data-bind='click: weaknessLocValue' />
+                  <area shape="rect" alt="foot(R)" coords="460,824,549,902" href="#" data-bind='click: weaknessLocValue' />
+                  <area shape="rect" alt="foot(L)" coords="344,822,433,899" href="#" data-bind='click: weaknessLocValue' />
+                  <!-- Created by Online Image Map Editor (http://www.maschek.hu/imagemap/index) -->
+                </map>
+              </div> <!--bodyMap-->
+            </div> <!--container-->
+	    <a data-role="button" style="margin-top:48%" class="nextButton" href="#"></a>  
+          </div> <!--block-b-->
+        </div><!--grid a-->
+  
+ DEBUG:
+        <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
+      </div>
+      <!--main content-->
+      <div data-role="footer" data-position="fixed">
+        <h2>&copy; Edinburgh University 2014</h2>
+      </div>
+    </div>
+    <!--............................End of weaknessPage............................-->
+
+<div data-role="page" id="jerkingPage" data-theme="d">
+      <div data-role="header">
+        <h1>Patient Survey; Body</h1>
+      </div>
+      <div data-role="main" class="ui-content">
+        <img src="themes/myImages/NHSlogo.jpg" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
+        <div class="ui-grid-a">
+          <div class="ui-block-a blockA">
+            <h3>In your last attack did you experience:</h3>
+	     <div class="menu">	       
+              <button class='inactive' id="numbnessBut" value="numbness">Numbness</button>
+	    <button class='inactive' id="tinglingBut" value="Tingling">Tingling</button>
+            <button class='inactive' id="weaknessBut" value="wWeakness">Weakness</button>
+            <div class="activeBox">
+            <button class='active' id="jerkingBut" value="Jerking">Jerking</button>
+	   </div>
+            <button class='inactive' id="tremorBut" value="Tremor">Tremor</button>
+            <button class='inactive' id="painBut" value="Pain">Pain</button>
+          </div>
+	</div>
+          <div class="ui-block-b blockB">
+            <div id="container" style="position:relative;">
+              <div id="instruc">
+                <h4 style="">Touch on the body diagram the location(s) where you felt jerking  &#x25b6;</h4>
+              </div>
+              <!--instruc-->
+              <div class="bodyMap" style="position:absolute;">
+                <IMG id="jerkingBody" SRC="themes/myImages/body.png" ALT="Site map" width="505.197.14" height="525.042" USEMAP="#jerkingbodyMap">
+                <map name="jerkingbodyMap">
+                  <area shape="rect" alt="face(R)" coords="447,25,512,146" href="#" data-bind='click: jerkingLocValue' />
+                  <area shape="rect" alt="face(L)" coords="388,27,444,145" href="#" data-bind='click: jerkingLocValue' />
+                  <area shape="rect" alt="arm(L)" coords="153,167,336,246" href="#" data-bind='click: jerkingLocValue' />
+                  <area shape="rect" alt="hand(L)" coords="23,169,131,243" href="#" data-bind='click: jerkingLocValue' />
+                  <area shape="rect" alt="arm(R)" coords="560,164,736,251" href="#" data-bind='click: jerkingLocValue' />
+                  <area shape="rect" alt="hand(R)" coords="759,165,874,247" href="#" data-bind='click: jerkingLocValue' />
+                  <area shape="poly" alt="chest(R)" coords="451,166,452,317,527,314,544,236,508,163" href="#" data-bind='click: jerkingLocValue' />
+                  <area shape="poly" alt="chest(L)" coords="441,167,442,318,368,314,353,246,375,168" href="#" data-bind='click: jerkingLocValue' />
+                  <area shape="rect" alt="leg(R)" coords="453,517,541,809" href="#" data-bind='click: jerkingLocValue' />
+                  <area shape="rect" alt="leg(L)" coords="343,518,438,807" href="#" data-bind='click: jerkingLocValue' />
+                  <area shape="rect" alt="foot(R)" coords="460,824,549,902" href="#" data-bind='click: jerkingLocValue' />
+                  <area shape="rect" alt="foot(L)" coords="344,822,433,899" href="#" data-bind='click: jerkingLocValue' />
+                  <!-- Created by Online Image Map Editor (http://www.maschek.hu/imagemap/index) -->
+                </map>
+              </div> <!--bodyMap-->
+            </div> <!--container-->
+	    <a data-role="button" style="margin-top:48%" class="nextButton" href="#"></a>  
+          </div> <!--block-b-->
+        </div><!--grid a-->
+  
+ DEBUG:
+        <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
+      </div>
+      <!--main content-->
+      <div data-role="footer" data-position="fixed">
+        <h2>&copy; Edinburgh University 2014</h2>
+      </div>
+    </div>
+    <!--............................End of jerkingPage............................-->
+
+<div data-role="page" id="tremorPage" data-theme="d">
+      <div data-role="header">
+        <h1>Patient Survey; Body</h1>
+      </div>
+      <div data-role="main" class="ui-content">
+        <img src="themes/myImages/NHSlogo.jpg" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
+        <div class="ui-grid-a">
+          <div class="ui-block-a blockA">
+            <h3>In your last attack did you experience:</h3>
+	     <div class="menu">	       
+              <button class='inactive' id="numbnessBut" value="numbness">Numbness</button>
+	    <button class='inactive' id="tinglingBut" value="Tingling">Tingling</button>
+            <button class='inactive' id="weaknessBut" value="Weakness">Weakness</button>
+            <button class='inactive' id="jerkingBut" value="Jerking">Jerking</button>
+            <div class="activeBox">
+            <button class='active' id="tremorBut" value="Tremor">Tremor</button>
+	   </div>
+            <button class='inactive' id="painBut" value="Pain">Pain</button>
+          </div>
+	</div>
+          <div class="ui-block-b blockB">
+            <div id="container" style="position:relative;">
+              <div id="instruc">
+                <h4 style="">Touch on the body diagram the location(s) where you felt tremor  &#x25b6;</h4>
+              </div>
+              <!--instruc-->
+              <div class="bodyMap" style="position:absolute;">
+                <IMG id="tremorBody" SRC="themes/myImages/body.png" ALT="Site map" width="505.197.14" height="525.042" USEMAP="#tremorbodyMap">
+                <map name="tremorbodyMap">
+                  <area shape="rect" alt="face(R)" coords="447,25,512,146" href="#" data-bind='click: tremorLocValue' />
+                  <area shape="rect" alt="face(L)" coords="388,27,444,145" href="#" data-bind='click: tremorLocValue' />
+                  <area shape="rect" alt="arm(L)" coords="153,167,336,246" href="#" data-bind='click: tremorLocValue' />
+                  <area shape="rect" alt="hand(L)" coords="23,169,131,243" href="#" data-bind='click: tremorLocValue' />
+                  <area shape="rect" alt="arm(R)" coords="560,164,736,251" href="#" data-bind='click: tremorLocValue' />
+                  <area shape="rect" alt="hand(R)" coords="759,165,874,247" href="#" data-bind='click: tremorLocValue' />
+                  <area shape="poly" alt="chest(R)" coords="451,166,452,317,527,314,544,236,508,163" href="#" data-bind='click: tremorLocValue' />
+                  <area shape="poly" alt="chest(L)" coords="441,167,442,318,368,314,353,246,375,168" href="#" data-bind='click: tremorLocValue' />
+                  <area shape="rect" alt="leg(R)" coords="453,517,541,809" href="#" data-bind='click: tremorLocValue' />
+                  <area shape="rect" alt="leg(L)" coords="343,518,438,807" href="#" data-bind='click: tremorLocValue' />
+                  <area shape="rect" alt="foot(R)" coords="460,824,549,902" href="#" data-bind='click: tremorLocValue' />
+                  <area shape="rect" alt="foot(L)" coords="344,822,433,899" href="#" data-bind='click: tremorLocValue' />
+                  <!-- Created by Online Image Map Editor (http://www.maschek.hu/imagemap/index) -->
+                </map>
+              </div> <!--bodyMap-->
+            </div> <!--container-->
+	    <a data-role="button" style="margin-top:48%" class="nextButton" href="#"></a>  
+          </div> <!--block-b-->
+        </div><!--grid a-->
+  
+ DEBUG:
+        <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
+      </div>
+      <!--main content-->
+      <div data-role="footer" data-position="fixed">
+        <h2>&copy; Edinburgh University 2014</h2>
+      </div>
+    </div>
+    <!--............................End of tremorPage............................-->
+
+<div data-role="page" id="painPage" data-theme="d">
+      <div data-role="header">
+        <h1>Patient Survey; Body</h1>
+      </div>
+      <div data-role="main" class="ui-content">
+        <img src="themes/myImages/NHSlogo.jpg" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
+        <div class="ui-grid-a">
+          <div class="ui-block-a blockA">
+            <h3>In your last attack did you experience:</h3>
+	     <div class="menu">	       
+              <button class='inactive' id="numbnessBut" value="numbness">Numbness</button>
+	    <button class='inactive' id="tinglingBut" value="Tingling">Tingling</button>
+            <button class='inactive' id="weaknessBut" value="wWeakness">Weakness</button>
+            <button class='inactive' id="jerkingBut" value="Jerking">Jerking</button>
+            <button class='inactive' id="tremorBut" value="Tremor">Tremor</button>
+            <div class="activeBox">
+            <button class='active' id="painBut" value="Pain">Pain</button>
+	   </div>
+          </div>
+	</div>
+          <div class="ui-block-b blockB">
+            <div id="container" style="position:relative;">
+              <div id="instruc">
+                <h4 >Touch on the body diagram the location(s) where you felt pain  &#x25b6;</h4>
+              </div>
+              <!--instruc-->
+              <div class="bodyMap" style="position:absolute;">
+                <IMG id="painBody" SRC="themes/myImages/body.png" ALT="Site map" width="505.197.14" height="525.042" USEMAP="#painbodyMap">
+                <map name="painbodyMap">
+                  <area shape="rect" alt="face(R)" coords="447,25,512,146" href="#" data-bind='click: painLocValue' />
+                  <area shape="rect" alt="face(L)" coords="388,27,444,145" href="#" data-bind='click: painLocValue' />
+                  <area shape="rect" alt="arm(L)" coords="153,167,336,246" href="#" data-bind='click: painLocValue' />
+                  <area shape="rect" alt="hand(L)" coords="23,169,131,243" href="#" data-bind='click: painLocValue' />
+                  <area shape="rect" alt="arm(R)" coords="560,164,736,251" href="#" data-bind='click: painLocValue' />
+                  <area shape="rect" alt="hand(R)" coords="759,165,874,247" href="#" data-bind='click: painLocValue' />
+                  <area shape="poly" alt="chest(R)" coords="451,166,452,317,527,314,544,236,508,163" href="#" data-bind='click: painLocValue' />
+                  <area shape="poly" alt="chest(L)" coords="441,167,442,318,368,314,353,246,375,168" href="#" data-bind='click: painLocValue' />
+                  <area shape="rect" alt="leg(R)" coords="453,517,541,809" href="#" data-bind='click: painLocValue' />
+                  <area shape="rect" alt="leg(L)" coords="343,518,438,807" href="#" data-bind='click: painLocValue' />
+                  <area shape="rect" alt="foot(R)" coords="460,824,549,902" href="#" data-bind='click: painLocValue' />
+                  <area shape="rect" alt="foot(L)" coords="344,822,433,899" href="#" data-bind='click: painLocValue' />
+                  <!-- Created by Online Image Map Editor (http://www.maschek.hu/imagemap/index) -->
+                </map>
+              </div> <!--bodyMap-->
+            </div> <!--container-->
+	    <a data-role="button" style="margin-top:48%" class="nextButton" href="#"></a>  
+          </div> <!--block-b-->
+        </div><!--grid a-->
+  
+ DEBUG:
+        <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
+      </div>
+      <!--main content-->
+      <div data-role="footer" data-position="fixed">
+        <h2>&copy; Edinburgh University 2014</h2>
+      </div>
+    </div>
+    <!--............................End of painPage............................-->
+	
     <div data-role="page" id="WelcomePage" data-theme="d">
       <div data-role="header">
         <h1>Patient Survey; Welcome</h1>
@@ -185,8 +585,16 @@
             </div>
           </div>
         </div>
-        <a data-role="button" class="nextButton" href="#"></a>DEBUG:
-        <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
+		<div class="ui-grid-a">
+			<div class="ui-block-a">
+				<a data-role="button" class="previousButton" href="#"></a>
+			</div>
+			<div class="ui-block-b">
+				<a data-role="button" class="nextButton" href="#"></a>	
+			</div>
+		</div>
+		
+		DEBUG:<pre data-bind="text: ko.toJSON($data,null,2)"></pre>
       </div>
       <!--main content-->
       <div data-role="footer" data-position="fixed">
@@ -200,7 +608,7 @@
       </div>
       <div data-role="main" class="ui-content">
         <img src="themes/myImages/NHSlogo.png" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
-        <h2>Speech Problems</h2>
+        <!--<h2>Speech Problems</h2>-->
         <h3>In your last attack, did you experience:</h3>
         <div class="ui-grid-b">
           <h3>Slurred speech?</h3>
@@ -250,7 +658,14 @@
           </div>
         </div>
         <!--grib b-->
-        <a data-role="button" class="nextButton" href="#"></a>
+        <div class="ui-grid-a">
+			<div class="ui-block-a">
+				<a data-role="button" class="previousButton" href="#"></a>
+			</div>
+			<div class="ui-block-b">
+				<a data-role="button" class="nextButton" href="#"></a>	
+			</div>
+		</div>
 		DEBUG:<pre data-bind="text: ko.toJSON($data,null,2)"></pre>
       </div>
       <!--main content-->
@@ -266,7 +681,7 @@
       </div>
       <div data-role="main" class="ui-content">
         <img src="themes/myImages/NHSlogo.png" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
-        <h2>Vision Problems</h2> 
+        <!--<h2>Vision Problems</h2>-->
 		<h3>In your last attack:</h3>     
 		<div class="ui-grid-b">
 			<h3>Did you lose vision in your eyes?</h3>
@@ -350,8 +765,14 @@
 					<input type="radio" data-bind="checked:sparklyLight" name="sparkly" id="visionSDunno" value="I don't know"/>
 				</div>
 		</div><!--grib b--> 
-
-        <a data-role="button" class="nextButton" href="#"></a> 
+		<div class="ui-grid-a">
+			<div class="ui-block-a">
+				<a data-role="button" class="previousButton" href="#"></a>
+			</div>
+			<div class="ui-block-b">
+				<a data-role="button" class="nextButton" href="#"></a>	
+			</div>
+		</div>
 			DEBUG:<pre data-bind="text: ko.toJSON($data,null,2)"></pre>
       </div><!--main content-->
       <div data-role="footer" data-position="fixed">
@@ -365,7 +786,7 @@
       </div>
     <div data-role="main" class="ui-content">
         <img src="themes/myImages/NHSlogo.png" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
-        <h2>Other Symptoms</h2>
+        <!--<h2>Other Symptoms</h2>-->
 		
 		<h3>In your last attack, did you ever feel:</h3>
        <div class="ui-grid-b">
@@ -407,7 +828,14 @@
 		</div>
 		<br> <br> <br>
 		
-        <a data-role="button" class="nextButton" href="#"></a>
+       <div class="ui-grid-a">
+			<div class="ui-block-a">
+				<a data-role="button" class="previousButton" href="#"></a>
+			</div>
+			<div class="ui-block-b">
+				<a data-role="button" class="nextButton" href="#"></a>	
+			</div>
+		</div>
 		DEBUG: <pre data-bind="text: ko.toJSON($data,null,2)"></pre>  <div id="output"></div>
     </div><!--main content-->
       <div data-role="footer" data-position="fixed">
@@ -423,7 +851,7 @@
         <img src="themes/myImages/NHSlogo.png" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
 		
 		<div class="ui-grid-b">
-		<h3>Have you had any other symptoms?:</h3>
+		<h3>Have you had any other symptoms?</h3>
 			<div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">	
 				<label for="otherYes">Yes</label>			  
 				<input type="radio" data-bind="checked:otherSymptoms" name="otherSymptoms" id="otherYes" value="yes"/>
@@ -464,8 +892,14 @@
 			<label for="epilepsy">Epilepsy</label>
 			<input type="checkbox" data-bind="checked:epilepsy" value="epilepsy" id="epilepsy"/>			
 		</div>
-		
-	<a data-role="button" class="nextButton" href="#"></a>
+	   <div class="ui-grid-a">
+			<div class="ui-block-a">
+				<a data-role="button" class="previousButton" href="#"></a>
+			</div>
+			<div class="ui-block-b">
+				<a data-role="button" class="nextButton" href="#"></a>	
+			</div>
+		</div>
 	DEBUG:<pre data-bind="text: ko.toJSON($data,null,2)"></pre>
     </div><!--main content-->
       <div data-role="footer" data-position="fixed">
@@ -484,25 +918,25 @@
           <div id='step1'>
             <h2>In order to measure your reaction time, a game of 'Snap' will now follow.</h2>
             <br>
-            <button id='step2But'>Learn How to Play &#x25b6;</button>
+            <button id='step2But'><span style="position:absolute;margin-top:-9%;left:10%;">Learn How to Play <span style="font-size:30px;">&#x25b6;</span></span></button>
           </div>
           <div id='step2'>
-            <h3>1. You will be shown two picture cards. If the two cards match, touch anywhere on the screen as fast as you can.</h3>
+            <span style="font-size: 20px;font-weight:900;">1. You will be shown two picture cards. If the two cards match, touch anywhere on the screen as fast as you can.</span>
             <img src="themes/myImages/snapCards.png"  alt="snapCards" class="snapCard">
-            <button id='step3But'>Next &#x25b6;</button>
-			<button id='step3ButP'>&#x25c0; Previous</button>
+            <button id='step3But'><span class='but'>Next <span style="font-size:30px;">&#x25b6;</span></span></button>
+			<button id='step3ButP'><span class='but2'><span style="font-size:30px;">&#x25c0;</span> Previous</span></button>
           </div>
           <div id='step3'>
-            <h3>3. If you are correct the message 'Snap!' will appear.</h3>
+            <span style="font-size: 20px;font-weight:900;">2. If you are correct the message 'Snap!' will appear.</span>
             <img src="themes/myImages/snapCorrect.png" alt="snapCorrect"  class="snapCard">
-            <button  id='step4But'>Next &#x25b6;</button>
-		    <button  id='step4ButP'>&#x25c0; Previous</button>
+            <button  id='step4But'><span class='but'>Next <span style="font-size:30px;">&#x25b6;</span></span></button>
+		    <button  id='step4ButP'><span class='but2'><span style="font-size:30px;">&#x25c0;</span> Previous</span></button>
           </div>
           <div id='step4'>
-            <h3>4. If you are wrong a red 'X' will appear.</h3>
+            <span style="font-size: 20px;font-weight:900;">3. If you are wrong a red 'X' will appear.</span>
             <img src="themes/myImages/snapIncorrect.png" alt="snapWrong"  class="snapCard">
-           <button id='step5ButP'>&#x25c0; Previous</button>			
-			<a data-role="button" id="playSnap" href="#"><span style="font-size:25px;">Play <br>Snap!</span><span style="position:absolute; bottom:9%;font-size:56px;">&#x3009;</span></a>
+           <button id='step5ButP'><span class='but2'> <span style="font-size:30px;">&#x25c0;</span> Previous</span></button>			
+			<a data-role="button" id="playSnap" href="#"><span style="font-size:25px;">Play <br>Snap!</span><span style="position:absolute;bottom:9%;font-size:56px;">&#x3009;</span></a>
           </div>
         </div>
       <!--main content-->
@@ -544,30 +978,81 @@
     </div>
     <!--End of SnapPage-->
 	
-	<div data-role="page" id="PairsPage" data-theme="d">
+	
+  	<div data-role="page" id="PairsInstructionsPage" data-theme="d">
       <div data-role="header">
-        <h1>Patient Survey; Body</h1>
+        <h1>Patient Survey; How to Play</h1>
+      </div>
+      <div data-role="main" class="ui-content">
+     
+          <img src="themes/myImages/NHSlogo.png" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
+          <div id='p_step1'>
+            <h2>In order to examine your memory, a game of 'Pairs' will now follow.</h2>
+            <br>
+            <button id='pstep2But'><span style="position:absolute;margin-top:-9%;left:10%;">Learn How to Play <span style="font-size:30px;">&#x25b6;</span></span></button>
+          </div>
+          <div id='p_step2'>
+            <span style="font-size: 20px;font-weight:900;">1. You will be shown a group of picture cards. Try to remember where the pairs are.</span>
+            <img src="themes/myImages/pairsCardsFaceUp.png"  alt="pairs cards" class="pairCard">
+            <button id='pstep3But'><span class='but'>Next <span style="font-size:30px;">&#x25b6;</span></span></button>
+			<button id='pstep3ButP'><span class='but2'><span style="font-size:30px;">&#x25c0;</span> Previous</span></button>
+          </div>
+          <div id='p_step3'>
+            <span style="font-size: 20px;font-weight:900;">2. You have 3 seconds before the cards are turned over. Select each pair by touching them on the screen.</span>
+            <img src="themes/myImages/pairsCardsFaceDown.png" alt="cards face down"  class="pairCard">
+            <button  id='pstep4But'><span class='but'>Next <span style="font-size:30px;">&#x25b6;</span></span></button>
+		    <button  id='pstep4ButP'><span class='but2'><span style="font-size:30px;">&#x25c0;</span> Previous</span></button>
+          </div>
+          <div id='p_step4'>
+            <span style="font-size: 20px;font-weight:900;">3. If you are correct, a message saying "pair!" will appear.</span>
+            <img src="themes/myImages/pairsCardsCorrect.png" alt="pairs! message"  class="pairCard">
+           <button id='pstep5ButP'><span class='but2'> <span style="font-size:30px;">&#x25c0;</span> Previous</span></button>			
+			<button  id='pstep5But'><span class='but'>Next <span style="font-size:30px;">&#x25b6;</span></span></button>
+          </div>
+		   <div id="pairsWrapper" style="position: relative;">
+		   <div id='p_step5'>
+            <span style="font-size: 20px;font-weight:900;">4. If you are wrong a message saying "miss" will appear.</span>
+            <img src="themes/myImages/pairsCardsIncorrect.png" alt="miss message"  class="pairCard">			
+           <button id='pstep6ButP'><span class='but2'> <span style="font-size:30px;">&#x25c0;</span> Previous</span></button>			   
+			<a data-role="button" id="tryDemo" href="#"><span style="font-size:25px;">Try <br>Demo</span><span style="position:absolute;bottom:9%;font-size:56px;">&#x3009;</span></a>
+          </div><!--Step 5-->
+		  <div id="p_step55">
+		  <span style="font-size: 20px;font-weight:900;">Next is demo of "Pairs" with 3 pairs of cards.
+		  <br> <br> This will be followed by "Pairs" with 6 pairs of cards.</span></div>
+		  </div> <!--pairsWrapper-->	
+        </div>
+      <!--main content-->
+      <div data-role="footer" data-position="fixed">
+        <h2>&copy; Edinburgh University 2014</h2>
+      </div>
+  
+    </div>
+    <!--End of PairsInstructionPage-->
+
+	    <div data-role="page" id="PairsDemoPage" data-theme="d">
+      <div data-role="header">
+        <h1>Patient Survey; Pairs Demo</h1>
       </div>
       <div data-role="main" class="ui-content">
 	  <div id='pairsWrapper'>
         <div class="ui-grid-b" style="position: relative;">
           <div class="ui-block-a" style="width: 16%; margin-top:5%; margin-left: 290px;">
-            <div id="stPairA" class="stPair"></div>
+            <div id="stPairDemA" class="stPair"></div>
           </div>
           <div class="ui-block-b" style="width: 16%; margin-top:5%;margin-left: 50px;">
-            <div id="ndPairA" class="ndPair"></div>
+             <div id="ndPairDemA" class="ndPair"></div>
           </div>
           <div class="ui-block-c" style="width: 16%; margin-top:5%;margin-left: 50px;">
-            <div id="rdPairA" class="rdPair"></div>
+             <div id="rdPairDemA" class="rdPair"></div>
           </div>
           <div class="ui-block-a" style="width: 16%; margin-top:5%;margin-left: 290px;">
-            <div id="rdPairB" class="rdPair"></div>
+            <div id="rdPairDemB" class="rdPair"></div>
           </div>
           <div class="ui-block-b" style="width:16%; margin-top:5%;margin-left: 50px;">
-            <div id="ndPairB" class="ndPair"></div>
+            <div id="ndPairDemB" class="ndPair"></div>
           </div>
           <div class="ui-block-c" style="width: 16%; margin-top:5%;margin-left: 50px;">
-            <div id="stPairB" class="stPair"></div>
+            <div id="stPairDemB" class="stPair"></div>
           </div>
         </div>  <!-- /grid-b -->
          <div id='pairsOverlay'></div> 
@@ -581,7 +1066,68 @@
 		  <h2>&copy; Edinburgh University 2014</h2>
 		</div>
     </div>
+    <!--End of PairsDemoPage-->
+	 <div data-role="page" id="PairsPage" data-theme="d">
+      <div data-role="header">
+        <h1>Patient Survey; Pairs</h1>
+      </div>
+      <div data-role="main" class="ui-content">
+	 <div id='pairsWrapper'>
+        <div class="ui-grid-c">
+		<!-- ************************ ROW 1 ****************************-->
+          <div class="ui-block-a grdA">
+            <div id="stPairA" class="stPair"></div>
+          </div>
+          <div class="ui-block-b grdB">
+            <div id="ndPairA" class="ndPair"></div>
+          </div>
+          <div class="ui-block-c grdC">
+            <div id="rdPairA" class="rdPair"></div>
+          </div>
+		   <div class="ui-block-d grdD">
+            <div id="fthPairA" class="fthPair"></div>
+          </div>
+		  <!-- ************************ ROW 2 ****************************-->
+          <div class="ui-block-a grdA">
+            <div id="rthPairA" class="rthPair"></div>
+          </div>
+          <div class="ui-block-b grdB">
+            <div id="ndPairB" class="ndPair"></div>
+          </div>
+          <div class="ui-block-c grdC">
+            <div id="thPairA" class="thPair"></div>
+          </div>
+		   <div class="ui-block-d grdD">
+            <div id="rdPairB" class="rdPair"></div>
+          </div>
+		  <!-- ************************ ROW 3 ****************************-->
+		  <div class="ui-block-a grdA"> 
+            <div id="fthPairB" class="fthPair"></div>
+          </div>
+          <div class="ui-block-b grdB">
+            <div id="stPairB" class="stPair"></div>
+          </div>
+          <div class="ui-block-c grdC">
+            <div id="thPairB" class="thPair"></div>
+          </div>
+		   <div class="ui-block-d grdD">
+            <div id="rthPairB" class="rthPair"></div>
+          </div>
+        </div>  <!-- /grid-c -->
+         <div id='pairsOverlay'></div> 
+        </div><!--pairsWrapper-->
+      
+      <a data-role="button" class="nextButton" href="#"></a>
+     
+    </div>
+    <!--main content-->
+		<div data-role="footer" data-position="fixed">
+		  <h2>&copy; Edinburgh University 2014</h2>
+		</div>
+    </div>
     <!--End of PairsPage-->
+	
+	
 	
     <script type='text/javascript'>
 /*custom binding handler thanks to Varun http://stackoverflow.com/a/16493161/2308978*/
@@ -632,6 +1178,30 @@
         stroke: ko.observable(),
         cancer: ko.observable(),
         epilepsy: ko.observable(),
+		numbnessLoc: ko.observableArray(),
+        numbnessLocValue: function(data, element) {
+          this.numbnessLoc.push($(element.target).attr('alt'));
+        },
+        tinglingLoc: ko.observableArray(),
+        tinglingLocValue: function(data, element) {
+          this.tinglingLoc.push($(element.target).attr('alt'));
+        },
+        weaknessLoc: ko.observableArray(),
+        weaknessLocValue: function(data, element) {
+          this.weaknessLoc.push($(element.target).attr('alt'));
+        },
+        jerkingLoc: ko.observableArray(),
+        jerkingLocValue: function(data, element) {
+          this.jerkingLoc.push($(element.target).attr('alt'));
+        },
+        tremorLoc: ko.observableArray(),
+        tremorLocValue: function(data, element) {
+          this.tremorLoc.push($(element.target).attr('alt'));
+        },
+       painLoc: ko.observableArray(),
+        painLocValue: function(data, element) {
+          this.painLoc.push($(element.target).attr('alt'));
+        },
         pairs: ko.observable(),
         rt: ko.observable()
       };
@@ -642,6 +1212,7 @@
 	  
       $(document).ready(function() {
         $(".nextButton").on('click', nextPage);
+		 $(".previousButton").on('click', previousPage);
       }); //document ready
 	  
 	  $(".data-input").datepicker({ defaultDate: null}); //highlight current date on datepicker
@@ -677,7 +1248,7 @@
         });
       });
 	  
-	  
+
       function nextPage() {
         var currentPageID = $.mobile.activePage.attr('id');
         switch (currentPageID) {
@@ -694,7 +1265,7 @@
             $.mobile.changePage("#VisionProblemsPage");
             break;
           case "VisionProblemsPage":
-            $.mobile.changePage("#BodyPage");
+            $.mobile.changePage("#SelectPage");
             break;
           case "numbnessPage":
           case "tinglingPage":
@@ -711,12 +1282,62 @@
             $.mobile.changePage("#SnapInstructionsPage");
             break;
 			case "SnapPage":
+            $.mobile.changePage("#PairsInstructionsPage");
+			break;
+			case "PairsDemoPage":
             $.mobile.changePage("#PairsPage");
-			break
+			break;
+			case "PairsPage":
+            $.mobile.changePage("#FinishPage");
+			break;
           default:
             break;
         }
       }
+	  
+	        function previousPage() {
+        var currentPageID = $.mobile.activePage.attr('id');
+        switch (currentPageID) {
+          case "SymptomsPage":
+            $.mobile.changePage("#WelcomePage");
+            break;
+          case "SpeechProblemsPage":
+            $.mobile.changePage("#SymptomsPage");
+            break;
+          case "VisionProblemsPage":
+            $.mobile.changePage("#SpeechProblemsPage");
+            break;
+          case "SelectPage":
+            $.mobile.changePage("#VisionProblemsPage");
+            break;
+          case "numbnessPage":
+          case "tinglingPage":
+          case "weaknessPage":
+          case "jerkingPage":
+          case "tremorPage":
+          case "painPage":
+            $.mobile.changePage("#SelectPage");
+            break;
+          case "MedicalHistoryPage":
+            $.mobile.changePage("#OtherSymptomsPage");
+            break;
+          case "SnapInstructionsPage":
+            $.mobile.changePage("#MedicalHistoryPage");
+            break;
+			/*case "SnapPage":
+            $.mobile.changePage("#PairsInstructionsPage");
+			break;
+			case "PairsDemoPage":
+            $.mobile.changePage("#PairsPage");
+			break;
+			case "PairsPage":
+            $.mobile.changePage("#FinishPage");
+			break;*/
+          default:
+            break;
+        }
+      }
+
 	  
 	    <!-- ******************************* Script for Snaps Game ************************************-->
       var card1url;
@@ -786,6 +1407,7 @@
         });
       }); //scripts for onload of #SnapPage
 	  
+	  //Hide and show divs containing the game instructions
       $("#step2But").on('click', function(e) {	   
         $("#step2").css('display', 'block');
         $("#step1").css('display', 'none');
@@ -846,18 +1468,53 @@
       });
 
     <!-- ******************************* Script for Pairs Game ************************************-->
-	
-	 $(document).delegate("#PairsPage", "pagecreate", function() {
-		  showCards("stPairA", "stPairB");
-		  showCards("ndPairA", "ndPairB");
-		  showCards("rdPairA", "rdPairB");
-		  setTimeout(function() {
-			$(".stPair,.ndPair,.rdPair").css("background-image", "url('themes/myImages/card_back.png')");
-		  }, 2000);
-	 });
+ $("#tryDemo").on('click', function(e) {
+        $.mobile.changePage("#PairsDemoPage");
+      });
+	  
+	  
+	  //Hide and show divs containing the game instructions
+      $("#pstep2But").on('click', function(e) {	   
+        $("#p_step2").css('display', 'block');
+        $("#p_step1").css('display', 'none');
+      });
+      $("#pstep3But").on('click', function(e) {
+        $("#p_step3").css('display', 'block');
+        $("#p_step2").css('display', 'none');
+      });
+      $("#pstep4But").on('click', function(e) {
+        $("#p_step4").css('display', 'block');
+        $("#p_step3").css('display', 'none');
+      });
+	  
+	  $("#pstep5But").on('click', function(e) {
+	    $("#p_step55").css('display', 'block');
+        $("#p_step5").css('display', 'block');
+        $("#p_step4").css('display', 'none');
+      });
+	  
+	   $("#pstep3ButP").on('click', function(e) {
+        $("#p_step1").css('display', 'block');
+        $("#p_step2").css('display', 'none');
+      });
+	  
+	 $("#pstep4ButP").on('click', function(e) {
+			$("#p_step2").css('display', 'block');
+			$("#p_step3").css('display', 'none');
+		  });
+	  
+	   $("#pstep5ButP").on('click', function(e) {
+        $("#p_step3").css('display', 'block');
+        $("#p_step4").css('display', 'none');
+      });
+	   $("#pstep6ButP").on('click', function(e) {
+        $("#p_step4").css('display', 'block');
+		$("#p_step55").css('display', 'none');
+        $("#p_step5").css('display', 'none');
+      });
 
-      $('.stPair, .ndPair, .rdPair').on('click', pairScore);
-      var alternate = false;
+
+	 var alternate = false;
       var card1;
       var card2;
       var stCardPair;
@@ -865,10 +1522,40 @@
       var pair = [''];
       var id;
       var url;
-      var counter = 0; //keeps track of how many pairs of cards have been found.
+	  var counter = 0;	  //keeps track of how many pairs of cards have been found.
+	  var currentPage='';
+	  
+			$(document).delegate("#PairsDemoPage", "pagecreate", function() {
+		  showCardsDemo("stPairDemA", "stPairDemB");
+		  showCardsDemo("ndPairDemA", "ndPairDemB");
+		  showCardsDemo("rdPairDemA", "rdPairDemB");
+		  setTimeout(function() {
+			$(".stPair,.ndPair,.rdPair", $.mobile.activePage).css("background-image", "url('themes/myImages/card_back.png')");
+		  }, 2000);
+		  currentPage='PairsDemoPage';
+	 });
+	
+			$(document).delegate("#PairsPage", "pagecreate", function() {
+			var counterDemo = counter;
+			counter=0;
+			  showCards("stPairA", "stPairB");
+			  showCards("ndPairA", "ndPairB");
+			  showCards("rdPairA", "rdPairB");
+			  showCards("rthPairA", "rthPairB");
+			  showCards("fthPairA", "fthPairB");
+			  showCards("thPairA", "thPairB");
+		   setTimeout(function() {
+        $(".stPair,.ndPair,.rdPair,.rthPair,.fthPair, .thPair", $.mobile.activePage).css("background-image", "url('themes/myImages/card_back.png')");
+      }, 5000);
+	  currentPage='PairsPage';
+	 });
+ 
+    
+      $('.stPair, .ndPair, .rdPair,.rthPair,.fthPair, .thPair', $.mobile.activePage).on('click', pairScore);
+   
       function pairScore() {
         id = event.target.id;
-        url = $('#' + id).css('background-image');
+        url = $('#' + id, $.mobile.activePage).css('background-image');
         if (url == 'none') {} else {
           if (alternate == false) {
             pair = [id];
@@ -881,27 +1568,28 @@
               card1Pair = pair[0].charAt(pair[0].length - 1);
               card2Pair = pair[1].charAt(pair[1].length - 1);
               if ((card1Pair == 'A' && card2Pair == 'B') || (card1Pair == 'B' && card2Pair == 'A')) {
-                showCards(pair[0], pair[1]);
-                $("#pairsOverlay").html("<span class='spanMsg'>Pair!</span>");
-                $("#pairsOverlay").css('background-color', '#FAF741'); 
+                if(currentPage=='PairsPage'){showCards(pair[0], pair[1]);}else{showCardsDemo(pair[0], pair[1]);}
+				
+                $("#pairsOverlay", $.mobile.activePage).html("<span class='spanMsg'>Pair!</span>");
+                $("#pairsOverlay", $.mobile.activePage).css('background-color', '#FAF741'); 
                 setTimeout(function() {
-                  $("#pairsOverlay").html(" ");
-                  $("#" + pair[0] + ",#" + pair[1]).css("background-image", "none");
-                  $("#" + pair[0] + ",#" + pair[1]).css("background-color", "#004200");
+                  $("#pairsOverlay", $.mobile.activePage).html(" ");
+                  $("#" + pair[0] + ",#" + pair[1], $.mobile.activePage).css("background-image", "none");
+                  $("#" + pair[0] + ",#" + pair[1], $.mobile.activePage).css("background-color", "#004200");
                   counter = counter + 2;
-                  if (counter == 6) {
+                  if (counter == 12) {
                     alert('Game over!');
                   }
                 }, 2000);
               }
             } else {
-              showCards(pair[0], pair[1]);
-              $("#pairsOverlay").html("<span class='spanMsg'>miss</span>");
-              $("#pairsOverlay").css('background-color', '#F5033B');
+              if(currentPage=='PairsPage'){showCards(pair[0], pair[1]);}else{showCardsDemo(pair[0], pair[1]);}
+              $("#pairsOverlay", $.mobile.activePage).html("<span class='spanMsg'>miss</span>");
+              $("#pairsOverlay", $.mobile.activePage).css('background-color', '#F5033B');
               setTimeout(function() {
-                $("#pairsOverlay").html(" ");
-                $("#" + pair[0]).css("background-image", "url('themes/myImages/card_back.png')");
-                $("#" + pair[1]).css("background-image", "url('themes/myImages/card_back.png')");
+                $("#pairsOverlay", $.mobile.activePage).html(" ");
+                $("#" + pair[0], $.mobile.activePage).css("background-image", "url('themes/myImages/card_back.png')");
+                $("#" + pair[1], $.mobile.activePage).css("background-image", "url('themes/myImages/card_back.png')");
               }, 2000);
             }
             alternate = false;
@@ -909,6 +1597,38 @@
         } //url not 'none'
       }
 
+	   function showCardsDemo(card1, card2) {
+	   
+	    card1Class = card1.slice(0, card1.length - 1);
+        card2Class = card2.slice(0, card2.length - 1);
+        switch (card1Class) {
+          case "stPairDem":
+            $("#" + card1).css("background-image", "url('themes/myImages/pairsCats.png')")
+            break;
+          case "ndPairDem":
+            $("#" + card1).css("background-image", "url('themes/myImages/pairsTriangle.png')")
+            break;
+           case "rdPairDem":
+            $("#" + card1).css("background-image", "url('themes/myImages/pairsHourglass.png')")
+            break;
+			 default:
+            break;
+        }
+        switch (card2Class) {
+          case "stPairDem":
+            $("#" + card2).css("background-image", "url('themes/myImages/pairsCats.png')")
+            break;
+          case "ndPairDem":
+            $("#" + card2).css("background-image", "url('themes/myImages/pairsTriangle.png')")
+            break;
+          case "rdPairDem":
+            $("#" + card2).css("background-image", "url('themes/myImages/pairsHourglass.png')")
+            break;
+					 default:
+            break;
+        }
+	   }
+	  
       function showCards(card1, card2) {
         card1Class = card1.slice(0, card1.length - 1);
         card2Class = card2.slice(0, card2.length - 1);
@@ -919,8 +1639,17 @@
           case "ndPair":
             $("#" + card1).css("background-image", "url('themes/myImages/pairsTriangle.png')")
             break;
-          case "rdPair":
+           case "rdPair":
             $("#" + card1).css("background-image", "url('themes/myImages/pairsHourglass.png')")
+            break;
+			case "rthPair":
+            $("#" + card1).css("background-image", "url('themes/myImages/pairsDots.png')")
+            break;
+			case "fthPair":
+            $("#" + card1).css("background-image", "url('themes/myImages/pairsHat.png')")
+            break;
+			case "thPair":
+            $("#" + card1).css("background-image", "url('themes/myImages/pairsHearts.png')")
             break;
           default:
             break;
@@ -935,10 +1664,211 @@
           case "rdPair":
             $("#" + card2).css("background-image", "url('themes/myImages/pairsHourglass.png')")
             break;
+			case "rthPair":
+            $("#" + card2).css("background-image", "url('themes/myImages/pairsDots.png')")
+            break;
+			case "fthPair":
+            $("#" + card2).css("background-image", "url('themes/myImages/pairsHat.png')")
+            break;
+			case "thPair":
+            $("#" + card2).css("background-image", "url('themes/myImages/pairsHearts.png')")
+            break;
           default:
             break;
         }
       }
+	  
+	 /* ************************************** Script for Body Pages ***************************** */
+	  var toggle=false;
+
+    $(document).ready(function() { 
+      
+        $("#numbnessBody,#tinglingBody,#weaknessBody,#jerkingBody,#tremorBody,#painBody").mapster({
+          singleSelect: false,
+          mapKey: 'alt',
+          fill: false,
+          stroke: true,
+          strokeColor: '000000',
+          strokeWidth: 3,
+          areas: [{
+            key: 'foot(L)',
+            strokeColor: '006600'
+          }, {
+            key: 'foot(R)',
+            strokeColor: '006600'
+          }, {
+            key: 'leg(L)',
+            strokeColor: 'FF0000'
+          }, {
+            key: 'leg(R)',
+            strokeColor: 'FF0000'
+          }, {
+            key: 'hand(L)',
+            strokeColor: '0099FF'
+          }, {
+            key: 'hand(R)',
+            strokeColor: '0099FF'
+          }, {
+            key: 'arm(L)',
+            strokeColor: '5C00B8'
+          }, {
+            key: 'arm(R)',
+            strokeColor: '5C00B8'
+          }, {
+            key: 'chest(L)',
+            strokeColor: 'FF7519'
+          }, {
+            key: 'chest(R)',
+            strokeColor: 'FF7519'
+          }, {
+            key: 'face(L)',
+            strokeColor: 'B800B8'
+          }, {
+            key: 'face(R)',
+            strokeColor: 'B800B8'
+          }],
+          onClick: function(event) {
+            var array = event.key.split("(");
+            var name = array[0];
+            if (event['selected'] == true) {
+  
+	   } else {
+             
+	var pageId = $.mobile.activePage[0].id; 
+	var arrName = pageId.split('Page')[0];
+             removeFromKO(event.key, arrName); //update ko to exclude the deslected body part
+               //update ko with new array
+             
+            }
+          }
+        }); //mapster
+        
+
+        function removeFromKO(alt, arrName) {
+        	
+	  var lastElem;
+	  var arr = getArray(arrName);
+
+          pos = $.inArray(alt, arr);
+	
+          if (pos!=-1) 
+	  {
+		lastElem = arr.length-2;
+		 arr.splice(pos, 1);
+		 arr.splice(lastElem, 1);	
+          }
+        	updateArray(arrName, arr);  
+        }
+
+
+function updateArray(arrName, arr){
+	switch(arrName){
+
+	case "numbness":
+	    viewModel.numbnessLoc(arr); 
+	break;
+	case "tingling":
+		viewModel.tinglingLoc(arr); 
+	break;
+	case "weakness":
+		viewModel.weaknessLoc(arr); 
+	break;
+	case "jerking":
+		viewModel.jerkingLoc(arr); 
+	break;
+	case "tremor":
+		viewModel.tremorLoc(arr); 
+	break;
+	case "pain":
+		viewModel.painLoc(arr); 
+	break;
+	default:
+	break;
+	}
+}
+
+function getArray(arrName){
+	switch(arrName){
+
+	case "numbness":
+	    return viewModel.numbnessLoc(); 
+	break;
+	case "tingling":
+		return viewModel.tinglingLoc(); 
+	break;
+	case "weakness":
+		return viewModel.weaknessLoc(); 
+	break;
+	case "jerking":
+		return viewModel.jerkingLoc(); 
+	break;
+	case "tremor":
+		return viewModel.tremorLoc(); 
+	break;
+	case "pain":
+		return viewModel.painLoc(); 
+	break;
+	default:
+	break;
+	}
+}
+/* ************************BAD CODING CHANGE, THIS IS DERP********************** */
+        $("button").on('click', function() {   
+            sensation(this.id);  
+        });
+
+     
+
+
+      function sensation(id) {
+        switch (id) {
+          case "numbnessBut":
+            $.mobile.changePage("#numbnessPage");
+            break;
+          case "tinglingBut":
+            $.mobile.changePage("#tinglingPage");
+            break;
+          case "weaknessBut":
+            $.mobile.changePage("#weaknessPage");
+            break;
+          case "jerkingBut":
+            $.mobile.changePage("#jerkingPage");
+            break;
+          case "tremorBut":
+            $.mobile.changePage("#tremorPage");
+            break;
+          case "painBut":
+            $.mobile.changePage("#painPage");
+            break;
+          default:
+            break;
+        }
+      }
+
+      /*function nextPage() {
+        var currentPageID = $.mobile.activePage[0].id; 
+
+        switch (currentPageID) {
+          case "numbnessPage":
+            $.mobile.changePage("#tinglingPage");
+            break;
+          case "tinglingPage":
+            $.mobile.changePage("#weaknessPage");
+            break;
+          case "weaknessPage":
+            $.mobile.changePage("#jerkingPage");
+            break;
+          case "jerkingPage":
+            $.mobile.changePage("#tremorPage");
+            break;
+          case "tremorPage":
+            $.mobile.changePage("#painPage");
+            break;
+          default:
+            break;
+        }
+      }*/
+});
     </script>
 	
 	
