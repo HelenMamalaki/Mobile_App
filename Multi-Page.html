@@ -35,7 +35,357 @@
   </head>
 
   <body>
-  
+
+	
+    <div data-role="page" id="WelcomePage" data-theme="d">
+      <div data-role="header">
+        <h1>Patient Survey; Welcome</h1>
+      </div>
+      <div data-role="main" class="ui-content">
+        <img src="themes/myImages/NHSlogo.png" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
+        <h1>Patient Survey</h1>
+        <h4>In order to speed up your assesment we would like to electronically record part of your medical history and recent symptoms. We hope you'll take the time to answer the following questions.</h4>
+        <br>
+        <h2>Consent</h2>
+        <h4>The information collected here will be linked to other information on your medical record. All information collected will remain strictly confidential. Information will be used for no other purpose than medical research.</h4>
+        <div data-role="fieldcontain">
+          <div style="width:47%;">
+            <input type="checkbox" data-bind="checked:consent" name="consent" id="consent">
+            <label for="consent" style='font-size:18px;'>I agree to the collection of my information</label>
+          </div>
+        </div>
+        <a data-role="button" class="nextButton" data-bind="visible: consent()" href="#"></a>
+      </div>
+      <!--main content-->
+      <div data-role="footer" data-position="fixed">
+        <h2>&copy; Edinburgh University 2014</h2>
+      </div>
+    </div>
+    <!--End of Page 1-->
+    <div data-role="page" id="IdentificationPage" data-theme="d">
+      <div data-role="header">
+        <h1>Patient Survey; Personal Details</h1>
+      </div>
+      <div data-role="main" class="ui-content">
+        <img src="themes/myImages/NHSlogo.png" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
+        <h1>Personal Details</h1>
+        <div id="DOB">
+          <label for="DOB">Date of Birth:</label>
+          <div class="ui-grid-b">
+            <div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">
+              <label for="day">Day</label>
+              <input name="day" id="day" placeholder="DD" value="" type="text">
+            </div>
+            <div class="ui-block-b" style="width:20%; margin-right: 10px;">
+              <label for="Month">Month</label>
+              <input name="month" id="month" placeholder="MM" value="" type="text">
+            </div>
+            <div class="ui-block-c" style="width:30%">
+              <label for="year">Year</label>
+              <input name="year" id="year" placeholder="YYYY" value="" type="text">
+            </div>
+          </div>
+          <!--grid b-->
+        </div>
+        <div data-role="fieldcontain">
+          <legend>Gender:</legend>
+          <div class="ui-grid-a">
+            <div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">
+              <input type="radio" name="gender" id="female" value="female" />
+              <br>
+              <label for="female">Female</label>
+            </div>
+            <div class="ui-block-b" style="width:20%;">
+              <input type="radio" name="gender" id="male" value="male" />
+              <br>
+              <label for="male">Male</label>
+            </div>
+          </div>
+        </div>
+        <div id="indent">
+          <legend>Who is filling out this survey:</legend>
+          <div style="margin-left: 40px;">
+            <select name="who_fillIn_survey" id="who_fillIn_survey">
+              <option value="Patient">Patient</option>
+              <option value="Relative">Relative</option>
+              <option value="Carer">Carer</option>
+              <option value="NHS staff">NHS staff</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+        <a data-role="button" class="nextButton" href="#"></a>
+      </div>
+      <!--main content-->
+      <div data-role="footer" data-position="fixed">
+        <h2>&copy;Edinburgh University 2014</h2>
+      </div>
+    </div>
+    <!--End of Page 2-->
+    <div data-role="page" id="SymptomsPage" data-theme="d">
+      <div data-role="header">
+        <h1>Patient Survey; Symptoms</h1>
+      </div>
+      <div data-role="main" class="ui-content">
+        <img src="themes/myImages/NHSlogo.png" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
+        <div id="datepicker" data-role="fieldcontain">
+          <h3>When did you first have symptoms?</h3>
+          <div class="ui-grid-a">
+            <div class="ui-block-a" style="width:17%; margin-left: 40px; margin-right: 30px;">
+              <input type="text" placeholder="dd/mm/yyyy" class="date-input" data-inline="false" data-role="date" readonly="readonly" data-bind="value:exactDate">
+            </div>
+            <div class="ui-block-b" style="width:32%;">
+              <input type="checkbox" data-bind="checked:exactDateCheck" id="exactDateCheck">
+              <label for="exactDateCheck">I don't remember the exact date</label>
+            </div>
+          </div>
+        </div>
+        <div id="dynamicContent" data-bind="visible:exactDateCheck()">
+          <h4>How long ago was it before your first attack of symptoms?</h4>
+          <div class="ui-grid-a">
+            <div class="ui-block-a" style="width:10%; margin-left: 40px; margin-right: 30px;">
+              <input type="text" id="symptom_onset" placeholder="0" value="" readonly="readonly" data-bind="value:estDate">
+            </div>
+            <div class="ui-block-b" style="width:20%;">
+              <select name="symptom_onset" id="symptom_onset" data-bind="value:estDateUnit">
+                <option value="days">days</option>
+                <option value="weeks">weeks</option>
+                <option value="months">months</option>
+                <option value="years">years</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div id="frequency">
+          <h3>How many attacks of symptoms have you had?</h3>
+          <div class="ui-grid-a">
+            <div class="ui-block-a" style="width:10%; margin-left: 40px; margin-right: 30px;">
+              <input type="text" id="frequencyKeypad" placeholder="1" value="" readonly="readonly" data-bind="value:attackNo">
+            </div>
+            <div class="ui-block-b" style="width:20%;">
+              <input type="checkbox" id="attackNoCheck" data-bind="value:attackNoCheck" />
+              <br>
+              <label for="attackNoCheck">I don't remeber</label>
+            </div>
+          </div>
+        </div>
+        <div id="duration">
+          <h3>How long did the symptoms last in your last attack?</h3>
+          <div class="ui-grid-b">
+            <div class="ui-block-a" style="width:10%; margin-left: 40px; margin-right: 30px;">
+              <input type="text" id="durationKeypad" placeholder="1" value="" readonly="readonly" data-bind="value:attackDuration">
+            </div>
+            <div class="ui-block-b" style="width:20%; margin-right: 30px;">
+              <select name="time_unit" id="time_unit" data-bind="value:durationUnit">
+                <option value="sec">sec</option>
+                <option value="min">min</option>
+                <option value="hours">hrs</option>
+                <option value="days">days</option>
+              </select>
+            </div>
+            <div class="ui-block-c" style="width:20%;">
+              <input type="checkbox" id="durationCheck" data-bind="value:durationCheck" />
+              <br>
+              <label for="durationCheck">I don't remeber</label>
+            </div>
+          </div>
+        </div>
+		<div class="ui-grid-a">
+			<div class="ui-block-a">
+				<a data-role="button" class="previousButton" href="#"></a>
+			</div>
+			<div class="ui-block-b">
+				<a data-role="button" class="nextButton" href="#"></a>	
+			</div>
+		</div>
+		
+		DEBUG:<pre data-bind="text: ko.toJSON($data,null,2)"></pre>
+      </div>
+      <!--main content-->
+      <div data-role="footer" data-position="fixed">
+        <h2>&copy; Edinburgh University 2014</h2>
+      </div>
+    </div>
+    <!--End of Page 3-->
+    <div data-role="page" id="SpeechProblemsPage" data-theme="d">
+      <div data-role="header">
+        <h1>Patient Survey; Speech Problems</h1>
+      </div>
+      <div data-role="main" class="ui-content">
+        <img src="themes/myImages/NHSlogo.png" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
+        <!--<h2>Speech Problems</h2>-->
+        <h3>In your last attack, did you experience:</h3>
+        <div class="ui-grid-b">
+          <h3>Slurred speech?</h3>
+          <div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">
+            <label for="slurredYes">Yes</label>
+            <input type="radio" data-bind="checked:slurredSpeech" name="slurred" id="slurredYes" value="yes" />
+          </div>
+          <div class="ui-block-b" style="width:20%; margin-right: 10px;">
+            <label for="slurredNo">No</label>
+            <input type="radio" data-bind="checked:slurredSpeech" name="slurred" id="slurredNo" value="no" />
+          </div>
+          <div class="ui-block-c" style="width:20%">
+            <label for="slurredDunno">I don't know</label>
+            <input type="radio" data-bind="checked:slurredSpeech" name="slurred" id="slurredDunno" value="I don't know" />
+          </div>
+        </div>
+        <!--grib b-->
+        <div class="ui-grid-b">
+          <h3>Difficulty speaking?</h3>
+          <div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">
+            <label for="speakingYes">Yes</label>
+            <input type="radio" data-bind="checked:speakingDifficulty" name="speaking" id="speakingYes" value="yes" />
+          </div>
+          <div class="ui-block-b" style="width:20%; margin-right: 10px;">
+            <label for="speakingNo">No</label>
+            <input type="radio" data-bind="checked:speakingDifficulty" name="speaking" id="speakingNo" value="no" />
+          </div>
+          <div class="ui-block-c" style="width:20%">
+            <label for="speakingDunno">I don't know</label>
+            <input type="radio" data-bind="checked:speakingDifficulty" name="speaking" id="speakingDunno" value="I_don't_know" />
+          </div>
+        </div>
+        <!--grib b-->
+        <div class="ui-grid-b">
+          <h3>Difficulty understanding words?</h3>
+          <div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">
+            <label for="understandingYes">Yes</label>
+            <input type="radio" data-bind="checked:wordComprehension" name="understanding" id="understandingYes" value="yes" />
+          </div>
+          <div class="ui-block-b" style="width:20%; margin-right: 10px;">
+            <label for="understandingNo">No</label>
+            <input type="radio" data-bind="checked:wordComprehension" name="understanding" id="understandingNo" value="no" />
+          </div>
+          <div class="ui-block-c" style="width:20%">
+            <label for="understandingDunno">I don't know</label>
+            <input type="radio" data-bind="checked:wordComprehension" name="understanding" id="understandingDunno" value="I don't know" />
+          </div>
+        </div>
+        <!--grib b-->
+        <div class="ui-grid-a">
+			<div class="ui-block-a">
+				<a data-role="button" class="previousButton" href="#"></a>
+			</div>
+			<div class="ui-block-b">
+				<a data-role="button" class="nextButton" href="#"></a>	
+			</div>
+		</div>
+		DEBUG:<pre data-bind="text: ko.toJSON($data,null,2)"></pre>
+      </div>
+      <!--main content-->
+      <div data-role="footer" data-position="fixed">
+        <h2>&copy; Edinburgh University 2014</h2>
+      </div>
+    </div>
+    <!--End of SpeechProblemsPage-->
+    
+	<div data-role="page" id="VisionProblemsPage" data-theme="d">
+      <div data-role="header">
+        <h1>Patient Survey; Vision Problems</h1>
+      </div>
+      <div data-role="main" class="ui-content">
+        <img src="themes/myImages/NHSlogo.png" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
+        <!--<h2>Vision Problems</h2>-->
+		<h3>In your last attack:</h3>     
+		<div class="ui-grid-b">
+			<h3>Did you lose vision in your eyes?</h3>
+			<div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">	
+				<label for="visionLYes">Yes</label>			  
+				<input type="radio" data-bind="checked:visionLoss" name="visionLoss" id="visionLYes" value="yes"/>
+			</div>
+			<div class="ui-block-b" style="width:20%; margin-right: 10px;">
+				<label for="visionLNo">No</label>
+				<input type="radio" data-bind="checked:visionLoss" name="visionLoss" id="visionLNo" value="no"/>
+			</div>
+			<div class="ui-block-c" style="width:20%">
+				<label for="visionLDunno">I don't know</label>
+				<input type="radio" data-bind="checked:visionLoss" name="visionLoss" id="visionLDunno" value="I don't know"/>
+			</div>
+			
+		</div><!--grib b--> 
+		
+		<div id="whichEye" data-bind="visible: visionLoss() == 'yes'"> 
+			<h3>Which eye did you lose vision in?</h3>
+			<div class="ui-grid-b">
+				<div class="ui-block-a" style="width:20%; margin-left: 45px; margin-right: 6px;">	
+					<button type="button" id="leftEye" data-bind='click: whichEyeValue' value="Left Eye"></button>	
+					<label style="display: block; text-align: center;" for="leftEye"><h2>Left Eye</h2></label>		
+				</div>
+				<div class="ui-block-b" style="width:20%; margin-right: 6px;">
+					<button type="button" id="rightEye" data-bind='click: whichEyeValue' value="Right Eye"></button>	
+					<label style="display: block; text-align: center;" for="rightEye"><h2>Right Eye</h2></label>
+				</div>
+				<div class="ui-block-c" style="width:20%">
+					<button type="button" id="bothEyes" data-bind='click: whichEyeValue' value="Both Eyes"></button>	
+					<label style="display: block; text-align: center;" for="bothEyes"><h2>Both Eyes</h2></label>
+				</div>
+			</div><!--grib b--> 
+		
+			<div class="ui-grid-b">
+				<h3>Did you test this by closing one eye and then the other?</h3>
+				<div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">	
+					<label for="visionTYes">Yes</label>			  
+					<input type="radio" data-bind="checked:visionTest" name="visionTest" id="visionTYes" value="yes"/>
+				</div>
+				<div class="ui-block-b" style="width:20%; margin-right: 10px;">
+					<label for="visionTNo">No</label>
+					<input type="radio" data-bind="checked:visionTest" name="visionTest" id="visionTNo" value="no"/>
+				</div>
+				<div class="ui-block-c" style="width:20%">
+					<label for="visionTDunno">I don't know</label>
+					<input type="radio" data-bind="checked:visionTest" name="visionTest" id="visionTDunno" value="I don't know"/>
+				</div>
+			</div><!--grib b--> 
+		</div>
+		
+		<div class="ui-grid-b">
+				<h3>Did you lose vision mainly to one side of your eye?</h3>
+				<div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">	
+					<label for="visionPYes">Yes</label>			  
+					<input type="radio" data-bind="checked:partialVisionLoss" name="visionPart" id="visionPYes" value="yes"/>
+				</div>
+				<div class="ui-block-b" style="width:20%; margin-right: 10px;">
+					<label for="visionPNo">No</label>
+					<input type="radio" data-bind="checked:partialVisionLoss" name="visionPart" id="visionPNo" value="no"/>
+				</div>
+				<div class="ui-block-c" style="width:20%">
+					<label for="visionPDunno">I don't know</label>
+					<input type="radio" data-bind="checked:partialVisionLoss" name="visionPart" id="visionPDunno" value="I don't know"/>
+				</div>
+		</div><!--grib b--> 
+		
+			<div class="ui-grid-b">
+				<h3>Did you have sparkly lights or lines in your vision?</h3>
+				<div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">	
+					<label for="visionSYes">Yes</label>			  
+					<input type="radio" data-bind="checked:sparklyLight" name="sparkly" id="visionSYes" value="yes"/>
+				</div>
+				<div class="ui-block-b" style="width:20%; margin-right: 10px;">
+					<label for="visionSNo">No</label>
+					<input type="radio" data-bind="checked:sparklyLight" name="sparkly" id="visionSNo" value="no"/>
+				</div>
+				<div class="ui-block-c" style="width:20%">
+					<label for="visionSDunno">I don't know</label>
+					<input type="radio" data-bind="checked:sparklyLight" name="sparkly" id="visionSDunno" value="I don't know"/>
+				</div>
+		</div><!--grib b--> 
+		<div class="ui-grid-a">
+			<div class="ui-block-a">
+				<a data-role="button" class="previousButton" href="#"></a>
+			</div>
+			<div class="ui-block-b">
+				<a data-role="button" class="nextButton" href="#"></a>	
+			</div>
+		</div>
+			DEBUG:<pre data-bind="text: ko.toJSON($data,null,2)"></pre>
+      </div><!--main content-->
+      <div data-role="footer" data-position="fixed">
+        <h2>&copy; Edinburgh University 2014</h2>
+      </div>
+    </div><!--End of VisionProblemsPage-->
+	
+	  
   <div data-role="page" id="SelectPage" data-theme="d">
       <div data-role="header">
         <h1>Patient Survey; Body</h1>
@@ -431,354 +781,6 @@
       </div>
     </div>
     <!--............................End of painPage............................-->
-	
-    <div data-role="page" id="WelcomePage" data-theme="d">
-      <div data-role="header">
-        <h1>Patient Survey; Welcome</h1>
-      </div>
-      <div data-role="main" class="ui-content">
-        <img src="themes/myImages/NHSlogo.png" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
-        <h1>Patient Survey</h1>
-        <h4>In order to speed up your assesment we would like to electronically record part of your medical history and recent symptoms. We hope you'll take the time to answer the following questions.</h4>
-        <br>
-        <h2>Consent</h2>
-        <h4>The information collected here will be linked to other information on your medical record. All information collected will remain strictly confidential. Information will be used for no other purpose than medical research.</h4>
-        <div data-role="fieldcontain">
-          <div style="width:47%;">
-            <input type="checkbox" data-bind="checked:consent" name="consent" id="consent">
-            <label for="consent" style='font-size:18px;'>I agree to the collection of my information</label>
-          </div>
-        </div>
-        <a data-role="button" class="nextButton" data-bind="visible: consent()" href="#"></a>
-      </div>
-      <!--main content-->
-      <div data-role="footer" data-position="fixed">
-        <h2>&copy; Edinburgh University 2014</h2>
-      </div>
-    </div>
-    <!--End of Page 1-->
-    <div data-role="page" id="IdentificationPage" data-theme="d">
-      <div data-role="header">
-        <h1>Patient Survey; Personal Details</h1>
-      </div>
-      <div data-role="main" class="ui-content">
-        <img src="themes/myImages/NHSlogo.png" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
-        <h1>Personal Details</h1>
-        <div id="DOB">
-          <label for="DOB">Date of Birth:</label>
-          <div class="ui-grid-b">
-            <div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">
-              <label for="day">Day</label>
-              <input name="day" id="day" placeholder="DD" value="" type="text">
-            </div>
-            <div class="ui-block-b" style="width:20%; margin-right: 10px;">
-              <label for="Month">Month</label>
-              <input name="month" id="month" placeholder="MM" value="" type="text">
-            </div>
-            <div class="ui-block-c" style="width:30%">
-              <label for="year">Year</label>
-              <input name="year" id="year" placeholder="YYYY" value="" type="text">
-            </div>
-          </div>
-          <!--grid b-->
-        </div>
-        <div data-role="fieldcontain">
-          <legend>Gender:</legend>
-          <div class="ui-grid-a">
-            <div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">
-              <input type="radio" name="gender" id="female" value="female" />
-              <br>
-              <label for="female">Female</label>
-            </div>
-            <div class="ui-block-b" style="width:20%;">
-              <input type="radio" name="gender" id="male" value="male" />
-              <br>
-              <label for="male">Male</label>
-            </div>
-          </div>
-        </div>
-        <div id="indent">
-          <legend>Who is filling out this survey:</legend>
-          <div style="margin-left: 40px;">
-            <select name="who_fillIn_survey" id="who_fillIn_survey">
-              <option value="Patient">Patient</option>
-              <option value="Relative">Relative</option>
-              <option value="Carer">Carer</option>
-              <option value="NHS staff">NHS staff</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
-        </div>
-        <a data-role="button" class="nextButton" href="#"></a>
-      </div>
-      <!--main content-->
-      <div data-role="footer" data-position="fixed">
-        <h2>&copy;Edinburgh University 2014</h2>
-      </div>
-    </div>
-    <!--End of Page 2-->
-    <div data-role="page" id="SymptomsPage" data-theme="d">
-      <div data-role="header">
-        <h1>Patient Survey; Symptoms</h1>
-      </div>
-      <div data-role="main" class="ui-content">
-        <img src="themes/myImages/NHSlogo.png" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
-        <div id="datepicker" data-role="fieldcontain">
-          <h3>When did you first have symptoms?</h3>
-          <div class="ui-grid-a">
-            <div class="ui-block-a" style="width:17%; margin-left: 40px; margin-right: 30px;">
-              <input type="text" placeholder="dd/mm/yyyy" class="date-input" data-inline="false" data-role="date" readonly="readonly" data-bind="value:exactDate">
-            </div>
-            <div class="ui-block-b" style="width:32%;">
-              <input type="checkbox" data-bind="checked:exactDateCheck" id="exactDateCheck">
-              <label for="exactDateCheck">I don't remember the exact date</label>
-            </div>
-          </div>
-        </div>
-        <div id="dynamicContent" data-bind="visible:exactDateCheck()">
-          <h4>How long ago was it before your first attack of symptoms?</h4>
-          <div class="ui-grid-a">
-            <div class="ui-block-a" style="width:10%; margin-left: 40px; margin-right: 30px;">
-              <input type="text" id="symptom_onset" placeholder="0" value="" readonly="readonly" data-bind="value:estDate">
-            </div>
-            <div class="ui-block-b" style="width:20%;">
-              <select name="symptom_onset" id="symptom_onset" data-bind="value:estDateUnit">
-                <option value="days">days</option>
-                <option value="weeks">weeks</option>
-                <option value="months">months</option>
-                <option value="years">years</option>
-              </select>
-            </div>
-          </div>
-        </div>
-        <div id="frequency">
-          <h3>How many attacks of symptoms have you had?</h3>
-          <div class="ui-grid-a">
-            <div class="ui-block-a" style="width:10%; margin-left: 40px; margin-right: 30px;">
-              <input type="text" id="frequencyKeypad" placeholder="1" value="" readonly="readonly" data-bind="value:attackNo">
-            </div>
-            <div class="ui-block-b" style="width:20%;">
-              <input type="checkbox" id="attackNoCheck" data-bind="value:attackNoCheck" />
-              <br>
-              <label for="attackNoCheck">I don't remeber</label>
-            </div>
-          </div>
-        </div>
-        <div id="duration">
-          <h3>How long did the symptoms last in your last attack?</h3>
-          <div class="ui-grid-b">
-            <div class="ui-block-a" style="width:10%; margin-left: 40px; margin-right: 30px;">
-              <input type="text" id="durationKeypad" placeholder="1" value="" readonly="readonly" data-bind="value:attackDuration">
-            </div>
-            <div class="ui-block-b" style="width:20%; margin-right: 30px;">
-              <select name="time_unit" id="time_unit" data-bind="value:durationUnit">
-                <option value="sec">sec</option>
-                <option value="min">min</option>
-                <option value="hours">hrs</option>
-                <option value="days">days</option>
-              </select>
-            </div>
-            <div class="ui-block-c" style="width:20%;">
-              <input type="checkbox" id="durationCheck" data-bind="value:durationCheck" />
-              <br>
-              <label for="durationCheck">I don't remeber</label>
-            </div>
-          </div>
-        </div>
-		<div class="ui-grid-a">
-			<div class="ui-block-a">
-				<a data-role="button" class="previousButton" href="#"></a>
-			</div>
-			<div class="ui-block-b">
-				<a data-role="button" class="nextButton" href="#"></a>	
-			</div>
-		</div>
-		
-		DEBUG:<pre data-bind="text: ko.toJSON($data,null,2)"></pre>
-      </div>
-      <!--main content-->
-      <div data-role="footer" data-position="fixed">
-        <h2>&copy; Edinburgh University 2014</h2>
-      </div>
-    </div>
-    <!--End of Page 3-->
-    <div data-role="page" id="SpeechProblemsPage" data-theme="d">
-      <div data-role="header">
-        <h1>Patient Survey; Speech Problems</h1>
-      </div>
-      <div data-role="main" class="ui-content">
-        <img src="themes/myImages/NHSlogo.png" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
-        <!--<h2>Speech Problems</h2>-->
-        <h3>In your last attack, did you experience:</h3>
-        <div class="ui-grid-b">
-          <h3>Slurred speech?</h3>
-          <div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">
-            <label for="slurredYes">Yes</label>
-            <input type="radio" data-bind="checked:slurredSpeech" name="slurred" id="slurredYes" value="yes" />
-          </div>
-          <div class="ui-block-b" style="width:20%; margin-right: 10px;">
-            <label for="slurredNo">No</label>
-            <input type="radio" data-bind="checked:slurredSpeech" name="slurred" id="slurredNo" value="no" />
-          </div>
-          <div class="ui-block-c" style="width:20%">
-            <label for="slurredDunno">I don't know</label>
-            <input type="radio" data-bind="checked:slurredSpeech" name="slurred" id="slurredDunno" value="I don't know" />
-          </div>
-        </div>
-        <!--grib b-->
-        <div class="ui-grid-b">
-          <h3>Difficulty speaking?</h3>
-          <div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">
-            <label for="speakingYes">Yes</label>
-            <input type="radio" data-bind="checked:speakingDifficulty" name="speaking" id="speakingYes" value="yes" />
-          </div>
-          <div class="ui-block-b" style="width:20%; margin-right: 10px;">
-            <label for="speakingNo">No</label>
-            <input type="radio" data-bind="checked:speakingDifficulty" name="speaking" id="speakingNo" value="no" />
-          </div>
-          <div class="ui-block-c" style="width:20%">
-            <label for="speakingDunno">I don't know</label>
-            <input type="radio" data-bind="checked:speakingDifficulty" name="speaking" id="speakingDunno" value="I_don't_know" />
-          </div>
-        </div>
-        <!--grib b-->
-        <div class="ui-grid-b">
-          <h3>Difficulty understanding words?</h3>
-          <div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">
-            <label for="understandingYes">Yes</label>
-            <input type="radio" data-bind="checked:wordComprehension" name="understanding" id="understandingYes" value="yes" />
-          </div>
-          <div class="ui-block-b" style="width:20%; margin-right: 10px;">
-            <label for="understandingNo">No</label>
-            <input type="radio" data-bind="checked:wordComprehension" name="understanding" id="understandingNo" value="no" />
-          </div>
-          <div class="ui-block-c" style="width:20%">
-            <label for="understandingDunno">I don't know</label>
-            <input type="radio" data-bind="checked:wordComprehension" name="understanding" id="understandingDunno" value="I don't know" />
-          </div>
-        </div>
-        <!--grib b-->
-        <div class="ui-grid-a">
-			<div class="ui-block-a">
-				<a data-role="button" class="previousButton" href="#"></a>
-			</div>
-			<div class="ui-block-b">
-				<a data-role="button" class="nextButton" href="#"></a>	
-			</div>
-		</div>
-		DEBUG:<pre data-bind="text: ko.toJSON($data,null,2)"></pre>
-      </div>
-      <!--main content-->
-      <div data-role="footer" data-position="fixed">
-        <h2>&copy; Edinburgh University 2014</h2>
-      </div>
-    </div>
-    <!--End of SpeechProblemsPage-->
-    
-	<div data-role="page" id="VisionProblemsPage" data-theme="d">
-      <div data-role="header">
-        <h1>Patient Survey; Vision Problems</h1>
-      </div>
-      <div data-role="main" class="ui-content">
-        <img src="themes/myImages/NHSlogo.png" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
-        <!--<h2>Vision Problems</h2>-->
-		<h3>In your last attack:</h3>     
-		<div class="ui-grid-b">
-			<h3>Did you lose vision in your eyes?</h3>
-			<div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">	
-				<label for="visionLYes">Yes</label>			  
-				<input type="radio" data-bind="checked:visionLoss" name="visionLoss" id="visionLYes" value="yes"/>
-			</div>
-			<div class="ui-block-b" style="width:20%; margin-right: 10px;">
-				<label for="visionLNo">No</label>
-				<input type="radio" data-bind="checked:visionLoss" name="visionLoss" id="visionLNo" value="no"/>
-			</div>
-			<div class="ui-block-c" style="width:20%">
-				<label for="visionLDunno">I don't know</label>
-				<input type="radio" data-bind="checked:visionLoss" name="visionLoss" id="visionLDunno" value="I don't know"/>
-			</div>
-			
-		</div><!--grib b--> 
-		
-		<div id="whichEye" data-bind="visible: visionLoss() == 'yes'"> 
-			<h3>Which eye did you lose vision in?</h3>
-			<div class="ui-grid-b">
-				<div class="ui-block-a" style="width:20%; margin-left: 45px; margin-right: 6px;">	
-					<button type="button" id="leftEye" data-bind='click: whichEyeValue' value="Left Eye"></button>	
-					<label style="display: block; text-align: center;" for="leftEye"><h2>Left Eye</h2></label>		
-				</div>
-				<div class="ui-block-b" style="width:20%; margin-right: 6px;">
-					<button type="button" id="rightEye" data-bind='click: whichEyeValue' value="Right Eye"></button>	
-					<label style="display: block; text-align: center;" for="rightEye"><h2>Right Eye</h2></label>
-				</div>
-				<div class="ui-block-c" style="width:20%">
-					<button type="button" id="bothEyes" data-bind='click: whichEyeValue' value="Both Eyes"></button>	
-					<label style="display: block; text-align: center;" for="bothEyes"><h2>Both Eyes</h2></label>
-				</div>
-			</div><!--grib b--> 
-		
-			<div class="ui-grid-b">
-				<h3>Did you test this by closing one eye and then the other?</h3>
-				<div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">	
-					<label for="visionTYes">Yes</label>			  
-					<input type="radio" data-bind="checked:visionTest" name="visionTest" id="visionTYes" value="yes"/>
-				</div>
-				<div class="ui-block-b" style="width:20%; margin-right: 10px;">
-					<label for="visionTNo">No</label>
-					<input type="radio" data-bind="checked:visionTest" name="visionTest" id="visionTNo" value="no"/>
-				</div>
-				<div class="ui-block-c" style="width:20%">
-					<label for="visionTDunno">I don't know</label>
-					<input type="radio" data-bind="checked:visionTest" name="visionTest" id="visionTDunno" value="I don't know"/>
-				</div>
-			</div><!--grib b--> 
-		</div>
-		
-		<div class="ui-grid-b">
-				<h3>Did you lose vision mainly to one side of your eye?</h3>
-				<div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">	
-					<label for="visionPYes">Yes</label>			  
-					<input type="radio" data-bind="checked:partialVisionLoss" name="visionPart" id="visionPYes" value="yes"/>
-				</div>
-				<div class="ui-block-b" style="width:20%; margin-right: 10px;">
-					<label for="visionPNo">No</label>
-					<input type="radio" data-bind="checked:partialVisionLoss" name="visionPart" id="visionPNo" value="no"/>
-				</div>
-				<div class="ui-block-c" style="width:20%">
-					<label for="visionPDunno">I don't know</label>
-					<input type="radio" data-bind="checked:partialVisionLoss" name="visionPart" id="visionPDunno" value="I don't know"/>
-				</div>
-		</div><!--grib b--> 
-		
-			<div class="ui-grid-b">
-				<h3>Did you have sparkly lights or lines in your vision?</h3>
-				<div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">	
-					<label for="visionSYes">Yes</label>			  
-					<input type="radio" data-bind="checked:sparklyLight" name="sparkly" id="visionSYes" value="yes"/>
-				</div>
-				<div class="ui-block-b" style="width:20%; margin-right: 10px;">
-					<label for="visionSNo">No</label>
-					<input type="radio" data-bind="checked:sparklyLight" name="sparkly" id="visionSNo" value="no"/>
-				</div>
-				<div class="ui-block-c" style="width:20%">
-					<label for="visionSDunno">I don't know</label>
-					<input type="radio" data-bind="checked:sparklyLight" name="sparkly" id="visionSDunno" value="I don't know"/>
-				</div>
-		</div><!--grib b--> 
-		<div class="ui-grid-a">
-			<div class="ui-block-a">
-				<a data-role="button" class="previousButton" href="#"></a>
-			</div>
-			<div class="ui-block-b">
-				<a data-role="button" class="nextButton" href="#"></a>	
-			</div>
-		</div>
-			DEBUG:<pre data-bind="text: ko.toJSON($data,null,2)"></pre>
-      </div><!--main content-->
-      <div data-role="footer" data-position="fixed">
-        <h2>&copy; Edinburgh University 2014</h2>
-      </div>
-    </div><!--End of VisionProblemsPage-->
 	
 	<div data-role="page" id="OtherSymptomsPage" data-theme="d">
       <div data-role="header">
