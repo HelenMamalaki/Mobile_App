@@ -42,10 +42,10 @@
         <h1>Patient Survey; Welcome</h1>
       </div>
       <div data-role="main" class="ui-content">
-        <img src="themes/myImages/NHSlogo.png" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
+        <img src="themes/myImages/NHSlogo.png" alt="NHS Scotland" width="85" height="52" id="nhsLogo"><br><br>
         <h1>Patient Survey</h1>
         <span class="thick2">In order to speed up your assesment we would like to electronically record part of your medical history and recent symptoms. We hope you'll take the time to answer the following questions.</span>
-        <br> <br> <br>  
+        <br> <br> <br> <br> 
         <h1>Consent</h1>
         <span class="thick2">The information collected here will be linked to other information on your medical record. All information collected will remain strictly confidential. Information will be used for no other purpose than medical research.</span>
         <div data-role="fieldcontain">
@@ -204,7 +204,7 @@
           </div>
         </div>
 
-	<div class="ui-grid-a navButtons" id="dynamicSymptoms">
+	<div class="ui-grid-a navButtons" id="navSymptoms">
 		<div class="ui-block-a">
 			<a data-role="button" class="previousButton" href="#"></a>
 		</div>
@@ -228,9 +228,10 @@
       <div data-role="main" class="ui-content">
         <img src="themes/myImages/NHSlogo.png" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
         <!--<h2>Speech Problems</h2>--> <br><br>
-        <span class="thick2">In your last attack, did you experience:</span> <br><br>
-    <span class="thick2">Slurred speech?</span>
-        <div class="ui-grid-b">
+        <span class="thick2">In your last attack, did you experience:</span> <br>
+ 
+        <div class="ui-grid-b"  style="margin-top:3%;">
+   <span class="thick2">Slurred speech?</span><br>
           <div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">
             <label for="slurredYes">Yes</label>
             <input type="radio" data-bind="checked:slurredSpeech" name="slurred" id="slurredYes" value="yes" />
@@ -244,9 +245,10 @@
             <input type="radio" data-bind="checked:slurredSpeech" name="slurred" id="slurredDunno" value="I don't know" />
           </div>
         </div>
-        <!--grib b--><br>
-  	 <span class="thick2">Difficulty speaking?</span>
-        <div class="ui-grid-b">      
+        <!--grib b-->
+  	
+        <div class="ui-grid-b"  style="margin-top:3%;">  
+ <span class="thick2">Difficulty speaking?</span> <br>
           <div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">
             <label for="speakingYes">Yes</label>
             <input type="radio" data-bind="checked:speakingDifficulty" name="speaking" id="speakingYes" value="yes" />
@@ -260,9 +262,10 @@
             <input type="radio" data-bind="checked:speakingDifficulty" name="speaking" id="speakingDunno" value="I_don't_know" />
           </div>
         </div>
-        <!--grib b--><br>
-	<span class="thick2">Difficulty understanding words?</span>
-        <div class="ui-grid-b">
+        <!--grib b-->
+	
+        <div class="ui-grid-b" style="margin-top:3%;">
+<span class="thick2">Difficulty understanding words?</span> <br>
           <div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">
             <label for="understandingYes">Yes</label>
             <input type="radio" data-bind="checked:wordComprehension" name="understanding" id="understandingYes" value="yes" />
@@ -300,10 +303,11 @@
       </div>
       <div data-role="main" class="ui-content">
         <img src="themes/myImages/NHSlogo.png" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
-        <!--<h2>Vision Problems</h2>-->
-		<span class="thick2">In your last attack:</span>     
-		<div class="ui-grid-b">
-			<h3>Did you lose vision in your eyes?</h3>
+        <!--<h2>Vision Problems</h2>--><br>
+		<span class="thick2">In your last attack:</span>  <br> 
+
+		<div class="ui-grid-b" style="margin-top:3%;">
+	<span class="thick2">Did you lose vision in your eyes?</span> <br>
 			<div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">	
 				<label for="visionLYes">Yes</label>			  
 				<input type="radio" data-bind="checked:visionLoss" name="visionLoss" id="visionLYes" value="yes"/>
@@ -320,24 +324,25 @@
 		</div><!--grib b--> 
 		
 		<div id="whichEye" data-bind="visible: visionLoss() == 'yes'"> 
-			<h3>Which eye did you lose vision in?</h3>
-			<div class="ui-grid-b">
-				<div class="ui-block-a" style="width:20%; margin-left: 45px; margin-right: 6px;">	
+			
+			<div class="ui-grid-b" style="margin-top:3%;">
+	<span class="thick2">Which eye did you lose vision in?</span><br>
+				<div class="ui-block-a" style="width:25%; margin-left: 45px; margin-right: 6px;">	
 					<button type="button" id="leftEye" data-bind='click: whichEyeValue' value="Left Eye"></button>	
 					<label style="display: block; text-align: center;" for="leftEye"><h2>Left Eye</h2></label>		
 				</div>
-				<div class="ui-block-b" style="width:20%; margin-right: 6px;">
+				<div class="ui-block-b" style="width:25%; margin-right: 6px;">
 					<button type="button" id="rightEye" data-bind='click: whichEyeValue' value="Right Eye"></button>	
 					<label style="display: block; text-align: center;" for="rightEye"><h2>Right Eye</h2></label>
 				</div>
-				<div class="ui-block-c" style="width:20%">
+				<div class="ui-block-c" style="width:25%">
 					<button type="button" id="bothEyes" data-bind='click: whichEyeValue' value="Both Eyes"></button>	
 					<label style="display: block; text-align: center;" for="bothEyes"><h2>Both Eyes</h2></label>
 				</div>
 			</div><!--grib b--> 
 		
-			<div class="ui-grid-b">
-				<h3>Did you test this by closing one eye and then the other?</h3>
+			<div class="ui-grid-b" style="margin-top:1%;">
+				<span class="thick2">Did you test this by closing one eye and then the other?</span><br>
 				<div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">	
 					<label for="visionTYes">Yes</label>			  
 					<input type="radio" data-bind="checked:visionTest" name="visionTest" id="visionTYes" value="yes"/>
@@ -353,8 +358,8 @@
 			</div><!--grib b--> 
 		</div>
 		
-		<div class="ui-grid-b">
-				<h3>Did you lose vision mainly to one side of your eye?</h3>
+		<div class="ui-grid-b" style="margin-top:3%;">
+				<span class="thick2">Did you lose vision mainly to one side of your eye?</span><br>
 				<div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">	
 					<label for="visionPYes">Yes</label>			  
 					<input type="radio" data-bind="checked:partialVisionLoss" name="visionPart" id="visionPYes" value="yes"/>
@@ -369,8 +374,8 @@
 				</div>
 		</div><!--grib b--> 
 		
-			<div class="ui-grid-b">
-				<h3>Did you have sparkly lights or lines in your vision?</h3>
+			<div class="ui-grid-b"  style="margin-top:3%;"> 
+<span class="thick2">Did you have sparkly lights or lines in your vision?</span><br>
 				<div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">	
 					<label for="visionSYes">Yes</label>			  
 					<input type="radio" data-bind="checked:sparklyLight" name="sparkly" id="visionSYes" value="yes"/>
@@ -384,7 +389,7 @@
 					<input type="radio" data-bind="checked:sparklyLight" name="sparkly" id="visionSDunno" value="I don't know"/>
 				</div>
 		</div><!--grib b--> 
-		<div class="ui-grid-a">
+		<div class="ui-grid-a navButtons" id="navVision"> 
 			<div class="ui-block-a">
 				<a data-role="button" class="previousButton" href="#"></a>
 			</div>
@@ -392,7 +397,7 @@
 				<a data-role="button" class="nextButton" href="#"></a>	
 			</div>
 		</div>
-			DEBUG:<pre data-bind="text: ko.toJSON($data,null,2)"></pre>
+			<!--DEBUG:<pre data-bind="text: ko.toJSON($data,null,2)"></pre>-->
       </div><!--main content-->
       <div data-role="footer" data-position="fixed">
         <h2>&copy; Edinburgh University 2014</h2>
@@ -408,7 +413,7 @@
         <img src="themes/myImages/NHSlogo.jpg" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
         <div class="ui-grid-a">
           <div class="ui-block-a blockA">
-            <h3>In you last attack, did you expeience:</h3>
+            <span class="thick2">In you last attack, did you expeience:</span>
 	     <div class="menu">       
               <button class='inactive' id="numbnessBut" value="Numbness">Numbness</button>
               <button class='inactive' id="tinglingBut" value="Tingling">Tingling</button>
@@ -420,13 +425,20 @@
            </div>
           <div class="ui-block-b" style="width:70%;">
             <h3 style="margin-top:26%;margin-left:2%;">&#x25c0;&nbsp; Select from the menu of symptoms on the left.</h3>
-       <a data-role="button" style="margin-top:20%" class="nextButton" href="#"></a>
+      
           </div>
         </div>
         <!--grid-a-->
-       
-        <br>DEBUG:
-        <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
+       	<div class="ui-grid-a navButtons">
+		<div class="ui-block-a">
+			<a data-role="button"  class="previousButton" href="#"></a>
+		</div>
+		<div class="ui-block-b">
+			<a data-role="button" style="left:64%;" class="nextButton" href="#"></a>	
+		</div>
+	</div>
+        <!--DEBUG:
+        <pre data-bind="text: ko.toJSON($data,null,2)"></pre>-->
       </div>
       <!--main content-->
       <div data-role="footer" data-position="fixed">
@@ -458,11 +470,11 @@
           <div class="ui-block-b blockB">
             <div id="container" style="position:relative;">
               <div id="instruc">
-                <h4 style="">Touch on the body diagram the location(s) where you felt numb  &#x25b6;</h4>
+                <h4>Touch on the body diagram the location(s) where you felt numb  &#x25b6;</h4>
               </div>
               <!--instruc-->
               <div class="bodyMap" style="position:absolute;">		
-                <IMG id="numbnessBody" SRC="themes/myImages/body.png" ALT="Site map" width="505.197.14" height="525.042" USEMAP="#numbnessbodyMap">
+                <IMG id="numbnessBody" SRC="themes/myImages/body.png" ALT="Site map" width="573.4" height="595.92" USEMAP="#numbnessbodyMap">
                 <map name="numbnessbodyMap">
                   <area shape="rect" alt="face(R)" coords="447,25,512,146" href="#" data-bind='click: numbnessLocValue' />
                   <area shape="rect" alt="face(L)" coords="388,27,444,145" href="#" data-bind='click: numbnessLocValue' />
@@ -478,16 +490,17 @@
                   <area shape="rect" alt="foot(L)" coords="344,822,433,899" href="#" data-bind='click: numbnessLocValue' />
                   <!-- Created by Online Image Map Editor (http://www.maschek.hu/imagemap/index) -->
                 </map>
+
               </div> <!--bodyMap-->
-		<div class="ui-grid-a">
+		  
+            </div> <!--container-->
+	<div class="ui-grid-a">
 			<div class="ui-block-a">
-				<a data-role="button" style="margin-top:100%;" class="previousButton" href="#"></a>
+				<a data-role="button" style="margin-top:143%;" class="previousButton" href="#"></a>
 			</div>
 			<div class="ui-block-b">
-				<a data-role="button" style="margin-top:100%;left:64%;" class="nextButton" href="#"></a>	
+				<a data-role="button" style="margin-top:143%;left:60%;" class="nextButton" href="#"></a>	
 			</div>
-		</div>
-            </div> <!--container-->
           </div> <!--block-b-->
         </div><!--grid a-->
   
@@ -1228,11 +1241,18 @@
 	   
 viewModel.exactDateCheck.subscribe(function(value) {
     if(value==true){
-	$("#dynamicSymptoms").css("position","relative");
+	$("#navSymptoms").css("position","relative");
     }else{
-	$("#dynamicSymptoms").css("position","fixed");} 
+	$("#navSymptoms").css("position","fixed");} 
 });
 
+viewModel.visionLoss.subscribe(function(value) {
+    if(value=='yes'){
+	$("#navVision").css("position","relative");
+    }else{
+	$("#navVision").css("position","fixed");} 
+});
+ 
 
       $(document).ready(function() {
         $(".nextButton").on('click', nextPage);
