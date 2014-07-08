@@ -96,6 +96,7 @@
 }
 
 .blockA{width:30% !important;
+height:585px !important;
        border-right:solid 2px #585858 !important;
 }
 .blockB{width:70% !important;
@@ -104,7 +105,7 @@ height:650px !important;}
 }
 
 .menu{margin-top:14%;}
-.bodyMap{margin-left:21%;}
+.bodyMap{margin-left:19%;}
 	
 	.activeBox{
 	position:relative;
@@ -132,10 +133,10 @@ height:650px !important;}
 	.inactive{
 	text-align: center !important;
 	margin: auto !important;
-	margin-top: 15px !important;
+	margin-top: 17px !important;
 	margin-left:64px !important;
 	background-color: rgba(3,145,189,0.2) !important; 
-	font-size: 19px !important;
+	font-size: 21px !important;
 	width:60% !important;}
 	
 	.active{
@@ -143,7 +144,7 @@ height:650px !important;}
 	margin: auto !important;
     background-color: rgba(3,145,189,0.5) !important;
 	margin-left:16px !important;
-	font-size: 19px !important;
+	font-size: 21px !important;
 	width:87% !important;
 	
 	}
