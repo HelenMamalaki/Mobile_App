@@ -13,13 +13,23 @@
 	background-size: 95px 60px;
 	background-repeat: no-repeat;
 	background-position: center center;
-	position: relative;
-	left:69%;
-			}
-			.previousButton{background-image: url("myImages/previousButton.png"); left:5%;}
+	position: fixed;
+	left:65%;
+		}
+
+
+	.previousButton{background-image: url("myImages/previousButton.png"); left:5%;}
+	.navButtons{ width:100%; position: fixed; top:76%;}
 			
 	#indent{position: fixed;
-	left: 20px;}	
+	left: 20px;}
+
+.thick{font-size: 20px;font-weight:900;}
+	
+.thick2{font-size: 22px;font-weight:600;}
+
+}
+
 	
 	#datepicker{z-index: 100;}
 	
@@ -327,6 +337,14 @@ color:#f0ff02;}
 	  
 	.grdA{width: 15% !important; margin-top:2% !important; margin-left: 250px !important;} 
 	.grdB,.grdC, .grdD{width:15% !important; margin-top:2% !important;margin-left: 10px !important;}
+
+/* Overriding jqueryMobile css*/
+
+.ui-select .ui-btn{font-size:19px !important;}
+.ui-mobile label, div.ui-controlgroup-label{font-size:19px !important;
+
+/* Overriding datepicker css*/
+
 	
 .ui-datepicker {
 	width: 55% !important;
