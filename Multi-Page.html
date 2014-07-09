@@ -426,7 +426,7 @@
 	   </div>	
            </div>
           <div class="ui-block-b blockB">
-           <div style="margin-top:29%;margin-left:2%;"> <span style="font-weight:600;font-size:22px;">&#x25c0;&nbsp; Select from the menu of symptoms on the left.</span></div>
+           <div style="margin-top:29%;margin-left:2%;"> <span style="font-weight:600;font-size:23px;">&#x25c0;&nbsp; Select from the menu of symptoms on the left.</span></div>
           	<div class="ui-grid-a navButtons">
 		<div class="ui-block-a">
 			<a data-role="button"  class="previousButton" href="#"></a>
@@ -948,6 +948,7 @@
 			<input type="checkbox" data-bind="checked:heartPalpatations" value="heartPalpatations" id="heartPalpatations"/>			
 		</div>
 </div> <!--dynamic content-->
+	<div style="margin-top:2.5%;">
         <h2>Medical History</h2>
 
 		<span class="thick2"> Before your current symptoms you had/have:</span><br>
@@ -960,6 +961,7 @@
 			<input type="checkbox" data-bind="checked:cancer" value="cancer" id="cancer"/>
 			<label for="epilepsy">Epilepsy</label>
 			<input type="checkbox" data-bind="checked:epilepsy" value="epilepsy" id="epilepsy"/>			
+		</div>
 		</div>
 	   <div class="ui-grid-a navButtons" id="navOtherSymp">
 			<div class="ui-block-a">
@@ -987,22 +989,22 @@
           <div id='step1'>
             <h2>In order to measure your reaction time, a game of 'Snap' will now follow.</h2>
             <br>
-            <button id='step2But'><span style="position:absolute;margin-top:-9%;left:10%;">Learn How to Play <span style="font-size:30px;">&#x25b6;</span></span></button>
+            <button id='step2But'>Learn How to Play &#x25b6;</button>
           </div>
           <div id='step2'>
-            <span class="thick2">1. You will be shown two picture cards. If the two cards match, touch anywhere on the screen as fast as you can.</span>
+            <span class="thick3">1. You will be shown two picture cards. If the two cards match, touch anywhere on the screen as fast as you can.</span>
             <img src="themes/myImages/snapCards.png"  alt="snapCards" class="snapCard">
-            <button id='step3But'><span class='but'>Next <span style="font-size:30px;">&#x25b6;</span></span></button>
-			<button id='step3ButP'><span class='but2'><span style="font-size:30px;">&#x25c0;</span> Previous</span></button>
+            <button id='step3But'>Next &#x25b6;</button>
+			<button id='step3ButP'>&#x25c0; Previous</button>
           </div>
           <div id='step3'>
-            <span class="thick2">2. If you are correct the message 'Snap!' will appear.</span>
+            <span class="thick3">2. If you are correct the message 'Snap!' will appear.</span>
             <img src="themes/myImages/snapCorrect.png" alt="snapCorrect"  class="snapCard">
-            <button  id='step4But'><span class='but'>Next <span style="font-size:30px;">&#x25b6;</span></span></button>
-		    <button  id='step4ButP'><span class='but2'><span style="font-size:30px;">&#x25c0;</span> Previous</span></button>
+            <button  id='step4But'>Next &#x25b6; </button>
+		    <button  id='step4ButP'>&#x25c0; Previous</button>
           </div>
           <div id='step4'>
-            <span class="thick2">3. If you are wrong a red 'X' will appear.</span>
+            <span class="thick3">3. If you are wrong a red 'X' will appear.</span>
             <img src="themes/myImages/snapIncorrect.png" alt="snapWrong"  class="snapCard">
            <button id='step5ButP'><span class='but2'> <span style="font-size:30px;">&#x25c0;</span> Previous</span></button>			
 			<a data-role="button" id="playSnap" href="#"><span style="font-size:25px;">Play <br>Snap!</span><span style="position:absolute;bottom:9%;font-size:56px;">&#x3009;</span></a>
@@ -1407,6 +1409,9 @@ viewModel.otherSymptoms.subscribe(function(value) {
           case "tremorPage":
           case "painPage":
             $.mobile.changePage("#SelectPage");
+            break;
+          case "OtherSymptomsPage":
+		$.mobile.changePage("#SelectPage");
             break;
           case "MedicalHistoryPage":
             $.mobile.changePage("#OtherSymptomsPage");
