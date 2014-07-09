@@ -28,7 +28,7 @@
 	
 .thick2{font-size: 22px;font-weight:600;}
 
-}
+
 
 	
 	#datepicker{z-index: 100;}
@@ -104,7 +104,13 @@ height:650px !important;}
 .blockC{width:18% !important;
 }
 
-.menu{margin-top:14%;}
+.menu{margin-top:10%;}
+
+.rightBut, .leftBut{margin-top:120% !important;} 
+.rightBut{left:64% !important;}
+
+
+
 .bodyMap{margin-left:19%;}
 	
 	.activeBox{
@@ -339,10 +345,13 @@ color:#f0ff02;}
 	.grdA{width: 15% !important; margin-top:2% !important; margin-left: 250px !important;} 
 	.grdB,.grdC, .grdD{width:15% !important; margin-top:2% !important;margin-left: 10px !important;}
 
+#centre{width:80%; margin-left:8%; margin-right:10%;}
 /* Overriding jqueryMobile css*/
 
 .ui-select .ui-btn{font-size:19px !important;}
-.ui-mobile label, div.ui-controlgroup-label{font-size:19px !important;
+/*.ui-btn, label.ui-btn {font-weight:650 !important;}*/
+.ui-mobile label, div.ui-controlgroup-label{font-size:19px !important;}
+/*.ui-content{margin-left: 2% !important;}*/
 
 /* Overriding datepicker css*/
 
