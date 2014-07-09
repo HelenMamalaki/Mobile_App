@@ -41,19 +41,21 @@
       <div data-role="header">
         <h1>Patient Survey; Welcome</h1>
       </div>
-      <div data-role="main" class="ui-content">
+      <div data-role="main" class="ui-content" style="margin-left:2%;">
         <img src="themes/myImages/NHSlogo.png" alt="NHS Scotland" width="85" height="52" id="nhsLogo"><br><br>
-        <h1>Patient Survey</h1>
-        <span class="thick2">In order to speed up your assesment we would like to electronically record part of your medical history and recent symptoms. We hope you'll take the time to answer the following questions.</span>
-        <br> <br> <br> <br> 
-        <h1>Consent</h1>
-        <span class="thick2">The information collected here will be linked to other information on your medical record. All information collected will remain strictly confidential. Information will be used for no other purpose than medical research.</span>
-        <div data-role="fieldcontain">
-          <div style="width:47%;">
-            <input type="checkbox" data-bind="checked:consent" name="consent" id="consent">
-            <label for="consent">I agree to the collection of my information</label>
-          </div>
-        </div>
+        <div id="centre">
+		<h1>Patient Survey</h1>
+		<span class="thick2">In order to speed up your assesment we would like to electronically record part of your medical history and recent symptoms. We hope you'll take the time to answer the following questions.</span>
+		<br> <br> <br> <br> 
+		<h1>Consent</h1>
+		<span class="thick2">The information collected here will be linked to other information on your medical record. All information collected will remain strictly confidential. Information will be used for no other purpose than medical research.</span>
+		<div data-role="fieldcontain">
+		  <div style="width:47%;">
+		    <input type="checkbox" data-bind="checked:consent" name="consent" id="consent">
+		    <label for="consent">I agree to the collection of my information</label>
+		  </div>
+		</div>
+       </div>
 	<div class="ui-grid-a navButtons">
 		<div class="ui-block-a">
 			
@@ -135,7 +137,7 @@
       <div data-role="header">
         <h1>Patient Survey; Symptoms</h1>
       </div>
-      <div data-role="main" class="ui-content">
+      <div data-role="main" class="ui-content" style="margin-left:2%;">
         <img src="themes/myImages/NHSlogo.png" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
 	<br><br>
         <div id="datepicker" data-role="fieldcontain">
@@ -225,7 +227,7 @@
       <div data-role="header">
         <h1>Patient Survey; Speech Problems</h1>
       </div>
-      <div data-role="main" class="ui-content">
+      <div data-role="main" class="ui-content" style="margin-left:2%;">
         <img src="themes/myImages/NHSlogo.png" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
         <!--<h2>Speech Problems</h2>--> <br><br>
         <span class="thick2">In your last attack, did you experience:</span> <br>
@@ -301,13 +303,13 @@
       <div data-role="header">
         <h1>Patient Survey; Vision Problems</h1>
       </div>
-      <div data-role="main" class="ui-content">
+      <div data-role="main" class="ui-content" style="margin-left:2%;">
         <img src="themes/myImages/NHSlogo.png" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
         <!--<h2>Vision Problems</h2>--><br>
-		<span class="thick2">In your last attack:</span>  <br> 
+		<span class="thick2">In your last attack, did you:</span>  <br> 
 
 		<div class="ui-grid-b" style="margin-top:3%;">
-	<span class="thick2">Did you lose vision in your eyes?</span> <br>
+	<span class="thick2">Lose vision in your eyes?</span> <br>
 			<div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">	
 				<label for="visionLYes">Yes</label>			  
 				<input type="radio" data-bind="checked:visionLoss" name="visionLoss" id="visionLYes" value="yes"/>
@@ -359,7 +361,7 @@
 		</div>
 		
 		<div class="ui-grid-b" style="margin-top:3%;">
-				<span class="thick2">Did you lose vision mainly to one side of your eye?</span><br>
+				<span class="thick2">Lose vision mainly to one side of your eye?</span><br>
 				<div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">	
 					<label for="visionPYes">Yes</label>			  
 					<input type="radio" data-bind="checked:partialVisionLoss" name="visionPart" id="visionPYes" value="yes"/>
@@ -375,7 +377,7 @@
 		</div><!--grib b--> 
 		
 			<div class="ui-grid-b"  style="margin-top:3%;"> 
-<span class="thick2">Did you have sparkly lights or lines in your vision?</span><br>
+<span class="thick2">Have sparkly lights or lines in your vision?</span><br>
 				<div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">	
 					<label for="visionSYes">Yes</label>			  
 					<input type="radio" data-bind="checked:sparklyLight" name="sparkly" id="visionSYes" value="yes"/>
@@ -412,9 +414,9 @@
       <div data-role="main" class="ui-content">
         <img src="themes/myImages/NHSlogo.jpg" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
         <div class="ui-grid-a">
-          <div class="ui-block-a blockA">
+          <div class="ui-block-a blockA"><br>
             <span class="thick2">In you last attack, did you expeience:</span>
-	     <div class="menu">       
+	     <div style="margin-top:14%">  
               <button class='inactive' id="numbnessBut" value="Numbness">Numbness</button>
               <button class='inactive' id="tinglingBut" value="Tingling">Tingling</button>
               <button class='inactive' id="weaknessBut" value="Weakness">Weakness</button>
@@ -425,18 +427,18 @@
            </div>
           <div class="ui-block-b" style="width:70%;">
             <h3 style="margin-top:26%;margin-left:2%;">&#x25c0;&nbsp; Select from the menu of symptoms on the left.</h3>
-      
-          </div>
-        </div>
-        <!--grid-a-->
-       	<div class="ui-grid-a navButtons">
+          	<div class="ui-grid-a navButtons">
 		<div class="ui-block-a">
 			<a data-role="button"  class="previousButton" href="#"></a>
 		</div>
 		<div class="ui-block-b">
-			<a data-role="button" style="left:64%;" class="nextButton" href="#"></a>	
+			<a data-role="button" style="left:9%;" class="nextButton" href="#"></a>	
 		</div>
 	</div>
+          </div>
+        </div>
+        <!--grid-a-->
+   
         <!--DEBUG:
         <pre data-bind="text: ko.toJSON($data,null,2)"></pre>-->
       </div>
@@ -494,13 +496,14 @@
               </div> <!--bodyMap-->
 		  
             </div> <!--container-->
-	<div class="ui-grid-a">
-			<div class="ui-block-a">
-				<a data-role="button" style="margin-top:120%;" class="previousButton" href="#"></a>
-			</div>
-			<div class="ui-block-b">
-				<a data-role="button" style="margin-top:120%;left:60%;" class="nextButton" href="#"></a>	
-			</div>
+	   <div class="ui-grid-a">
+		<div class="ui-block-a"> 
+			<a data-role="button" class="previousButton leftBut" href="#"></a>
+		</div>
+		<div class="ui-block-b">
+			<a data-role="button" class="nextButton rightBut" href="#"></a>	
+		</div>
+	  </div> 
           </div> <!--block-b-->
         </div><!--grid a-->
   
@@ -521,8 +524,8 @@
       <div data-role="main" class="ui-content">
         <img src="themes/myImages/NHSlogo.jpg" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
         <div class="ui-grid-a">
-          <div class="ui-block-a blockA">
-            <h3>In your last attack did you experience:</h3>
+          <div class="ui-block-a blockA"><br>
+            <span class="thick2">In your last attack did you experience:</span>
 	     <div class="menu">	       
               <button class='inactive' id="numbnessBut" value="numbness">Numbness</button>
             <div class="activeBox">
@@ -541,7 +544,7 @@
               </div>
               <!--instruc-->
               <div class="bodyMap" style="position:absolute;">
-                <IMG id="tinglingBody" SRC="themes/myImages/body.png" ALT="Site map" width="505.197.14" height="525.042" USEMAP="#tinglingbodyMap">
+                <IMG id="tinglingBody" SRC="themes/myImages/body.png" ALT="Site map" width="584.86" height="607.83" USEMAP="#tinglingbodyMap">
                 <map name="tinglingbodyMap">
                   <area shape="rect" alt="face(R)" coords="447,25,512,146" href="#" data-bind='click: tinglingLocValue' />
                   <area shape="rect" alt="face(L)" coords="388,27,444,145" href="#" data-bind='click: tinglingLocValue' />
@@ -559,7 +562,15 @@
                 </map>
               </div> <!--bodyMap-->
             </div> <!--container-->
-	    <a data-role="button" style="margin-top:48%" class="nextButton" href="#"></a>  
+	   <div class="ui-grid-a">
+		<div class="ui-block-a"> 
+			<a data-role="button" class="previousButton leftBut" href="#"></a>
+		</div>
+		<div class="ui-block-b">
+			<a data-role="button" class="nextButton rightBut" href="#"></a>	
+		</div>
+	  </div> </div>
+	</div>
           </div> <!--block-b-->
         </div><!--grid a-->
   
@@ -580,8 +591,8 @@
       <div data-role="main" class="ui-content">
         <img src="themes/myImages/NHSlogo.jpg" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
         <div class="ui-grid-a">
-          <div class="ui-block-a blockA">
-            <h3>In your last attack did you experience:</h3>
+          <div class="ui-block-a blockA"> <br>
+             <span class="thick2">In your last attack did you experience:</span>
 	     <div class="menu">	       
               <button class='inactive' id="numbnessBut" value="numbness">Numbness</button>
 	    <button class='inactive' id="tinglingBut" value="Tingling">Tingling</button>
@@ -600,7 +611,7 @@
               </div>
               <!--instruc-->
               <div class="bodyMap" style="position:absolute;">
-                <IMG id="weaknessBody" SRC="themes/myImages/body.png" ALT="Site map" width="505.197.14" height="525.042" USEMAP="#weaknessbodyMap">
+                <IMG id="weaknessBody" SRC="themes/myImages/body.png" ALT="Site map" width="584.86" height="607.83"  USEMAP="#weaknessbodyMap">
                 <map name="weaknessbodyMap">
                   <area shape="rect" alt="face(R)" coords="447,25,512,146" href="#" data-bind='click: weaknessLocValue' />
                   <area shape="rect" alt="face(L)" coords="388,27,444,145" href="#" data-bind='click: weaknessLocValue' />
@@ -618,7 +629,14 @@
                 </map>
               </div> <!--bodyMap-->
             </div> <!--container-->
-	    <a data-role="button" style="margin-top:48%" class="nextButton" href="#"></a>  
+	   <div class="ui-grid-a">
+		<div class="ui-block-a"> 
+			<a data-role="button" class="previousButton leftBut" href="#"></a>
+		</div>
+		<div class="ui-block-b">
+			<a data-role="button" class="nextButton rightBut" href="#"></a>	
+		</div>
+	  </div> 
           </div> <!--block-b-->
         </div><!--grid a-->
   
@@ -639,8 +657,8 @@
       <div data-role="main" class="ui-content">
         <img src="themes/myImages/NHSlogo.jpg" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
         <div class="ui-grid-a">
-          <div class="ui-block-a blockA">
-            <h3>In your last attack did you experience:</h3>
+          <div class="ui-block-a blockA"><br>
+            <span class="thick2">In your last attack did you experience:</span>
 	     <div class="menu">	       
               <button class='inactive' id="numbnessBut" value="numbness">Numbness</button>
 	    <button class='inactive' id="tinglingBut" value="Tingling">Tingling</button>
@@ -659,7 +677,7 @@
               </div>
               <!--instruc-->
               <div class="bodyMap" style="position:absolute;">
-                <IMG id="jerkingBody" SRC="themes/myImages/body.png" ALT="Site map" width="505.197.14" height="525.042" USEMAP="#jerkingbodyMap">
+                <IMG id="jerkingBody" SRC="themes/myImages/body.png" ALT="Site map" width="584.86" height="607.83"  USEMAP="#jerkingbodyMap">
                 <map name="jerkingbodyMap">
                   <area shape="rect" alt="face(R)" coords="447,25,512,146" href="#" data-bind='click: jerkingLocValue' />
                   <area shape="rect" alt="face(L)" coords="388,27,444,145" href="#" data-bind='click: jerkingLocValue' />
@@ -677,7 +695,14 @@
                 </map>
               </div> <!--bodyMap-->
             </div> <!--container-->
-	    <a data-role="button" style="margin-top:48%" class="nextButton" href="#"></a>  
+	   <div class="ui-grid-a">
+		<div class="ui-block-a"> 
+			<a data-role="button" class="previousButton leftBut" href="#"></a>
+		</div>
+		<div class="ui-block-b">
+			<a data-role="button" class="nextButton rightBut" href="#"></a>	
+		</div>
+	  </div> 
           </div> <!--block-b-->
         </div><!--grid a-->
   
@@ -698,8 +723,8 @@
       <div data-role="main" class="ui-content">
         <img src="themes/myImages/NHSlogo.jpg" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
         <div class="ui-grid-a">
-          <div class="ui-block-a blockA">
-            <h3>In your last attack did you experience:</h3>
+          <div class="ui-block-a blockA"><br>
+            <span class="thick2">In your last attack did you experience:</span>
 	     <div class="menu">	       
               <button class='inactive' id="numbnessBut" value="numbness">Numbness</button>
 	    <button class='inactive' id="tinglingBut" value="Tingling">Tingling</button>
@@ -718,7 +743,7 @@
               </div>
               <!--instruc-->
               <div class="bodyMap" style="position:absolute;">
-                <IMG id="tremorBody" SRC="themes/myImages/body.png" ALT="Site map" width="505.197.14" height="525.042" USEMAP="#tremorbodyMap">
+                <IMG id="tremorBody" SRC="themes/myImages/body.png" ALT="Site map" width="584.86" height="607.83"  USEMAP="#tremorbodyMap">
                 <map name="tremorbodyMap">
                   <area shape="rect" alt="face(R)" coords="447,25,512,146" href="#" data-bind='click: tremorLocValue' />
                   <area shape="rect" alt="face(L)" coords="388,27,444,145" href="#" data-bind='click: tremorLocValue' />
@@ -736,7 +761,14 @@
                 </map>
               </div> <!--bodyMap-->
             </div> <!--container-->
-	    <a data-role="button" style="margin-top:48%" class="nextButton" href="#"></a>  
+	    <div class="ui-grid-a">
+		<div class="ui-block-a"> 
+			<a data-role="button" class="previousButton leftBut" href="#"></a>
+		</div>
+		<div class="ui-block-b">
+			<a data-role="button" class="nextButton rightBut" href="#"></a>	
+		</div>
+	  </div>  
           </div> <!--block-b-->
         </div><!--grid a-->
   
@@ -757,8 +789,8 @@
       <div data-role="main" class="ui-content">
         <img src="themes/myImages/NHSlogo.jpg" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
         <div class="ui-grid-a">
-          <div class="ui-block-a blockA">
-            <h3>In your last attack did you experience:</h3>
+          <div class="ui-block-a blockA"><br>
+            <span class="thick2">In your last attack did you experience:</span>
 	     <div class="menu">	       
               <button class='inactive' id="numbnessBut" value="numbness">Numbness</button>
 	    <button class='inactive' id="tinglingBut" value="Tingling">Tingling</button>
@@ -777,7 +809,7 @@
               </div>
               <!--instruc-->
               <div class="bodyMap" style="position:absolute;">
-                <IMG id="painBody" SRC="themes/myImages/body.png" ALT="Site map" width="505.197.14" height="525.042" USEMAP="#painbodyMap">
+                <IMG id="painBody" SRC="themes/myImages/body.png" ALT="Site map" width="584.86" height="607.83"  USEMAP="#painbodyMap">
                 <map name="painbodyMap">
                   <area shape="rect" alt="face(R)" coords="447,25,512,146" href="#" data-bind='click: painLocValue' />
                   <area shape="rect" alt="face(L)" coords="388,27,444,145" href="#" data-bind='click: painLocValue' />
@@ -795,7 +827,14 @@
                 </map>
               </div> <!--bodyMap-->
             </div> <!--container-->
-	    <a data-role="button" style="margin-top:48%" class="nextButton" href="#"></a>  
+	    <div class="ui-grid-a">
+		<div class="ui-block-a"> 
+			<a data-role="button" class="previousButton leftBut" href="#"></a>
+		</div>
+		<div class="ui-block-b">
+			<a data-role="button" class="nextButton rightBut" href="#"></a>	
+		</div>
+	  </div> 
           </div> <!--block-b-->
         </div><!--grid a-->
   
@@ -813,13 +852,13 @@
       <div data-role="header">
         <h1>Patient Survey; Other Symptoms</h1>
       </div>
-    <div data-role="main" class="ui-content">
+    <div data-role="main" class="ui-content" style="margin-left:2%;">
         <img src="themes/myImages/NHSlogo.png" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
-        <!--<h2>Other Symptoms</h2>-->
+        <!--<h2>Other Symptoms</h2>--><br><br>
 		
-		<h3>In your last attack, did you ever feel:</h3>
-       <div class="ui-grid-b">
-			<h4>Light headed?</h4>
+		<span class="thick2">In your last attack, did you ever feel:</span>
+       <div class="ui-grid-b" style="margin-top:3%;">
+			<span class="thick2">Light headed?</span> <br>
 			<div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">	
 				<label for="lightYes">Yes</label>			  
 				<input type="radio" data-bind="checked:lightHeaded" name="light" id="lightYes" value="yes"/>
@@ -834,8 +873,8 @@
 			</div>
 		</div><!--grib b-->
 		
-		<div class="ui-grid-b">
-		<h4>Like your head was spinning (vertigo)?</h4>
+		<div class="ui-grid-b" style="margin-top:3%;">
+		<span class="thick2">Like your head was spinning (vertigo)?</span> <br>
 			<div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">	
 				<label for="vertigoYes">Yes</label>			  
 				<input type="radio" data-bind="checked:vertigo" name="vertigo" id="vertigoYes" value="yes"/>
@@ -849,23 +888,22 @@
 				<input type="radio" data-bind="checked:vertigo" name="vertigo" id="vertigoDunno" value="I don't know"/>
 			</div>
 		</div><!--grib b-->
-		
-		<h3>Slide the bar to indicate how your sumptoms began:</h3>
+	<div style="margin-top:3%;">
+		<span class="thick2">Slide the bar to indicate how suddenly your symptoms began:</span> <br>
 		<div style="width: 58%; position:absolute; left:6%">
 			<input type="range" name="slider" id="slider" min="0" max="10" step="1" data-bind="value: symptomIntensity, slider: symptomIntensity"/> 
 			<label for="slider"><h3 id="min">Gradual</h3> <h3 id="max">Sudden</h3></label>
 		</div>
-		<br> <br> <br>
-		
-       <div class="ui-grid-a">
+	</div>
+             <div class="ui-grid-a navButtons">
 			<div class="ui-block-a">
 				<a data-role="button" class="previousButton" href="#"></a>
 			</div>
 			<div class="ui-block-b">
 				<a data-role="button" class="nextButton" href="#"></a>	
 			</div>
-		</div>
-		DEBUG: <pre data-bind="text: ko.toJSON($data,null,2)"></pre>  <div id="output"></div>
+	    </div>
+		<!--DEBUG: <pre data-bind="text: ko.toJSON($data,null,2)"></pre>-->  
     </div><!--main content-->
       <div data-role="footer" data-position="fixed">
         <h2>&copy; Edinburgh University 2014</h2>
@@ -876,11 +914,11 @@
       <div data-role="header">
         <h1>Patient Survey; Medical History</h1>
       </div>
-    <div data-role="main" class="ui-content">
+    <div data-role="main" class="ui-content" style="margin-left:2%;">
         <img src="themes/myImages/NHSlogo.png" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
 		
-		<div class="ui-grid-b">
-		<h3>Have you had any other symptoms?</h3>
+		<div class="ui-grid-b" style="margin-top:3%;">
+		<span class="thick2">Have you had any other symptoms?</span><br>
 			<div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">	
 				<label for="otherYes">Yes</label>			  
 				<input type="radio" data-bind="checked:otherSymptoms" name="otherSymptoms" id="otherYes" value="yes"/>
@@ -895,8 +933,9 @@
 			</div>
 		</div><!--grib b-->
 		
-		<div id="other" style="width:30%; margin-left:3%" data-bind="visible: otherSymptoms() == 'yes'">
-			<label for="other"><h4>Which of the following symptoms have you had:</h4>
+		<div id="other"data-bind="visible: otherSymptoms() == 'yes'">
+			<span class="thick2"> Which of the following symptoms did you have:</span><br>
+		<div style="width:30%; margin-left:3%" >
 			<label for="vomiting">Vomiting</label>	
 			<input type="checkbox" data-bind="checked:vomiting" value="vomiting" id="vomiting"/>
 			<label for="collapse">Collapse</label>
@@ -908,10 +947,11 @@
 			<label for="heartPalpatations">Heart Palpatations</label>
 			<input type="checkbox" data-bind="checked:heartPalpatations" value="heartPalpatations" id="heartPalpatations"/>			
 		</div>
+</div> <!--dynamic content-->
         <h2>Medical History</h2>
-		
-		<div id="medicalHistory" style="width:30%; margin-left:3%">
-		<label for="medicalHistory"><h4>Before your current symptoms you had/have:</h4></label>
+
+		<span class="thick2"> Before your current symptoms you had/have:</span><br>
+		<div style="width:30%; margin-left:3%;">		
 			<label for="heartAttack">Heart attack/ angina</label>	
 			<input type="checkbox" data-bind="checked:heartAttack" value="heartAttack" id="heartAttack"/>
 			<label for="stroke">Stroke/ Mini stroke</label>
@@ -921,7 +961,7 @@
 			<label for="epilepsy">Epilepsy</label>
 			<input type="checkbox" data-bind="checked:epilepsy" value="epilepsy" id="epilepsy"/>			
 		</div>
-	   <div class="ui-grid-a">
+	   <div class="ui-grid-a navButtons" id="navOtherSymp">
 			<div class="ui-block-a">
 				<a data-role="button" class="previousButton" href="#"></a>
 			</div>
@@ -929,7 +969,7 @@
 				<a data-role="button" class="nextButton" href="#"></a>	
 			</div>
 		</div>
-	DEBUG:<pre data-bind="text: ko.toJSON($data,null,2)"></pre>
+	<!--DEBUG:<pre data-bind="text: ko.toJSON($data,null,2)"></pre>-->
     </div><!--main content-->
       <div data-role="footer" data-position="fixed">
         <h2>&copy; Edinburgh University 2014</h2>
@@ -950,19 +990,19 @@
             <button id='step2But'><span style="position:absolute;margin-top:-9%;left:10%;">Learn How to Play <span style="font-size:30px;">&#x25b6;</span></span></button>
           </div>
           <div id='step2'>
-            <span class="thick">1. You will be shown two picture cards. If the two cards match, touch anywhere on the screen as fast as you can.</span>
+            <span class="thick2">1. You will be shown two picture cards. If the two cards match, touch anywhere on the screen as fast as you can.</span>
             <img src="themes/myImages/snapCards.png"  alt="snapCards" class="snapCard">
             <button id='step3But'><span class='but'>Next <span style="font-size:30px;">&#x25b6;</span></span></button>
 			<button id='step3ButP'><span class='but2'><span style="font-size:30px;">&#x25c0;</span> Previous</span></button>
           </div>
           <div id='step3'>
-            <span class="thick">2. If you are correct the message 'Snap!' will appear.</span>
+            <span class="thick2">2. If you are correct the message 'Snap!' will appear.</span>
             <img src="themes/myImages/snapCorrect.png" alt="snapCorrect"  class="snapCard">
             <button  id='step4But'><span class='but'>Next <span style="font-size:30px;">&#x25b6;</span></span></button>
 		    <button  id='step4ButP'><span class='but2'><span style="font-size:30px;">&#x25c0;</span> Previous</span></button>
           </div>
           <div id='step4'>
-            <span class="thick">3. If you are wrong a red 'X' will appear.</span>
+            <span class="thick2">3. If you are wrong a red 'X' will appear.</span>
             <img src="themes/myImages/snapIncorrect.png" alt="snapWrong"  class="snapCard">
            <button id='step5ButP'><span class='but2'> <span style="font-size:30px;">&#x25c0;</span> Previous</span></button>			
 			<a data-role="button" id="playSnap" href="#"><span style="font-size:25px;">Play <br>Snap!</span><span style="position:absolute;bottom:9%;font-size:56px;">&#x3009;</span></a>
@@ -1252,8 +1292,14 @@ viewModel.visionLoss.subscribe(function(value) {
     }else{
 	$("#navVision").css("position","fixed");} 
 });
- 
 
+viewModel.otherSymptoms.subscribe(function(value) {
+    if(value=='yes'){
+	$("#navOtherSymp").css("position","relative");
+    }else{
+	$("#navOtherSymp").css("position","fixed");} 
+});
+ 
       $(document).ready(function() {
         $(".nextButton").on('click', nextPage);
 		 $(".previousButton").on('click', previousPage);
