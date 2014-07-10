@@ -28,6 +28,8 @@
 	
 .thick2{font-size: 22px;font-weight:600;}
 
+.thick3{font-size: 23px;font-weight:650;}
+
 
 
 	
@@ -95,6 +97,8 @@
 	font-size: 18px; 
 }
 
+.snappy{width:204.48px; height:270.72px;}
+
 .blockA{width:31% !important;
 height:585px !important;
        border-right:solid 2px #585858 !important;
@@ -129,7 +133,7 @@ height:650px !important;}
 	#instruc{
 	position:absolute;
 	margin-left:5%;
-	margin-top:20%;
+	margin-top:25%;
 	margin-right:64%;
 	z-index:10;
 	
@@ -272,12 +276,12 @@ height:650px !important;}
 	  
       #step2But, #pstep2But
      {
-        width: 20%;
-		height:9% !important;
+        width: 23%;
+	height:9% !important;
         position: fixed;
         left: 40%;
-		background-color: rgba(3,145,189,0.3);
-		font-size: 20px;
+	background-color: rgba(3,145,189,0.3);
+	font-size: 22px;
       }
 	  
 	#pstep3But, #pstep4But, #pstep5But,  #pstep3ButP, #pstep4ButP, #pstep5ButP , #pstep6ButP, #tryDemo,
@@ -286,7 +290,7 @@ height:650px !important;}
         top:80%;
         width: 15%;
 		background-color: rgba(3,145,189,0.3);
-		font-size: 20px;}
+		font-size: 22px;}
 		
 		#playSnap, #tryDemo{top:76%; width:10%;left:81%;}
 		#step3But,#step4But, #pstep3But,#pstep4But, #pstep5But {left:81%; height:8.2% !important;}  
@@ -356,16 +360,16 @@ color:#f0ff02;}
 
 	
 .ui-datepicker {
-	width: 55% !important;
+    width: 55% !important;
     background: #333;
     border: 1px solid #555 !important;
     color: black;
-font-weight: normal !important;
+    font-weight: normal !important;
 }
 
 .ui-datepicker table {
-font-size: 25px !important; 
-color: red !important; 
+	font-size: 25px !important; 
+	color: red !important; 
 }
 
  
