@@ -17,6 +17,7 @@
 	left:65%;
 		}
 
+.abandon{position: fixed !important; top:80%; left:80%;}
 
 	.previousButton{background-image: url("myImages/previousButton.png"); left:5%;}
 	.navButtons{ width:100%; position: fixed; top:76%;}
@@ -97,7 +98,8 @@
 	font-size: 18px; 
 }
 
-.snappy{width:204.48px; height:270.72px;}
+.snapImg{position:relative;right:6px;}
+.snappy{display: none; width:204.48px; height:270.72px;}
 
 .blockA{width:31% !important;
 height:585px !important;
