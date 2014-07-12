@@ -1189,7 +1189,7 @@
           <div id='pairsOverlay'></div>
         </div>
         <!--pairsWrapper-->
-<div id="derpina"></div>
+<!--<div id="derpina"></div>-->
          <a class="abandon" data-role="button" href="#" value="Exit">Exit</a>
 <!--DEBUG:<pre data-bind="text: ko.toJSON($data,null,2)"></pre>-->
 	</div>
@@ -1208,44 +1208,79 @@
           <div class="ui-grid-c">
             <!-- ************************ ROW 1 ****************************-->
             <div class="ui-block-a grdA">
-              <div id="stPairA" class="stPair"></div>
+              <div class="pairDiv" id="rr1c1">
+                <img src="themes/myImages/pairsCats.png" alt="cat" id="stPairA" class="stPair">
+                <img src="themes/myImages/card_back.png" alt="back" id="stPairAb" class="stPairb">
+              </div>
             </div>
             <div class="ui-block-b grdB">
-              <div id="ndPairA" class="ndPair"></div>
+              <div class="pairDiv" id="rr1c2">
+                <img src="themes/myImages/pairsHat.png" alt="hat" id="fthPairB" class="fthPair">
+                <img src="themes/myImages/card_back.png" alt="back" id="fthPairBb" class="fthPairb">
+              </div>
             </div>
             <div class="ui-block-c grdC">
-              <div id="rdPairA" class="rdPair"></div>
+               <div class="pairDiv" id="rr1c3">
+                <img src="themes/myImages/pairsHourglass.png" alt="hourglass" id="rdPairA" class="rdPair">
+                <img src="themes/myImages/card_back.png" alt="back" id="rdPairAb" class="rdPairb">
+              </div>
             </div>
             <div class="ui-block-d grdD">
-              <div id="fthPairA" class="fthPair"></div>
+               <div class="pairDiv" id="rr1c4">
+                <img src="themes/myImages/pairsDots.png" alt="dots" id="rthPairA" class="rthPair">
+                <img src="themes/myImages/card_back.png" alt="back" id="rthPairAb" class="rthPairb">
+              </div>
             </div>
             <!-- ************************ ROW 2 ****************************-->
             <div class="ui-block-a grdA">
-              <div id="rthPairA" class="rthPair"></div>
+               <div class="pairDiv" id="rr2c1">
+                <img src="themes/myImages/pairsHearts.png" alt="heart" id="thPairA" class="thPair">
+                <img src="themes/myImages/card_back.png" alt="back" id="thPairAb" class="thPairb">
+              </div>
             </div>
             <div class="ui-block-b grdB">
-              <div id="ndPairB" class="ndPair"></div>
+              <div class="pairDiv" id="rr2c2">
+                <img src="themes/myImages/pairsHourglass.png" alt="hourglass" id="rdPairB" class="rdPair">
+                <img src="themes/myImages/card_back.png" alt="back" id="rdPairBb" class="rdPairb">
+              </div>
             </div>
             <div class="ui-block-c grdC">
-              <div id="thPairA" class="thPair"></div>
+               <div class="pairDiv" id="rr2c3">
+                <img src="themes/myImages/pairsHearts.png" alt="heart" id="thPairB" class="thPair">
+                <img src="themes/myImages/card_back.png" alt="back" id="thPairBb" class="thPairb">
+              </div>
             </div>
             <div class="ui-block-d grdD">
-              <div id="rdPairB" class="rdPair"></div>
+               <div class="pairDiv" id="rr2c4">
+                <img src="themes/myImages/pairsDots.png" alt="dots" id="rthPairB" class="rthPair">
+                <img src="themes/myImages/card_back.png" alt="back" id="rthPairBb" class="rthPairb">
+              </div>
             </div>
             <!-- ************************ ROW 3 ****************************-->
             <div class="ui-block-a grdA">
-              <div id="fthPairB" class="fthPair"></div>
+                  <div class="pairDiv" id="rr3c1">
+                <img src="themes/myImages/pairsHat.png" alt="hat" id="fthPairA" class="fthPair">
+                <img src="themes/myImages/card_back.png" alt="back" id="fthPairAb" class="fthPairb">
+              </div>
             </div>
             <div class="ui-block-b grdB">
-              <div id="stPairB" class="stPair"></div>
+              <div class="pairDiv" id="rr3c2">
+                <img src="themes/myImages/pairsTriangle.png" alt="triangle" id="ndPairB" class="ndPair">
+                <img src="themes/myImages/card_back.png" alt="back" id="ndPairBb" class="ndPairb">
+              </div>
             </div>
             <div class="ui-block-c grdC">
-              <div id="thPairB" class="thPair"></div>
+                <div class="pairDiv" id="rr3c3">
+                <img src="themes/myImages/pairsTriangle.png" alt="triangle" id="ndPairA" class="ndPair">
+                <img src="themes/myImages/card_back.png" alt="back" id="ndPairAb" class="ndPairb">
+              </div>
             </div>
-            <div class="ui-block-d grdD">
-              <div id="rthPairB" class="rthPair"></div>
+             <div class="ui-block-d grdD">
+                 <div class="pairDiv" id="rr3c4">
+                <img src="themes/myImages/pairsCats.png" alt="cat" id="stPairB" class="stPair">
+                <img src="themes/myImages/card_back.png" alt="back" id="stPairBb" class="stPairb">
+               </div>
             </div>
-          </div>
           <!-- /grid-c -->
           <div id='pairsOverlay'></div>
         </div>
@@ -1692,6 +1727,7 @@
       var url;
       var counter = 0; //keeps track of how many pairs of cards have been found.
       var currentPage = '';
+
       $(document).delegate("#PairsDemoPage", "pagecreate", function() {
         setTimeout(function() {
           $(".stPair,.ndPair,.rdPair", $.mobile.activePage).css("display", "none");
@@ -1702,14 +1738,11 @@
       $(document).delegate("#PairsPage", "pagecreate", function() {
         var counterDemo = counter;
         counter = 0;
-        showCards("stPairA", "stPairB");
-        showCards("ndPairA", "ndPairB");
-        showCards("rdPairA", "rdPairB");
-        showCards("rthPairA", "rthPairB");
-        showCards("fthPairA", "fthPairB");
-        showCards("thPairA", "thPairB");
+        gameMsgDone = true;
+
         setTimeout(function() {
-          $(".stPair,.ndPair,.rdPair,.rthPair,.fthPair, .thPair", $.mobile.activePage).css("background-image", "url('themes/myImages/card_back.png')");
+          $(".stPair,.ndPair,.rdPair,.rthPair,.fthPair, .thPair", $.mobile.activePage).css("display", "none");
+          $(".stPairb,.ndPairb,.rdPairb,.rthPairb,.fthPairb, .thPairb", $.mobile.activePage).css("display", "block");
         }, 5000);
         currentPage = 'PairsPage';
       });
@@ -1738,8 +1771,8 @@
 
               if ((card1Pair == 'A' && card2Pair == 'B') || (card1Pair == 'B' && card2Pair == 'A')) {
                 
-		 
-                          if(currentPage=='PairsPage'){showCards(pair[0], pair[1]);}else{showCardsDemo(pair[0], pair[1]);}
+		 showCards(pair[0], pair[1]);
+                       //   if(currentPage=='PairsPage'){showCards(pair[0], pair[1]);}else{showCardsDemo(pair[0], pair[1]);}
 				
                 $("#pairsOverlay", $.mobile.activePage).html("<span class='spanMsg'>Pair!</span>");
                 $("#pairsOverlay", $.mobile.activePage).css('background-color', '#FAF741'); 
@@ -1761,7 +1794,8 @@
                 }, 2000);
               }
             } else {
-                      if(currentPage=='PairsPage'){showCards(pair[0], pair[1]);}else{showCardsDemo(pair[0], pair[1]);}
+			showCards(pair[0], pair[1]);
+                      //if(currentPage=='PairsPage'){showCards(pair[0], pair[1]);}else{showCardsDemo(pair[0], pair[1]);}
               $("#pairsOverlay", $.mobile.activePage).html("<span class='spanMsg'>miss</span>");
               $("#pairsOverlay", $.mobile.activePage).css('background-color', '#F5033B');
               setTimeout(function() {
@@ -1789,53 +1823,14 @@
         $("#" + card2f).css("display", "block");
       }
 
-      function showCards(card1, card2) {
-        card1Class = card1.slice(0, card1.length - 1);
-        card2Class = card2.slice(0, card2.length - 1);
-        switch (card1Class) {
-          case "stPair":
-            $("#" + card1).css("background-image", "url('themes/myImages/pairsCats.png')")
-            break;
-          case "ndPair":
-            $("#" + card1).css("background-image", "url('themes/myImages/pairsTriangle.png')")
-            break;
-          case "rdPair":
-            $("#" + card1).css("background-image", "url('themes/myImages/pairsHourglass.png')")
-            break;
-          case "rthPair":
-            $("#" + card1).css("background-image", "url('themes/myImages/pairsDots.png')")
-            break;
-          case "fthPair":
-            $("#" + card1).css("background-image", "url('themes/myImages/pairsHat.png')")
-            break;
-          case "thPair":
-            $("#" + card1).css("background-image", "url('themes/myImages/pairsHearts.png')")
-            break;
-          default:
-            break;
-        }
-        switch (card2Class) {
-          case "stPair":
-            $("#" + card2).css("background-image", "url('themes/myImages/pairsCats.png')")
-            break;
-          case "ndPair":
-            $("#" + card2).css("background-image", "url('themes/myImages/pairsTriangle.png')")
-            break;
-          case "rdPair":
-            $("#" + card2).css("background-image", "url('themes/myImages/pairsHourglass.png')")
-            break;
-          case "rthPair":
-            $("#" + card2).css("background-image", "url('themes/myImages/pairsDots.png')")
-            break;
-          case "fthPair":
-            $("#" + card2).css("background-image", "url('themes/myImages/pairsHat.png')")
-            break;
-          case "thPair":
-            $("#" + card2).css("background-image", "url('themes/myImages/pairsHearts.png')")
-            break;
-          default:
-            break;
-        }
+      function showCards(card1b, card2b) {
+        var card1f = card1b.slice(0, card1b.length - 1);
+        var card2f = card2b.slice(0, card2b.length - 1);
+        $("#" + card1b).css("display", "none");
+        $("#" + card1f).css("display", "block");
+        $("#" + card2b).css("display", "none");
+        $("#" + card2f).css("display", "block");
+   
       }
       /* ************************************** Script for Body Pages ***************************** */
       var toggle = false;
