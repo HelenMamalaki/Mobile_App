@@ -339,16 +339,18 @@ top:15%;
 font-size:84px;
 color:#f0ff02;}
 #spanMsgX{position:relative;left:46%;top:15%;font-weight:bold;font-size:110px;color:#df0202;}
-	    .stPair,.ndPair,.rdPair,.rthPair,.fthPair,.thPair{
+	.pairDiv{
 	  height:180px;
 	  width:136px;	
-	   background-size:136px 181px;
-	  background-repeat: no-repeat;
-	  background-position: center center;
 	  background-color: white;}
+.stPair,.ndPair,.rdPair{height:180px;
+	  width:136px;}
+.stPairb,.ndPairb,.rdPairb{display: none;  height:180px;
+	  width:136px;}
 	  
 	.grdA{width: 15% !important; margin-top:2% !important; margin-left: 250px !important;} 
 	.grdB,.grdC, .grdD{width:15% !important; margin-top:2% !important;margin-left: 10px !important;}
+
 
 #centre{width:80%; margin-left:8%; margin-right:10%;}
 /* Overriding jqueryMobile css*/
