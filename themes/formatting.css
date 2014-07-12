@@ -312,7 +312,8 @@ height:650px !important;}
 	  width:190px;	
 	   background-size:190px 261px;
 	  background-repeat: no-repeat;
-	  background-position: center center}
+	  background-position: center center;
+          }
 	  
 	  #SnapPage, #PairsDemoPage, #PairsPage{background-color: #005200;}
 	  #snapWrapper, #pairsWrapper{position: relative;}
@@ -343,9 +344,9 @@ color:#f0ff02;}
 	  height:180px;
 	  width:136px;	
 	  background-color: white;}
-.stPair,.ndPair,.rdPair{height:180px;
+.stPair,.ndPair,.rdPair, .rthPair, .fthPair, .thPair{height:180px;
 	  width:136px;}
-.stPairb,.ndPairb,.rdPairb{display: none;  height:180px;
+.stPairb,.ndPairb,.rdPairb, .rthPairb, .fthPairb, .thPairb{display: none;  height:180px;
 	  width:136px;}
 	  
 	.grdA{width: 15% !important; margin-top:2% !important; margin-left: 250px !important;} 
