@@ -34,6 +34,27 @@
   </head>
 
   <body>
+
+ <div data-role="page" id="AdminPage" data-theme="d">
+      <div data-role="header">
+        <h1>Patient Survey; Administrator Screen</h1>
+      </div>
+      <div data-role="main" class="ui-content" style="margin-left:2%;">
+        <img src="themes/myImages/NHSlogo.png" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
+        <br>
+	<h1>Administrator Page</h1>
+        <p><span class="thick2">What would you like to do?</span></p>
+        <br>
+
+       <a data-role="button" id="start" style="position:fixed;top:35%;left:45%" value="Start Patient Survey" href="#">Start Patient Survey</a>
+       <a data-role="button" id="viewResults" style="position:fixed;top:45%;left:45%" value="View Results" href="#">View Results</a>
+  </div>
+      <!--main content-->
+      <div data-role="footer" data-position="fixed">
+        <h2>&copy; Edinburgh University 2014</h2>
+      </div>
+    </div><!--End of AdminPage-->
+
     <div data-role="page" id="WelcomePage" data-theme="d">
       <div data-role="header">
         <h1>Patient Survey; Welcome</h1>
@@ -65,12 +86,13 @@
           </div>
         </div>
       </div>
+DEBUG:<pre data-bind="text: ko.toJSON($data,null,2)"></pre>
       <!--main content-->
       <div data-role="footer" data-position="fixed">
         <h2>&copy; Edinburgh University 2014</h2>
       </div>
-    </div>
-    <!--End of Page 1-->
+    </div><!--End of WelcomePage-->
+
     <div data-role="page" id="IdentificationPage" data-theme="d">
       <div data-role="header">
         <h1>Patient Survey; Personal Details</h1>
@@ -1281,11 +1303,11 @@
                 <img src="themes/myImages/card_back.png" alt="back" id="stPairBb" class="stPairb">
                </div>
             </div>
-          <!-- /grid-c -->
+         </div> <!-- /grid-c -->
           <div id='pairsOverlay'></div>
         </div>
         <!--pairsWrapper-->
-        <a data-role="button" class="nextButton" href="#"></a>
+        <a id="exit" data-role="button" href="#" value="Exit">Exit</a>
       </div>
       <!--main content-->
       <div data-role="footer" data-position="fixed">
@@ -1293,6 +1315,44 @@
       </div>
     </div>
     <!--End of PairsPage-->
+
+    <div data-role="page" id="ThankYouPage" data-theme="d">
+      <div data-role="header">
+        <h1>Patient Survey; The End</h1>
+      </div>
+      <div data-role="main" class="ui-content">
+    	<div style="position:fixed; top:35%; left:35%;"><h2>Thank you for completing this survey!</h2><br>
+	 <span class="thick">Return tablet device to a member of staff</span>
+	</div>
+       
+     
+      </div><!--main content-->
+
+      <div data-role="footer" data-position="fixed">
+        <h2>&copy; Edinburgh University 2014</h2>
+      </div>
+    </div>    <!--End of ThankYouPage-->
+
+ <div data-role="page" id="ResultsPage" data-theme="d">
+      <div data-role="header">
+        <h1>Patient Survey; View Results</h1>
+      </div>
+      <div data-role="main" class="ui-content" style="margin-left:2%;">
+        <img src="themes/myImages/NHSlogo.png" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
+        <br>
+	<h1>Results</h1>
+        <br>
+	<div id="dataWrapper"></div>
+       <a data-role="button" id="goBack" style="position:relative;" value="Go back" href="#">Go back</a>
+       
+  </div>
+      <!--main content-->
+      <div data-role="footer" data-position="fixed">
+        <h2>&copy; Edinburgh University 2014</h2>
+      </div>
+    </div><!--End of ResultsPage-->
+
+
     <script type='text/javascript'>
       /*custom binding handler thanks to Varun http://stackoverflow.com/a/16493161/2308978*/
       ko.bindingHandlers.slider = {
@@ -1398,8 +1458,13 @@
         }
       });
       $(document).ready(function() {
-        $(".nextButton, .abandon").on('click', nextPage);
+        $(".nextButton, .abandon").on('click', nextPage); 
         $(".previousButton").on('click', previousPage);
+         $("#goBack").on('click', function(){$.mobile.changePage("#AdminPage");}); 
+        $("#finish").on('click', store);  
+	$("#start").on('click', function(){$.mobile.changePage("#WelcomePage");}); 
+	 $("#viewResults").on('click', function(){$.mobile.changePage("#ResultsPage");}); 
+	  $("#exit").on('click', function(){$.mobile.changePage("#ThankYouPage"); store();});
       }); //document ready
       $(".data-input").datepicker({
         defaultDate: null
@@ -1434,6 +1499,8 @@
           $('#datepicker').css('z-index', '1');
         });
       });
+
+ 
 
       function nextPage() {
         var currentPageID = $.mobile.activePage.attr('id');
@@ -1474,13 +1541,12 @@
           case "PairsDemoPage":
             $.mobile.changePage("#PairsPage");
             break;
-          case "PairsPage":
-            $.mobile.changePage("#FinishPage");
-            break;
+   
           default:
             break;
         }
       }
+
 
       function previousPage() {
         var currentPageID = $.mobile.activePage.attr('id');
@@ -1772,7 +1838,7 @@
               if ((card1Pair == 'A' && card2Pair == 'B') || (card1Pair == 'B' && card2Pair == 'A')) {
                 
 		 showCards(pair[0], pair[1]);
-                       //   if(currentPage=='PairsPage'){showCards(pair[0], pair[1]);}else{showCardsDemo(pair[0], pair[1]);}
+                      
 				
                 $("#pairsOverlay", $.mobile.activePage).html("<span class='spanMsg'>Pair!</span>");
                 $("#pairsOverlay", $.mobile.activePage).css('background-color', '#FAF741'); 
@@ -1795,7 +1861,7 @@
               }
             } else {
 			showCards(pair[0], pair[1]);
-                      //if(currentPage=='PairsPage'){showCards(pair[0], pair[1]);}else{showCardsDemo(pair[0], pair[1]);}
+                     
               $("#pairsOverlay", $.mobile.activePage).html("<span class='spanMsg'>miss</span>");
               $("#pairsOverlay", $.mobile.activePage).css('background-color', '#F5033B');
               setTimeout(function() {
@@ -1812,15 +1878,6 @@
             
           } //alternate		
      	}//gameMsgDone
-      }
-
-      function showCardsDemo(card1b, card2b) {
-        var card1f = card1b.slice(0, card1b.length - 1);
-        var card2f = card2b.slice(0, card2b.length - 1);
-        $("#" + card1b).css("display", "none");
-        $("#" + card1f).css("display", "block");
-        $("#" + card2b).css("display", "none");
-        $("#" + card2f).css("display", "block");
       }
 
       function showCards(card1b, card2b) {
@@ -1981,6 +2038,49 @@
           }
         }
       });
+/* ************************LOCAL STORAGE ********************** */
+//checking wheather HTML5 local storage is supported
+function supports_html5_storage() {
+  try {
+    return 'localStorage' in window && window['localStorage'] !== null;
+  } catch (e) {
+    return false;
+  }
+}
+   var dataSet=[];
+
+function store(){
+	
+	localStorage.setItem('viewModel', ko.toJSON(viewModel)); // Put the object into storage
+
+	// Retrieve the object from storage
+
+	var retrievedObject = JSON.parse(localStorage.getItem('viewModel'););
+console.log(retrievedObject);
+var elem='';
+	
+    $.each(retrievedObject, function(key, value){elem=elem + key + ' = ' + value + ' \n ';});
+alert(elem);
+     dataSet.push(elem);
+console.log(dataSet.length);
+//close browser window
+
+}
+ $(document).delegate("#ResultsPage", "pagecreate", function() {getDataSets();});
+function getDataSets(){ 
+	//alert(dataSet);
+	for(i=0;i<dataSet.length;i++){
+		$("#dataWrapper").append("<br><span style='font-size:18px;'>Data Set # " + i + "</span><br>"+dataSet[i]+"<br> --------------------------------");	 
+	}
+
+}
+
+/*$.each(localStore, function(key, value){
+
+    console.log(key + ' = ' + value);
+
+});*/
+
     </script>
   </body>
 
