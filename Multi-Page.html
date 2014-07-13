@@ -16,7 +16,7 @@
     <!--JQuery Mobile js-->
     <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
     <!--External scripts needed for date-picker-->
-    <!--<link rel="stylesheet" href="http://code.jquery.com/mobile/git/jquery.mobile-git.css" />
+        <!--<link rel="stylesheet" href="http://code.jquery.com/mobile/git/jquery.mobile-git.css" />
     <link rel="stylesheet" href="https://rawgithub.com/arschmitz/jquery-mobile-datepicker-wrapper/master/jquery.mobile.datepicker.css" />-->
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.0/themes/base/jquery-ui.css" />
     <script src="https://rawgithub.com/jquery/jquery-ui/1-10-stable/ui/jquery.ui.datepicker.js"></script>
@@ -38,17 +38,30 @@
  <div data-role="page" id="AdminPage" data-theme="d">
       <div data-role="header">
         <h1>Patient Survey; Administrator Screen</h1>
-      </div>
+    </div>
       <div data-role="main" class="ui-content" style="margin-left:2%;">
         <img src="themes/myImages/NHSlogo.png" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
-        <br>
-	<h1>Administrator Page</h1>
-        <p><span class="thick2">What would you like to do?</span></p>
-        <br>
+    
+	<div style="position:fixed;left:38%;"><h1>Administrator Page</h1></div>
+<div style="position:fixed;left:34%;top:25%;width:85%;">
+  <p>Below is a list of patients expected at the clinic today</p>
+	 <div data-role="fieldcontain">
+		 <label><span class="thick2">Select Patient: 
+          <select id="patientID">
+              <option value="Patient1">Patient 1</option>
+              <option value="Patient2">Patient 2</option>
+              <option value="Patient3">Patient 3</option>
+              <option value="Patient4">Patient 4</option>
+              <option value="Patient5">Patient 5</option>
+	      <option value="Patient6">Patient 6</option>
+	      <option value="Patient7">Patient 7</option>
+            </select></label>
+	</div>
 
-       <a data-role="button" id="start" style="position:fixed;top:35%;left:45%" value="Start Patient Survey" href="#">Start Patient Survey</a>
-       <a data-role="button" id="viewResults" style="position:fixed;top:45%;left:45%" value="View Results" href="#">View Results</a>
+       <a data-role="button" id="start" style="position:fixed;top:55%;left:45%" href="#">Begin Survey</a>
+       <a data-role="button" id="viewResults" style="position:fixed;top:70%;left:45%" value="View Results" href="#">View Results</a>
   </div>
+</div>
       <!--main content-->
       <div data-role="footer" data-position="fixed">
         <h2>&copy; Edinburgh University 2014</h2>
@@ -1307,6 +1320,7 @@ DEBUG:<pre data-bind="text: ko.toJSON($data,null,2)"></pre>
           <div id='pairsOverlay'></div>
         </div>
         <!--pairsWrapper-->
+<!--DEBUG:<span style="color: white;"><pre data-bind="text: ko.toJSON($data,null,2)"></pre></span>-->
         <a id="exit" data-role="button" href="#" value="Exit">Exit</a>
       </div>
       <!--main content-->
@@ -1432,8 +1446,8 @@ DEBUG:<pre data-bind="text: ko.toJSON($data,null,2)"></pre>
         rt: ko.observable(),
         buttonPresses: ko.observable(),
         timeToCompl: ko.observable(),
-        incorrectMathces: ko.observable(),
-        correctMathces: ko.observable(),
+        incorrectPairs: ko.observable(),
+        correctPairs: ko.observable(),
       };
       ko.applyBindings(viewModel);
       viewModel.exactDateCheck.subscribe(function(value) {
@@ -1507,18 +1521,23 @@ DEBUG:<pre data-bind="text: ko.toJSON($data,null,2)"></pre>
         switch (currentPageID) {
           case "WelcomePage":
             $.mobile.changePage("#SymptomsPage");
+	    store(); //store progress so far	
             break;
           case "IdentificationPage":
             $.mobile.changePage("#SymptomsPage");
+	    store();
             break;
           case "SymptomsPage":
             $.mobile.changePage("#SpeechProblemsPage");
+            store();
             break;
           case "SpeechProblemsPage":
             $.mobile.changePage("#VisionProblemsPage");
+	    store();
             break;
           case "VisionProblemsPage":
             $.mobile.changePage("#SelectPage");
+            store();
             break;
 	  case "SelectPage":
           case "numbnessPage":
@@ -1528,18 +1547,23 @@ DEBUG:<pre data-bind="text: ko.toJSON($data,null,2)"></pre>
           case "tremorPage":
           case "painPage":
             $.mobile.changePage("#OtherSymptomsPage");
+	    store();
             break;
           case "OtherSymptomsPage":
             $.mobile.changePage("#MedicalHistoryPage");
+store();
             break;
           case "MedicalHistoryPage":
             $.mobile.changePage("#SnapInstructionsPage");
+store();
             break;
           case "SnapPage":
             $.mobile.changePage("#PairsInstructionsPage");
+store();
             break;
           case "PairsDemoPage":
             $.mobile.changePage("#PairsPage");
+store();
             break;
    
           default:
@@ -1793,6 +1817,8 @@ DEBUG:<pre data-bind="text: ko.toJSON($data,null,2)"></pre>
       var url;
       var counter = 0; //keeps track of how many pairs of cards have been found.
       var currentPage = '';
+      var correctMatches;
+      var incorrectMatches;
 
       $(document).delegate("#PairsDemoPage", "pagecreate", function() {
         setTimeout(function() {
@@ -1803,6 +1829,8 @@ DEBUG:<pre data-bind="text: ko.toJSON($data,null,2)"></pre>
       });
       $(document).delegate("#PairsPage", "pagecreate", function() {
         var counterDemo = counter;
+	correctMatches=0;
+        incorrectMatches=0;
         counter = 0;
         gameMsgDone = true;
 
@@ -1849,13 +1877,16 @@ DEBUG:<pre data-bind="text: ko.toJSON($data,null,2)"></pre>
 		  card2f = pair[1].slice(0, pair[1].length - 1);
                   var card1Div = document.getElementById(card1f).parentNode.id;
 		  var card2Div = document.getElementById(card2f).parentNode.id;
-
-                  $("#" + card1f + ",#" + card2f, $.mobile.activePage).css("display", "none");
-                  $("#" + card1Div + ",#" + card2Div, $.mobile.activePage).css("background-color", "#004200");
+		 
+                 $("#" + card1f + ",#" + card2f, $.mobile.activePage).css("display", "none");
+                 $("#" + card1Div + ",#" + card2Div, $.mobile.activePage).css("background-color", "#004200");
 		 gameMsgDone = true;
+		 correctMatches++;
                   counter = counter + 2;
                   if (counter == 12) {
                     alert('Game over!');
+                    viewModel.correctPairs(correctMatches);
+	            viewModel.incorrectPairs(incorrectMatches);
                   }
                 }, 2000);
               }
@@ -1871,6 +1902,7 @@ DEBUG:<pre data-bind="text: ko.toJSON($data,null,2)"></pre>
 
                 $("#" + card1f + ",#" + card2f, $.mobile.activePage).css("display", "none");
                 $("#" + pair[0] + ",#" + pair[1], $.mobile.activePage).css("display", "block");
+                 incorrectMatches++;
                  gameMsgDone = true;
               }, 2000);
             }
@@ -2041,45 +2073,40 @@ DEBUG:<pre data-bind="text: ko.toJSON($data,null,2)"></pre>
 /* ************************LOCAL STORAGE ********************** */
 //checking wheather HTML5 local storage is supported
 function supports_html5_storage() {
-  try {
+  try {  
     return 'localStorage' in window && window['localStorage'] !== null;
-  } catch (e) {
+  } catch (e) { alert("this device does not support HTML5 local storage");
     return false;
   }
 }
-   var dataSet=[];
+   var dataSet=["Patient1", "Patient2", "Patient3", "Patient4", "Patient5", "Patient6", "Patient7"];
 
 function store(){
-	
-	localStorage.setItem('viewModel', ko.toJSON(viewModel)); // Put the object into storage
 
-	// Retrieve the object from storage
+	key = $('#patientID').val();
+	//console.log("id: " + key);
+       
+	localStorage.setItem(key, ko.toJSON(viewModel)); // Put the object into storage
 
-	var retrievedObject = JSON.parse(localStorage.getItem('viewModel'));
-console.log(retrievedObject);
-var elem='';
-	
-    $.each(retrievedObject, function(key, value){elem=elem + key + ' = ' + value + ' \n ';});
-alert(elem);
-     dataSet.push(elem);
-console.log(dataSet.length);
-//close browser window
-
+//jQuery.mobile.changePage(); force reload of a page 
+//close browser - somehow return to admin page
 }
- $(document).delegate("#ResultsPage", "pagecreate", function() {getDataSets();});
+
+ $(document).delegate("#ResultsPage", "pagecreate", function() {supports_html5_storage(); getDataSets();});
+
 function getDataSets(){ 
-	//alert(dataSet);
+	//localStorage.clear();
+
 	for(i=0;i<dataSet.length;i++){
-		$("#dataWrapper").append("<br><span style='font-size:18px;'>Data Set # " + i + "</span><br>"+dataSet[i]+"<br> --------------------------------");	 
+		var obj = JSON.parse(localStorage.getItem(dataSet[i]));
+		if(obj!=null){
+		$("#dataWrapper").append("<br><span style='font-size:18px;'>Data set for " + dataSet[i] + "</span><br>"+ JSON.stringify(obj) +"<br> --------------------------------");	 
+		}
 	}
 
 }
 
-/*$.each(localStore, function(key, value){
 
-    console.log(key + ' = ' + value);
-
-});*/
 
     </script>
   </body>
