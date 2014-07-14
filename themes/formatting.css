@@ -14,7 +14,7 @@
 	background-repeat: no-repeat;
 	background-position: center center;
 	position: fixed;
-	left:65%;
+	left:27%;
 		}
 
 #goBack,#finish,#start,#viewResults,#exit,#clearData{background-color: rgba(3,145,189,0.3);}
@@ -278,12 +278,12 @@ height:650px !important;}
 		color: #006600;
 	}
   
-    
-
+    .fill{background-color:#0F0396;}
+.bar{border:1px solid #000000;display: inline-block; width:8%;min-height:10px; margin-right:2%; }
 	  .snapCard{position:fixed;left:27%; top: 23%; float: right; }
 	  .pairCard{position:fixed;left:25%; top: 23%; float: right; }
 	  
-	  #step1,#p_step1{ width:36%;position:fixed;top:30%;left:35%;}
+	  #step1,#p_step1{ width:50%;position:fixed;top:30%;left:25%;}
 	  
       #step2But, #pstep2But
      {
