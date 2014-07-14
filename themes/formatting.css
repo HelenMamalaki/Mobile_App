@@ -17,6 +17,7 @@
 	left:65%;
 		}
 
+#goBack,#finish,#start,#viewResults,#exit,#clearData{background-color: rgba(3,145,189,0.3);}
 
 #goBack,#clearData{position: relative;
 	left:60%;width:20% !important;height:3.2% !important; font-size:18px;}
@@ -306,7 +307,7 @@ height:650px !important;}
 		#step3But,#step4But, #pstep3But,#pstep4But, #pstep5But {left:81%; height:8.2% !important;}  
 	
 		
-		 #step3ButP, #step4ButP, #step5ButP, #pstep3ButP, #pstep4ButP, #pstep5ButP, #pstep6ButP{left:4%;height:8.2% !important;}
+		 #step3ButP, #step4ButP, #step5ButP, #pstep3ButP, #pstep4ButP, #pstep5ButP, #pstep6ButP{left:4%; height:8.2% !important;}
 		 
 		 
 		 #step2, #step3, #step4, #p_step2, #p_step3, #p_step4{display:none;width:65%;position:fixed;left:16%;top:13%;}
