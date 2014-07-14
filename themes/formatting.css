@@ -279,11 +279,13 @@ height:650px !important;}
 	}
   
     .fill{background-color:#0F0396;}
-.bar{border:1px solid #000000; display: inline-block; width:8%; min-height:10px; margin-right:2%; }
+    .bar{border:1px solid #000000;display: inline-block; width:8%;min-height:10px; margin-right:2%; }
 	  .snapCard{position:fixed;left:27%; top: 23%; float: right; }
 	  .pairCard{position:fixed;left:25%; top: 23%; float: right; }
+
+.navA{width:21% !important;} .navB{width:50% !important; margin-top:73px !important;} .navC{width:27% !important; }
 	  
-	  #step1,#p_step1{ width:50%;position:fixed;top:30%;left:25%;}
+	  #step1,#p_step1{ width:50%; position:fixed;top:30%;left:25%;}
 	  
       #step2But, #pstep2But
      {
@@ -300,7 +302,6 @@ height:650px !important;}
 	    position: fixed;
         top:80%;
         width: 15%;
-        background-color: rgba(3,145,189);
 		background-color: rgba(3,145,189,0.3);
 		font-size: 22px;}
 		
