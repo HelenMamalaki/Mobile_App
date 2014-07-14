@@ -97,80 +97,26 @@
             </div>
           </div>
         </div>
-        <div class="ui-grid-a navButtons">
-          <div class="ui-block-a"></div>
-          <div class="ui-block-b">
+            <!-- Navigation Buttons + Progress Bar -->
+ 	<div class="ui-grid-b navButtons">
+          <div class="ui-block-a" style="width:21%;">
+		 
+	</div>
+          <div class="ui-block-b" style="width:50%;margin-top:73px;">
+           <div class="bar"></div> <div class="bar">  </div> <div class="bar"></div>  <div class="bar"></div>  <div class="bar"></div>  <div class="bar"></div>  <div class="bar"></div>  <div class="bar"></div>  <div class="bar"></div>
+          </div>
+           <div class="ui-block-c" style="width:27%;">
             <a data-role="button" data-bind="visible: consent()" class="nextButton" href="#"></a>
           </div>
         </div>
-      </div>
-      <!--DEBUG: <pre data-bind="text: ko.toJSON($data,null,2)"></pre>-->
-      <!--main content-->
+
+      </div> <!--main content-->
       <div data-role="footer" data-position="fixed">
         <h2>&copy; Edinburgh University 2014</h2>
       </div>
     </div>
     <!--End of WelcomePage-->
-    <div data-role="page" id="IdentificationPage" data-theme="d">
-      <div data-role="header">
-        <h1>Patient Survey; Personal Details</h1>
-      </div>
-      <div data-role="main" class="ui-content">
-        <img src="themes/myImages/NHSlogo.png" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
-        <h1>Personal Details</h1>
-        <div id="DOB">
-          <label for="DOB">Date of Birth:</label>
-          <div class="ui-grid-b">
-            <div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">
-              <label for="day">Day</label>
-              <input name="day" id="day" placeholder="DD" value="" type="text">
-            </div>
-            <div class="ui-block-b" style="width:20%; margin-right: 10px;">
-              <label for="Month">Month</label>
-              <input name="month" id="month" placeholder="MM" value="" type="text">
-            </div>
-            <div class="ui-block-c" style="width:30%">
-              <label for="year">Year</label>
-              <input name="year" id="year" placeholder="YYYY" value="" type="text">
-            </div>
-          </div>
-          <!--grid b-->
-        </div>
-        <div data-role="fieldcontain">
-          <legend>Gender:</legend>
-          <div class="ui-grid-a">
-            <div class="ui-block-a" style="width:20%; margin-left: 40px; margin-right: 10px;">
-              <input type="radio" name="gender" id="female" value="female" />
-              <br>
-              <label for="female">Female</label>
-            </div>
-            <div class="ui-block-b" style="width:20%;">
-              <input type="radio" name="gender" id="male" value="male" />
-              <br>
-              <label for="male">Male</label>
-            </div>
-          </div>
-        </div>
-        <div id="indent">
-          <legend>Who is filling out this survey:</legend>
-          <div style="margin-left: 40px;">
-            <select name="who_fillIn_survey" id="who_fillIn_survey">
-              <option value="Patient">Patient</option>
-              <option value="Relative">Relative</option>
-              <option value="Carer">Carer</option>
-              <option value="NHS staff">NHS staff</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
-        </div>
-        <a data-role="button" class="nextButton" href="#"></a>
-      </div>
-      <!--main content-->
-      <div data-role="footer" data-position="fixed">
-        <h2>&copy;Edinburgh University 2014</h2>
-      </div>
-    </div>
-    <!--End of Page 2-->
+   
     <div data-role="page" id="SymptomsPage" data-theme="d">
       <div data-role="header">
         <h1>Patient Survey; Symptoms</h1>
@@ -244,15 +190,19 @@
             </div>
           </div>
         </div>
-        <div class="ui-grid-a navButtons" id="navSymptoms">
-          <div class="ui-block-a">
-            <a data-role="button" class="previousButton" href="#"></a>
+       <!-- Navigation Buttons + Progress Bar -->
+ 	<div class="ui-grid-b navButtons" id="navSymptoms">
+          <div class="ui-block-a" style="width:21%;">
+		 <a data-role="button" class="previousButton" href="#"></a>
+	</div>
+          <div class="ui-block-b" style="width:50%;margin-top:73px;">
+           <div class="bar fill"></div> <div class="bar">  </div> <div class="bar"></div>  <div class="bar"></div>  <div class="bar"></div>  <div class="bar"></div>  <div class="bar"></div>  <div class="bar"></div>  <div class="bar"></div>
           </div>
-          <div class="ui-block-b">
+           <div class="ui-block-c" style="width:27%;">
             <a data-role="button" class="nextButton" href="#"></a>
           </div>
         </div>
-        <!--DEBUG:<pre data-bind="text: ko.toJSON($data,null,2)"></pre>-->
+
       </div>
       <!--main content-->
       <div data-role="footer" data-position="fixed">
@@ -2137,3 +2087,4 @@ function areYouSure(text1, text2, button, callback) {
 
     </script>
   </body>
+ 
