@@ -16,7 +16,7 @@
     <!--JQuery Mobile js-->
     <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
     <!--External scripts needed for date-picker-->
-        <!--<link rel="stylesheet" href="http://code.jquery.com/mobile/git/jquery.mobile-git.css" />
+    <!--<link rel="stylesheet" href="http://code.jquery.com/mobile/git/jquery.mobile-git.css" />
     <link rel="stylesheet" href="https://rawgithub.com/arschmitz/jquery-mobile-datepicker-wrapper/master/jquery.mobile.datepicker.css" />-->
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.0/themes/base/jquery-ui.css" />
     <script src="https://rawgithub.com/jquery/jquery-ui/1-10-stable/ui/jquery.ui.datepicker.js"></script>
@@ -34,40 +34,47 @@
   </head>
 
   <body>
-
- <div data-role="page" id="AdminPage" data-theme="d">
+    <div data-role="page" id="AdminPage" data-theme="d">
       <div data-role="header">
         <h1>Patient Survey; Administrator Screen</h1>
-    </div>
+      </div>
       <div data-role="main" class="ui-content" style="margin-left:2%;">
         <img src="themes/myImages/NHSlogo.png" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
+        <div style="position:fixed;left:38%;">
+          <h1>Administrator Screen</h1>
+        </div>
+        <div style="position:fixed;left:30%;top:22%;width:85%;">
+          <p style="font-size:18px;">Below is a list of patients expected at the clinic today:</p>
+        </div>
+        <div class="ui-grid-a" style="margin-top:17%;">
+          <div class="ui-block-a" style="width:20%;margin-right:7%;margin-left:28%;">
+            <label>
+              <span class="thick2"> Select Patient: </span>
+                <select id="patientID" >
+                  <option value="Patient1">Patient 1</option>
+                  <option value="Patient2">Patient 2</option>
+                  <option value="Patient3">Patient 3</option>
+                  <option value="Patient4">Patient 4</option>
+                  <option value="Patient5">Patient 5</option>
+                  <option value="Patient6">Patient 6</option>
+                  <option value="Patient7">Patient 7</option>
+                </select>
+           </label>
+          </div>
+            <div class="ui-block-b" style="width:30%;"> 
+                <a data-role="button" id="start" style="width:40%;height:3.2%;margin-top:10%;font-size:18px;" href="#">Begin Survey</a>
+                <a data-role="button" id="viewResults" style="width:40%;height:3.2%;margin-top:20%;font-size:18px;" value="View Results" href="#">View Results</a>
+	    </div>
+        </div> 
+
+    </div>  <!--main content-->
     
-	<div style="position:fixed;left:38%;"><h1>Administrator Page</h1></div>
-<div style="position:fixed;left:34%;top:25%;width:85%;">
-  <p>Below is a list of patients expected at the clinic today</p>
-	 <div data-role="fieldcontain">
-		 <label><span class="thick2">Select Patient: 
-          <select id="patientID">
-              <option value="Patient1">Patient 1</option>
-              <option value="Patient2">Patient 2</option>
-              <option value="Patient3">Patient 3</option>
-              <option value="Patient4">Patient 4</option>
-              <option value="Patient5">Patient 5</option>
-	      <option value="Patient6">Patient 6</option>
-	      <option value="Patient7">Patient 7</option>
-            </select></label>
-	</div>
-
-       <a data-role="button" id="start" style="position:fixed;top:55%;left:45%" href="#">Begin Survey</a>
-       <a data-role="button" id="viewResults" style="position:fixed;top:70%;left:45%" value="View Results" href="#">View Results</a>
-  </div>
-</div>
-      <!--main content-->
-      <div data-role="footer" data-position="fixed">
-        <h2>&copy; Edinburgh University 2014</h2>
-      </div>
-    </div><!--End of AdminPage-->
-
+    <div data-role="footer" data-position="fixed">
+      <h2>&copy; Edinburgh University 2014</h2>
+    </div>
+    </div> <!--End of AdminPage-->
+    
+    
     <div data-role="page" id="WelcomePage" data-theme="d">
       <div data-role="header">
         <h1>Patient Survey; Welcome</h1>
@@ -99,13 +106,13 @@
           </div>
         </div>
       </div>
-DEBUG:<pre data-bind="text: ko.toJSON($data,null,2)"></pre>
+	<!--DEBUG: <pre data-bind="text: ko.toJSON($data,null,2)"></pre>-->
       <!--main content-->
       <div data-role="footer" data-position="fixed">
         <h2>&copy; Edinburgh University 2014</h2>
       </div>
-    </div><!--End of WelcomePage-->
-
+    </div>
+    <!--End of WelcomePage-->
     <div data-role="page" id="IdentificationPage" data-theme="d">
       <div data-role="header">
         <h1>Patient Survey; Personal Details</h1>
@@ -1108,8 +1115,7 @@ DEBUG:<pre data-bind="text: ko.toJSON($data,null,2)"></pre>
         <!--snapWrapper-->
         <div id='gameMsg'></div>
         <div id='score'></div>
-        <!--DEBUG: <pre data-bind="text: ko.toJSON($data,null,2)"></pre>--> 
-     <a class="abandon" data-role="button" href="#" value="Exit">Exit</a>
+        <!--DEBUG: <pre data-bind="text: ko.toJSON($data,null,2)"></pre>--> <a class="abandon" data-role="button" href="#" value="Exit">Exit</a>
       </div>
       <!--main content-->
       <div data-role="footer" data-position="fixed">
@@ -1224,10 +1230,9 @@ DEBUG:<pre data-bind="text: ko.toJSON($data,null,2)"></pre>
           <div id='pairsOverlay'></div>
         </div>
         <!--pairsWrapper-->
-<!--<div id="derpina"></div>-->
-         <a class="abandon" data-role="button" href="#" value="Exit">Exit</a>
-<!--DEBUG:<pre data-bind="text: ko.toJSON($data,null,2)"></pre>-->
-	</div>
+        <!--<div id="derpina"></div>--> <a class="abandon" data-role="button" href="#" value="Exit">Exit</a>
+        <!--DEBUG:<pre data-bind="text: ko.toJSON($data,null,2)"></pre>-->
+      </div>
       <!--main content-->
       <div data-role="footer" data-position="fixed">
         <h2>&copy; Edinburgh University 2014</h2>
@@ -1255,20 +1260,20 @@ DEBUG:<pre data-bind="text: ko.toJSON($data,null,2)"></pre>
               </div>
             </div>
             <div class="ui-block-c grdC">
-               <div class="pairDiv" id="rr1c3">
+              <div class="pairDiv" id="rr1c3">
                 <img src="themes/myImages/pairsHourglass.png" alt="hourglass" id="rdPairA" class="rdPair">
                 <img src="themes/myImages/card_back.png" alt="back" id="rdPairAb" class="rdPairb">
               </div>
             </div>
             <div class="ui-block-d grdD">
-               <div class="pairDiv" id="rr1c4">
+              <div class="pairDiv" id="rr1c4">
                 <img src="themes/myImages/pairsDots.png" alt="dots" id="rthPairA" class="rthPair">
                 <img src="themes/myImages/card_back.png" alt="back" id="rthPairAb" class="rthPairb">
               </div>
             </div>
             <!-- ************************ ROW 2 ****************************-->
             <div class="ui-block-a grdA">
-               <div class="pairDiv" id="rr2c1">
+              <div class="pairDiv" id="rr2c1">
                 <img src="themes/myImages/pairsHearts.png" alt="heart" id="thPairA" class="thPair">
                 <img src="themes/myImages/card_back.png" alt="back" id="thPairAb" class="thPairb">
               </div>
@@ -1280,20 +1285,20 @@ DEBUG:<pre data-bind="text: ko.toJSON($data,null,2)"></pre>
               </div>
             </div>
             <div class="ui-block-c grdC">
-               <div class="pairDiv" id="rr2c3">
+              <div class="pairDiv" id="rr2c3">
                 <img src="themes/myImages/pairsHearts.png" alt="heart" id="thPairB" class="thPair">
                 <img src="themes/myImages/card_back.png" alt="back" id="thPairBb" class="thPairb">
               </div>
             </div>
             <div class="ui-block-d grdD">
-               <div class="pairDiv" id="rr2c4">
+              <div class="pairDiv" id="rr2c4">
                 <img src="themes/myImages/pairsDots.png" alt="dots" id="rthPairB" class="rthPair">
                 <img src="themes/myImages/card_back.png" alt="back" id="rthPairBb" class="rthPairb">
               </div>
             </div>
             <!-- ************************ ROW 3 ****************************-->
             <div class="ui-block-a grdA">
-                  <div class="pairDiv" id="rr3c1">
+              <div class="pairDiv" id="rr3c1">
                 <img src="themes/myImages/pairsHat.png" alt="hat" id="fthPairA" class="fthPair">
                 <img src="themes/myImages/card_back.png" alt="back" id="fthPairAb" class="fthPairb">
               </div>
@@ -1305,23 +1310,23 @@ DEBUG:<pre data-bind="text: ko.toJSON($data,null,2)"></pre>
               </div>
             </div>
             <div class="ui-block-c grdC">
-                <div class="pairDiv" id="rr3c3">
+              <div class="pairDiv" id="rr3c3">
                 <img src="themes/myImages/pairsTriangle.png" alt="triangle" id="ndPairA" class="ndPair">
                 <img src="themes/myImages/card_back.png" alt="back" id="ndPairAb" class="ndPairb">
               </div>
             </div>
-             <div class="ui-block-d grdD">
-                 <div class="pairDiv" id="rr3c4">
+            <div class="ui-block-d grdD">
+              <div class="pairDiv" id="rr3c4">
                 <img src="themes/myImages/pairsCats.png" alt="cat" id="stPairB" class="stPair">
                 <img src="themes/myImages/card_back.png" alt="back" id="stPairBb" class="stPairb">
-               </div>
+              </div>
             </div>
-         </div> <!-- /grid-c -->
+          </div>
+          <!-- /grid-c -->
           <div id='pairsOverlay'></div>
         </div>
         <!--pairsWrapper-->
-<!--DEBUG:<span style="color: white;"><pre data-bind="text: ko.toJSON($data,null,2)"></pre></span>-->
-        <a id="exit" data-role="button" href="#" value="Exit">Exit</a>
+        <!--DEBUG:<span style="color: white;"><pre data-bind="text: ko.toJSON($data,null,2)"></pre></span>--> <a id="exit" data-role="button" href="#" value="Exit">Exit</a>
       </div>
       <!--main content-->
       <div data-role="footer" data-position="fixed">
@@ -1329,44 +1334,58 @@ DEBUG:<pre data-bind="text: ko.toJSON($data,null,2)"></pre>
       </div>
     </div>
     <!--End of PairsPage-->
-
     <div data-role="page" id="ThankYouPage" data-theme="d">
       <div data-role="header">
         <h1>Patient Survey; The End</h1>
       </div>
       <div data-role="main" class="ui-content">
-    	<div style="position:fixed; top:35%; left:35%;"><h2>Thank you for completing this survey!</h2><br>
-	 <span class="thick">Return tablet device to a member of staff</span>
-	</div>
-       
-     
-      </div><!--main content-->
-
+        <div style="position:fixed; top:35%; left:35%;">
+          <h2>Thank you for completing this survey!</h2>
+          <br>
+          <span class="thick">Return tablet device to a member of staff</span>
+        </div>
+      </div>
+      <!--main content-->
       <div data-role="footer" data-position="fixed">
         <h2>&copy; Edinburgh University 2014</h2>
       </div>
-    </div>    <!--End of ThankYouPage-->
-
- <div data-role="page" id="ResultsPage" data-theme="d">
+    </div>
+    <!--End of ThankYouPage-->
+    <div data-role="page" id="ResultsPage" data-theme="d">
       <div data-role="header">
         <h1>Patient Survey; View Results</h1>
       </div>
       <div data-role="main" class="ui-content" style="margin-left:2%;">
         <img src="themes/myImages/NHSlogo.png" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
         <br>
-	<h1>Results</h1>
+        <h1>Results</h1>
         <br>
-	<div id="dataWrapper"></div>
-       <a data-role="button" id="goBack" style="position:relative;" value="Go back" href="#">Go back</a>
-       
-  </div>
-      <!--main content-->
+        <div id="dataWrapper"></div>
+
+      <div class="ui-grid-a navButtons" id="navSymptoms">
+          <div class="ui-block-a">
+           <a data-role="button" id="goBack" href="#">Go back</a>  
+          </div>
+          <div class="ui-block-b">
+            <a data-role="button" id="clearData" href="#">Clear Data</a> 
+          </div>
+       </div>
+
+
+      </div><!--main content-->
       <div data-role="footer" data-position="fixed">
         <h2>&copy; Edinburgh University 2014</h2>
       </div>
-    </div><!--End of ResultsPage-->
-
-
+    </div>
+    <!--End of ResultsPage-->
+ <div data-role="dialog" id="sure" data-title="Are you sure?">
+  <div data-role="content">
+    <h3 class="sure-1">???</h3>
+    <p class="sure-2">???</p>
+    <a href="#" class="sure-do" data-role="button" data-theme="b" data-rel="back">Yes</a>
+    <a href="#" data-role="button" data-theme="c" data-rel="back">No</a>
+  </div>
+</div>
     <script type='text/javascript'>
       /*custom binding handler thanks to Varun http://stackoverflow.com/a/16493161/2308978*/
       ko.bindingHandlers.slider = {
@@ -1472,13 +1491,40 @@ DEBUG:<pre data-bind="text: ko.toJSON($data,null,2)"></pre>
         }
       });
       $(document).ready(function() {
-        $(".nextButton, .abandon").on('click', nextPage); 
+        $(".nextButton, .abandon").on('click', nextPage);
         $(".previousButton").on('click', previousPage);
-         $("#goBack").on('click', function(){$.mobile.changePage("#AdminPage");}); 
-        $("#finish").on('click', store);  
-	$("#start").on('click', function(){$.mobile.changePage("#WelcomePage");}); 
-	 $("#viewResults").on('click', function(){$.mobile.changePage("#ResultsPage");}); 
-	  $("#exit").on('click', function(){$.mobile.changePage("#ThankYouPage"); store();});
+        $("#goBack").on('click', previousPage); 
+        $("#finish").on('click', store);
+
+        $("#start").on('click', nextPage); 
+
+        $("#viewResults").on('click', function() {
+          $.mobile.changePage("#ResultsPage");
+        });
+        $("#exit").on('click', function() {
+          $.mobile.changePage("#ThankYouPage");
+          store();
+        });
+
+  $("#clearData").on('click', function() { 
+          areYouSure("Are you sure you want to delete the data?", "The data will not be recoverable", "Yes", clearStorage);
+	 	
+	});
+
+function clearStorage(){
+	alert("localStorgae cleared"); //localStorage.clear();
+}
+
+function areYouSure(text1, text2, button, callback) {
+  $("#sure .sure-1").text(text1);
+  $("#sure .sure-2").text(text2);
+  $("#sure .sure-do").text(button).on("click.sure", function() {
+    callback();
+    $(this).off("click.sure");
+  });
+  $.mobile.changePage("#sure");
+}
+
       }); //document ready
       $(".data-input").datepicker({
         defaultDate: null
@@ -1514,18 +1560,19 @@ DEBUG:<pre data-bind="text: ko.toJSON($data,null,2)"></pre>
         });
       });
 
- 
-
       function nextPage() {
         var currentPageID = $.mobile.activePage.attr('id');
         switch (currentPageID) {
+          case "AdminPage":
+		$.mobile.changePage("#WelcomePage");
+	    break;
           case "WelcomePage":
             $.mobile.changePage("#SymptomsPage");
-	    store(); //store progress so far	
+            store(); //store progress so far	
             break;
           case "IdentificationPage":
             $.mobile.changePage("#SymptomsPage");
-	    store();
+            store();
             break;
           case "SymptomsPage":
             $.mobile.changePage("#SpeechProblemsPage");
@@ -1533,13 +1580,13 @@ DEBUG:<pre data-bind="text: ko.toJSON($data,null,2)"></pre>
             break;
           case "SpeechProblemsPage":
             $.mobile.changePage("#VisionProblemsPage");
-	    store();
+            store();
             break;
           case "VisionProblemsPage":
             $.mobile.changePage("#SelectPage");
             store();
             break;
-	  case "SelectPage":
+          case "SelectPage":
           case "numbnessPage":
           case "tinglingPage":
           case "weaknessPage":
@@ -1547,30 +1594,28 @@ DEBUG:<pre data-bind="text: ko.toJSON($data,null,2)"></pre>
           case "tremorPage":
           case "painPage":
             $.mobile.changePage("#OtherSymptomsPage");
-	    store();
+            store();
             break;
           case "OtherSymptomsPage":
             $.mobile.changePage("#MedicalHistoryPage");
-store();
+            store();
             break;
           case "MedicalHistoryPage":
             $.mobile.changePage("#SnapInstructionsPage");
-store();
+            store();
             break;
           case "SnapPage":
             $.mobile.changePage("#PairsInstructionsPage");
-store();
+            store();
             break;
           case "PairsDemoPage":
             $.mobile.changePage("#PairsPage");
-store();
+            store();
             break;
-   
           default:
             break;
         }
       }
-
 
       function previousPage() {
         var currentPageID = $.mobile.activePage.attr('id');
@@ -1604,6 +1649,9 @@ store();
           case "SnapInstructionsPage":
             $.mobile.changePage("#MedicalHistoryPage");
             break;
+	    case "ResultsPage":
+		$.mobile.changePage("#AdminPage");
+	  break;
           default:
             break;
         }
@@ -1819,7 +1867,6 @@ store();
       var currentPage = '';
       var correctMatches;
       var incorrectMatches;
-
       $(document).delegate("#PairsDemoPage", "pagecreate", function() {
         setTimeout(function() {
           $(".stPair,.ndPair,.rdPair", $.mobile.activePage).css("display", "none");
@@ -1829,11 +1876,10 @@ store();
       });
       $(document).delegate("#PairsPage", "pagecreate", function() {
         var counterDemo = counter;
-	correctMatches=0;
-        incorrectMatches=0;
+        correctMatches = 0;
+        incorrectMatches = 0;
         counter = 0;
         gameMsgDone = true;
-
         setTimeout(function() {
           $(".stPair,.ndPair,.rdPair,.rthPair,.fthPair, .thPair", $.mobile.activePage).css("display", "none");
           $(".stPairb,.ndPairb,.rdPairb,.rthPairb,.fthPairb, .thPairb", $.mobile.activePage).css("display", "block");
@@ -1843,73 +1889,59 @@ store();
       $('.stPairb, .ndPairb, .rdPairb, .rthPairb,.fthPairb, .thPairb', $.mobile.activePage).on('click', pairScore);
 
       function pairScore() {
-	
-       
-       if(gameMsgDone==true){
-   
-          if (alternate == false) { 
+        if (gameMsgDone == true) {
+          if (alternate == false) {
             id = event.target.id; //$("#derpina").append("<span style='color:white;'>" + id + "</span>");
             pair = [id];
             alternate = true;
-          } else { 
-             
+          } else {
             id = event.target.id; //$("#derpina").append(" <span style='color:white;'>" + id + "</span><br>");
-	    gameMsgDone = false;
+            gameMsgDone = false;
             pair.push(id);
             card1 = pair[0].slice(0, pair[0].length - 2);
             card2 = pair[1].slice(0, pair[1].length - 2);
-
             if (card1 == card2) {
               card1Pair = pair[0].charAt(pair[0].length - 2);
               card2Pair = pair[1].charAt(pair[1].length - 2);
-
               if ((card1Pair == 'A' && card2Pair == 'B') || (card1Pair == 'B' && card2Pair == 'A')) {
-                
-		 showCards(pair[0], pair[1]);
-                      
-				
+                showCards(pair[0], pair[1]);
                 $("#pairsOverlay", $.mobile.activePage).html("<span class='spanMsg'>Pair!</span>");
-                $("#pairsOverlay", $.mobile.activePage).css('background-color', '#FAF741'); 
-               
+                $("#pairsOverlay", $.mobile.activePage).css('background-color', '#FAF741');
                 setTimeout(function() {
                   $("#pairsOverlay", $.mobile.activePage).html(" ");
                   card1f = pair[0].slice(0, pair[0].length - 1);
-		  card2f = pair[1].slice(0, pair[1].length - 1);
+                  card2f = pair[1].slice(0, pair[1].length - 1);
                   var card1Div = document.getElementById(card1f).parentNode.id;
-		  var card2Div = document.getElementById(card2f).parentNode.id;
-		 
-                 $("#" + card1f + ",#" + card2f, $.mobile.activePage).css("display", "none");
-                 $("#" + card1Div + ",#" + card2Div, $.mobile.activePage).css("background-color", "#004200");
-		 gameMsgDone = true;
-		 correctMatches++;
+                  var card2Div = document.getElementById(card2f).parentNode.id;
+                  $("#" + card1f + ",#" + card2f, $.mobile.activePage).css("display", "none");
+                  $("#" + card1Div + ",#" + card2Div, $.mobile.activePage).css("background-color", "#004200");
+                  gameMsgDone = true;
+                  correctMatches++;
                   counter = counter + 2;
                   if (counter == 12) {
                     alert('Game over!');
                     viewModel.correctPairs(correctMatches);
-	            viewModel.incorrectPairs(incorrectMatches);
+                    viewModel.incorrectPairs(incorrectMatches);
                   }
                 }, 2000);
               }
             } else {
-			showCards(pair[0], pair[1]);
-                     
+              showCards(pair[0], pair[1]);
               $("#pairsOverlay", $.mobile.activePage).html("<span class='spanMsg'>miss</span>");
               $("#pairsOverlay", $.mobile.activePage).css('background-color', '#F5033B');
               setTimeout(function() {
                 $("#pairsOverlay", $.mobile.activePage).html(" ");
-		card1f = pair[0].slice(0, pair[0].length - 1);
-		  card2f = pair[1].slice(0, pair[1].length - 1);
-
+                card1f = pair[0].slice(0, pair[0].length - 1);
+                card2f = pair[1].slice(0, pair[1].length - 1);
                 $("#" + card1f + ",#" + card2f, $.mobile.activePage).css("display", "none");
                 $("#" + pair[0] + ",#" + pair[1], $.mobile.activePage).css("display", "block");
-                 incorrectMatches++;
-                 gameMsgDone = true;
+                incorrectMatches++;
+                gameMsgDone = true;
               }, 2000);
             }
             alternate = false;
-            
           } //alternate		
-     	}//gameMsgDone
+        } //gameMsgDone
       }
 
       function showCards(card1b, card2b) {
@@ -1919,7 +1951,6 @@ store();
         $("#" + card1f).css("display", "block");
         $("#" + card2b).css("display", "none");
         $("#" + card2f).css("display", "block");
-   
       }
       /* ************************************** Script for Body Pages ***************************** */
       var toggle = false;
@@ -2070,44 +2101,50 @@ store();
           }
         }
       });
-/* ************************LOCAL STORAGE ********************** */
-//checking wheather HTML5 local storage is supported
-function supports_html5_storage() {
-  try {  
-    return 'localStorage' in window && window['localStorage'] !== null;
-  } catch (e) { alert("this device does not support HTML5 local storage");
-    return false;
-  }
-}
-   var dataSet=["Patient1", "Patient2", "Patient3", "Patient4", "Patient5", "Patient6", "Patient7"];
+      /* ************************LOCAL STORAGE ********************** */
+       //checking wheather HTML5 local storage is supported
+      function supports_html5_storage() {
+        try {
+          return 'localStorage' in window && window['localStorage'] !== null;
+        } catch (e) {
+          alert("this device does not support HTML5 local storage");
+          return false;
+        }
+      }
+      var dataSet = ["Patient1", "Patient2", "Patient3", "Patient4", "Patient5", "Patient6", "Patient7"];
 
-function store(){
+      function store() {
+        key = $('#patientID').val();
+        //console.log("id: " + key);
+        localStorage.setItem(key, ko.toJSON(viewModel)); // Put the object into storage
+        //jQuery.mobile.changePage(); force reload of a page 
+        //close browser - somehow return to admin page
+      }
+      $(document).delegate("#ResultsPage", "pagecreate", function() {
+        supports_html5_storage();
+        getDataSets();
+      });
 
-	key = $('#patientID').val();
-	//console.log("id: " + key);
-       
-	localStorage.setItem(key, ko.toJSON(viewModel)); // Put the object into storage
-
-//jQuery.mobile.changePage(); force reload of a page 
-//close browser - somehow return to admin page
-}
-
- $(document).delegate("#ResultsPage", "pagecreate", function() {supports_html5_storage(); getDataSets();});
-
-function getDataSets(){ 
-	//localStorage.clear();
-
-	for(i=0;i<dataSet.length;i++){
-		var obj = JSON.parse(localStorage.getItem(dataSet[i]));
-		if(obj!=null){
-		$("#dataWrapper").append("<br><span style='font-size:18px;'>Data set for " + dataSet[i] + "</span><br>"+ JSON.stringify(obj) +"<br> --------------------------------");	 
-		}
-	}
-
-}
+      function getDataSets() {
+        
+        for (i = 0; i < dataSet.length; i++) {
+          var obj = JSON.parse(localStorage.getItem(dataSet[i]));
+          if (obj != null) {
+            $("#dataWrapper").append("<br><span style='font-size:18px;'>Data set for " + dataSet[i] + "</span><br>" + JSON.stringify(obj) + "<br> --------------------------------");
+          }
+        }
+      }
 
 
+       //http://jsfiddle.net/6bvjD/14/
+       //http://jsfiddle.net/6bvjD/17/
+       //http://jsfiddle.net/6bvjD/18/
+       // $.each(retrievedObject, function(key, value){elem=elem + key + ' = ' + value + ' \n ';});
+      /*$.each(localStore, function(key, value){
 
+    console.log(key + ' = ' + value);
+
+});*/
     </script>
   </body>
 
