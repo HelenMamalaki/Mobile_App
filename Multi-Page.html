@@ -19,9 +19,9 @@
     <!--<link rel="stylesheet" href="http://code.jquery.com/mobile/git/jquery.mobile-git.css" />
     <link rel="stylesheet" href="https://rawgithub.com/arschmitz/jquery-mobile-datepicker-wrapper/master/jquery.mobile.datepicker.css" />-->
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.0/themes/base/jquery-ui.css" />
-    <script src="https://rawgithub.com/jquery/jquery-ui/1-10-stable/ui/jquery.ui.datepicker.js"></script>
+    <script src="https://cdn.rawgit.com/jquery/jquery-ui/1-10-stable/ui/jquery.ui.datepicker.js"></script>
     <script src="http://code.jquery.com/mobile/git/jquery.mobile-git.js"></script>
-    <script src="https://rawgithub.com/arschmitz/jquery-mobile-datepicker-wrapper/master/jquery.mobile.datepicker.js"></script>
+    <script src="https://cdn.rawgit.com/arschmitz/jquery-mobile-datepicker-wrapper/master/jquery.mobile.datepicker.js"></script>
     <!--Extrenal scripts needed for knockout library-->
     <script type='text/javascript' src="http://knockoutjs.com/downloads/knockout-3.0.0.js"></script>
     <!--Scripts needed for numpad-->
@@ -43,38 +43,36 @@
         <div style="position:fixed;left:38%;">
           <h1>Administrator Screen</h1>
         </div>
-        <div style="position:fixed;left:30%;top:22%;width:85%;">
+        <div style="position:fixed;left:25%;top:25%;width:85%;">
           <p style="font-size:18px;">Below is a list of patients expected at the clinic today:</p>
         </div>
-        <div class="ui-grid-a" style="margin-top:17%;">
-          <div class="ui-block-a" style="width:20%;margin-right:7%;margin-left:28%;">
+        <div class="ui-grid-a" style="margin-top:17%;">  
+          <div class="ui-block-a" style="width:20%;margin-right:7%;margin-left:24%;">
             <label>
-              <span class="thick2"> Select Patient: </span>
-                <select id="patientID" >
-                  <option value="Patient1">Patient 1</option>
-                  <option value="Patient2">Patient 2</option>
-                  <option value="Patient3">Patient 3</option>
-                  <option value="Patient4">Patient 4</option>
-                  <option value="Patient5">Patient 5</option>
-                  <option value="Patient6">Patient 6</option>
-                  <option value="Patient7">Patient 7</option>
-                </select>
-           </label>
+              <span class="thick2">Select Patient:</span>
+              <select id="patientID">
+                <option value="Patient1">Patient 1</option>
+                <option value="Patient2">Patient 2</option>
+                <option value="Patient3">Patient 3</option>
+                <option value="Patient4">Patient 4</option>
+                <option value="Patient5">Patient 5</option>
+                <option value="Patient6">Patient 6</option>
+                <option value="Patient7">Patient 7</option>
+              </select>
+            </label>
           </div>
-            <div class="ui-block-b" style="width:30%;"> 
-                <a data-role="button" id="start" style="width:40%;height:3.2%;margin-top:10%;font-size:18px;" href="#">Begin Survey</a>
-                <a data-role="button" id="viewResults" style="width:40%;height:3.2%;margin-top:20%;font-size:18px;" value="View Results" href="#">View Results</a>
-	    </div>
-        </div> 
-
-    </div>  <!--main content-->
-    
-    <div data-role="footer" data-position="fixed">
-      <h2>&copy; Edinburgh University 2014</h2>
+          <div class="ui-block-b" style="width:30%;"> 
+	  <a data-role="button" id="start" style="width:40%;height:3.2%;margin-top:10%;font-size:18px;" href="#">Begin Survey</a>
+            <a data-role="button" id="viewResults" style="width:40%;height:3.2%;margin-top:20%;font-size:18px;" value="View Results" href="#">View Results</a>
+          </div>
+        </div>
+      </div>
+      <!--main content-->
+      <div data-role="footer" data-position="fixed">
+        <h2>&copy; Edinburgh University 2014</h2>
+      </div>
     </div>
-    </div> <!--End of AdminPage-->
-    
-    
+    <!--End of AdminPage-->
     <div data-role="page" id="WelcomePage" data-theme="d">
       <div data-role="header">
         <h1>Patient Survey; Welcome</h1>
@@ -106,7 +104,7 @@
           </div>
         </div>
       </div>
-	<!--DEBUG: <pre data-bind="text: ko.toJSON($data,null,2)"></pre>-->
+      <!--DEBUG: <pre data-bind="text: ko.toJSON($data,null,2)"></pre>-->
       <!--main content-->
       <div data-role="footer" data-position="fixed">
         <h2>&copy; Edinburgh University 2014</h2>
@@ -628,17 +626,15 @@
               </div>
             </div>
           </div>
+          <!--block-b-->
         </div>
+        <!--grid a-->DEBUG:
+        <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
       </div>
-      <!--block-b-->
-    </div>
-    <!--grid a-->DEBUG:
-    <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
-    </div>
-    <!--main content-->
-    <div data-role="footer" data-position="fixed">
-      <h2>&copy; Edinburgh University 2014</h2>
-    </div>
+      <!--main content-->
+      <div data-role="footer" data-position="fixed">
+        <h2>&copy; Edinburgh University 2014</h2>
+      </div>
     </div>
     <!--............................End of tinglingPage............................-->
     <div data-role="page" id="weaknessPage" data-theme="d">
@@ -1081,7 +1077,7 @@
         <div id='step4'>
           <span class="thick3">3. If you are wrong a red 'X' will appear.</span>
           <img src="themes/myImages/snapIncorrect.png" alt="snapWrong" class="snapCard">
-          <button id='step5ButP'>&#x25c0;Previous</button>
+          <button id='step5ButP'>&#x25c0; Previous</button>
           <a data-role="button" id="playSnap" href="#">
             <span style="font-size:25px;">Play
               <br>Snap!</span>
@@ -1138,7 +1134,7 @@
           <span class="thick">1. You will be shown a group of picture cards. Try to remember where the pairs are.</span>
           <img src="themes/myImages/pairsCardsFaceUp.png" alt="pairs cards" class="pairCard">
           <button id='pstep3But'>Next</button>
-          <button id='pstep3ButP'>&#x25c0;Previous</button>
+          <button id='pstep3ButP'>&#x25c0; Previous</button>
         </div>
         <div id='p_step3'>
           <span class="thick">2. You have 3 seconds before the cards are turned over. Select each pair by touching them on the screen.</span>
@@ -1154,12 +1150,9 @@
         </div>
         <div id="pairsWrapper" style="position: relative;">
           <div id='p_step5'>
-            <span style="font-size: 20px;font-weight:900;">4. If you are wrong a message saying "miss" will appear.</span>
+            <span class="thick">4. If you are wrong a message saying "miss" will appear.
             <img src="themes/myImages/pairsCardsIncorrect.png" alt="miss message" class="pairCard">
-            <button id='pstep6ButP'>
-              <span class='but2'>
-                <span style="font-size:30px;">&#x25c0;</span>Previous</span>
-            </button>
+            <button id='pstep6ButP'>&#x25c0; Previous </button>
             <a data-role="button" id="tryDemo" href="#">
               <span style="font-size:25px;">Try
                 <br>Demo</span>
@@ -1174,8 +1167,9 @@
           </div>
         </div>
         <!--pairsWrapper-->
-      </div>DEBUG:
-      <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
+      </div>
+      <!--DEBUG:
+      <pre data-bind="text: ko.toJSON($data,null,2)"></pre>-->
       <!--main content-->
       <div data-role="footer" data-position="fixed">
         <h2>&copy; Edinburgh University 2014</h2>
@@ -1357,35 +1351,30 @@
       </div>
       <div data-role="main" class="ui-content" style="margin-left:2%;">
         <img src="themes/myImages/NHSlogo.png" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
-        <br>
         <h1>Results</h1>
-        <br>
-        <div id="dataWrapper"></div>
-
-      <div class="ui-grid-a navButtons" id="navSymptoms">
-          <div class="ui-block-a">
-           <a data-role="button" id="goBack" href="#">Go back</a>  
+        <div id="dataWrapper"> </div> <!--height:400px;-->
+        <div class="ui-grid-a  navResults" style="position:relative">
+          <div class="ui-block-a"> <a data-role="button" id="goBack" href="#">Go back</a> 
           </div>
-          <div class="ui-block-b">
-            <a data-role="button" id="clearData" href="#">Clear Data</a> 
+          <div class="ui-block-b"> <a data-role="button" id="clearData" href="#">Clear Data</a> 
           </div>
-       </div>
-
-
-      </div><!--main content-->
+        </div>
+      </div>
+      <!--main content-->
       <div data-role="footer" data-position="fixed">
         <h2>&copy; Edinburgh University 2014</h2>
       </div>
     </div>
     <!--End of ResultsPage-->
- <div data-role="dialog" id="sure" data-title="Are you sure?">
-  <div data-role="content">
-    <h3 class="sure-1">???</h3>
-    <p class="sure-2">???</p>
-    <a href="#" class="sure-do" data-role="button" data-theme="b" data-rel="back">Yes</a>
-    <a href="#" data-role="button" data-theme="c" data-rel="back">No</a>
-  </div>
-</div>
+    <div data-role="dialog" id="sure" data-title="Are you sure?">
+      <div data-role="content">
+        <h3 class="sure-1">???</h3>
+        <p class="sure-2">???</p> <a href="#" class="sure-do" data-role="button" data-theme="b" data-rel="back">Yes</a>
+        <a href="#" data-role="button" data-theme="c" data-rel="back">No</a>
+      </div>
+    </div>
+    <!--End of DialoguePage-->
+
     <script type='text/javascript'>
       /*custom binding handler thanks to Varun http://stackoverflow.com/a/16493161/2308978*/
       ko.bindingHandlers.slider = {
@@ -1499,6 +1488,8 @@
         $("#start").on('click', nextPage); 
 
         $("#viewResults").on('click', function() {
+	        $("#dataWrapper").html("");
+		getDataSets();
           $.mobile.changePage("#ResultsPage");
         });
         $("#exit").on('click', function() {
@@ -2114,38 +2105,35 @@ function areYouSure(text1, text2, button, callback) {
       var dataSet = ["Patient1", "Patient2", "Patient3", "Patient4", "Patient5", "Patient6", "Patient7"];
 
       function store() {
-        key = $('#patientID').val();
-        //console.log("id: " + key);
-        localStorage.setItem(key, ko.toJSON(viewModel)); // Put the object into storage
+        var keySelected = $('#patientID').val();
+        localStorage.setItem(keySelected, ko.toJSON(viewModel)); // Put the object into storage
         //jQuery.mobile.changePage(); force reload of a page 
         //close browser - somehow return to admin page
       }
       $(document).delegate("#ResultsPage", "pagecreate", function() {
         supports_html5_storage();
-        getDataSets();
+        //getDataSets();
       });
 
       function getDataSets() {
-        
-        for (i = 0; i < dataSet.length; i++) {
-          var obj = JSON.parse(localStorage.getItem(dataSet[i]));
+        var keySelected = $('#patientID').val();
+        //for (i = 0; i < dataSet.length; i++) {
+          var obj = JSON.parse(localStorage.getItem(keySelected));
+           console.log(keySelected);
           if (obj != null) {
-            $("#dataWrapper").append("<br><span style='font-size:18px;'>Data set for " + dataSet[i] + "</span><br>" + JSON.stringify(obj) + "<br> --------------------------------");
-          }
-        }
+	       $(".navResults").css("margin-top", "5px");	
+	       $("#dataWrapper").append("<span style='font-size:18px;'>Data set for " + keySelected + "</span><br>");
+		for (var key in obj) {
+		  if (obj.hasOwnProperty(key)) {
+		    $("#dataWrapper").append(key + " -> " + obj[key]+"<br>");
+		  }
+		}
+            
+          }else{ $("#dataWrapper").append("<span style='font-size:18px;'> No results to show for "+keySelected+"</span><br>");
+	        $(".navResults").css("margin-top", "400px");
+		}
+       // }
       }
 
-
-       //http://jsfiddle.net/6bvjD/14/
-       //http://jsfiddle.net/6bvjD/17/
-       //http://jsfiddle.net/6bvjD/18/
-       // $.each(retrievedObject, function(key, value){elem=elem + key + ' = ' + value + ' \n ';});
-      /*$.each(localStore, function(key, value){
-
-    console.log(key + ' = ' + value);
-
-});*/
     </script>
   </body>
-
-</html>
