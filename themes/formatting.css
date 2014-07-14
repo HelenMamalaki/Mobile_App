@@ -16,8 +16,10 @@
 	position: fixed;
 	left:65%;
 		}
-#goBack,#clearData{position: fixed;
-	left:78%;width:10% !important;height:3.2% !important; font-size:18px;}
+
+
+#goBack,#clearData{position: relative;
+	left:60%;width:20% !important;height:3.2% !important; font-size:18px;}
 
 #goBack{
 	left:5%;}
@@ -308,7 +310,7 @@ height:650px !important;}
 		 
 		 
 		 #step2, #step3, #step4, #p_step2, #p_step3, #p_step4{display:none;width:65%;position:fixed;left:16%;top:13%;}
-		 #p_step55{display:none;position:relative;margin-top:10.5%;margin-left:77%;z-index:100;}
+		 #p_step55{display:none;position:relative;margin-top:10.5%;margin-left:75%;z-index:100;}
 		 #p_step5{display:none;width:65%;position:relative;left:15%;top:24%;margin-top:2.2%;}
 		 
 	  .but{position:absolute; left:35%; margin-top:-12%;}
