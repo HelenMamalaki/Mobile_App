@@ -16,7 +16,11 @@
 	position: fixed;
 	left:65%;
 		}
+#goBack,#clearData{position: fixed;
+	left:78%;width:10% !important;height:3.2% !important; font-size:18px;}
 
+#goBack{
+	left:5%;}
 .abandon{position: fixed !important; top:80%; left:80%;}
 #exit{position: fixed !important; top:75% !important; left:83% !important;}
 
