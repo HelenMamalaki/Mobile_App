@@ -1,4 +1,6 @@
-/*Our own styles*/
+/*My own styles*/
+
+
 #nhsLogo{
 	position: fixed;
 	top: 8%;
@@ -166,7 +168,7 @@ height:600px !important;}
 	margin: auto !important;
 	margin-top: 16px !important;
 	margin-left:64px !important;
-	background-color: rgba(3,145,189,0.2) !important; 
+	background-color: #C0E0F0 !important; 
 	font-size: 22px !important;
 	
 }
@@ -174,7 +176,7 @@ height:600px !important;}
 	.active{
 	text-align: center !important;
 	margin: auto !important;
-         background-color: rgba(3,145,189,0.5) !important;
+         background-color: #49BAF2 !important;
 	margin-left:16px !important;
 	font-size: 22px !important;
 	width:87% !important;
