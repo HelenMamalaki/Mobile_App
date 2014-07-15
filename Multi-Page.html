@@ -3,8 +3,8 @@
 
   <head>
     <title>Patient Questionnaire</title>
-    <meta charset=utf-8 />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
     <!--My Own CSS-->
     <link rel="stylesheet" href="themes/formatting.css" />
     <!--JQuery Mobile CSS-->
@@ -15,9 +15,7 @@
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
     <!--JQuery Mobile js-->
     <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
-    <!--External scripts needed for date-picker-->
-    <!--<link rel="stylesheet" href="http://code.jquery.com/mobile/git/jquery.mobile-git.css" />
-    <link rel="stylesheet" href="https://rawgithub.com/arschmitz/jquery-mobile-datepicker-wrapper/master/jquery.mobile.datepicker.css" />-->
+    <!--External scripts needed for date-picker-->  
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.0/themes/base/jquery-ui.css" />
     <script src="https://cdn.rawgit.com/jquery/jquery-ui/1-10-stable/ui/jquery.ui.datepicker.js"></script>
     <script src="http://code.jquery.com/mobile/git/jquery.mobile-git.js"></script>
@@ -1062,6 +1060,9 @@
           <br>
           <button id='step2But'>Learn How to Play &#x25b6;</button>
         </div>
+        <div class="navButtons navA" id="step1But">
+		 <a data-role="button" class="previousButton" href="#"></a>
+	</div>
         <div id='step2'>
           <span class="thick3">1. You will be shown two picture cards. If the two cards match, touch anywhere on the screen as fast as you can.</span>
           <img src="themes/myImages/snapCards.png" alt="snapCards" class="snapCard">
@@ -1492,6 +1493,7 @@
         }
       });
       $(document).ready(function() {
+$.mobile.defaultPageTransition = 'none';
         $(".nextButton, .abandon").on('click', nextPage);
         $(".previousButton").on('click', previousPage);
         $("#goBack").on('click', previousPage); 
@@ -1775,6 +1777,7 @@ function areYouSure(text1, text2, button, callback) {
       $("#step2But").on('click', function(e) {
         $("#step2").css('display', 'block');
         $("#step1").css('display', 'none');
+        $("#step1But").css('display', 'none');
       });
       $("#step3But").on('click', function(e) {
         $("#step3").css('display', 'block');
@@ -1786,6 +1789,7 @@ function areYouSure(text1, text2, button, callback) {
       });
       $("#step3ButP").on('click', function(e) {
         $("#step1").css('display', 'block');
+        $("#step1But").css('display', 'block');
         $("#step2").css('display', 'none');
       });
       $("#step4ButP").on('click', function(e) {
@@ -1865,7 +1869,7 @@ function areYouSure(text1, text2, button, callback) {
         $("#p_step55").css('display', 'none');
         $("#p_step5").css('display', 'none');
       });
-      var alternate = false;
+            var alternate = false;
       var card1f, card2f;
       var gameMsgDone = true;
       var counter = 0;
@@ -2084,10 +2088,14 @@ function areYouSure(text1, text2, button, callback) {
               break;
           }
         }
-        /* ************************BAD CODING CHANGE, THIS IS DERP********************** */
-        $("button").on('click', function() {
+
+
+        /* ************************ Body Symptoms ********************** */
+
+ $("button").on('click', function() {
           sensation(this.id);
         });
+
 
         function sensation(id) {
           switch (id) {
@@ -2139,7 +2147,7 @@ function areYouSure(text1, text2, button, callback) {
 
       function getDataSets() {
         var keySelected = $('#patientID').val();
-        //for (i = 0; i < dataSet.length; i++) {
+       
           var obj = JSON.parse(localStorage.getItem(keySelected));
            console.log(keySelected);
           if (obj != null) {
@@ -2154,7 +2162,7 @@ function areYouSure(text1, text2, button, callback) {
           }else{ $("#dataWrapper").append("<span style='font-size:18px;'> No results to show for "+keySelected+"</span><br>");
 	        $(".navResults").css("margin-top", "400px");
 		}
-       // }
+       
       }
 
     </script>
