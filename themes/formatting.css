@@ -14,8 +14,17 @@
 	background-repeat: no-repeat;
 	background-position: center center;
 	position: fixed;
-	left:27%;
+	left:30%;
 		}
+
+    .fill{background-color:#0F0396;}
+    .bar{border:1px solid #000000;display: inline-block; width:8%;min-height:10px; margin-right:2%; }
+	  .snapCard{position:fixed;left:27%; top: 23%; float: right; }
+	  .pairCard{position:fixed;left:25%; top: 23%; float: right; }
+
+.navA{width:23% !important;} 
+.navB{width:50% !important; margin-top:73px !important;} 
+.navC{width:27% !important; }
 
 #goBack,#finish,#start,#viewResults,#exit,#clearData{background-color: rgba(3,145,189,0.3);}
 
@@ -29,7 +38,7 @@
 
 
 	.previousButton{background-image: url("myImages/previousButton.png"); left:5%;}
-	.navButtons{ width:100%; position: fixed; top:76%;}
+	.navButtons{ width:100%; position: fixed; top:77%;}
 			
 	#indent{position: fixed;
 	left: 20px;}
@@ -110,22 +119,22 @@
 .snapImg{position:relative;right:6px;}
 .snappy{display: none; width:204.48px; height:270.72px;}
 
-.blockA{width:31% !important;
-height:585px !important;
+.blockA{
+width:31% !important;
+height:520px !important;
        border-right:solid 2px #585858 !important;
+margin-top:1% !important;
 }
 .blockB{width:69% !important;
-height:650px !important;}
+height:600px !important;}
 
-
-.menu{margin-top:10%;}
 
 .rightBut, .leftBut{margin-top:120% !important;} 
 .rightBut{left:64% !important;}
 
 
 
-.bodyMap{margin-left:18%;margin-top:1%;}
+.bodyMap{margin-left:18%;}
 	
 	.activeBox{
 	position:relative;
@@ -133,9 +142,9 @@ height:650px !important;}
 	border-style: groove;
 	border-width: 2px;
 	background-color: #FFFFFF; 
-	margin-top: 19px;  
-	padding-top:3%;
-	padding-bottom:3%;
+	margin-top: 16px;  
+	padding-top:2%;
+	padding-bottom:2%;
 	margin-left:112px;
 	height: 10% !important;
 	width: 69% !important;
@@ -151,22 +160,25 @@ height:650px !important;}
 	}
 	
 	.inactive{
+        width:60% !important;
+	height:56px !important;
 	text-align: center !important;
 	margin: auto !important;
-	margin-top: 19px !important;
+	margin-top: 16px !important;
 	margin-left:64px !important;
 	background-color: rgba(3,145,189,0.2) !important; 
 	font-size: 22px !important;
-	width:60% !important;}
+	
+}
 	
 	.active{
 	text-align: center !important;
 	margin: auto !important;
-    background-color: rgba(3,145,189,0.5) !important;
+         background-color: rgba(3,145,189,0.5) !important;
 	margin-left:16px !important;
 	font-size: 22px !important;
 	width:87% !important;
-	
+	height:56px !important;	
 	}
 	
 	.button{
@@ -278,12 +290,7 @@ height:650px !important;}
 		color: #006600;
 	}
   
-    .fill{background-color:#0F0396;}
-    .bar{border:1px solid #000000;display: inline-block; width:8%;min-height:10px; margin-right:2%; }
-	  .snapCard{position:fixed;left:27%; top: 23%; float: right; }
-	  .pairCard{position:fixed;left:25%; top: 23%; float: right; }
 
-.navA{width:21% !important;} .navB{width:50% !important; margin-top:73px !important;} .navC{width:27% !important; }
 	  
 	  #step1,#p_step1{ width:50%; position:fixed;top:30%;left:25%;}
 	  
@@ -355,14 +362,15 @@ color:#f0ff02;}
 	  height:180px;
 	  width:136px;	
 	  background-color: white;}
-.stPair,.ndPair,.rdPair, .rthPair, .fthPair, .thPair{height:180px;
+	 .stPair,.ndPair,.rdPair, .rthPair, .fthPair, .thPair{height:180px;
 	  width:136px;}
-.stPairb,.ndPairb,.rdPairb, .rthPairb, .fthPairb, .thPairb{display: none;  height:180px;
+	.stPairb,.ndPairb,.rdPairb, .rthPairb, .fthPairb, .thPairb{display: none;  height:180px;
 	  width:136px;}
 	  
 	.grdA{width: 15% !important; margin-top:2% !important; margin-left: 250px !important;} 
+.tgrdA{width: 15% !important; margin-top:1% !important; margin-left: 250px !important;} 
 	.grdB,.grdC, .grdD{width:15% !important; margin-top:2% !important;margin-left: 10px !important;}
-
+.tgrdB,.tgrdC, .tgrdD{width:15% !important; margin-top:1% !important;margin-left: 10px !important;}
 
 #centre{width:80%; margin-left:8%; margin-right:10%;}
 /* Overriding jqueryMobile css*/
