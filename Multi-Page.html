@@ -418,6 +418,7 @@
       </div>
     </div>
     <!--End of VisionProblemsPage-->
+
     <div data-role="page" id="SelectPage" data-theme="d">
       <div data-role="header">
         <h1>Patient Survey; Body</h1>
@@ -426,34 +427,36 @@
         <img src="themes/myImages/NHSlogo.jpg" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
         <div class="ui-grid-a">
           <div class="ui-block-a blockA">
-            <br>
             <span class="thick2">In you last attack, did you expeience:</span>
-            <div style="margin-top:14%">
+              <div style="margin-top:26px;">
               <button class='inactive' id="numbnessBut" value="Numbness">Numbness</button>
               <button class='inactive' id="tinglingBut" value="Tingling">Tingling</button>
               <button class='inactive' id="weaknessBut" value="Weakness">Weakness</button>
               <button class='inactive' id="jerkingBut" value="Jerking">Jerking</button>
               <button class='inactive' id="tremorBut" value="Tremor">Tremor</button>
               <button class='inactive' id="painBut" value="Pain">Pain</button>
-            </div>
+	     </div>	
           </div>
           <div class="ui-block-b blockB">
             <div style="margin-top:29%;margin-left:2%;">
               <span style="font-weight:600;font-size:23px;">&#x25c0;&nbsp; Select from the menu of symptoms on the left.</span>
             </div>
-            <div class="ui-grid-a navButtons">
-              <div class="ui-block-a">
-                <a data-role="button" class="previousButton" href="#"></a>
-              </div>
-              <div class="ui-block-b">
-                <a data-role="button" style="left:9%;" class="nextButton" href="#"></a>
-              </div>
-            </div>
           </div>
         </div>
         <!--grid-a-->
-        <!--DEBUG:
-        <pre data-bind="text: ko.toJSON($data,null,2)"></pre>-->
+       <!-- Navigation Buttons + Progress Bar -->
+ 	<div class="ui-grid-b navButtons">
+          <div class="ui-block-a navA">
+		 <a data-role="button" class="previousButton" href="#"></a>
+	</div>
+          <div class="ui-block-b navB">
+           <div class="bar fill"></div> <div class="bar fill">  </div> <div class="bar fill"></div>  <div class="bar fill"></div>  <div class="bar"></div>  <div class="bar"></div>  <div class="bar"></div>  <div class="bar"></div>  <div class="bar"></div>
+          </div>
+           <div class="ui-block-c navC">
+            <a data-role="button" class="nextButton" href="#"></a>
+          </div>
+        </div>
+        <!--DEBUG:<pre data-bind="text: ko.toJSON($data,null,2)"></pre>-->
       </div>
       <!--main content-->
       <div data-role="footer" data-position="fixed">
@@ -469,9 +472,8 @@
         <img src="themes/myImages/NHSlogo.jpg" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
         <div class="ui-grid-a">
           <div class="ui-block-a blockA">
-            <br>
             <span class="thick2">In your last attack did you experience:</span>
-            <div class="menu">
+	    <div style="margin-top:1%;">
               <div class="activeBox">
                 <button class='active' id="numbnessBut" value="Numbness">Numbness</button>
               </div>
@@ -480,7 +482,7 @@
               <button class='inactive' id="jerkingBut" value="Jerking">Jerking</button>
               <button class='inactive' id="tremorBut" value="Tremor">Tremor</button>
               <button class='inactive' id="painBut" value="Pain">Pain</button>
-            </div>
+	    </div>
           </div>
           <div class="ui-block-b blockB">
             <div id="container" style="position:relative;">
@@ -489,7 +491,7 @@
               </div>
               <!--instruc-->
               <div class="bodyMap" style="position:absolute;">
-                <IMG id="numbnessBody" SRC="themes/myImages/body.png" ALT="Site map" width="584.86" height="607.83" USEMAP="#numbnessbodyMap">
+                <IMG id="numbnessBody" SRC="themes/myImages/body.png" ALT="Site map" width="555.617" height="577.4385" USEMAP="#numbnessbodyMap">
                 <map name="numbnessbodyMap">
                   <area shape="rect" alt="face(R)" coords="447,25,512,146" href="#" data-bind='click: numbnessLocValue' />
                   <area shape="rect" alt="face(L)" coords="388,27,444,145" href="#" data-bind='click: numbnessLocValue' />
@@ -509,18 +511,22 @@
               <!--bodyMap-->
             </div>
             <!--container-->
-            <div class="ui-grid-a">
-              <div class="ui-block-a">
-                <a data-role="button" class="previousButton leftBut" href="#"></a>
-              </div>
-              <div class="ui-block-b">
-                <a data-role="button" class="nextButton rightBut" href="#"></a>
-              </div>
-            </div>
           </div>
           <!--block-b-->
         </div>
         <!--grid a-->
+	<!-- Navigation Buttons + Progress Bar -->
+ 	<div class="ui-grid-b navButtons" style="top:78%;">
+          <div class="ui-block-a navA">
+		 <a data-role="button" class="previousButton" href="#"></a>
+	</div>
+          <div class="ui-block-b navB">
+           <div class="bar fill"></div> <div class="bar fill">  </div> <div class="bar fill"></div>  <div class="bar fill"></div>  <div class="bar"></div>  <div class="bar"></div>  <div class="bar"></div>  <div class="bar"></div>  <div class="bar"></div>
+          </div>
+           <div class="ui-block-c navC">
+            <a data-role="button" class="nextButton" href="#"></a>
+          </div>
+        </div>
         <!--DEBUG:
         <pre data-bind="text: ko.toJSON($data,null,2)"></pre>-->
       </div>
@@ -538,7 +544,6 @@
         <img src="themes/myImages/NHSlogo.jpg" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
         <div class="ui-grid-a">
           <div class="ui-block-a blockA">
-            <br>
             <span class="thick2">In your last attack did you experience:</span>
             <div class="menu">
               <button class='inactive' id="numbnessBut" value="numbness">Numbness</button>
@@ -558,7 +563,7 @@
               </div>
               <!--instruc-->
               <div class="bodyMap" style="position:absolute;">
-                <IMG id="tinglingBody" SRC="themes/myImages/body.png" ALT="Site map" width="584.86" height="607.83" USEMAP="#tinglingbodyMap">
+                <IMG id="tinglingBody" SRC="themes/myImages/body.png" ALT="Site map" width="555.617" height="577.4385" USEMAP="#tinglingbodyMap">
                 <map name="tinglingbodyMap">
                   <area shape="rect" alt="face(R)" coords="447,25,512,146" href="#" data-bind='click: tinglingLocValue' />
                   <area shape="rect" alt="face(L)" coords="388,27,444,145" href="#" data-bind='click: tinglingLocValue' />
@@ -578,19 +583,23 @@
               <!--bodyMap-->
             </div>
             <!--container-->
-            <div class="ui-grid-a">
-              <div class="ui-block-a">
-                <a data-role="button" class="previousButton leftBut" href="#"></a>
-              </div>
-              <div class="ui-block-b">
-                <a data-role="button" class="nextButton rightBut" href="#"></a>
-              </div>
-            </div>
           </div>
           <!--block-b-->
         </div>
-        <!--grid a-->DEBUG:
-        <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
+        <!--grid a-->
+    <!-- Navigation Buttons + Progress Bar -->
+ 	<div class="ui-grid-b navButtons" style="top:78%;">
+          <div class="ui-block-a navA">
+		 <a data-role="button" class="previousButton" href="#"></a>
+	</div>
+          <div class="ui-block-b navB">
+           <div class="bar fill"></div> <div class="bar fill">  </div> <div class="bar fill"></div>  <div class="bar fill"></div>  <div class="bar"></div>  <div class="bar"></div>  <div class="bar"></div>  <div class="bar"></div>  <div class="bar"></div>
+          </div>
+           <div class="ui-block-c navC">
+            <a data-role="button" class="nextButton" href="#"></a>
+          </div>
+        </div>
+<!--DEBUG:<pre data-bind="text: ko.toJSON($data,null,2)"></pre>-->
       </div>
       <!--main content-->
       <div data-role="footer" data-position="fixed">
@@ -606,7 +615,6 @@
         <img src="themes/myImages/NHSlogo.jpg" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
         <div class="ui-grid-a">
           <div class="ui-block-a blockA">
-            <br>
             <span class="thick2">In your last attack did you experience:</span>
             <div class="menu">
               <button class='inactive' id="numbnessBut" value="numbness">Numbness</button>
@@ -626,7 +634,7 @@
               </div>
               <!--instruc-->
               <div class="bodyMap" style="position:absolute;">
-                <IMG id="weaknessBody" SRC="themes/myImages/body.png" ALT="Site map" width="584.86" height="607.83" USEMAP="#weaknessbodyMap">
+                <IMG id="weaknessBody" SRC="themes/myImages/body.png" ALT="Site map" width="555.617" height="577.4385" USEMAP="#weaknessbodyMap">
                 <map name="weaknessbodyMap">
                   <area shape="rect" alt="face(R)" coords="447,25,512,146" href="#" data-bind='click: weaknessLocValue' />
                   <area shape="rect" alt="face(L)" coords="388,27,444,145" href="#" data-bind='click: weaknessLocValue' />
@@ -646,19 +654,24 @@
               <!--bodyMap-->
             </div>
             <!--container-->
-            <div class="ui-grid-a">
-              <div class="ui-block-a">
-                <a data-role="button" class="previousButton leftBut" href="#"></a>
-              </div>
-              <div class="ui-block-b">
-                <a data-role="button" class="nextButton rightBut" href="#"></a>
-              </div>
-            </div>
+            
           </div>
           <!--block-b-->
         </div>
-        <!--grid a-->DEBUG:
-        <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
+        <!--grid a-->
+        <!-- Navigation Buttons + Progress Bar -->
+ 	<div class="ui-grid-b navButtons" style="top:78%;">
+          <div class="ui-block-a navA">
+		 <a data-role="button" class="previousButton" href="#"></a>
+	</div>
+          <div class="ui-block-b navB">
+           <div class="bar fill"></div> <div class="bar fill">  </div> <div class="bar fill"></div>  <div class="bar fill"></div>  <div class="bar"></div>  <div class="bar"></div>  <div class="bar"></div>  <div class="bar"></div>  <div class="bar"></div>
+          </div>
+           <div class="ui-block-c navC">
+            <a data-role="button" class="nextButton" href="#"></a>
+          </div>
+        </div>
+<!--DEBUG:<pre data-bind="text: ko.toJSON($data,null,2)"></pre>-->
       </div>
       <!--main content-->
       <div data-role="footer" data-position="fixed">
@@ -674,7 +687,6 @@
         <img src="themes/myImages/NHSlogo.jpg" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
         <div class="ui-grid-a">
           <div class="ui-block-a blockA">
-            <br>
             <span class="thick2">In your last attack did you experience:</span>
             <div class="menu">
               <button class='inactive' id="numbnessBut" value="numbness">Numbness</button>
@@ -694,7 +706,7 @@
               </div>
               <!--instruc-->
               <div class="bodyMap" style="position:absolute;">
-                <IMG id="jerkingBody" SRC="themes/myImages/body.png" ALT="Site map" width="584.86" height="607.83" USEMAP="#jerkingbodyMap">
+                <IMG id="jerkingBody" SRC="themes/myImages/body.png" ALT="Site map" width="555.617" height="577.4385" USEMAP="#jerkingbodyMap">
                 <map name="jerkingbodyMap">
                   <area shape="rect" alt="face(R)" coords="447,25,512,146" href="#" data-bind='click: jerkingLocValue' />
                   <area shape="rect" alt="face(L)" coords="388,27,444,145" href="#" data-bind='click: jerkingLocValue' />
@@ -714,19 +726,23 @@
               <!--bodyMap-->
             </div>
             <!--container-->
-            <div class="ui-grid-a">
-              <div class="ui-block-a">
-                <a data-role="button" class="previousButton leftBut" href="#"></a>
-              </div>
-              <div class="ui-block-b">
-                <a data-role="button" class="nextButton rightBut" href="#"></a>
-              </div>
-            </div>
           </div>
           <!--block-b-->
         </div>
-        <!--grid a-->DEBUG:
-        <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
+        <!--grid a-->
+        <!-- Navigation Buttons + Progress Bar -->
+ 	<div class="ui-grid-b navButtons" style="top:78%;">
+          <div class="ui-block-a navA">
+		 <a data-role="button" class="previousButton" href="#"></a>
+	</div>
+          <div class="ui-block-b navB">
+           <div class="bar fill"></div> <div class="bar fill">  </div> <div class="bar fill"></div>  <div class="bar fill"></div>  <div class="bar"></div>  <div class="bar"></div>  <div class="bar"></div>  <div class="bar"></div>  <div class="bar"></div>
+          </div>
+           <div class="ui-block-c navC">
+            <a data-role="button" class="nextButton" href="#"></a>
+          </div>
+        </div>
+<!--DEBUG:<pre data-bind="text: ko.toJSON($data,null,2)"></pre>-->
       </div>
       <!--main content-->
       <div data-role="footer" data-position="fixed">
@@ -742,7 +758,6 @@
         <img src="themes/myImages/NHSlogo.jpg" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
         <div class="ui-grid-a">
           <div class="ui-block-a blockA">
-            <br>
             <span class="thick2">In your last attack did you experience:</span>
             <div class="menu">
               <button class='inactive' id="numbnessBut" value="numbness">Numbness</button>
@@ -762,7 +777,7 @@
               </div>
               <!--instruc-->
               <div class="bodyMap" style="position:absolute;">
-                <IMG id="tremorBody" SRC="themes/myImages/body.png" ALT="Site map" width="584.86" height="607.83" USEMAP="#tremorbodyMap">
+                <IMG id="tremorBody" SRC="themes/myImages/body.png" ALT="Site map" width="555.617" height="577.4385" USEMAP="#tremorbodyMap">
                 <map name="tremorbodyMap">
                   <area shape="rect" alt="face(R)" coords="447,25,512,146" href="#" data-bind='click: tremorLocValue' />
                   <area shape="rect" alt="face(L)" coords="388,27,444,145" href="#" data-bind='click: tremorLocValue' />
@@ -782,19 +797,23 @@
               <!--bodyMap-->
             </div>
             <!--container-->
-            <div class="ui-grid-a">
-              <div class="ui-block-a">
-                <a data-role="button" class="previousButton leftBut" href="#"></a>
-              </div>
-              <div class="ui-block-b">
-                <a data-role="button" class="nextButton rightBut" href="#"></a>
-              </div>
-            </div>
           </div>
           <!--block-b-->
         </div>
-        <!--grid a-->DEBUG:
-        <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
+        <!--grid a-->
+        <!-- Navigation Buttons + Progress Bar -->
+ 	<div class="ui-grid-b navButtons" style="top:78%;">
+          <div class="ui-block-a navA">
+		 <a data-role="button" class="previousButton" href="#"></a>
+	</div>
+          <div class="ui-block-b navB">
+           <div class="bar fill"></div> <div class="bar fill">  </div> <div class="bar fill"></div>  <div class="bar fill"></div>  <div class="bar"></div>  <div class="bar"></div>  <div class="bar"></div>  <div class="bar"></div>  <div class="bar"></div>
+          </div>
+           <div class="ui-block-c navC">
+            <a data-role="button" class="nextButton" href="#"></a>
+          </div>
+        </div>
+	<!--DEBUG: <pre data-bind="text: ko.toJSON($data,null,2)"></pre>-->
       </div>
       <!--main content-->
       <div data-role="footer" data-position="fixed">
@@ -810,7 +829,6 @@
         <img src="themes/myImages/NHSlogo.jpg" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
         <div class="ui-grid-a">
           <div class="ui-block-a blockA">
-            <br>
             <span class="thick2">In your last attack did you experience:</span>
             <div class="menu">
               <button class='inactive' id="numbnessBut" value="numbness">Numbness</button>
@@ -830,7 +848,7 @@
               </div>
               <!--instruc-->
               <div class="bodyMap" style="position:absolute;">
-                <IMG id="painBody" SRC="themes/myImages/body.png" ALT="Site map" width="584.86" height="607.83" USEMAP="#painbodyMap">
+                <IMG id="painBody" SRC="themes/myImages/body.png" ALT="Site map" width="555.617" height="577.4385" USEMAP="#painbodyMap">
                 <map name="painbodyMap">
                   <area shape="rect" alt="face(R)" coords="447,25,512,146" href="#" data-bind='click: painLocValue' />
                   <area shape="rect" alt="face(L)" coords="388,27,444,145" href="#" data-bind='click: painLocValue' />
@@ -861,8 +879,20 @@
           </div>
           <!--block-b-->
         </div>
-        <!--grid a-->DEBUG:
-        <pre data-bind="text: ko.toJSON($data,null,2)"></pre>
+        <!--grid a-->
+        <!-- Navigation Buttons + Progress Bar -->
+ 	<div class="ui-grid-b navButtons" style="top:78%;">
+          <div class="ui-block-a navA">
+		 <a data-role="button" class="previousButton" href="#"></a>
+	</div>
+          <div class="ui-block-b navB">
+           <div class="bar fill"></div> <div class="bar fill">  </div> <div class="bar fill"></div>  <div class="bar fill"></div>  <div class="bar"></div>  <div class="bar"></div>  <div class="bar"></div>  <div class="bar"></div>  <div class="bar"></div>
+          </div>
+           <div class="ui-block-c navC">
+            <a data-role="button" class="nextButton" href="#"></a>
+          </div>
+        </div>
+	<!--DEBUG:<pre data-bind="text: ko.toJSON($data,null,2)"></pre>-->
       </div>
       <!--main content-->
       <div data-role="footer" data-position="fixed">
@@ -1054,7 +1084,11 @@
             <span style="position:absolute;bottom:9%;font-size:56px;">&#x3009;</span>
           </a>
         </div>
-      </div>
+     
+     <div class="navButtons navB" style="left:25%;">
+	<div class="bar fill"></div> <div class="bar fill">  </div> <div class="bar fill"></div>  <div class="bar fill"></div>  <div class="bar fill"></div>  <div class="bar fill"></div>  <div class="bar fill"></div>  <div class="bar"></div>  <div class="bar"></div>
+     </div>
+ </div>
       <!--main content-->
       <div data-role="footer" data-position="fixed">
         <h2>&copy; Edinburgh University 2014</h2>
@@ -1081,7 +1115,8 @@
         <!--snapWrapper-->
         <div id='gameMsg'></div>
         <div id='score'></div>
-        <!--DEBUG: <pre data-bind="text: ko.toJSON($data,null,2)"></pre>--> <a class="abandon" data-role="button" href="#" value="Exit">Exit</a>
+        <!--DEBUG: <pre data-bind="text: ko.toJSON($data,null,2)"></pre>--> 
+         <a class="abandon" id="exitSnap" data-role="button" href="#" value="Exit">Exit</a>
       </div>
       <!--main content-->
       <div data-role="footer" data-position="fixed">
@@ -1120,7 +1155,7 @@
         </div>
         <div id="pairsWrapper" style="position: relative;">
           <div id='p_step5'>
-            <span class="thick">4. If you are wrong a message saying "miss" will appear.
+            <span class="thick">4. If you are wrong a message saying "miss" will appear.</span>
             <img src="themes/myImages/pairsCardsIncorrect.png" alt="miss message" class="pairCard">
             <button id='pstep6ButP'>&#x25c0; Previous </button>
             <a data-role="button" id="tryDemo" href="#">
@@ -1137,9 +1172,13 @@
           </div>
         </div>
         <!--pairsWrapper-->
-      </div>
+      
       <!--DEBUG:
       <pre data-bind="text: ko.toJSON($data,null,2)"></pre>-->
+ <div class="navButtons navB" style="left:26%;">
+	<div class="bar fill"></div> <div class="bar fill">  </div> <div class="bar fill"></div>  <div class="bar fill"></div>  <div class="bar fill"></div>  <div class="bar fill"></div>  <div class="bar fill"></div>  <div class="bar fill"></div>  <div class="bar"></div>
+     </div>
+</div>
       <!--main content-->
       <div data-role="footer" data-position="fixed">
         <h2>&copy; Edinburgh University 2014</h2>
@@ -1194,7 +1233,7 @@
           <div id='pairsOverlay'></div>
         </div>
         <!--pairsWrapper-->
-        <!--<div id="derpina"></div>--> <a class="abandon" data-role="button" href="#" value="Exit">Exit</a>
+          <a class="abandon" data-role="button" href="#">Exit</a>
         <!--DEBUG:<pre data-bind="text: ko.toJSON($data,null,2)"></pre>-->
       </div>
       <!--main content-->
@@ -1211,25 +1250,25 @@
         <div id='pairsWrapper'>
           <div class="ui-grid-c">
             <!-- ************************ ROW 1 ****************************-->
-            <div class="ui-block-a grdA">
+            <div class="ui-block-a tgrdA">
               <div class="pairDiv" id="rr1c1">
                 <img src="themes/myImages/pairsCats.png" alt="cat" id="stPairA" class="stPair">
                 <img src="themes/myImages/card_back.png" alt="back" id="stPairAb" class="stPairb">
               </div>
             </div>
-            <div class="ui-block-b grdB">
+            <div class="ui-block-b tgrdB">
               <div class="pairDiv" id="rr1c2">
                 <img src="themes/myImages/pairsHat.png" alt="hat" id="fthPairB" class="fthPair">
                 <img src="themes/myImages/card_back.png" alt="back" id="fthPairBb" class="fthPairb">
               </div>
             </div>
-            <div class="ui-block-c grdC">
+            <div class="ui-block-c tgrdC">
               <div class="pairDiv" id="rr1c3">
                 <img src="themes/myImages/pairsHourglass.png" alt="hourglass" id="rdPairA" class="rdPair">
                 <img src="themes/myImages/card_back.png" alt="back" id="rdPairAb" class="rdPairb">
               </div>
             </div>
-            <div class="ui-block-d grdD">
+            <div class="ui-block-d tgrdD">
               <div class="pairDiv" id="rr1c4">
                 <img src="themes/myImages/pairsDots.png" alt="dots" id="rthPairA" class="rthPair">
                 <img src="themes/myImages/card_back.png" alt="back" id="rthPairAb" class="rthPairb">
@@ -1289,8 +1328,8 @@
           <!-- /grid-c -->
           <div id='pairsOverlay'></div>
         </div>
-        <!--pairsWrapper-->
-        <!--DEBUG:<span style="color: white;"><pre data-bind="text: ko.toJSON($data,null,2)"></pre></span>--> <a id="exit" data-role="button" href="#" value="Exit">Exit</a>
+        <!--pairsWrapper-->       
+	<a class="abandon" style="left:83%;" data-role="button" href="#">Exit</a>
       </div>
       <!--main content-->
       <div data-role="footer" data-position="fixed">
@@ -1308,6 +1347,9 @@
           <br>
           <span class="thick">Return tablet device to a member of staff</span>
         </div>
+ <div class="navButtons navB" style="left:26%;">
+	<div class="bar fill"></div> <div class="bar fill">  </div> <div class="bar fill"></div>  <div class="bar fill"></div>  <div class="bar fill"></div>  <div class="bar fill"></div>  <div class="bar fill"></div>  <div class="bar fill"></div>  <div class="bar fill"></div>
+     </div>
       </div>
       <!--main content-->
       <div data-role="footer" data-position="fixed">
@@ -1462,10 +1504,7 @@
 		getDataSets();
           $.mobile.changePage("#ResultsPage");
         });
-        $("#exit").on('click', function() {
-          $.mobile.changePage("#ThankYouPage");
-          store();
-        });
+     
 
   $("#clearData").on('click', function() { 
           areYouSure("Are you sure you want to delete the data?", "The data will not be recoverable", "Yes", clearStorage);
@@ -1565,6 +1604,10 @@ function areYouSure(text1, text2, button, callback) {
             $.mobile.changePage("#SnapInstructionsPage");
             store();
             break;
+          case "SnapInstructionsPage":
+            $.mobile.changePage("#SnapPage");
+            store();
+            break;
           case "SnapPage":
             $.mobile.changePage("#PairsInstructionsPage");
             store();
@@ -1573,6 +1616,9 @@ function areYouSure(text1, text2, button, callback) {
             $.mobile.changePage("#PairsPage");
             store();
             break;
+	case "PairsPage":
+	$.mobile.changePage("#ThankYouPage");
+          store();
           default:
             break;
         }
@@ -1636,6 +1682,7 @@ function areYouSure(text1, text2, button, callback) {
       var buttonPress = 0;
       var pause = false;
       var clicked = false;
+      var interval;
       var picture = ['cross.png', 'tree.png', 'square.png', 'equals.png'];
       for (i = 0; i < 12; i++) {
         rand1 = Math.floor(Math.random() * picture.length);
@@ -1664,9 +1711,10 @@ function areYouSure(text1, text2, button, callback) {
       htmlR = htmlR + "</div>"
       $("#card1").append(htmlL);
       $("#card2").append(htmlR);
+ 
 
       function recursiveTimer(roundC) {
-        var interval = setInterval(function() {
+        interval = setInterval(function() {
           t0 = '';
           t1 = '';
           roundC += 1;
@@ -1674,8 +1722,6 @@ function areYouSure(text1, text2, button, callback) {
             gameStart = false;
             clearInterval(interval);
             alert('Game Over! Your average reaction time was ' + computeAvg() + 'ms');
-            viewModel.rt(computeAvg());
-            viewModel.buttonPresses(buttonPress);
           } else if (pause == true) {
             pause = false;
             roundC = roundC - 1; //creates a delay to allow time for viewer to process game status message
@@ -1711,12 +1757,17 @@ function areYouSure(text1, text2, button, callback) {
         setTimeout(function() {
           recursiveTimer(roundC);
         }, 1000);
+
+
+
         $("#SnapPage").on('click', function(e) {
+    
           buttonPress++;
+	
           if (gameStart & (clicked != true)) {
             t1 = Date.now();
             lookForMatch();
-            $("#" + card1).css("display", "none')")
+            $("#" + card1).css("display", "none')");
           }
         });
       }); //scripts for onload of #SnapPage
@@ -1771,13 +1822,14 @@ function areYouSure(text1, text2, button, callback) {
         }
         return total / score.length;
       }
-      $("#playSnap").on('click', function(e) {
-        $.mobile.changePage("#SnapPage");
-      });
+      $("#playSnap").on('click', nextPage);
+      $("#exitSnap").on('click', function(){
+            clearInterval(interval); 
+	    viewModel.rt(computeAvg());
+            viewModel.buttonPresses(buttonPress);});
+
       /* ******************************* Script for Pairs Game ************************************ */
-      $("#tryDemo").on('click', function(e) {
-        $.mobile.changePage("#PairsDemoPage");
-      });
+      $("#tryDemo").on('click', function(){ $.mobile.changePage("#PairsDemoPage");});
        //Hide and show divs containing the game instructions
       $("#pstep2But").on('click', function(e) {
         $("#p_step2").css('display', 'block');
