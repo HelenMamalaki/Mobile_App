@@ -377,6 +377,8 @@ color:#f0ff02;}
 #centre{width:80%; margin-left:8%; margin-right:10%;}
 /* Overriding jqueryMobile css*/
 
+input, select .ui-btn{font-size: 1.4em !important;}
+
 .ui-select .ui-btn{font-size:19px !important;}
 /*.ui-btn, label.ui-btn {font-weight:650 !important;}*/
 .ui-mobile label, div.ui-controlgroup-label{font-size:19px !important;}
