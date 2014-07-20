@@ -27,7 +27,6 @@ button,
 	 font-family: sans-serif /*{global-font-family}*/;
 }
 
-input, select .ui-btn{font-size: 1.4em !important;}
 
 legend,
 .ui-input-text input,
