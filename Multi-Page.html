@@ -124,8 +124,7 @@ We would like to link your information to other health care information to learn
         <img src="themes/myImages/NHSlogo.png" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
         <br>
        <span class="thick2"> Think about the symptoms you had when you were referred to clinic: </span>
-        <div id="datepicker" data-role="fieldcontain">
-     
+        <div id="datepicker">     
        <span class="thick2" style="position:absolute;margin-top:1%;">When did you first have symptoms?</span>
           <div class="ui-grid-a" style="margin-top:4%;">
             <div class="ui-block-a" style="width:17%; margin-left: 40px; margin-right: 30px;">
@@ -145,7 +144,7 @@ We would like to link your information to other health care information to learn
               <input type="text" id="symptom_onset" placeholder="0" value="" readonly="readonly" data-bind="value:estDate">
             </div>
             <div class="ui-block-b" style="width:16%; margin-right: 9%;">
-              <select name="symptom_onset" id="symptom_onset" data-bind="value:estDateUnit">
+              <select name="symptom_onset" data-bind="value:estDateUnit">
                 <option value="days">days</option>
                 <option value="weeks">weeks</option>
                 <option value="months">months</option>
@@ -1568,25 +1567,23 @@ function areYouSure(text1, text2, button, callback) {
           $('#datepicker').css('position', 'relative');
           $('#datepicker').css('z-index', '100');
           $('#duration').css('position', 'relative');
-          $('#datepicker').css('z-index', '1');
+          $('#duration').css('z-index', '1');
           $('#frequency').css('position', 'relative');
-          $('#datepicker').css('z-index', '1');
+          $('#frequency').css('z-index', '1');
         });
         $('#duration').on('click', function() {
           $('#duration').css('position', 'relative');
-          $('#datepicker').css('z-index', '100');
-          $('#datepicker').css('position', 'relative');
-          $('#datepicker').css('z-index', '1');
+          $('#duration').css('z-index', '100');
           $('#frequency').css('position', 'relative');
-          $('#datepicker').css('z-index', '1');
+          $('#frequency').css('z-index', '1');
         });
         $('#frequency').on('click', function() {
           $('#frequency').css('position', 'relative');
-          $('#datepicker').css('z-index', '100');
+          $('#frequency').css('z-index', '100');
           $('#datepicker').css('position', 'relative');
           $('#datepicker').css('z-index', '1');
           $('#duration').css('position', 'relative');
-          $('#datepicker').css('z-index', '1');
+          $('#duration').css('z-index', '1');
         });
       });
 
