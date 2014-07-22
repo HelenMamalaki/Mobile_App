@@ -123,6 +123,10 @@ We would like to link your information to other health care information to learn
       <div data-role="main" class="ui-content" style="margin-left:2%;">
         <img src="themes/myImages/NHSlogo.png" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
         <br>
+			<div id="scrollDate">
+		<span class="thick"> Slide down to see remaining content </span>
+		 <img src="themes/myImages/slideDown.png" alt="slide down">
+		</div>
        <span class="thick2"> Think about the symptoms you had when you were referred to clinic: </span>	   
         <div id="datepicker">   		
        <span class="thick2">When did you first have symptoms?</span>
@@ -136,6 +140,7 @@ We would like to link your information to other health care information to learn
             </div>
           </div>
         </div>
+        <div data-bind="visible:exactDateCheck()">
 		<div id="dynamicContent"> 
           <span class="thick2">How long ago were your first symptoms?</span>
           <div class="ui-grid-b" style="margin-top:0.8%;">
@@ -155,7 +160,7 @@ We would like to link your information to other health care information to learn
               <label for="estDateCheck">I don't know</label>
             </div>
           </div>
-		 
+		  </div>
         </div>
 
         <div id="frequency">
@@ -311,6 +316,7 @@ We would like to link your information to other health care information to learn
     <img src="themes/myImages/NHSlogo.png" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
     <!--<h2>Vision Problems</h2>-->
     <br>
+	
     <span class="thick2">In your last attack,</span>
     <br>
     <div class="ui-grid-b" style="margin-top:3%;">
@@ -329,8 +335,12 @@ We would like to link your information to other health care information to learn
         <input type="radio" data-bind="checked:visionLoss" name="visionLoss" id="visionLDunno" value="I don't know" />
       </div>
     </div>
-    <!--grib b-->
-   
+
+	<div id="scrollVision">
+		<span class="thick"> Slide down to see remaining content </span>
+		 <img src="themes/myImages/slideDown.png" alt="slide down"  id="slide">
+		</div>
+
       <div class="ui-grid-b" style="margin-top:3%;"  data-bind="visible: visionLoss() == 'yes'">
         <span class="thick2">Did you loes vision in one eye?</span>
         <br>
@@ -429,6 +439,7 @@ We would like to link your information to other health care information to learn
           </div>
         </div>
         <!--grib b-->
+
         <!-- Navigation Buttons + Progress Bar -->
         <div class="ui-grid-b navButtons" id="navVision">
           <div class="ui-block-a navA">
@@ -524,7 +535,7 @@ We would like to link your information to other health care information to learn
 	    </div>
           </div>
           <div class="ui-block-b blockB">
-            <div id="container" style="position:relative;">
+            <div class="container">
               <div id="instruc">
                 <span class="thick">Touch on the body diagram the location(s) where you felt numb &#x25b6;</span>
               </div>
@@ -937,7 +948,6 @@ We would like to link your information to other health care information to learn
       </div>
       <div data-role="main" class="ui-content" style="margin-left:2%;">
         <img src="themes/myImages/NHSlogo.png" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
-        <!--<h2>Other Symptoms</h2>-->
         <br>
         <br>
         <span class="thick2">In your last attack, did you feel:</span>
@@ -1012,6 +1022,10 @@ We would like to link your information to other health care information to learn
       </div>
       <div data-role="main" class="ui-content" style="margin-left:2%;">
         <img src="themes/myImages/NHSlogo.png" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
+		        	<div id="scrollMedical">
+		<span class="thick"> Slide down to see remaining content </span>
+		 <img src="themes/myImages/slideDown.png" alt="slide down">
+		</div>
         <div class="ui-grid-b" style="margin-top:3%;">
           <span class="thick2">Have you had any other symptoms?</span>
           <br>
@@ -1506,32 +1520,38 @@ We would like to link your information to other health care information to learn
       viewModel.exactDateCheck.subscribe(function(value) {
         if (value == true) {
           $("#navSymptoms").css("position", "relative");
+		  $("#scrollDate").css("display", "inline-block");
+		     setTimeout(function() {
+               $("#scrollDate").css("display", "none");
+              }, 4000);
         } else {
           $("#navSymptoms").css("position", "fixed");
+		  $("#scrollDate").css("display", "none");
         }
       });
       viewModel.oneEye.subscribe(function(value) {
         if (value == 'yes' || value =='no') {
           $("#navVision").css("position", "relative");
+		   $("#navVision").css("position", "relative");
+		   setTimeout(function() {
+               $("#scrollVision").css("display", "none");
+              }, 4000);
+		  
         } else {
           $("#navVision").css("position", "fixed");
+		   $("#scrollVision").css("display", "none");
         }
       });
-	  
-	  
-	  viewModel.exactDateCheck.subscribe(function(value) {
-        if (value == true) {
-          $("#dynamicContent").css("display", "block");
-        } else {
-          $("#dynamicContent").css("display", "none");
-        }
-      });
-	  
       viewModel.otherSymptoms.subscribe(function(value) {
         if (value == 'yes') {
           $("#navOtherSymp").css("position", "relative");
+		   $("#scrollMedical").css("display", "inline-block");
+		    setTimeout(function() {
+               $("#scrollMedical").css("display", "none");
+              }, 4000);
         } else {
           $("#navOtherSymp").css("position", "fixed");
+		   $("#scrollMedical").css("display", "none");
         }
       });
       $(document).ready(function() {
@@ -1776,9 +1796,9 @@ function areYouSure(text1, text2, button, callback) {
             $("#" + idRR).css("display", "none");
             $('.snap').css("background-color", "#FFFFFF");
             gameStart = true;
-            t0 = Date.now();
-            $("#snapOverlay").html(" ");
+            $("#snapOverlay").html("");
             $("#gameMsg").html(" ");
+			 t0 = Date.now();
           }
         }, 2000);
       } //recursiveTimer

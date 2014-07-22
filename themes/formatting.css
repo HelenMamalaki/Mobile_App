@@ -162,10 +162,11 @@ height:600px !important;}
 	z-index:100;
 	
 	}
+
+	#scrollVision, #scrollDate, #scrollMedical{position:fixed; display: none;right:0px; top:33%; width:20%;}
+	
 	
 	 #duration, #frequency, #dynamicContent, #datepicker{position: relative; margin-top:2.7%;}
-	#dynamicContent{display:none;}
-	
 	.activeBox{
 	position:relative;
 	border: 1px;
