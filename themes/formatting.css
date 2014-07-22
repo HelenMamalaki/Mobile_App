@@ -163,7 +163,7 @@ height:600px !important;}
 	
 	}
 
-	#scrollVision, #scrollDate, #scrollMedical{position:fixed; display: none;right:0px; top:33%; width:20%;}
+	#scrollVision, #scrollDate, #scrollMedical{position:fixed; display: none;right:1px; top:33%; width:20%;}
 	
 	
 	 #duration, #frequency, #dynamicContent, #datepicker{position: relative; margin-top:2.7%;}
