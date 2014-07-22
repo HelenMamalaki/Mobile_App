@@ -122,7 +122,7 @@ We would like to link your information to other health care information to learn
       </div>
       <div data-role="main" class="ui-content" style="margin-left:2%;">
         <img src="themes/myImages/NHSlogo.png" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
-        <br>
+        <br><br>
 			<div id="scrollDate">
 		<span class="thick"> Slide down to see remaining content </span>
 		 <img src="themes/myImages/slideDown.png" alt="slide down">
@@ -314,9 +314,11 @@ We would like to link your information to other health care information to learn
   </div>
   <div data-role="main" class="ui-content" style="margin-left:2%;">
     <img src="themes/myImages/NHSlogo.png" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
-    <!--<h2>Vision Problems</h2>-->
+   	<div id="scrollVision">
+		<span class="thick"> Slide down to see remaining content </span>
+		 <img src="themes/myImages/slideDown.png" alt="slide down">
+	</div>
     <br>
-	
     <span class="thick2">In your last attack,</span>
     <br>
     <div class="ui-grid-b" style="margin-top:3%;">
@@ -335,11 +337,6 @@ We would like to link your information to other health care information to learn
         <input type="radio" data-bind="checked:visionLoss" name="visionLoss" id="visionLDunno" value="I don't know" />
       </div>
     </div>
-
-	<div id="scrollVision">
-		<span class="thick"> Slide down to see remaining content </span>
-		 <img src="themes/myImages/slideDown.png" alt="slide down"  id="slide">
-		</div>
 
       <div class="ui-grid-b" style="margin-top:3%;"  data-bind="visible: visionLoss() == 'yes'">
         <span class="thick2">Did you loes vision in one eye?</span>
@@ -1523,7 +1520,7 @@ We would like to link your information to other health care information to learn
 		  $("#scrollDate").css("display", "inline-block");
 		     setTimeout(function() {
                $("#scrollDate").css("display", "none");
-              }, 4000);
+              }, 6000);
         } else {
           $("#navSymptoms").css("position", "fixed");
 		  $("#scrollDate").css("display", "none");
@@ -1533,9 +1530,10 @@ We would like to link your information to other health care information to learn
         if (value == 'yes' || value =='no') {
           $("#navVision").css("position", "relative");
 		   $("#navVision").css("position", "relative");
+		   $("#scrollVision").css("display", "inline-block");
 		   setTimeout(function() {
                $("#scrollVision").css("display", "none");
-              }, 4000);
+              }, 6000);
 		  
         } else {
           $("#navVision").css("position", "fixed");
@@ -1548,7 +1546,7 @@ We would like to link your information to other health care information to learn
 		   $("#scrollMedical").css("display", "inline-block");
 		    setTimeout(function() {
                $("#scrollMedical").css("display", "none");
-              }, 4000);
+              }, 6000);
         } else {
           $("#navOtherSymp").css("position", "fixed");
 		   $("#scrollMedical").css("display", "none");
