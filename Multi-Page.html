@@ -136,7 +136,8 @@ We would like to link your information to other health care information to learn
             </div>
           </div>
         </div>
-        <div id="dynamicContent" data-bind="visible:exactDateCheck()">
+        <div data-bind="visible:exactDateCheck()">
+		<div id="dynamicContent"> 
           <span class="thick2">How long ago were your first symptoms?</span>
           <div class="ui-grid-b" style="margin-top:0.8%;">
             <div class="ui-block-a" style="width:10%; margin-left: 40px; margin-right: 30px;">
@@ -155,6 +156,7 @@ We would like to link your information to other health care information to learn
               <label for="estDateCheck">I don't know</label>
             </div>
           </div>
+		  </div>
         </div>
 
         <div id="frequency">
@@ -1575,12 +1577,15 @@ function areYouSure(text1, text2, button, callback) {
         });
       	  
         $('#duration').on('click', function() { 
+		$('#durationKeypad').css('position', 'relative');
+		$('#durationKeypad').css('z-index', '100');
 	    $('#dynamicContent').css('z-index', '1');
           $('#frequency').css('z-index', '1');
 		   $('#datepicker').css('z-index', '1');
         });
 		
         $('#frequency').on('click', function() {
+		
 		  $('#dynamicContent').css('z-index', '1');
           $('#datepicker').css('z-index', '1');
           $('#duration').css('z-index', '1');
