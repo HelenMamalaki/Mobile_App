@@ -123,10 +123,10 @@ We would like to link your information to other health care information to learn
       <div data-role="main" class="ui-content" style="margin-left:2%;">
         <img src="themes/myImages/NHSlogo.png" alt="NHS Scotland" width="85" height="52" id="nhsLogo">
         <br>
-       <span class="thick2"> Think about the symptoms you had when you were referred to clinic: </span>
-        <div id="datepicker">     
-       <span class="thick2" style="position:absolute;margin-top:1%;">When did you first have symptoms?</span>
-          <div class="ui-grid-a" style="margin-top:4%;">
+       <span class="thick2"> Think about the symptoms you had when you were referred to clinic: </span>	   
+        <div id="datepicker">   		
+       <span class="thick2">When did you first have symptoms?</span>
+          <div class="ui-grid-a" style="margin-top:0.8%;">
             <div class="ui-block-a" style="width:17%; margin-left: 40px; margin-right: 30px;">
               <input type="text" placeholder="dd/mm/yyyy" class="date-input" data-inline="false" data-role="date" readonly="readonly" data-bind="value:exactDate">
             </div>
@@ -136,10 +136,9 @@ We would like to link your information to other health care information to learn
             </div>
           </div>
         </div>
-        <br>
         <div id="dynamicContent" data-bind="visible:exactDateCheck()">
           <span class="thick2">How long ago were your first symptoms?</span>
-          <div class="ui-grid-b" style="margin-top:0.8%;margin-bottom:0.4%;">
+          <div class="ui-grid-b" style="margin-top:0.8%;">
             <div class="ui-block-a" style="width:10%; margin-left: 40px; margin-right: 30px;">
               <input type="text" id="symptom_onset" placeholder="0" value="" readonly="readonly" data-bind="value:estDate">
             </div>
@@ -153,26 +152,30 @@ We would like to link your information to other health care information to learn
             </div>
 			<div class="ui-block-c" style="width:20%;">
               <input type="checkbox" id="estDateCheck" data-bind="value:estDateCheck" />
-              <br>
               <label for="estDateCheck">I don't know</label>
             </div>
           </div>
-          <br>
         </div>
+
         <div id="frequency">
           <span class="thick2">How many attacks of symptoms have you had?</span>
           <div class="ui-grid-a" style="margin-top:0.8%;">
             <div class="ui-block-a" style="width:22%; margin-left: 40px; margin-right: 15.2%;">
-             <div style="display: inline-block;"><span class="thick">I had &nbsp;</span><div style="width:46%;display: inline-block;"><input type="text" id="frequencyKeypad" placeholder="1" value="" readonly="readonly" data-bind="value:attackNo"></div> <span class="thick">&nbsp;attacks</span></div>
+               <div style="display: inline-block;"><span class="thick">I had&nbsp;</span>
+			    <div style="width:46%;display: inline-block;">
+				   <input type="text" id="frequencyKeypad" placeholder="1" value="" readonly="readonly" data-bind="value:attackNo">
+			    </div>
+			    <span class="thick">&nbsp;attacks.</span>
+			   </div>
             </div>
             <div class="ui-block-b" style="width:20%;">
               <input type="checkbox" id="attackNoCheck" data-bind="value:attackNoCheck" />
-              <br>
+           
               <label for="attackNoCheck">I don't know</label>
             </div>
           </div>
         </div>
-        <br>
+   
         <div id="duration">
           <span class="thick2">How long did the symptoms last in your last attack?</span>
           <div class="ui-grid-b" style="margin-top:0.8%;">
@@ -193,7 +196,8 @@ We would like to link your information to other health care information to learn
               <label for="durationCheck">I don't know</label>
             </div>
           </div>
-        </div>
+        </div> <!--duration-->
+		
        <!-- Navigation Buttons + Progress Bar -->
  	<div class="ui-grid-b navButtons" id="navSymptoms">
           <div class="ui-block-a navA">
@@ -1563,26 +1567,22 @@ function areYouSure(text1, text2, button, callback) {
         $('#symptom_onset').keypad();
         $('#frequencyKeypad').keypad();
         $('#durationKeypad').keypad();
-        $('#symptom_onset').on('click', function() {
-          $('#datepicker').css('position', 'relative');
-          $('#datepicker').css('z-index', '100');
-          $('#duration').css('position', 'relative');
-          $('#duration').css('z-index', '1');
-          $('#frequency').css('position', 'relative');
+
+		 $('#dynamicContent').on('click', function() {		 
           $('#frequency').css('z-index', '1');
-        });
-        $('#duration').on('click', function() {
-          $('#duration').css('position', 'relative');
-          $('#duration').css('z-index', '100');
-          $('#frequency').css('position', 'relative');
-          $('#frequency').css('z-index', '1');
-        });
-        $('#frequency').on('click', function() {
-          $('#frequency').css('position', 'relative');
-          $('#frequency').css('z-index', '100');
-          $('#datepicker').css('position', 'relative');
           $('#datepicker').css('z-index', '1');
-          $('#duration').css('position', 'relative');
+          $('#duration').css('z-index', '1');
+        });
+      	  
+        $('#duration').on('click', function() { 
+	    $('#dynamicContent').css('z-index', '1');
+          $('#frequency').css('z-index', '1');
+		   $('#datepicker').css('z-index', '1');
+        });
+		
+        $('#frequency').on('click', function() {
+		  $('#dynamicContent').css('z-index', '1');
+          $('#datepicker').css('z-index', '1');
           $('#duration').css('z-index', '1');
         });
       });

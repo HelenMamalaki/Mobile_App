@@ -163,6 +163,9 @@ height:600px !important;}
 	
 	}
 	
+	 #duration, #frequency, #dynamicContent, #datepicker{position: relative; margin-top:2%;}
+	
+	
 	.activeBox{
 	position:relative;
 	border: 1px;
@@ -356,7 +359,7 @@ height:600px !important;}
 	  #snapWrapper, #pairsWrapper{position: relative;}
 	  #snapOverlay, #pairsOverlay{position:absolute;}
 	  
-	  #snapOverlay, #pairsOverlay{z-index: 100;}
+	  #snapOverlay, #pairspairsOverlay{z-index: 100;}
 	  
 	  #snapOverlay{
 	  top:35%;
@@ -460,6 +463,9 @@ background:url('myImages/nextButton.png') !important;
 background-repeat: no-repeat !important;
 	background-position: center center !important;
 }
+
+.ui-state-highlight, .ui-widget-content .ui-state-highlight{ border: 2px solid #0700C4 !important; background:#E1F7B5!important;}
+
 
 .ui-datepicker-prev .ui-icon{ 
 background:url('myImages/previousButton.png') !important;  
