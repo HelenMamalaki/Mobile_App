@@ -1517,6 +1517,16 @@ We would like to link your information to other health care information to learn
           $("#navVision").css("position", "fixed");
         }
       });
+	  
+	  
+	  viewModel.exactDateCheck.subscribe(function(value) {
+        if (value == true) {
+          $("#dynamicContent").css("display", "block");
+        } else {
+          $("#dynamicContent").css("display", "none");
+        }
+      });
+	  
       viewModel.otherSymptoms.subscribe(function(value) {
         if (value == 'yes') {
           $("#navOtherSymp").css("position", "relative");

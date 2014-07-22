@@ -164,7 +164,7 @@ height:600px !important;}
 	}
 	
 	 #duration, #frequency, #dynamicContent, #datepicker{position: relative; margin-top:2.7%;}
-	
+	#dynamicContent{display:none;}
 	
 	.activeBox{
 	position:relative;
