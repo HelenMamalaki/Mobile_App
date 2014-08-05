@@ -1817,11 +1817,11 @@ function areYouSure(text1, text2, button, callback) {
 
 
         $("#SnapPage").on('mousedown touchstart', function(e) {
-    
+         t1 = Date.now();
           buttonPress++;
-	
+	      
           if (gameStart & (clicked != true)) {
-            t1 = Date.now();
+           
             lookForMatch();
             $("#" + card1).css("display", "none')");
           }
