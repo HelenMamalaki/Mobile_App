@@ -1,4 +1,4 @@
-ï»¿/* http://keith-wood.name/keypad.html
+/* http://keith-wood.name/keypad.html
    Keypad field entry extension for jQuery v2.0.0.
    Written by Keith Wood (kbwood{at}iinet.com.au) August 2008.
    Available under the MIT (https://github.com/jquery/jquery/blob/master/MIT-LICENSE.txt) license. 
@@ -133,7 +133,7 @@
 			@property [spacebarStatus='Space'] {string} Status text for space bar.
 			@property [enterText='Enter'] {string} Display text for carriage return.
 			@property [enterStatus='Carriage return'] {string} Status text for carriage return.
-			@property [tabText='â†’'] {string} Display text for tab.
+			@property [tabText='’'] {string} Display text for tab.
 			@property [tabStatus='Horizontal tab'] {string} Status text for tab.
 			@property [shiftText='Shift'] {string} Display text for shift link.
 			@property [shiftStatus='Toggle upper/lower case characters'] {string} Status text for shift link.
@@ -157,7 +157,7 @@
 				spacebarStatus: 'Space',
 				enterText: 'Enter',
 				enterStatus: 'Carriage return',
-				tabText: 'â†’',
+				tabText: '’',
 				tabStatus: 'Horizontal tab',
 				shiftText: 'Shift',
 				shiftStatus: 'Toggle upper/lower case characters',
@@ -896,7 +896,7 @@
 	plugin.addKeyDef('TAB', 'tab', function(inst) { plugin._selectValue(inst, '\x09'); }, true);
 
 	// Initialise the layouts and settings
-	plugin.numericLayout = ['123' + plugin.CLOSE, '456' + plugin.CLEAR, '789' + plugin.BACK, plugin.SPACE + '0'];
+	plugin.numericLayout = ['123' + plugin.BACK, '456' + plugin.CLEAR, '789' + plugin.CLOSE, plugin.SPACE + '0'];
 	plugin.qwertyLayout = ['!@#$%^&*()_=' + plugin.HALF_SPACE + plugin.SPACE + plugin.CLOSE,
 		plugin.HALF_SPACE + '`~[]{}<>\\|/' + plugin.SPACE + '789',
 		'qwertyuiop\'"' + plugin.HALF_SPACE + '456',
